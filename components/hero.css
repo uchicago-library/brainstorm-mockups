@@ -1,0 +1,6 @@
+/* Component specific styles */
+section {
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent);
+  border-radius: 6px;
+  padding: 1.5rem;
+}

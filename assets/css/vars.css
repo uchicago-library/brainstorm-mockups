@@ -1,0 +1,95 @@
+/* Override Bootstrap CSS variables without a build step.
+   Brand primary is a deep maroon: #800000. The rest of the palette
+   is tuned to be modern, clean and slightly desaturated so the brand
+   color reads as an accent while surfaces remain airy. */
+
+:root {
+  /* Brand / primary */
+  --bs-primary: #800000;               /* deep maroon (brand) */
+  --bs-primary-rgb: 128, 0, 0;
+  --bs-primary-text: #ffffff;          /* text on primary backgrounds */
+  --bs-primary-hover: #9b1a1a;         /* hover / active state (lighter) */
+  --bs-primary-600: #8a0000;
+  --bs-primary-400: #b23b3b;
+
+  /* Semantic and supporting colors (muted / modern) */
+  --bs-secondary: #6c757d;
+  --bs-success: #16a34a;
+  --bs-info: #0ea5c9;
+  --bs-warning: #f59e0b;
+  --bs-danger: #dc2626;
+
+  /* Page / surface colors */
+  --bs-body-bg: #f7f8fa;
+  --bs-body-color: #1f2933;
+  --bs-light: #f8fafc;
+  --bs-dark: #0f1720;
+
+  /* Cards / surfaces */
+  --bs-card-bg: #ffffff;
+  --bs-card-border-color: rgba(15, 23, 30, 0.06);
+  --bs-card-border-radius: 0.75rem;
+
+  /* Borders, muted text */
+  --bs-border-color: rgba(15, 23, 30, 0.10);
+  --bs-muted: #6b7280;
+
+  /* Links */
+  --bs-link-color: var(--bs-primary);
+  --bs-link-hover-color: var(--bs-primary-hover);
+
+  /* Focus / outlines */
+  --bs-focus-ring-color: rgba(var(--bs-primary-rgb), 0.18);
+  --bs-focus-shadow-rgb: var(--bs-primary-rgb);
+
+  /* Elevation */
+  --bs-elevation-1: 0 6px 18px rgba(15, 23, 30, 0.06);
+
+  /* Forms */
+  --bs-form-valid: var(--bs-success);
+  --bs-form-invalid: var(--bs-danger);
+}
+
+/* Interactive / components helpers */
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:active,
+a.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: var(--bs-primary-text);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: var(--bs-primary-hover);
+  border-color: var(--bs-primary-hover);
+  color: var(--bs-primary-text);
+  box-shadow: 0 4px 12px rgba(var(--bs-primary-rgb), 0.12);
+}
+
+/* Link hover */
+a,
+a:visited {
+  color: var(--bs-link-color);
+}
+a:hover,
+a:focus {
+  color: var(--bs-link-hover-color);
+  text-decoration: underline;
+}
+
+/* Focus ring */
+:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem var(--bs-focus-ring-color);
+}
+
+/* Card elevation helper */
+.inlined-component .card,
+.card {
+  box-shadow: var(--bs-elevation-1);
+  border-color: var(--bs-card-border-color);
+  background-color: var(--bs-card-bg);
+  border-radius: var(--bs-card-border-radius);
+}

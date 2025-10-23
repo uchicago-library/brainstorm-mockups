@@ -1,0 +1,21 @@
+/* Global styles for the boilerplate */
+body {
+  padding-top: 56px; /* space for navbar when you make it fixed later */
+  background-color: var(--bs-body-bg, #ffffff);
+  color: var(--bs-body-color, #212529);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* object elements used to embed components */
+.component-embed {
+  width: 100%;
+  border: none;
+  display: block;
+  min-height: 1px;
+}
+
+/* small helpers for local editing */
+.container .component-embed {
+  min-height: 120px;
+}
