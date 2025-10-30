@@ -1,6 +1,0 @@
-/* Card-specific overrides */
-.card {
-  box-shadow: 0 6px 18px rgba(15, 23, 30, 0.06);
-  border: none;
-  border-radius: 0.75rem;
-}
