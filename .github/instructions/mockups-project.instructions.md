@@ -5,47 +5,47 @@ applyTo: '**'
 # GenAI Instructions for Brainstorm Mockups Project
 
 ## Overview
-This project creates a design system documentation library with pure HTML/CSS component snippets. Zero build complexity. Zero JavaScript (unless absolutely necessary).
+This project creates a design system documentation library with pure HTML/CSS component snippets. Zero build complexity. Zero JavaScript (unless absolutely necessary). Low-maintenance, accessible, responsive design.
 
-## ⚠️ IMPORTANT: Response Guidelines
+## ⚠️ CRITICAL: Workflow & Response Rules
 
-**Answer ONLY what is asked:**
-- If the user asks for information or clarification → Provide the answer ONLY, do not make changes
-- If the user asks "Is there a way to...?" → Explain the approach, do not implement unless explicitly requested
-- If the user asks "Can you...?" → Confirm you can, then wait for explicit approval before proceeding
-- Do NOT offer additional changes, improvements, or "helpful" modifications beyond the specific request
-- Do NOT create files, scripts, or documentation unless explicitly asked
+### Response Style
+- **Be concise**: No verbose explanations, no "Next steps" sections
+- **Answer only what's asked**: Don't offer unsolicited improvements
+- **Challenge bad practices**: Point out accessibility issues, non-responsive designs, high-maintenance solutions, overengineering
+- **After completing work**: Briefly confirm what was done, then stop
 
-**Make changes ONLY when:**
-- User explicitly requests: "Create...", "Add...", "Update...", "Fix...", "Change..."
-- User approves your proposed solution after you've explained it
-- User says: "Yes", "Go ahead", "Do it", "Please proceed"
+### When to Act vs. Wait
+- **Information request** → Answer only, make NO changes
+- **"Is there a way...?"** → Explain approach, don't implement unless explicitly requested
+- **"Can you...?"** → Confirm capability, wait for approval
+- **Explicit request** ("Create...", "Add...", "Update...", "Fix...") → Implement immediately
+- **After approval** ("Yes", "Go ahead", "Do it", "Please proceed") → Implement immediately
 
-## 🎯 Core Principles
+### Mandatory Workflow
+1. **Analyze**: Gather context (read files, check existing code)
+2. **Propose**: If complex, show what will be done (brief summary only)
+3. **Implement**: Make changes efficiently (batch related edits)
+4. **Commit**: Always commit with brief message after completing work
 
-### ALWAYS Prioritize:
-1. **Accessibility (WCAG AA minimum)**
-   - Semantic HTML5 elements
-   - ARIA labels and attributes where needed
-   - Keyboard navigation support
-   - Screen reader compatibility
-   - Sufficient color contrast ratios
-   - Alt text for all images
-   - Focus indicators visible
-   - `aria-current`, `aria-expanded`, `aria-controls` where appropriate
+### Git Commits (REQUIRED)
+- ✅ Commit ALL changes after completing work
+- ✅ Use brief, descriptive messages (e.g., "Add card component with demo")
+- ✅ Batch related changes into single commit
+- ❌ Never leave uncommitted changes
 
-2. **Responsive Design (Mobile-First)**
-   - Use Bootstrap's responsive utilities
-   - Test breakpoints: mobile (<576px), tablet (≥768px), desktop (≥992px)
-   - Collapsible navigation for mobile
-   - Touch-friendly tap targets (min 44x44px)
-   - Flexible images and media
-   - Responsive typography
+## 🎯 Quality Requirements
 
-3. **Performance**
-   - Lazy loading for images (`loading="lazy"`)
-   - Minimal custom CSS/JS
-   - Leverage Bootstrap's built-in features
+**Every component MUST be:**
+1. **Accessible** (WCAG AA): Semantic HTML, ARIA attributes, keyboard navigation, screen reader compatible
+2. **Responsive** (mobile-first): Test at <576px, ≥768px, ≥992px breakpoints
+3. **Low-maintenance**: Use Bootstrap first, avoid custom code, no build tools
+
+**Challenge requests that:**
+- ❌ Skip accessibility (missing ARIA, non-semantic HTML, no keyboard support)
+- ❌ Ignore responsiveness (fixed widths, no mobile testing, tiny tap targets <44px)
+- ❌ Add unnecessary complexity (custom CSS/JS when Bootstrap exists, build tools, frameworks)
+- ❌ Create high-maintenance code (non-standard patterns, heavy customization)
 
 ## Critical Rules
 
@@ -181,38 +181,24 @@ customElements.define('card-component', CardComponent);
 - **Pages**: `../assets/css/...` (pages are in subfolder)
 - **Root files**: `./assets/css/...` (root level)
 
-### Forbidden Actions
-- ❌ NO build tools (npm, webpack, vite, etc.)
-- ❌ NO server-side code
-- ❌ NO CSS preprocessors (SASS/LESS)
-- ❌ NO JavaScript frameworks (React/Vue/Angular)
-- ❌ NO module imports/exports
-- ❌ NO package managers
-- ❌ NO modifying Bootstrap source files
-- ❌ NO unnecessary JavaScript outside of Web Components
-  - Don't write JavaScript for animations (use CSS)
-  - Don't write JavaScript for navigation (use `<a>` links)
-  - Don't write JavaScript for simple interactivity (use Bootstrap data attributes)
-  - Don't write JavaScript for state changes (use CSS pseudo-classes)
+### Forbidden (High-Maintenance / Overengineering)
+- ❌ Build tools (npm, webpack, vite, etc.)
+- ❌ Server-side code
+- ❌ CSS preprocessors (SASS/LESS)
+- ❌ JavaScript frameworks (React/Vue/Angular)
+- ❌ Module imports/exports
+- ❌ Package managers
+- ❌ Modifying Bootstrap source files
+- ❌ JavaScript when CSS/Bootstrap can do it (animations, navigation, hover, show/hide, tabs, modals, dropdowns)
 
-### Required Actions
-- ✅ Use Bootstrap utilities first
-- ✅ Check design-system.css before creating CSS
-- ✅ Create Web Components for all reusable UI elements
-- ✅ Create demo pages to showcase components
-- ✅ Update index.html after creating component demo
-- ✅ Use semantic HTML5 within Web Components
-- ✅ Add comments in Web Component code explaining attributes and usage
-- ✅ Prefer CSS over JavaScript for visual effects
-- ✅ Use Bootstrap data attributes for interactivity (modals, dropdowns, tabs)
-- ✅ Web Components are the standard for all components
-- ✅ Test by opening HTML directly in browser (no server needed)
-- ✅ **EVERY component MUST be responsive** (mobile-first approach)
-- ✅ **EVERY component MUST be accessible** (WCAG AA minimum)
-- ✅ Include ARIA labels, keyboard navigation, and semantic HTML
-- ✅ Test components at mobile, tablet, and desktop breakpoints
-- ✅ Use Bootstrap's responsive utilities (d-none, d-md-block, etc.)
-- ✅ Ensure touch targets are at least 44x44px on mobile
+### Required (Low-Maintenance / Standard)
+- ✅ Bootstrap utilities first, then design-system.css, then custom CSS (in that order)
+- ✅ Web Components for reusable UI (see templates)
+- ✅ Demo pages for each component (update index.html)
+- ✅ Semantic HTML5 + ARIA attributes
+- ✅ Bootstrap data attributes for interactivity
+- ✅ Test: Open HTML in browser (no server), check mobile/tablet/desktop breakpoints
+- ✅ Commit changes after completing work
 
 ## File Locations
 - **Web Components**: `components/component-name.js` (all components are Web Components)
@@ -226,39 +212,20 @@ customElements.define('card-component', CardComponent);
 - **Shared CSS**: `assets/css/` (don't create new files here without asking)
 
 ## After Creating Files
-1. Test Web Component by opening demo page in browser
-2. Verify component works with different attributes and content
-3. **Test responsiveness** - resize browser to mobile, tablet, desktop sizes
-4. **Test accessibility** - verify keyboard navigation, screen reader support, ARIA attributes
-5. Update `index.html` with link to demo
-6. Document any lessons learned in README.md if significant
+1. Test in browser (open HTML directly, no server)
+2. Test responsiveness (resize to <576px, ≥768px, ≥992px)
+3. Test accessibility (keyboard navigation, ARIA, semantic HTML)
+4. Update `index.html` with link to demo
+5. Commit all changes with brief message
 
-## Accessibility Checklist (EVERY Component)
-- ✅ Use semantic HTML (`<nav>`, `<button>`, `<header>`, etc.)
-- ✅ Include ARIA attributes where needed (`aria-label`, `aria-controls`, `aria-expanded`, `aria-current`)
-- ✅ Ensure keyboard navigation works (Tab, Enter, Esc)
-- ✅ Provide alt text for images
-- ✅ Use sufficient color contrast (test with brand colors)
-- ✅ Include visible focus indicators
-- ✅ Label form inputs properly
-- ✅ Use heading hierarchy correctly (h1, h2, h3...)
-- ✅ Test with screen reader if possible
-
-## Responsive Design Checklist (EVERY Component)
-- ✅ Mobile-first approach (design for small screens first)
-- ✅ Test at breakpoints: <576px (mobile), ≥768px (tablet), ≥992px (desktop)
-- ✅ Use Bootstrap responsive utilities (`d-none d-md-block`, `col-md-6`, etc.)
-- ✅ Collapsible content for mobile (use Bootstrap collapse/navbar-toggler)
-- ✅ Touch targets minimum 44x44px on mobile
-- ✅ Readable font sizes on all devices
-- ✅ Images scale properly (`img-fluid` class or max-width: 100%)
-- ✅ No horizontal scrolling on mobile
-
-## Questions to Ask Before Creating CSS
-1. Can Bootstrap do this with existing classes?
-2. Is this pattern in design-system.css?
-3. Is this truly custom, or am I reinventing Bootstrap?
-4. Can I achieve this with pure CSS instead of JavaScript?
+## Pre-Implementation Checklist
+**Before writing any code, verify:**
+1. Can Bootstrap do this? (check utilities, components)
+2. Is this in design-system.css? (read file if uncertain)
+3. Can CSS do this instead of JavaScript?
+4. Is this accessible? (semantic HTML, ARIA, keyboard nav)
+5. Is this responsive? (mobile-first, Bootstrap utilities)
+6. Is this low-maintenance? (standard patterns, minimal custom code)
 
 ## Example Component Creation
 ```powershell
@@ -336,6 +303,27 @@ New-Item components\my-button.css
 </script>
 ```
 
+## Common Mistakes to Avoid
+
+### Mistake: Creating custom CSS when Bootstrap has the solution
+- **Fix**: Check Bootstrap utilities first (spacing, colors, layout, typography)
+- **Example**: Use `d-flex justify-content-between` instead of custom flexbox CSS
+
+### Mistake: Missing responsive behavior
+- **Fix**: Use Bootstrap grid (`col-md-6`) and responsive utilities (`d-none d-md-block`)
+- **Example**: Navbar must collapse on mobile with `navbar-toggler`
+
+### Mistake: Missing accessibility attributes
+- **Fix**: Add ARIA labels, use semantic HTML, ensure keyboard navigation
+- **Example**: Buttons need `aria-label`, nav needs `aria-current`, modals need `aria-labelledby`
+
+### Mistake: Using JavaScript when not necessary
+- **Fix**: Use Bootstrap data attributes or CSS
+- **Example**: `data-bs-toggle="modal"` instead of `onclick="showModal()"`
+
+### Mistake: Not committing changes
+- **Fix**: Always commit after completing work with brief message
+
 ---
 
-**Read the full README.md for complete project documentation.**
+**Reference README.md for complete documentation.**
