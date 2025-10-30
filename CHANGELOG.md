@@ -6,29 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-### Added
-- Separate `/demos` folder for component demonstration pages
-- Template files:
-  - `templates/component-snippet.html` - For pure component HTML
-  - `templates/demo-page.html` - For component showcases
-- Enhanced JavaScript avoidance guidelines
-- Clarified component vs demo page structure
+### Removed
+- Pure HTML snippet approach - simplified to Web Components only
+- `components/example-button.html` - replaced by Web Component
+- `templates/component-snippet.html` - no longer needed
+- `demos/example-button-demo.html` - consolidated into web-components-demo.html
 
 ### Changed
-- **BREAKING**: Components are now pure HTML snippets (no page structure)
-- Updated `components/example-button.html` to be a pure snippet
-- Created `demos/example-button-demo.html` to showcase the button
-- Updated `index.html` to distinguish between components and demos
-- Revised all documentation to reflect component library approach
-- Enhanced GenAI instructions with JavaScript avoidance rules
-
-### Decisions Made
-- **Component Library Strategy**: Primary approach for this project
-  - Components = Pure HTML snippets for copy/paste
-  - Demos = Full pages showcasing components
-  - Pages = Complete page mockups
-- **No JavaScript Unless Critical**: Prefer CSS and Bootstrap data attributes
-- **Design System Documentation**: This repo will serve as living design system docs
+- All components now use Web Components (JavaScript classes)
+- Simplified documentation to single approach
+- Updated all guides to focus on Web Components
 
 ---
 

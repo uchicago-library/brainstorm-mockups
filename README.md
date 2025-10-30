@@ -45,10 +45,9 @@ brainstorm-mockups/
 │   │   └── design-system.css    # Production design system
 │   └── images/                   # (future) Image assets
 │
-├── components/                   # PURE HTML SNIPPETS + WEB COMPONENTS
-│   ├── component-name.html       # Just the component markup (no <html>, <head>, <body>)
-│   ├── component-name.css        # Component-specific styles (if needed)
-│   └── component-name.js         # Web Component (optional - for reusability)
+├── components/                   # WEB COMPONENTS
+│   ├── component-name.js         # Web Component (reusable JavaScript class)
+│   └── component-name.css        # Component-specific styles (if needed)
 │
 ├── demos/                        # COMPONENT DEMONSTRATIONS
 │   └── component-demo.html       # Full page showcasing a component
@@ -60,23 +59,18 @@ brainstorm-mockups/
 └── templates/
     ├── base.html                 # Template for full pages
     ├── demo-page.html            # Template for component demos
-    ├── component-snippet.html    # Template for component snippets
     └── component-web-component.js # Template for Web Components
 ```
 
 ### Understanding the Structure
 
-1. **`/components`** - Pure HTML snippets OR Web Components
-   - **HTML files** (`.html`) = Pure snippets (NO page structure)
-     - Just the component markup with usage comments
-     - Minimal, focused, copy/paste ready
-     - Example: Just a `<button>` or `<div class="card">...</div>`
-   
-   - **JavaScript files** (`.js`) = Web Components (OPTIONAL)
-     - For when you need reusability without copy/paste
-     - Use multiple instances with different content
+1. **`/components`** - Web Components (reusable JavaScript classes)
+   - **JavaScript files** (`.js`) = All components are Web Components
+     - Reusable across pages with different content
      - Update once, changes everywhere
      - Works without a server! (opens with `file://`)
+     - Use attributes for variants (size, color, etc.)
+     - Get content from element's `textContent`
      - Example: `<example-button>Click Me</example-button>`
 
 2. **`/demos`** - Full pages to demonstrate components
@@ -102,7 +96,11 @@ brainstorm-mockups/
 2. Open `index.html` in your browser (double-click or right-click → Open with browser)
 3. Navigate to component demos or pages
 
-### Creating a New Component (HTML Snippet)
+### Creating a New Web Component
+
+**All components in this project use Web Components for reusability.**
+
+### Creating a Reusable Web Component (OPTIONAL) (HTML Snippet)
 
 1. Copy `templates/component-snippet.html` to `components/your-component.html`
 2. Write **only** the component HTML (no page structure)
@@ -168,10 +166,7 @@ customElements.define('alert-box', AlertBox);
 - ✅ Different content per instance
 - ✅ No build tools needed
 - ✅ Native browser feature
-
-**Trade-offs:**
-- ⚠️ Requires JavaScript (minimal, but present)
-- ⚠️ Slightly more complex than pure HTML
+- ✅ Keeps markup DRY across pages
 
 ### Creating a Component Demo Page
 
@@ -211,50 +206,9 @@ All HTML files must load CSS in this exact order:
 
 ## Development Strategies
 
-### Primary Strategy: **Component Library Approach** (Design System Documentation)
+### Primary Strategy: **Web Components for All UI Elements**
 
-Build a library of reusable component snippets with demonstrations.
-
-**Two Approaches for Components:**
-
-#### **Approach A: Pure HTML Snippets** (Copy/Paste)
-- Component is static HTML in `.html` file
-- Copy/paste into pages where needed
-- Update manually across pages if component changes
-- **Best for**: Design system documentation, reference patterns
-
-#### **Approach B: Web Components** (Reusable)
-- Component is JavaScript class in `.js` file
-- Include script once, use many times with different content
-- Update component once, all instances update automatically
-- **Best for**: Components you'll use many times, need different content each time
-
-**Choose based on your needs:**
-- **Use pure HTML** when documenting patterns for developers to copy
-- **Use Web Components** when you need actual reusability in mockups
-
----
-
-### Workflow for Pure HTML Components:
-
-1. Identify a UI pattern needed (button, card, form, navigation, etc.)
-2. Create pure HTML snippet in `components/component-name.html`
-   - **No page structure** - just the component markup
-   - Include usage comments
-   - Minimize custom CSS (prefer Bootstrap)
-3. Create demo page in `demos/component-name-demo.html`
-   - Show the component rendered
-   - Display variations (sizes, colors, states)
-   - Include HTML snippet in `<code>` block
-   - Document when to use vs Bootstrap defaults
-4. Create `components/component-name.css` **only if necessary**
-   - Document why Bootstrap couldn't do it
-   - Keep it minimal and focused
-5. Update `index.html` with links to component and demo
-
----
-
-### Workflow for Web Components:
+Build reusable Web Components for all UI elements.
 
 1. Create Web Component in `components/component-name.js`
    - Use `customElements.define()` to register
@@ -265,34 +219,14 @@ Build a library of reusable component snippets with demonstrations.
    - Show multiple instances with different content
    - Document available attributes
    - Show HTML usage examples
-3. Update `index.html` with links
+3. Update `index.html` with link to demo
 
-**Example: Button Component Both Ways**
-
-Pure HTML (`components/button-snippet.html`):
-```html
-<button type="button" class="btn btn-primary">Click Me</button>
-<!-- Copy this into your page, change text manually -->
-```
-
-Web Component (`components/button-component.js`):
-```javascript
-class ButtonComponent extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = `<button class="btn btn-primary">${this.textContent}</button>`;
-  }
-}
-customElements.define('button-component', ButtonComponent);
-```
-
-Usage:
-```html
-<script src="../components/button-component.js"></script>
-<button-component>Click Me</button-component>
-<button-component>Submit</button-component>
-<button-component>Cancel</button-component>
-<!-- Each instance has different text, update component.js to update all -->
-```
+**Why Web Components:**
+- Reusable across pages without copy/paste
+- Update once, changes propagate everywhere
+- Different content per instance via attributes
+- Works without a server
+- Native browser feature (no framework needed)
 
 ---
 
@@ -329,12 +263,12 @@ Build complete page mockups when you need to show full context.
 5. **No Package Managers** - All dependencies via CDN only
 6. **No CSS Preprocessors** - Use vanilla CSS only (no SASS/LESS)
 7. **No Complex JavaScript Frameworks** - No React, Vue, Angular
-8. **Minimize JavaScript** - Avoid JavaScript unless beneficial
+8. **Minimize JavaScript Outside Web Components** - Avoid JavaScript unless beneficial
    - Use CSS for animations, transitions, and visual effects
    - Use HTML/CSS for navigation (links between pages)
    - Bootstrap's data attributes for interactive components (modals, dropdowns)
-   - **JavaScript IS allowed for**: Web Components (native browser feature for reusability)
-   - **Avoid JavaScript for**: Form validation logic, complex data manipulation, event handling when CSS can do it
+   - **JavaScript IS allowed for**: Web Components (all components use this)
+   - **Avoid JavaScript for**: Form validation logic, complex data manipulation
 
 ### ✅ REQUIREMENTS (What TO Do)
 

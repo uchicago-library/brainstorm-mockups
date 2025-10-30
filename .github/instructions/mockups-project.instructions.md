@@ -10,78 +10,29 @@ This project creates a design system documentation library with pure HTML/CSS co
 ## Critical Rules
 
 ### File Structure Understanding
-1. **`/components`** = Pure HTML snippets OR Web Components
-   - **`.html` files** = Pure snippets (NO page structure, just markup)
-   - **`.js` files** = Web Components (for reusability without copy/paste)
+1. **`/components`** = Web Components (reusable JavaScript components)
+   - **`.js` files** = Web Components for reusability
    - **`.css` files** = Component styles (only if Bootstrap can't do it)
    
 2. **`/demos`** = Full pages showcasing components
    - Complete HTML structure
    - Display component with variations
-   - Show HTML snippet in `<pre><code>` blocks
+   - Show usage examples in `<pre><code>` blocks
    - Acts as design system documentation
    
 3. **`/pages`** = Complete page mockups
    - Full page layouts
    - Compose multiple components
 
-### Two Approaches for Components
+### Web Components Approach
 
-**Approach A: Pure HTML Snippet** (copy/paste)
-- Use when documenting design patterns
-- Component is reference documentation
-- Developers copy into their pages
-- Updates are manual
-
-**Approach B: Web Component** (reusable)
-- Use when you need the same component many times with different content
-- Component is actual reusable instance
-- Include script once, use many times
-- Updates happen automatically
+- Components are reusable JavaScript classes
+- Include script once, use many times with different content
+- Each instance can have different attributes and content
+- Update component once, all instances update automatically
 - **Works without a server!** (opens with `file://`)
 
 ### Creating a New Component
-
-**Ask first: "Do I need reusability or is this a reference pattern?"**
-
-#### Option 1: Pure HTML Snippet (for reference documentation)
-
-**Step 1: Create Component Snippet**
-```html
-<!-- components/card.html -->
-<!-- 
-  Card Component
-  Uses Bootstrap card classes - NO custom CSS needed!
-  
-  USAGE:
-  Copy this markup into your page.
-  No additional CSS required.
--->
-
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Card content here.</p>
-  </div>
-</div>
-```
-
-**Step 2: Create Demo Page**
-- Copy `templates/demo-page.html` to `demos/card-demo.html`
-- Showcase component with variations
-- Include HTML snippet display
-- Link back to index
-
-**Step 3: Only if needed - Create CSS**
-- `components/card.css` (only if Bootstrap can't do it)
-- Document WHY custom CSS is needed
-
-**Step 4: Update index.html**
-- Add links to both component and demo
-
----
-
-#### Option 2: Web Component (for actual reusability)
 
 **Step 1: Create Web Component**
 ```javascript
@@ -111,13 +62,7 @@ customElements.define('card-component', CardComponent);
 - Document available attributes
 
 **Step 3: Update index.html**
-- Add links to component and demo
-
-**When to use Web Components:**
-- Component used multiple times in same page
-- Need different content per instance
-- Want updates in one place to affect all instances
-- Acceptable to use JavaScript for reusability
+- Add link to demo in "Component Demos" section
 
 ### CSS Loading Order (NEVER CHANGE THIS)
 ```html
@@ -151,43 +96,40 @@ customElements.define('card-component', CardComponent);
 - ❌ NO module imports/exports
 - ❌ NO package managers
 - ❌ NO modifying Bootstrap source files
-- ❌ NO unnecessary JavaScript
+- ❌ NO unnecessary JavaScript outside of Web Components
   - Don't write JavaScript for animations (use CSS)
   - Don't write JavaScript for navigation (use `<a>` links)
   - Don't write JavaScript for simple interactivity (use Bootstrap data attributes)
   - Don't write JavaScript for state changes (use CSS pseudo-classes)
-- ❌ NO page structure in component HTML files (no `<html>`, `<head>`, `<body>`)
 
 ### Required Actions
 - ✅ Use Bootstrap utilities first
 - ✅ Check design-system.css before creating CSS
-- ✅ Keep component HTML files pure (snippets only, no page structure)
+- ✅ Create Web Components for all reusable UI elements
 - ✅ Create demo pages to showcase components
-- ✅ Update index.html after creating component/demo
-- ✅ Use semantic HTML5
-- ✅ Add comments explaining usage
+- ✅ Update index.html after creating component demo
+- ✅ Use semantic HTML5 within Web Components
+- ✅ Add comments in Web Component code explaining attributes and usage
 - ✅ Prefer CSS over JavaScript for visual effects
 - ✅ Use Bootstrap data attributes for interactivity (modals, dropdowns, tabs)
-- ✅ **JavaScript IS allowed for**: Web Components (native feature for reusability)
+- ✅ Web Components are the standard for all components
 - ✅ Test by opening HTML directly in browser (no server needed)
 
 ## File Locations
-- **Component Snippets**: `components/component-name.html` (pure HTML, no page structure)
-- **Web Components**: `components/component-name.js` (for reusability)
+- **Web Components**: `components/component-name.js` (all components are Web Components)
 - **Component CSS**: `components/component-name.css` (only if Bootstrap can't do it)
 - **Component Demos**: `demos/component-name-demo.html` (full page showcasing component)
 - **Full Pages**: `pages/page-name.html` + `pages/page-name.css` (optional)
 - **Templates**: 
-  - `templates/component-snippet.html` (for new HTML snippets)
   - `templates/component-web-component.js` (for new Web Components)
   - `templates/demo-page.html` (for new demo pages)
   - `templates/base.html` (for new full pages)
 - **Shared CSS**: `assets/css/` (don't create new files here without asking)
 
 ## After Creating Files
-1. Verify component snippet has NO page structure
-2. Test demo page by opening in browser
-3. Update `index.html` with links to both component and demo
+1. Test Web Component by opening demo page in browser
+2. Verify component works with different attributes and content
+3. Update `index.html` with link to demo
 4. Document any lessons learned in README.md if significant
 
 ## Questions to Ask Before Creating CSS
@@ -198,29 +140,28 @@ customElements.define('card-component', CardComponent);
 
 ## Example Component Creation
 ```powershell
-# Create component snippet (NO page structure)
-New-Item components\my-button.html
+# Create Web Component
+Copy-Item templates\component-web-component.js components\my-button.js
 
-# Edit my-button.html:
-# - Add usage comment header
-# - Write ONLY the component markup
-# - NO <html>, <head>, or <body> tags
+# Edit my-button.js:
+# - Update class name and customElements.define()
+# - Handle attributes (variant, size, etc.)
+# - Build component HTML in connectedCallback()
 
 # Create demo page
 Copy-Item templates\demo-page.html demos\my-button-demo.html
 
 # Edit demo page:
-# - Update title
-# - Show component variations
-# - Display HTML snippet in <pre><code>
-# - Link to component CSS if needed
+# - Include script: <script src="../components/my-button.js"></script>
+# - Show component with different attributes
+# - Display usage examples in <pre><code>
+# - Document available attributes
 
 # Only if Bootstrap can't do it:
 New-Item components\my-button.css
 # - Add comments explaining why custom CSS is needed
 
 # Update index.html:
-# - Add link in components section (to view snippet)
 # - Add link in demos section (to view demo page)
 ```
 
