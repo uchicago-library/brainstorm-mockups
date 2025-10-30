@@ -7,6 +7,32 @@ applyTo: '**'
 ## Overview
 This project creates a design system documentation library with pure HTML/CSS component snippets. Zero build complexity. Zero JavaScript (unless absolutely necessary).
 
+## 🎯 Core Principles
+
+### ALWAYS Prioritize:
+1. **Accessibility (WCAG AA minimum)**
+   - Semantic HTML5 elements
+   - ARIA labels and attributes where needed
+   - Keyboard navigation support
+   - Screen reader compatibility
+   - Sufficient color contrast ratios
+   - Alt text for all images
+   - Focus indicators visible
+   - `aria-current`, `aria-expanded`, `aria-controls` where appropriate
+
+2. **Responsive Design (Mobile-First)**
+   - Use Bootstrap's responsive utilities
+   - Test breakpoints: mobile (<576px), tablet (≥768px), desktop (≥992px)
+   - Collapsible navigation for mobile
+   - Touch-friendly tap targets (min 44x44px)
+   - Flexible images and media
+   - Responsive typography
+
+3. **Performance**
+   - Lazy loading for images (`loading="lazy"`)
+   - Minimal custom CSS/JS
+   - Leverage Bootstrap's built-in features
+
 ## Critical Rules
 
 ### File Structure Understanding
@@ -114,6 +140,12 @@ customElements.define('card-component', CardComponent);
 - ✅ Use Bootstrap data attributes for interactivity (modals, dropdowns, tabs)
 - ✅ Web Components are the standard for all components
 - ✅ Test by opening HTML directly in browser (no server needed)
+- ✅ **EVERY component MUST be responsive** (mobile-first approach)
+- ✅ **EVERY component MUST be accessible** (WCAG AA minimum)
+- ✅ Include ARIA labels, keyboard navigation, and semantic HTML
+- ✅ Test components at mobile, tablet, and desktop breakpoints
+- ✅ Use Bootstrap's responsive utilities (d-none, d-md-block, etc.)
+- ✅ Ensure touch targets are at least 44x44px on mobile
 
 ## File Locations
 - **Web Components**: `components/component-name.js` (all components are Web Components)
@@ -129,8 +161,31 @@ customElements.define('card-component', CardComponent);
 ## After Creating Files
 1. Test Web Component by opening demo page in browser
 2. Verify component works with different attributes and content
-3. Update `index.html` with link to demo
-4. Document any lessons learned in README.md if significant
+3. **Test responsiveness** - resize browser to mobile, tablet, desktop sizes
+4. **Test accessibility** - verify keyboard navigation, screen reader support, ARIA attributes
+5. Update `index.html` with link to demo
+6. Document any lessons learned in README.md if significant
+
+## Accessibility Checklist (EVERY Component)
+- ✅ Use semantic HTML (`<nav>`, `<button>`, `<header>`, etc.)
+- ✅ Include ARIA attributes where needed (`aria-label`, `aria-controls`, `aria-expanded`, `aria-current`)
+- ✅ Ensure keyboard navigation works (Tab, Enter, Esc)
+- ✅ Provide alt text for images
+- ✅ Use sufficient color contrast (test with brand colors)
+- ✅ Include visible focus indicators
+- ✅ Label form inputs properly
+- ✅ Use heading hierarchy correctly (h1, h2, h3...)
+- ✅ Test with screen reader if possible
+
+## Responsive Design Checklist (EVERY Component)
+- ✅ Mobile-first approach (design for small screens first)
+- ✅ Test at breakpoints: <576px (mobile), ≥768px (tablet), ≥992px (desktop)
+- ✅ Use Bootstrap responsive utilities (`d-none d-md-block`, `col-md-6`, etc.)
+- ✅ Collapsible content for mobile (use Bootstrap collapse/navbar-toggler)
+- ✅ Touch targets minimum 44x44px on mobile
+- ✅ Readable font sizes on all devices
+- ✅ Images scale properly (`img-fluid` class or max-width: 100%)
+- ✅ No horizontal scrolling on mobile
 
 ## Questions to Ask Before Creating CSS
 1. Can Bootstrap do this with existing classes?
