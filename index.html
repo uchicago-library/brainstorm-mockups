@@ -23,26 +23,50 @@
 <body>
   <div class="container my-5">
     <h1 class="display-4 mb-4">Brainstorming Mockups</h1>
-    <p class="lead">GenAI-Powered Mockup Development Environment</p>
+    <p class="lead">GenAI-Powered Design System Documentation & Mockup Development</p>
     
     <hr class="my-4">
     
-    <h2 class="h4 mb-3">Components</h2>
+    <h2 class="h4 mb-3">Components (HTML Snippets)</h2>
+    <p class="text-muted mb-3">Pure HTML snippets ready to copy/paste into your pages. No extra markup.</p>
+    <ul class="list-group mb-4">
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Example Button</div>
+          <code class="text-muted small">components/example-button.html</code>
+        </div>
+        <span class="badge bg-primary rounded-pill">View</span>
+      </li>
+    </ul>
+    
+    <h2 class="h4 mb-3">Component Demos</h2>
+    <p class="text-muted mb-3">Full pages showcasing components with usage examples and variations.</p>
     <ul class="list-group mb-4">
       <li class="list-group-item">
-        <a href="./components/example-button.html">Example Button Component</a>
+        <a href="./demos/example-button-demo.html">Example Button Demo</a>
         <span class="badge bg-secondary ms-2">Example</span>
-        <p class="mb-0 mt-1 text-muted small">Demonstrates component structure and custom styling patterns</p>
+        <p class="mb-0 mt-1 text-muted small">Demonstrates component structure, variations, and HTML snippets</p>
+      </li>
+      <li class="list-group-item">
+        <a href="./demos/web-components-demo.html">Web Components Demo</a>
+        <span class="badge bg-success ms-2">Reusable</span>
+        <p class="mb-0 mt-1 text-muted small">Shows how to use Web Components for DRY, reusable components - NO server needed!</p>
       </li>
     </ul>
     
     <h2 class="h4 mb-3">Pages</h2>
+    <p class="text-muted mb-3">Complete page mockups composing multiple components.</p>
     <ul class="list-group mb-4">
-      <li class="list-group-item">No pages yet. GenAI will create them in the root or a <code>/pages</code> folder.</li>
+      <li class="list-group-item text-muted">No pages yet. GenAI will create them in the <code>/pages</code> folder.</li>
     </ul>
     
     <div class="alert alert-info" role="alert">
-      <strong>Getting Started:</strong> Use the <code>templates/base.html</code> as a starting point for new pages and components.
+      <strong>Project Structure:</strong>
+      <ul class="mb-0 mt-2">
+        <li><strong>Components</strong> = Pure HTML snippets (no <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, or <code>&lt;body&gt;</code>)</li>
+        <li><strong>Demos</strong> = Full pages that showcase components</li>
+        <li><strong>Pages</strong> = Complete page mockups</li>
+      </ul>
     </div>
   </div>
 
