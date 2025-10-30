@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#800000"/>
+  
+  <!-- Stylized book icon in white -->
+  <g fill="#FFFFFF">
+    <!-- Book spine -->
+    <rect x="8" y="8" width="3" height="16" rx="0.5"/>
+    
+    <!-- Book pages -->
+    <path d="M11 8 L11 24 L24 24 L24 8 Z M13 12 L22 12 M13 15 L22 15 M13 18 L22 18 M13 21 L20 21"/>
+    
+    <!-- Book outline -->
+    <rect x="11" y="8" width="13" height="16" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+    
+    <!-- Page lines -->
+    <line x1="13" y1="12" x2="22" y2="12" stroke="#800000" stroke-width="0.8"/>
+    <line x1="13" y1="15" x2="22" y2="15" stroke="#800000" stroke-width="0.8"/>
+    <line x1="13" y1="18" x2="22" y2="18" stroke="#800000" stroke-width="0.8"/>
+    <line x1="13" y1="21" x2="20" y2="21" stroke="#800000" stroke-width="0.8"/>
+  </g>
+</svg>
