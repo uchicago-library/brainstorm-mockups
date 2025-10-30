@@ -137,9 +137,9 @@
     --bs-body-bg: #FFFFFF;
     /* White from brand */
 
-    /* Clean, modern font stack */
-    --bs-body-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-        'Helvetica Neue', Arial, sans-serif,
+    /* UChicago brand font with fallback stack */
+    --bs-body-font-family: 'UChicago Sans Serif', -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     --bs-body-font-size: 1rem;
     --bs-body-font-weight: 400;
