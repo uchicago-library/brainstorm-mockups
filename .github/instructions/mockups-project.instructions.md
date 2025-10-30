@@ -58,6 +58,35 @@ This project creates a design system documentation library with pure HTML/CSS co
 - Update component once, all instances update automatically
 - **Works without a server!** (opens with `file://`)
 
+### Web Component Code Style
+
+**Use `html` tagged template for better syntax highlighting:**
+```javascript
+// Add this helper at the top of component files
+const html = (strings, ...values) => String.raw({ raw: strings }, ...values);
+
+class MyComponent extends HTMLElement {
+  connectedCallback() {
+    const content = this.innerHTML.trim();
+    
+    // Use html`` instead of plain `` for better VSCode highlighting
+    this.innerHTML = html`
+      <div class="card">
+        <div class="card-body">
+          ${content}
+        </div>
+      </div>
+    `;
+  }
+}
+```
+
+**Formatting Tips:**
+- Use 2-space indentation inside template literals
+- Put each HTML attribute on its own line for complex elements
+- Include comments inside HTML templates
+- Install VSCode extension "es6-string-html" for syntax highlighting
+
 ### Creating a New Component
 
 **Step 1: Create Web Component**
@@ -94,15 +123,39 @@ customElements.define('card-component', CardComponent);
 ```html
 <!-- 1. Bootstrap CDN -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- 2. Fonts -->
-<link rel="stylesheet" href="../assets/css/fonts.css">
-<!-- 3. Bootstrap Overrides -->
+<!-- 2. UChicago Brand Font -->
+<link rel="stylesheet" href="https://www.lib.uchicago.edu/web-resources/css/uchicagoSansSerif.css">
+<!-- 3. Bootstrap Overrides (Brand Colors) -->
 <link rel="stylesheet" href="../assets/css/custom-variables.css">
 <!-- 4. Design System -->
 <link rel="stylesheet" href="../assets/css/design-system.css">
-<!-- 5. Component CSS -->
+<!-- 5. Component CSS (if needed) -->
 <link rel="stylesheet" href="../components/your-component.css">
 ```
+
+### Brand Guidelines (UChicago Library)
+
+**Colors:**
+- Primary: Maroon (#800000) - `--bs-primary` or `.bg-primary`
+- Use Bootstrap semantic colors mapped to brand palette (see `BRAND-COLORS.md`)
+- Reference: All brand colors available as CSS variables (`--brand-maroon`, `--brand-ivy`, etc.)
+
+**Typography:**
+- Font: 'UChicago Sans Serif' (loaded from CDN)
+- Fallbacks: system-ui fonts
+- Headings: Maroon color
+- Body: Black text on white background
+
+**Assets:**
+- Logo (white, for dark backgrounds): `https://www.lib.uchicago.edu/web-resources/img/white-logo.png`
+- Logo (color, for light backgrounds): `https://www.lib.uchicago.edu/web-resources/img/color-logo.png`
+- Favicon: Located at `./assets/images/favicon.svg` (maroon with rounded corners)
+
+**Navbar:**
+- Use `navbar-component` with hardcoded branding
+- Background: Maroon (`bg-primary`)
+- Logo: White version on maroon
+- Brand text: "Library"
 
 ### CSS Creation Priority
 1. **First**: Can Bootstrap classes do this? → Use them

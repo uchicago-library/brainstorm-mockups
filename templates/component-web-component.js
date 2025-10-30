@@ -10,7 +10,12 @@
  * 
  * ATTRIBUTES:
  * - Add your custom attributes here
+ * 
+ * TIP: Install VSCode extension "es6-string-html" for HTML syntax highlighting
  */
+
+// Simple html tag for better VSCode syntax highlighting
+const html = (strings, ...values) => String.raw({ raw: strings }, ...values);
 
 class ComponentName extends HTMLElement {
     connectedCallback() {
@@ -21,9 +26,11 @@ class ComponentName extends HTMLElement {
         const content = this.textContent.trim() || 'Default content';
 
         // Create the component HTML
-        this.innerHTML = `
+        // Use html`` tagged template for better syntax highlighting
+        this.innerHTML = html`
       <div class="your-component-class">
-        ${content}
+        <h3>${exampleAttr}</h3>
+        <p>${content}</p>
       </div>
     `;
     }
