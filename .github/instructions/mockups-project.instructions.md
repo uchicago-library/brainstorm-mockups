@@ -7,6 +7,20 @@ applyTo: '**'
 ## Overview
 This project creates a design system documentation library with pure HTML/CSS component snippets. Zero build complexity. Zero JavaScript (unless absolutely necessary).
 
+## ⚠️ IMPORTANT: Response Guidelines
+
+**Answer ONLY what is asked:**
+- If the user asks for information or clarification → Provide the answer ONLY, do not make changes
+- If the user asks "Is there a way to...?" → Explain the approach, do not implement unless explicitly requested
+- If the user asks "Can you...?" → Confirm you can, then wait for explicit approval before proceeding
+- Do NOT offer additional changes, improvements, or "helpful" modifications beyond the specific request
+- Do NOT create files, scripts, or documentation unless explicitly asked
+
+**Make changes ONLY when:**
+- User explicitly requests: "Create...", "Add...", "Update...", "Fix...", "Change..."
+- User approves your proposed solution after you've explained it
+- User says: "Yes", "Go ahead", "Do it", "Please proceed"
+
 ## 🎯 Core Principles
 
 ### ALWAYS Prioritize:
