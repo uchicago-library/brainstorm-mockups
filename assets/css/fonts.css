@@ -1,0 +1,20 @@
+/**
+ * Custom Font Declarations
+ * 
+ * Add @font-face rules or CDN imports for custom fonts here
+ */
+
+/* Example Google Fonts import */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap'); */
+
+/* Example custom font-face */
+/*
+@font-face {
+  font-family: 'CustomFont';
+  src: url('../fonts/CustomFont-Regular.woff2') format('woff2'),
+       url('../fonts/CustomFont-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+*/

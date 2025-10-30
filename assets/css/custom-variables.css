@@ -1,0 +1,32 @@
+/**
+ * Bootstrap Variable Overrides
+ * This file overrides Bootstrap's default CSS variables
+ * Load this AFTER Bootstrap CDN but BEFORE component styles
+ */
+
+:root {
+    /* Primary Color Override */
+    --bs-primary: #800000;
+    --bs-primary-rgb: 128, 0, 0;
+
+    /* Add other Bootstrap variable overrides here */
+    /* Example overrides:
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
+  */
+
+    /* Typography */
+    /* --bs-body-font-family: 'YourFont', sans-serif; */
+    /* --bs-body-font-size: 1rem; */
+    /* --bs-body-font-weight: 400; */
+    /* --bs-body-line-height: 1.5; */
+
+    /* Spacing */
+    /* --bs-gutter-x: 1.5rem; */
+    /* --bs-gutter-y: 0; */
+}
