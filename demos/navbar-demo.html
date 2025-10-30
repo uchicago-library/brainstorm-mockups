@@ -66,39 +66,21 @@
         </ul>
         
         <!-- Attributes -->
-        <h2 class="h4 mb-3">Component Attributes</h2>
-        <div class="table-responsive mb-4">
-          <table class="table table-bordered">
-            <thead class="table-light">
-              <tr>
-                <th>Attribute</th>
-                <th>Type</th>
-                <th>Default</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>logo-src</code></td>
-                <td>String</td>
-                <td>UChicago Library color logo</td>
-                <td>URL to the logo image</td>
-              </tr>
-              <tr>
-                <td><code>logo-alt</code></td>
-                <td>String</td>
-                <td>"UChicago Library"</td>
-                <td>Alt text for the logo (accessibility)</td>
-              </tr>
-              <tr>
-                <td><code>brand-text</code></td>
-                <td>String</td>
-                <td>Empty</td>
-                <td>Text to display next to logo</td>
-              </tr>
-            </tbody>
-          </table>
+        <h2 class="h4 mb-3">Component Configuration</h2>
+        <div class="alert alert-info" role="alert">
+          <h3 class="h6 mb-2">📌 Hardcoded Branding</h3>
+          <p class="mb-2">This component has all branding hardcoded for consistency:</p>
+          <ul class="mb-0">
+            <li><strong>Logo:</strong> UChicago Library white logo (for maroon background)</li>
+            <li><strong>Logo URL:</strong> <code>https://www.lib.uchicago.edu/web-resources/img/white-logo.png</code></li>
+            <li><strong>Alt Text:</strong> "University of Chicago Library"</li>
+            <li><strong>Brand Text:</strong> "Library"</li>
+          </ul>
         </div>
+        
+        <p class="mb-4">
+          <strong>No attributes needed!</strong> Simply include the component and add your navigation links as child elements.
+        </p>
         
         <!-- Usage Examples -->
         <h2 class="h4 mb-3">Usage Examples</h2>
@@ -123,43 +105,13 @@
           </div>
         </div>
         
-        <!-- Example 2: Custom Logo -->
+        <!-- Example 2: With Dropdown -->
         <div class="card mb-4">
           <div class="card-header">
-            <h3 class="h6 mb-0">With Custom Logo</h3>
+            <h3 class="h6 mb-0">With Bootstrap Dropdown Menu</h3>
           </div>
           <div class="card-body">
-            <pre><code>&lt;navbar-component 
-  logo-src="https://www.lib.uchicago.edu/path/to/logo.png"
-  logo-alt="University of Chicago Library Logo"
-  brand-text="Library"&gt;
-  &lt;a href="#" class="nav-link"&gt;Catalog&lt;/a&gt;
-  &lt;a href="#" class="nav-link"&gt;Research&lt;/a&gt;
-  &lt;a href="#" class="nav-link"&gt;Help&lt;/a&gt;
-&lt;/navbar-component&gt;</code></pre>
-          </div>
-        </div>
-        
-        <!-- Example 3: Logo Only -->
-        <div class="card mb-4">
-          <div class="card-header">
-            <h3 class="h6 mb-0">Logo Only (No Text)</h3>
-          </div>
-          <div class="card-body">
-            <pre><code>&lt;navbar-component logo-src="path/to/logo.png"&gt;
-  &lt;a href="#" class="nav-link"&gt;Home&lt;/a&gt;
-  &lt;a href="#" class="nav-link"&gt;About&lt;/a&gt;
-&lt;/navbar-component&gt;</code></pre>
-          </div>
-        </div>
-        
-        <!-- Example 4: With Dropdown -->
-        <div class="card mb-4">
-          <div class="card-header">
-            <h3 class="h6 mb-0">With Bootstrap Dropdown</h3>
-          </div>
-          <div class="card-body">
-            <pre><code>&lt;navbar-component brand-text="Library"&gt;
+            <pre><code>&lt;navbar-component&gt;
   &lt;a href="#" class="nav-link"&gt;Home&lt;/a&gt;
   &lt;div class="nav-item dropdown"&gt;
     &lt;a class="nav-link dropdown-toggle" href="#" role="button" 
@@ -176,6 +128,24 @@
   &lt;a href="#" class="nav-link"&gt;Contact&lt;/a&gt;
 &lt;/navbar-component&gt;</code></pre>
           </div>
+        </div>
+        
+        <!-- Example 3: Multiple Nav Sections -->
+        <div class="card mb-4">
+          <div class="card-header">
+            <h3 class="h6 mb-0">With Multiple Navigation Items</h3>
+          </div>
+          <div class="card-body">
+            <pre><code>&lt;navbar-component&gt;
+  &lt;a href="#" class="nav-link"&gt;Catalog&lt;/a&gt;
+  &lt;a href="#" class="nav-link"&gt;Research&lt;/a&gt;
+  &lt;a href="#" class="nav-link"&gt;Collections&lt;/a&gt;
+  &lt;a href="#" class="nav-link"&gt;Services&lt;/a&gt;
+  &lt;a href="#" class="nav-link"&gt;About&lt;/a&gt;
+  &lt;a href="#" class="nav-link"&gt;Help&lt;/a&gt;
+&lt;/navbar-component&gt;</code></pre>
+          </div>
+        </div>
         </div>
         
         <!-- Accessibility Notes -->
@@ -208,11 +178,11 @@
         <!-- Customization Tips -->
         <h2 class="h4 mb-3">Customization Tips</h2>
         <ul class="mb-4">
-          <li>Replace the <code>logo-src</code> with your actual logo URL from your server</li>
           <li>Add more navigation items by including more <code>&lt;a class="nav-link"&gt;</code> elements</li>
-          <li>Use Bootstrap dropdown classes to create dropdown menus</li>
-          <li>Add a search form or button inside the navbar content</li>
-          <li>Modify <code>custom-variables.css</code> to change navbar colors globally</li>
+          <li>Use Bootstrap dropdown classes to create dropdown menus (see examples above)</li>
+          <li>Add a search form or button inside the navbar content slot</li>
+          <li>Mark the current page link with <code>class="nav-link active" aria-current="page"</code></li>
+          <li>Logo and branding are hardcoded for consistency across the library system</li>
         </ul>
         
         <!-- Back to Index -->
