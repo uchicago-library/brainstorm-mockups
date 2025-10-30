@@ -21,9 +21,23 @@
   
   <!-- Design System (Optional - from production) -->
   <link rel="stylesheet" href="./assets/css/design-system.css">
+  
+  <!-- Navbar Component CSS -->
+  <link rel="stylesheet" href="./components/navbar.css">
+  
+  <!-- Navbar Component -->
+  <script src="./components/navbar.js"></script>
 </head>
 
 <body>
+  <!-- Navbar -->
+  <navbar-component>
+    <a href="./index.html" class="nav-link active" aria-current="page">Home</a>
+    <a href="./demos/navbar-demo.html" class="nav-link">Components</a>
+    <a href="./BRAND-COLORS.md" class="nav-link">Brand Colors</a>
+    <a href="./README.md" class="nav-link">Documentation</a>
+  </navbar-component>
+
   <div class="container my-5">
     <h1 class="display-4 mb-4">Brainstorming Mockups</h1>
     <p class="lead">GenAI-Powered Design System Documentation & Mockup Development</p>

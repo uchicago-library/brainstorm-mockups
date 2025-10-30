@@ -20,21 +20,21 @@
  */
 
 class NavbarComponent extends HTMLElement {
-  connectedCallback() {
-    // Get attributes with defaults
-    const logoSrc = this.getAttribute('logo-src') || 'https://via.placeholder.com/150x50/800000/FFFFFF?text=UChicago+Library';
-    const logoAlt = this.getAttribute('logo-alt') || 'UChicago Library';
-    const brandText = this.getAttribute('brand-text') || '';
-    
-    // Get slot content (nav links)
-    const navContent = this.innerHTML.trim();
-    
-    // Build the navbar HTML
-    this.innerHTML = `
-      <nav class="navbar navbar-expand-lg bg-body-tertiary" aria-label="Main navigation">
+    connectedCallback() {
+        // Get attributes with defaults
+        const logoSrc = this.getAttribute('logo-src') || 'https://www.lib.uchicago.edu/web-resources/img/color-logo.png';
+        const logoAlt = this.getAttribute('logo-alt') || 'UChicago Library';
+        const brandText = this.getAttribute('brand-text') || '';
+
+        // Get slot content (nav links)
+        const navContent = this.innerHTML.trim();
+
+        // Build the navbar HTML
+        this.innerHTML = `
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary" aria-label="Main navigation">
         <div class="container-fluid">
           <!-- Brand/Logo -->
-          <a class="navbar-brand d-flex align-items-center" href="#">
+          <a class="navbar-brand d-flex align-items-center" href="/">
             <img src="${logoSrc}" 
                  alt="${logoAlt}" 
                  height="40" 
@@ -63,7 +63,7 @@ class NavbarComponent extends HTMLElement {
         </div>
       </nav>
     `;
-  }
+    }
 }
 
 // Register the custom element
