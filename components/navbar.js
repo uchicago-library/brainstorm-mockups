@@ -5,12 +5,16 @@
  * Uses Bootstrap's navbar component with brand colors and proper ARIA attributes.
  * 
  * Slots:
- *   - Default slot: Navigation links and content
+ *   - Default slot: Navigation links wrapped in <li class="nav-item"> elements
  * 
  * Usage:
  *   <navbar-component>
- *     <a href="#" class="nav-link">Link 1</a>
- *     <a href="#" class="nav-link">Link 2</a>
+ *     <li class="nav-item">
+ *       <a href="#" class="nav-link">Link 1</a>
+ *     </li>
+ *     <li class="nav-item">
+ *       <a href="#" class="nav-link">Link 2</a>
+ *     </li>
  *   </navbar-component>
  * 
  * TIP: Install VSCode extension "es6-string-html" for HTML syntax highlighting
@@ -20,12 +24,12 @@
 const html = (strings, ...values) => String.raw({ raw: strings }, ...values);
 
 class NavbarComponent extends HTMLElement {
-    connectedCallback() {
-        // Get slot content (nav links)
-        const navContent = this.innerHTML.trim();
+  connectedCallback() {
+    // Get slot content (nav links)
+    const navContent = this.innerHTML.trim();
 
-        // Build the navbar HTML with hardcoded logo and branding
-        this.innerHTML = html`
+    // Build the navbar HTML with hardcoded logo and branding
+    this.innerHTML = html`
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary" aria-label="Main navigation">
         <div class="container-fluid">
           
@@ -54,15 +58,15 @@ class NavbarComponent extends HTMLElement {
           
           <!-- Navigation Links (Collapsible) -->
           <div class="collapse navbar-collapse" id="navbarContent">
-            <div class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto">
               ${navContent}
-            </div>
+            </ul>
           </div>
           
         </div>
       </nav>
     `;
-    }
+  }
 }
 
 // Register the custom element
