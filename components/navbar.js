@@ -1,68 +1,58 @@
 /**
  * Navbar Web Component
  * 
- * A responsive, accessible navigation bar for the UChicago Library design system.
- * Uses Bootstrap's navbar component with brand colors and proper ARIA attributes.
- * 
- * Slots:
- *   - Default slot: Navigation links wrapped in <li class="nav-item"> elements
+ * Simple Bootstrap-based navbar for UChicago Library
  * 
  * Usage:
  *   <navbar-component>
- *     <li class="nav-item">
- *       <a href="#" class="nav-link">Link 1</a>
- *     </li>
- *     <li class="nav-item">
- *       <a href="#" class="nav-link">Link 2</a>
- *     </li>
+ *     <a href="/resources">Resources</a>
+ *     <a href="/services">Services</a>
+ *     <a href="/research">Research</a>
+ *     <a href="/about">About</a>
  *   </navbar-component>
  * 
- * TIP: Install VSCode extension "es6-string-html" for HTML syntax highlighting
+ * Default links: Resources, Services, Research, About (if no links provided)
  */
-
-// Simple html tag for better VSCode syntax highlighting
-const html = (strings, ...values) => String.raw({ raw: strings }, ...values);
 
 class NavbarComponent extends HTMLElement {
   connectedCallback() {
-    // Get slot content (nav links)
-    const navContent = this.innerHTML.trim();
-
-    // Build the navbar HTML with hardcoded logo and branding
-    this.innerHTML = html`
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary" aria-label="Main navigation">
+    const defaultLinks = [
+      { href: '', text: 'Resources' },
+      { href: '', text: 'Services' },
+      { href: '', text: 'Research' },
+      { href: '', text: 'About' }
+    ];
+    
+    const navId = 'main-navbar';
+    
+    // Build nav items HTML
+    const navItems = defaultLinks.map(link => {
+      return `
+        <li class="nav-item">
+          <a class="nav-link" href="${link.href}">${link.text}</a>
+        </li>
+      `;
+    }).join('');
+    
+    // Replace component with navbar HTML (clears any children)
+    this.innerHTML = `
+      <nav class="navbar navbar-expand-md navbar-dark bg-primary">
         <div class="container-fluid">
-          
-          <!-- Brand/Logo -->
-          <a class="navbar-brand d-flex align-items-center" href="/">
-            <img 
-              src="https://www.lib.uchicago.edu/web-resources/img/white-logo.png" 
-              alt="University of Chicago Library" 
-              height="40" 
-              class="d-inline-block align-text-top me-2"
-              loading="lazy">
-            <span class="fw-semibold">Library</span>
+          <a class="navbar-brand" href="/">
+            <img src="https://www.lib.uchicago.edu/web-resources/img/white-logo.png" 
+                 alt="University of Chicago Library" 
+                 height="40">
           </a>
-          
-          <!-- Mobile Toggle Button -->
-          <button 
-            class="navbar-toggler" 
-            type="button" 
-            data-bs-toggle="collapse" 
-            data-bs-target="#navbarContent" 
-            aria-controls="navbarContent" 
-            aria-expanded="false" 
-            aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                  data-bs-target="#${navId}" aria-controls="${navId}" 
+                  aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          
-          <!-- Navigation Links (Collapsible) -->
-          <div class="collapse navbar-collapse" id="navbarContent">
+          <div class="collapse navbar-collapse" id="${navId}">
             <ul class="navbar-nav ms-auto">
-              ${navContent}
+              ${navItems}
             </ul>
           </div>
-          
         </div>
       </nav>
     `;
