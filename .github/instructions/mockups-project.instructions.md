@@ -7,33 +7,6 @@ applyTo: '**'
 ## Overview
 This project creates a design system documentation library with pure HTML/CSS component snippets. Zero build complexity. Zero JavaScript (unless absolutely necessary). Low-maintenance, accessible, responsive design.
 
-## ⚠️ CRITICAL: Workflow & Response Rules
-
-### Response Style
-- **Be concise**: No verbose explanations, no "Next steps" sections
-- **Answer only what's asked**: Don't offer unsolicited improvements
-- **Challenge bad practices**: Point out accessibility issues, non-responsive designs, high-maintenance solutions, overengineering
-- **After completing work**: Briefly confirm what was done, then stop
-
-### When to Act vs. Wait
-- **Information request** → Answer only, make NO changes
-- **"Is there a way...?"** → Explain approach, don't implement unless explicitly requested
-- **"Can you...?"** → Confirm capability, wait for approval
-- **Explicit request** ("Create...", "Add...", "Update...", "Fix...") → Implement immediately
-- **After approval** ("Yes", "Go ahead", "Do it", "Please proceed") → Implement immediately
-
-### Mandatory Workflow
-1. **Analyze**: Gather context (read files, check existing code)
-2. **Propose**: If complex, show what will be done (brief summary only)
-3. **Implement**: Make changes efficiently (batch related edits)
-4. **Commit**: Always commit with brief message after completing work
-
-### Git Commits (REQUIRED)
-- ✅ Commit ALL changes after completing work
-- ✅ Use brief, descriptive messages (e.g., "Add card component with demo")
-- ✅ Batch related changes into single commit
-- ❌ Never leave uncommitted changes
-
 ## 🎯 Quality Requirements
 
 **Every component MUST be:**
@@ -49,51 +22,7 @@ This project creates a design system documentation library with pure HTML/CSS co
 
 ## Critical Rules
 
-### File Structure Understanding
-1. **`/components`** = Web Components (reusable JavaScript components)
-   - **`.js` files** = Web Components for reusability
-   - **`.css` files** = Component styles (only if Bootstrap can't do it)
-   
-2. **`/demos`** = Full pages showcasing components
-   - Complete HTML structure
-   - Display component with variations
-   - Show usage examples in `<pre><code>` blocks
-   - Acts as design system documentation
-   
-3. **`/pages`** = Complete page mockups
-   - Full page layouts
-   - Compose multiple components
-
-### Web Components Approach
-
-- Components are reusable JavaScript classes
-- Include script once, use many times with different content
-- Each instance can have different attributes and content
-- Update component once, all instances update automatically
-- **Works without a server!** (opens with `file://`)
-
 ### Web Component Code Style
-
-**Use `html` tagged template for better syntax highlighting:**
-```javascript
-// Add this helper at the top of component files
-const html = (strings, ...values) => String.raw({ raw: strings }, ...values);
-
-class MyComponent extends HTMLElement {
-  connectedCallback() {
-    const content = this.innerHTML.trim();
-    
-    // Use html`` instead of plain `` for better VSCode highlighting
-    this.innerHTML = html`
-      <div class="card">
-        <div class="card-body">
-          ${content}
-        </div>
-      </div>
-    `;
-  }
-}
-```
 
 **Formatting Tips:**
 - Use 2-space indentation inside template literals
@@ -124,15 +53,6 @@ class CardComponent extends HTMLElement {
 customElements.define('card-component', CardComponent);
 ```
 
-**Step 2: Create Demo Page**
-- Copy `templates/demo-page.html` to `demos/card-demo.html`
-- Include script: `<script src="../components/card.js"></script>`
-- Show usage: `<card-component title="Title">Content</card-component>`
-- Document available attributes
-
-**Step 3: Update index.html**
-- Add link to demo in "Component Demos" section
-
 ### CSS Loading Order (NEVER CHANGE THIS)
 ```html
 <!-- 1. Bootstrap CDN -->
@@ -158,7 +78,7 @@ customElements.define('card-component', CardComponent);
 - Font: 'UChicago Sans Serif' (loaded from CDN)
 - Fallbacks: system-ui fonts
 - Headings: Maroon color
-- Body: Black text on white background
+- Body: Dark text (#2A2A2A) on white background
 
 **Assets:**
 - Logo (white, for dark backgrounds): `https://www.lib.uchicago.edu/web-resources/img/white-logo.png`
@@ -211,22 +131,6 @@ customElements.define('card-component', CardComponent);
   - `templates/base.html` (for new full pages)
 - **Shared CSS**: `assets/css/` (don't create new files here without asking)
 
-## After Creating Files
-1. Test in browser (open HTML directly, no server)
-2. Test responsiveness (resize to <576px, ≥768px, ≥992px)
-3. Test accessibility (keyboard navigation, ARIA, semantic HTML)
-4. Update `index.html` with link to demo
-5. Commit all changes with brief message
-
-## Pre-Implementation Checklist
-**Before writing any code, verify:**
-1. Can Bootstrap do this? (check utilities, components)
-2. Is this in design-system.css? (read file if uncertain)
-3. Can CSS do this instead of JavaScript?
-4. Is this accessible? (semantic HTML, ARIA, keyboard nav)
-5. Is this responsive? (mobile-first, Bootstrap utilities)
-6. Is this low-maintenance? (standard patterns, minimal custom code)
-
 ## Example Component Creation
 ```powershell
 # Create Web Component
@@ -269,61 +173,3 @@ New-Item components\my-button.css
 - Bootstrap component requires initialization AND data attributes aren't enough
 - Complex behavior that's impossible with CSS and critical to demo
 - **Always document why JavaScript was necessary**
-
-### Example: Prefer This (No JS)
-```html
-<!-- Bootstrap Modal - No JavaScript needed -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Open Modal
-</button>
-
-<div class="modal fade" id="exampleModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-    </div>
-  </div>
-</div>
-```
-
-### Not This (Unnecessary JS)
-```html
-<!-- DON'T DO THIS -->
-<button onclick="openModal()">Open Modal</button>
-<script>
-  function openModal() {
-    // ... JavaScript to show modal
-  }
-</script>
-```
-
-## Common Mistakes to Avoid
-
-### Mistake: Creating custom CSS when Bootstrap has the solution
-- **Fix**: Check Bootstrap utilities first (spacing, colors, layout, typography)
-- **Example**: Use `d-flex justify-content-between` instead of custom flexbox CSS
-
-### Mistake: Missing responsive behavior
-- **Fix**: Use Bootstrap grid (`col-md-6`) and responsive utilities (`d-none d-md-block`)
-- **Example**: Navbar must collapse on mobile with `navbar-toggler`
-
-### Mistake: Missing accessibility attributes
-- **Fix**: Add ARIA labels, use semantic HTML, ensure keyboard navigation
-- **Example**: Buttons need `aria-label`, nav needs `aria-current`, modals need `aria-labelledby`
-
-### Mistake: Using JavaScript when not necessary
-- **Fix**: Use Bootstrap data attributes or CSS
-- **Example**: `data-bs-toggle="modal"` instead of `onclick="showModal()"`
-
-### Mistake: Not committing changes
-- **Fix**: Always commit after completing work with brief message
-
----
-
-**Reference README.md for complete documentation.**
