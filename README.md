@@ -100,41 +100,13 @@ brainstorm-mockups/
 
 **All components in this project use Web Components for reusability.**
 
-### Creating a Reusable Web Component (OPTIONAL) (HTML Snippet)
-
-1. Copy `templates/component-snippet.html` to `components/your-component.html`
-2. Write **only** the component HTML (no page structure)
-3. Add usage comments at the top
-4. Create `components/your-component.css` **only if Bootstrap can't do it**
-5. Create a demo page in `demos/your-component-demo.html` to showcase it
-6. Update `index.html` to link to both
-
-**Example component file (`components/card.html`):**
-```html
-<!-- 
-  Card Component
-  Uses Bootstrap's card classes - NO custom CSS needed!
--->
-
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-```
-
-### Creating a Reusable Web Component (OPTIONAL)
-
-**When to use:** You need the same component multiple times with different content and want updates in one place.
+### Creating a Reusable Web Component
 
 1. Copy `templates/component-web-component.js` to `components/your-component.js`
-2. Update the class name and `customElements.define()` call
-3. Write the component HTML in the `connectedCallback()` method
-4. In your pages, include the script: `<script src="../components/your-component.js"></script>`
-5. Use the component: `<your-component>Content</your-component>`
+2. Copy `templates/demo-page.html` to `demos/your-component-demo.html`
+3. Edit the component class (attributes, markup) and the demo examples
+4. Update `index.html` to link to the new demo page
+5. Create `components/your-component.css` **only if** Bootstrap or `design-system.css` cannot cover the styling
 
 **Example Web Component (`components/alert-box.js`):**
 ```javascript
@@ -146,366 +118,45 @@ class AlertBox extends HTMLElement {
     this.innerHTML = `
       <div class="alert alert-${variant}" role="alert">
         ${content}
-      </div>
-    `;
-  }
-}
-customElements.define('alert-box', AlertBox);
-```
-
-**Usage in page:**
-```html
-<script src="../components/alert-box.js"></script>
-<alert-box variant="success">Operation successful!</alert-box>
-<alert-box variant="danger">Error occurred!</alert-box>
-```
-
-**Advantages:**
-- ✅ Works without a server (opens with `file://`)
-- ✅ Update component once, all instances update
-- ✅ Different content per instance
-- ✅ No build tools needed
-- ✅ Native browser feature
-- ✅ Keeps markup DRY across pages
-
-### Creating a Component Demo Page
-
-1. Copy `templates/demo-page.html` to `demos/component-name-demo.html`
-2. Showcase the component with variations
-3. Display the HTML snippet in a `<pre><code>` block
-4. Explain usage and when custom CSS is needed
-5. Link back to `index.html`
-
-### Creating a Full Page
-
-1. Copy `templates/base.html` to `pages/your-page.html`
-2. Compose components from `/components` into your layout
-3. Create `pages/your-page.css` only for page-specific layout needs
-4. Update `index.html` to link to the new page
-
-### CSS Loading Order (CRITICAL)
-
-All HTML files must load CSS in this exact order:
-
-1. **Bootstrap CSS CDN** (latest)
-2. **Custom Fonts** (`assets/css/fonts.css`)
-3. **Bootstrap Variable Overrides** (`assets/css/custom-variables.css`)
-4. **Design System** (`assets/css/design-system.css`)
-5. **Component/Page CSS** (specific to that file)
-
-**Example:**
-```html
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/fonts.css">
-<link rel="stylesheet" href="../assets/css/custom-variables.css">
-<link rel="stylesheet" href="../assets/css/design-system.css">
-<link rel="stylesheet" href="../components/your-component.css">
-```
-
----
-
-## Development Strategies
-
-### Primary Strategy: **Web Components for All UI Elements**
-
-Build reusable Web Components for all UI elements.
-
-1. Create Web Component in `components/component-name.js`
-   - Use `customElements.define()` to register
-   - Handle attributes for variants (size, color, etc.)
-   - Get content from element's `textContent`
-2. Create demo page in `demos/component-name-demo.html`
-   - Include the component script
-   - Show multiple instances with different content
-   - Document available attributes
-   - Show HTML usage examples
-3. Update `index.html` with link to demo
-
-**Why Web Components:**
-- Reusable across pages without copy/paste
-- Update once, changes propagate everywhere
-- Different content per instance via attributes
-- Works without a server
-- Native browser feature (no framework needed)
-
----
-
-### Secondary Strategy: **Page Mockup Approach**
-
-Build complete page mockups when you need to show full context.
-
-**Workflow:**
-1. Copy `templates/base.html` to `pages/page-name.html`
-2. Compose layout using components from `/components`
-3. Create `pages/page-name.css` for page-specific layout only
-4. Update `index.html` with link
-
-**When to use:**
-- Stakeholder presentations
-- Testing how components work together
-- Demonstrating complete user flows
-- Showing responsive behavior in context
-
-**When NOT to use:**
-- Building reusable components (use Component Library approach)
-- Documenting the design system
-
----
-
-## Restrictions & Guidelines
-
-### ❌ RESTRICTIONS (What NOT to Do)
-
-1. **No Build Tools** - No npm, webpack, vite, sass, etc.
-2. **No Server-Side Code** - No Node.js, PHP, Python servers
-3. **No Backend Features** - No databases, authentication, file uploads
-4. **No Module Bundlers** - No ES6 module imports/exports
-5. **No Package Managers** - All dependencies via CDN only
-6. **No CSS Preprocessors** - Use vanilla CSS only (no SASS/LESS)
-7. **No Complex JavaScript Frameworks** - No React, Vue, Angular
-8. **Minimize JavaScript Outside Web Components** - Avoid JavaScript unless beneficial
-   - Use CSS for animations, transitions, and visual effects
-   - Use HTML/CSS for navigation (links between pages)
-   - Bootstrap's data attributes for interactive components (modals, dropdowns)
-   - **JavaScript IS allowed for**: Web Components (all components use this)
-   - **Avoid JavaScript for**: Form validation logic, complex data manipulation
-
-### ✅ REQUIREMENTS (What TO Do)
-
-1. **Use Bootstrap Classes First** - Leverage Bootstrap utilities before custom CSS
-2. **Check Design System** - Look in `design-system.css` before creating new patterns
-3. **Follow CSS Loading Order** - As documented above (critical!)
-4. **Keep Components Pure** - Component HTML files = snippets only (no page structure)
-5. **Create Demo Pages** - Show component usage in `demos/` folder
-6. **Use Semantic HTML** - Proper HTML5 elements and accessibility
-7. **Use Relative Paths** - For local file references
-8. **CDN Only for Dependencies** - Latest Bootstrap, fonts, icons via CDN
-9. **Update index.html** - Add links to new components/demos/pages
-10. **Prefer HTML/CSS Over JavaScript** - Use CSS animations, Bootstrap data attributes
-    - Navigation: Use `<a href="page.html">` links
-    - Interactivity: Use Bootstrap components (modals, accordions, tabs)
-    - Animations: Use CSS transitions and keyframes
-    - State changes: Use `:hover`, `:active`, `:focus` pseudo-classes
-
----
-
-## Lessons Learned
-
-> This section will be updated as the project evolves with insights discovered during development.
-
-### Lesson 1: Initial Setup
-- **Date**: 2025-10-30
-- **Discovery**: Established base project structure with clear CSS loading hierarchy
-- **Impact**: Sets foundation for consistent styling across all future components
-
-### Lesson 2: Component vs Demo Pages
-- **Date**: 2025-10-30
-- **Discovery**: Components should be pure HTML snippets (no page structure), with separate demo pages
-- **Rationale**: 
-  - Reduces noise when inspecting component code
-  - Makes copy/paste easier for developers
-  - Acts as design system documentation
-  - Demo pages provide full context for showcasing
-- **Impact**: Changed project structure to separate `/components` (snippets) from `/demos` (showcases)
-
----
-
-## Architecture & Design Decisions
-
-### CSS Cascade Strategy
-
-**Decision**: Use CSS custom properties (variables) to override Bootstrap defaults  
-**Rationale**: 
-- Avoids modifying Bootstrap source
-- Maintains upgrade path for Bootstrap
-- Clear override location (`custom-variables.css`)
-- Easy to see what's customized
-
-### File Organization
-
-**Decision**: Separate `components/` and `pages/` folders  
-**Rationale**:
-- Clear distinction between reusable parts and full pages
-- Easier for GenAI to understand context
-- Supports both development strategies
-- Scalable as project grows
-
-### No Templating Engine
-
-**Decision**: Manual HTML duplication instead of template engine  
-**Rationale**:
-- Keeps project simple (no build process)
-- GenAI can copy/paste boilerplate easily
-- Trade-off: manual updates vs. zero complexity
-- Acceptable for mockup/prototype use case
-
-### CDN-First Approach
-
-**Decision**: All external dependencies via CDN  
-**Rationale**:
-- No local dependency management
-- Always get latest versions (or pin via integrity hash)
-- Works offline-first after initial load (browser cache)
-- No npm/node_modules complexity
-
----
-
-## GenAI Development Best Practices
-
-### For GenAI Creating Components/Pages
-
-1. **Understand the file types:**
-   - **Component snippets** (`components/*.html`) = Pure HTML only, NO page structure
-   - **Demo pages** (`demos/*.html`) = Full HTML pages showcasing components
-   - **Full pages** (`pages/*.html`) = Complete page mockups
-
-2. **Always create component snippets as pure HTML:**
-   ```html
-   <!-- components/button.html -->
-   <!-- 
-     Button Component
-     Uses Bootstrap classes
-   -->
-   <button type="button" class="btn btn-primary">Click Me</button>
-   ```
-   
-3. **Always create a demo page for each component:**
-   - Copy from `templates/demo-page.html`
-   - Show component variations
-   - Display HTML snippet in `<code>` block
-   - Link back to index
-
-4. **Check existing resources first:**
-   - Can Bootstrap classes achieve this? → Use them
-   - Does `design-system.css` have this pattern? → Use it
-   - Only create new CSS if absolutely necessary
-
-5. **CSS Creation Rules:**
-   - Component CSS goes in matching `.css` file
-   - Use specific class names (e.g., `.card-custom` not `.card`)
-   - Avoid `!important` unless overriding Bootstrap
-   - Comment complex selectors
-   - **Document WHY custom CSS was needed**
-
-6. **JavaScript Rules:**
-   - **Avoid JavaScript** - Use CSS and Bootstrap data attributes
-   - Navigation: `<a href="page.html">` not JavaScript
-   - Interactivity: Bootstrap components (modals, dropdowns, tabs)
-   - Animations: CSS transitions and keyframes
-   - Only use JavaScript if absolutely critical AND document why
-
-7. **File Naming:**
-   - Use kebab-case: `my-component.html`, `my-component.css`
-   - Match HTML and CSS filenames exactly
-   - Descriptive names (e.g., `hero-banner.html` not `component1.html`)
-
-8. **Update Index:**
-   - After creating component/demo, update `index.html`
-   - Add link in Components section (to snippet file)
-   - Add link in Component Demos section (to demo page)
-   - Keep list organized
-
-9. **Documentation in Code:**
-   - Add HTML comments at top of component snippets
-   - Explain Bootstrap class choices if non-obvious
-   - Document any CSS hacks or workarounds
-   - Include usage instructions
-
-10. **Testing Checklist:**
-    - Component snippet has NO page structure
-    - Demo page opens correctly in browser
-    - All CSS loads in correct order
-    - Check browser console for errors
-    - Test responsive behavior
-
-### When to Create New CSS
-
-Create component CSS **only** when:
-- Bootstrap classes cannot achieve the design
-- Design system doesn't have the pattern
-- Need to override specific Bootstrap behavior
-- Custom layout or styling needed
-
-### Handling Bootstrap Overrides
-
-If you need to override Bootstrap:
-1. Try `custom-variables.css` first (for global changes)
-2. Use component CSS for specific overrides
-3. Use specific selectors to avoid conflicts
-4. Document why override is needed
-
----
-
-## Issues & Considerations
-
-### ✅ No Issues Identified
-
-Your project requirements are **well-suited** for this approach:
-
-- **Simple static mockups** → Perfect for no-build setup
-- **Local testing only** → No deployment complexity
-- **GenAI-driven** → Clear, documented structure helps AI
-- **Bootstrap + custom CSS** → Industry standard approach
-- **Component isolation** → Easy to manage and test
-
-### Future Considerations
-
-If the project grows, you might consider:
-
-1. **Static Site Generator** (optional) - If duplication becomes painful
-   - Jekyll, 11ty, Hugo
-   - Still no server needed for viewing
-   - Trade-off: adds build step
-
-2. **Version Control for Design System** - If `design-system.css` changes frequently
-   - Document version/date in comments
-   - Keep changelog
-
-3. **Browser Compatibility** - Currently assumes modern browsers
-   - Add browserslist if needed
-   - Consider polyfills if supporting older browsers
-
----
-
-## Contributing
-
-Since this is a GenAI-driven mockup repository:
-
-1. GenAI should follow all guidelines in this README
-2. All new components/pages should follow the structure
-3. Update this README if new patterns/lessons emerge
-4. Keep `index.html` updated with new files
-
----
-
-## License
-
-See [LICENSE](LICENSE) file for details.
-
----
-
-## Quick Reference
-
-### Create New Component
-```bash
-# Copy base template (PowerShell)
-Copy-Item templates\base.html components\my-component.html
-New-Item components\my-component.css
-```
-
-### Create New Page
-```bash
-# Copy base template (PowerShell)
-Copy-Item templates\base.html pages\my-page.html
-New-Item pages\my-page.css
-```
-
-### Update Paths
-- Components: `../assets/css/...`
-- Pages: `../assets/css/...`
-- Root level: `./assets/css/...`
-
----
-
-**Last Updated**: 2025-10-30  
-**Project Status**: ✅ Ready for GenAI mockup development
+      # Brainstorming Mockups
+
+      GenAI-friendly mockup sandbox: static HTML/CSS/vanilla JS, no build tools, open directly in the browser.
+
+      ## Purpose
+      - Local-only prototyping; never deployed
+      - CDN-loaded dependencies; zero compilation
+      - Reusable Web Components plus demo pages
+
+      ## Structure
+      - index.html — navigation hub
+      - assets/css — fonts, Bootstrap overrides, design system
+      - components/ — Web Components (JS + optional CSS)
+      - demos/ — full pages showcasing components
+      - pages/ — full-page mockups
+      - templates/ — base.html, demo-page.html, component-web-component.js
+
+      ## How to work
+      1) Open `index.html` in a browser (or run `python -m http.server 8000` if you prefer localhost).
+      2) Create a component:
+         - Copy `templates/component-web-component.js` → `components/my-component.js`
+         - (Optional) Copy `templates/demo-page.html` → `demos/my-component-demo.html`
+         - Add optional CSS only if Bootstrap or design-system cannot cover it
+         - Update `index.html` to link the demo
+      3) Create a page: copy `templates/base.html` → `pages/my-page.html`; add `pages/my-page.css` only if needed.
+
+      ## CSS loading order (keep this)
+      1. Bootstrap CDN
+      2. assets/css/fonts.css
+      3. assets/css/custom-variables.css
+      4. assets/css/design-system.css
+      5. Component or page CSS (only if required)
+
+      ## Keep it simple
+      - Use Bootstrap utilities first; avoid custom CSS unless necessary
+      - Prefer HTML/CSS and Bootstrap data attributes over JavaScript
+      - Web Components should render just the component markup (no page layout)
+
+      ## See also
+      - QUICKSTART.md for command snippets
+      - CHANGELOG.md for notable updates
+      - LICENSE for licensing
