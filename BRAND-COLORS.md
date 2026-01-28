@@ -13,9 +13,9 @@ These are the mappings from our brand colors to Bootstrap's semantic color syste
 | **Success** | Ivy | `#789D4A` | `120, 157, 74` | Success messages, positive confirmations |
 | **Info** | Lake | `#007396` | `0, 115, 150` | Informational messages, notes |
 | **Warning** | Goldenrod | `#EAAA00` | `234, 170, 0` | Warnings, cautions, alerts |
-| **Danger** | Brick | `#A4343A` | `164, 52, 58` | Errors, destructive actions |
+| **Danger** | --------------------- | Errors, destructive actions |
 | **Light** | Light Greystone | `#D9D9D9` | `217, 217, 217` | Light backgrounds, borders |
-| **Dark** | Black | `#000000` | `0, 0, 0` | Dark backgrounds, text |
+| **Dark** | Black | `#cccccc` | `0, 0, 0` | Dark backgrounds, text |
 
 ---
 
@@ -94,45 +94,6 @@ These are the mappings from our brand colors to Bootstrap's semantic color syste
 | **White** | `#FFFFFF` | `255, 255, 255` | N/A | Backgrounds, text |
 | **Black** | `#000000` | `0, 0, 0` | N/A | Text, dark elements |
 
----
-
-## Usage in Code
-
-### Using Bootstrap Semantic Colors
-
-```html
-<!-- Primary (Maroon) -->
-<button class="btn btn-primary">Primary Button</button>
-
-<!-- Success (Ivy) -->
-<div class="alert alert-success">Success message</div>
-
-<!-- Warning (Goldenrod) -->
-<div class="alert alert-warning">Warning message</div>
-
-<!-- Info (Lake) -->
-<div class="alert alert-info">Info message</div>
-
-<!-- Danger (Brick) -->
-<div class="alert alert-danger">Error message</div>
-```
-
-### Using Brand Colors Directly
-
-```html
-<!-- Using CSS variables -->
-<div style="background-color: var(--brand-terracotta); color: white;">
-  Terracotta background
-</div>
-
-<!-- Using with custom classes -->
-<style>
-  .highlight-goldenrod {
-    background-color: var(--brand-light-goldenrod);
-    border-left: 4px solid var(--brand-goldenrod);
-  }
-</style>
-```
 
 ---
 
@@ -160,62 +121,3 @@ Ensure sufficient contrast for accessibility (WCAG AA minimum):
 **Avoid for Text:**
 - Light colors on white backgrounds
 - Similar tones (e.g., Greystone on Light Greystone)
-
----
-
-## Color Families & Usage Suggestions
-
-### When to Use Each Color Family
-
-**Primary (Maroon + Greystones):**
-- Main navigation
-- Headings
-- Primary CTAs
-- Brand presence
-
-**Goldenrod Family (Warm Yellow):**
-- Warnings and cautions
-- Highlights and callouts
-- Energetic accents
-- Special events
-
-**Terracotta Family (Orange):**
-- Secondary CTAs
-- Warm, inviting sections
-- Cultural/community content
-- Events and programs
-
-**Ivy/Forest (Green):**
-- Success confirmations
-- Environmental/sustainability content
-- Growth and learning
-- Positive messaging
-
-**Lake (Blue):**
-- Informational content
-- Links and navigation
-- Trust and reliability
-- Academic content
-
-**Violet (Purple):**
-- Creative sections
-- Special collections
-- Arts and humanities
-- Unique content areas
-
-**Brick (Red):**
-- Errors and warnings
-- Critical information
-- Urgent alerts
-- Important deadlines
-
----
-
-## Design System Integration
-
-All colors are available as:
-1. **Bootstrap semantic classes** (e.g., `.btn-primary`, `.alert-success`)
-2. **CSS custom properties** (e.g., `var(--brand-ivy)`)
-3. **Bootstrap gray scale** (`--bs-gray-100` through `--bs-gray-900`)
-
-See `assets/css/custom-variables.css` for the complete variable definitions.
