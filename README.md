@@ -1,82 +1,101 @@
-# Brainstorm Mockups
+# Design System Documentation Site
 
-GenAI-friendly mockup sandbox: static HTML/CSS/vanilla JS, no build tools, open directly in the browser.
+A static site for documenting and demonstrating a design system, built with **Eleventy**, **Bootstrap 5 (SCSS)**, and **FontAwesome**. Designed to be hosted on **GitHub Pages** with minimal dependencies and maximum reusability.
+- Demonstrates reusable components (buttons, forms, etc.)
+- Provides demo and mockup pages
+- Uses **Bootstrap 5 (SCSS)** for styling, with custom overrides
+- Uses **FontAwesome** for icons
+- Is **static** and requires no backend
+- Is optimized for **GitHub Pages** deployment
 
-## Purpose
-- Local-only prototyping; never deployed
-- CDN-loaded dependencies; zero compilation
-- Reusable Web Components plus demo pages
+## 📦 Project Structure
+```
+project-root/
+├── src/
+│   ├── _includes/          # HTML partials (header, footer, etc.)
+│   ├── styles/             # SCSS files
+│   │   ├── _variables.scss # Bootstrap variable overrides
+│   │   ├── _buttons.scss   # Custom button styles
+│   │   └── main.scss       # Main SCSS entry point
+│   ├── demo/               # Demo pages (HTML)
+│   ├── mockups/            # Mockup pages (HTML)
+│   └── index.html          # Homepage
+├── dist/                   # Built site (deployed to GitHub Pages)
+├── package.json            # NPM scripts and dependencies
+└── .eleventy.js            # Eleventy configuration
+```
 
-## Structure
-- `index.html` — navigation hub
-- `assets/css/` — fonts, Bootstrap overrides, design system
-- `components/` — Web Components (JS + optional CSS)
-- `demos/` — full pages showcasing components
-- `pages/` — full-page mockups
-- `templates/` — base.html, demo-page.html, component-web-component.js
+## 🛠 Setup Instructions
 
-## How to Work
-1. Open `index.html` in a browser (or run `python -m http.server 8000` for localhost)
-2. Create a component:
-   - Copy `templates/component-web-component.js` → `components/my-component.js`
-   - (Optional) Copy `templates/demo-page.html` → `demos/my-component-demo.html`
-   - Add optional CSS only if Bootstrap or design-system cannot cover it
-   - Update `index.html` to link the demo
-3. Create a page: copy `templates/base.html` → `pages/my-page.html`; add CSS only if needed
+### 1. Prerequisites
+- [Node.js](https://nodejs.org/) (v16 or later)
+- NPM (comes with Node.js)
 
-## CSS Loading Order (Keep This)
-1. Bootstrap CDN
-2. `assets/css/fonts.css`
-3. `assets/css/custom-variables.css`
-4. `assets/css/design-system.css`
-5. Component or page CSS (only if required)
+### 2. Clone the Repository
+```bash
+git clone <your-repo-url>
+cd <your-repo-folder>
+```
 
-## Web Component Customization
-**Currently: Components render fixed default content.** Customizing component instances via attributes or children is not yet supported—the complexity of state management in Web Components without a framework proved too difficult to resolve. Future versions may add this capability.
+### 3. Install Dependencies
+```bash
+npm install
+```
 
-## Keep It Simple
-- Use Bootstrap utilities first; avoid custom CSS unless necessary
-- Prefer HTML/CSS and Bootstrap data attributes over JavaScript
-- Web Components should render just the component markup (no page layout)
-      # Brainstorming Mockups
+### 4. Run the Development Server
+```bash
+npm run dev
+```
+- This will start Eleventy's dev server with live reload and watch for SCSS changes.
 
-      GenAI-friendly mockup sandbox: static HTML/CSS/vanilla JS, no build tools, open directly in the browser.
+### 5. Build for Production
+```bash
+npm run prod
+```
+- This generates the `dist/` folder, which is ready for deployment.
 
-      ## Purpose
-      - Local-only prototyping; never deployed
-      - CDN-loaded dependencies; zero compilation
-      - Reusable Web Components plus demo pages
+## 📝 Usage Guidelines
+- Branding variables (e.g., colors, typography) are defined in `src/styles/_variables.scss` and override Bootstrap’s default variables.
+- Elements like buttons, forms, inputs are styled using Bootstrap’s utility classes and custom SCSS.
+   - Custom classes should only be added when necessary (e.g., `.btn-brand` for branded buttons).
+   - Each bespoke element (e.g., buttons, cards) has its own SCSS file in `src/styles/` (e.g., `_buttons.scss`, `_forms.scss`).
+- Global components (e.g., header, footer) are defined as HTML partials in `src/_includes/` (e.g., `header.html`, `footer.html`).
+   - Markup: Dedicated HTML partial files.
+   - Styling: Follows the same SCSS structure as elements (separate files in `src/styles/`).
+- Demo pages (`src/demo/`) showcase individual styles, elements, and components in isolation.
+- Mockup pages (`src/mockups/`) simulate real-world page layouts using the design system.
 
-      ## Structure
-      - index.html — navigation hub
-      - assets/css — fonts, Bootstrap overrides, design system
-      - components/ — Web Components (JS + optional CSS)
-      - demos/ — full pages showcasing components
-      - pages/ — full-page mockups
-      - templates/ — base.html, demo-page.html, component-web-component.js
 
-      ## How to work
-      1) Open `index.html` in a browser (or run `python -m http.server 8000` if you prefer localhost).
-      2) Create a component:
-         - Copy `templates/component-web-component.js` → `components/my-component.js`
-         - (Optional) Copy `templates/demo-page.html` → `demos/my-component-demo.html`
-         - Add optional CSS only if Bootstrap or design-system cannot cover it
-         - Update `index.html` to link the demo
-      3) Create a page: copy `templates/base.html` → `pages/my-page.html`; add `pages/my-page.css` only if needed.
+### Adding a New Component
+1. **Create a new SCSS file** in `src/styles/` (e.g., `_cards.scss`).
+2. **Import it** in `main.scss`:
+   ```scss
+   @import "cards";
+   ```
+3. **Create a demo page** in `src/demo/` or `src/mockups/` to showcase the component.
 
-      ## CSS loading order (keep this)
-      1. Bootstrap CDN
-      2. assets/css/fonts.css
-      3. assets/css/custom-variables.css
-      4. assets/css/design-system.css
-      5. Component or page CSS (only if required)
+### Adding a New Page
+1. **Create a new HTML file** in `src/demo/` or `src/mockups/`.
+2. **Include reusable components** (header/footer) using Eleventy's `include` tag:
+   ```html
+   {% include "header.html" %}
+   ```
 
-      ## Keep it simple
-      - Use Bootstrap utilities first; avoid custom CSS unless necessary
-      - Prefer HTML/CSS and Bootstrap data attributes over JavaScript
-      - Web Components should render just the component markup (no page layout)
+### Customizing Bootstrap
+- Override Bootstrap variables in `src/styles/_variables.scss`:
+  ```scss
+  $primary: #your-brand-color;
+  $body-bg: #f8f9fa;
+  ```
+- Use Bootstrap's [SCSS documentation](https://getbootstrap.com/docs/5.3/customize/overview/) for reference.
 
-      ## See also
-      - QUICKSTART.md for command snippets
-      - CHANGELOG.md for notable updates
-      - LICENSE for licensing
+## 🔧 Dependencies
+| Dependency       | Version   | Purpose                          |
+|------------------|-----------|----------------------------------|
+| Eleventy         | Latest    | Static site generator            |
+| Bootstrap        | Latest    | CSS framework (SCSS)             |
+| FontAwesome      | Latest    | Icons (CDN or self-hosted)       |
+| Sass             | Latest    | SCSS compilation                 |
+
+## 📄 License
+MIT License. See [LICENSE](LICENSE) for details.
