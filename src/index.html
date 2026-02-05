@@ -1,5 +1,6 @@
 {% include "header.html" %}
 
+
 <main class="container my-5">
   <div class="row">
     <div class="col-lg-10 mx-auto">
@@ -62,11 +63,16 @@
       <section class="mb-5">
         <h2>Getting Started</h2>
         <p>Explore the design system through our organized sections:</p>
-        <ul>
-          <li><a href="/demo/typography.html">Typography Demo</a> - See all text styles and HTML elements</li>
-          <li><strong>Component Demos</strong> - Individual component showcases (coming soon)</li>
-          <li><strong>Mockup Pages</strong> - Full page layout examples (coming soon)</li>
-        </ul>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <a href="/demo/" class="btn btn-primary btn-lg w-100">Component Demos</a>
+            <p class="small text-muted mt-2">Browse all component demonstrations including typography, buttons, forms, and more.</p>
+          </div>
+          <div class="col-md-6">
+            <a href="/mockups/" class="btn btn-secondary btn-lg w-100">Mockup Pages</a>
+            <p class="small text-muted mt-2">Full page layout examples showing real-world usage of the design system.</p>
+          </div>
+        </div>
       </section>
 
       <section class="mb-5">

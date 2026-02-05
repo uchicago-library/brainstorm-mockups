@@ -7,6 +7,7 @@ A static site for documenting and demonstrating a design system, built with **El
 - Uses **FontAwesome** for icons
 - Is **static** and requires no backend
 - Is optimized for **GitHub Pages** deployment
+- Also a test to see if we can use this to run quick genAI brainstroming mockups.
 
 ## 📦 Project Structure
 ```
