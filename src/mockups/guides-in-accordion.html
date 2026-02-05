@@ -1,12 +1,20 @@
 {% include "header.html" %}
 
-<main class="container-md my-5">
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md pt-2">
+  <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
+    <li class="breadcrumb-item"><a href="{{ '/' | url }}" class="text-muted text-decoration-none">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ '/mockups/' | url }}" class="text-muted text-decoration-none">Mockups</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">Guides in Accordion</li>
+  </ol>
+</nav>
+
+<main class="container-md py-4 mb-5">
   <div class="row">
     <div class="col-lg-10 mx-auto">
       
       <h1 class="display-4 mb-3">Library Guides</h1>
       <p class="lead mb-4">Explore our comprehensive collection of research guides organized by subject area.</p>
-      <p><a href="{{ '/mockups/' | url }}">← Back to Mockups</a></p>
 
       <!-- Search Box -->
       <div class="mb-5">

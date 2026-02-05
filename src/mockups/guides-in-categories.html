@@ -1,6 +1,15 @@
 {% include "header.html" %}
 
-<main class="container-md my-5">
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md pt-2">
+  <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
+    <li class="breadcrumb-item"><a href="{{ '/' | url }}" class="text-muted text-decoration-none">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ '/mockups/' | url }}" class="text-muted text-decoration-none">Mockups</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">Guides in Categories</li>
+  </ol>
+</nav>
+
+<main class="container-md py-4 mb-5">
   <h1>Guides in Categories</h1>
   <p><a href="{{ '/mockups/' | url }}">← Back to Mockups</a></p>
   
