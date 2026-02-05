@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University of Chicago Library</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header role="banner">
+  <!-- Logo and Shortcuts Bar -->
+  <div class="logo-bar bg-white">
+    <div class="container-md">
+      <div class="d-flex justify-content-between align-items-center py-3">
+        <!-- Logo -->
+        <a class="navbar-brand m-0" href="/" itemscope itemtype="http://schema.org/Organization">
+          <span class="visually-hidden" itemprop="name">The University of Chicago Library</span>
+          <img itemprop="logo" src="https://www.lib.uchicago.edu/web-resources/img/color-logo.png" alt="University of Chicago Library" style="max-height: 50px;">
+        </a>
+
+        <!-- Desktop Shortcuts (same row as logo) -->
+        <ul class="nav d-none d-lg-flex" id="navbar-shortcuts" role="list">
+          <li class="nav-item">
+            <a class="nav-link" href="/research/help/ask-librarian/">
+              <i class="fa-solid fa-comment" aria-hidden="true"></i>
+              <span>Ask a Librarian</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/libraries/libraries-hours/">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              <span>View Hours</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about/thelibrary/supportus/">
+              <i class="fa-solid fa-gift" aria-hidden="true"></i>
+              <span>Support the Library</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://www.lib.uchicago.edu/myaccount">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+              <span>My Library Account</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Mobile toggle button -->
+        <button class="navbar-toggler d-lg-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#global-navbar" aria-controls="global-navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark global-navbar p-0" aria-label="Main navigation">
+    <div class="container-md">
+      <div class="collapse navbar-collapse" id="global-navbar">
+        <!-- Main navigation links -->
+        <ul class="navbar-nav w-100" role="list">
+          
+          <!-- Search Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Search
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-start" aria-labelledby="searchDropdown">
+            <li><h6 class="dropdown-header">Catalogs</h6></li>
+            <li><a class="dropdown-item" href="/h/3">Library Catalog</a></li>
+            <li><a class="dropdown-item" href="/h/borrowdirect">BorrowDirect</a></li>
+            <li><a class="dropdown-item" href="http://proxy.uchicago.edu/login?qurl=http%3A%2F%2Flib.uchicago.edu%2Fh%2Fworldcat">WorldCat</a></li>
+            <li><a class="dropdown-item" href="/search/catalogs/other">Other Catalogs</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Other Search Tools</h6></li>
+            <li><a class="dropdown-item" href="http://proxy.uchicago.edu/login?qurl=http%3A%2F%2Flib.uchicago.edu%2Fh%2Farticlesplus">Articles Plus</a></li>
+            <li><a class="dropdown-item" href="/h/atoz">Database Finder</a></li>
+            <li><a class="dropdown-item" href="https://guides.lib.uchicago.edu/az.php?t=41934">Database Trials</a></li>
+            <li><a class="dropdown-item" href="/ejournals">Ejournals</a></li>
+            <li><a class="dropdown-item" href="https://knowledge.uchicago.edu/">KnowledgeUChicago</a></li>
+            <li><a class="dropdown-item" href="https://guides.lib.uchicago.edu/off-campus">Proxy & Off-Campus Access</a></li>
+            <li><a class="dropdown-item" href="/#tab-3">Website Search</a></li>
+          </ul>
+        </li>
+
+        <!-- Borrow & Request Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="borrowDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Borrow & Request
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="borrowDropdown">
+            <li><h6 class="dropdown-header">Borrow</h6></li>
+            <li><a class="dropdown-item" href="/borrow/borrowing/due-dates-and-loan-periods/">Due Dates & Loan Periods</a></li>
+            <li><a class="dropdown-item" href="/borrow/borrowing/renewing-and-returning-items/">Renewing & Returning Items</a></li>
+            <li><a class="dropdown-item" href="/borrow/borrowing/fines-and-lost-items/">Fines & Lost Items</a></li>
+            <li><a class="dropdown-item" href="/borrow/borrowing/course-reserves">Course Reserves</a></li>
+            <li><a class="dropdown-item" href="/borrow/borrowing/checkout">Checkout UChicago</a></li>
+            <li><a class="dropdown-item" href="http://www.lib.uchicago.edu/myaccount">My Library Account</a></li>
+            <li><a class="dropdown-item" href="https://www.lib.uchicago.edu/borrow/borrowing/who-can-borrow/">Who Can Borrow</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Request</h6></li>
+            <li><a class="dropdown-item" href="/borrow/requesting/interlibrary-loan/">Interlibrary Loan</a></li>
+            <li><a class="dropdown-item" href="/borrow/borrowing/paging/">Paging & Pickup</a></li>
+            <li><a class="dropdown-item" href="/borrow/requesting/scan-deliver/">Scan & Deliver</a></li>
+            <li><a class="dropdown-item" href="/borrow/requesting/suggest-purchase/">Suggest a Purchase</a></li>
+            <li><a class="dropdown-item" href="https://www.lib.uchicago.edu/about/directory/departments/pres/digitization-services-for-general-collections/">Digitization Services</a></li>
+          </ul>
+        </li>
+
+        <!-- Research & Teaching Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Research & Teaching
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="researchDropdown">
+            <li><h6 class="dropdown-header">Research Help & Tools</h6></li>
+            <li><a class="dropdown-item" href="/research/help/ask-librarian/">Ask a Librarian</a></li>
+            <li><a class="dropdown-item" href="/about/directory/?view=staff&subject=All+Subject+Specialists">Subject Specialists</a></li>
+            <li><a class="dropdown-item" href="http://guides.lib.uchicago.edu/citation_management">Citation Management</a></li>
+            <li><a class="dropdown-item" href="http://guides.lib.uchicago.edu/subjectguides/helpguides">Help Guides</a></li>
+            <li><a class="dropdown-item" href="http://guides.lib.uchicago.edu/subjectguides">Subject Guides</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Programs</h6></li>
+            <li><a class="dropdown-item" href="/research/kim-park-program-for-the-study-of-the-book/">Kim-Park Program for the Study of the Book</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Teaching Support</h6></li>
+            <li><a class="dropdown-item" href="/research/teaching/course-reserves-setup/">Course Reserves Setup</a></li>
+            <li><a class="dropdown-item" href="/research/teaching/research-instruction-courses/">Instruction for Courses</a></li>
+            <li><a class="dropdown-item" href="/research/teaching/">Teaching & Learning Services</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Digital Scholarship</h6></li>
+            <li><a class="dropdown-item" href="/research/scholar/">Center for Digital Scholarship</a></li>
+            <li><a class="dropdown-item" href="/research/scholar/phd">Dissertation Office</a></li>
+            <li><a class="dropdown-item" href="https://knowledge.uchicago.edu/">KnowledgeUChicago</a></li>
+            <li><a class="dropdown-item" href="https://www.lib.uchicago.edu/copyrightinfo/">Copyright Info</a></li>
+          </ul>
+        </li>
+
+        <!-- Collections & Exhibits Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="collectionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Collections & Exhibits
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="collectionsDropdown">
+            <li><h6 class="dropdown-header">Collections</h6></li>
+            <li><a class="dropdown-item" href="/collex/">Notable Collections</a></li>
+            <li><a class="dropdown-item" href="/collex/?digital=on&view=collections">Digital Collections</a></li>
+            <li><a class="dropdown-item" href="/collex/?view=subjects">Collecting Areas by Subject</a></li>
+            <li><a class="dropdown-item" href="/collex/collections/other-local-collections/">Other Local Collections</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Exhibits</h6></li>
+            <li><a class="dropdown-item" href="/collex/?view=exhibits">All Exhibits</a></li>
+            <li><a class="dropdown-item" href="/collex/?digital=on&view=exhibits">Web Exhibits</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Research Centers</h6></li>
+            <li><a class="dropdown-item" href="/about/directory/departments/eastasia/">East Asian Collection</a></li>
+            <li><a class="dropdown-item" href="/about/directory/departments/map-collection/">Map Collection</a></li>
+            <li><a class="dropdown-item" href="/about/directory/departments/southasia/">Southern Asia Collection</a></li>
+            <li><a class="dropdown-item" href="/scrc/">Special Collections</a></li>
+          </ul>
+        </li>
+
+        <!-- Visit & Study Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="visitDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Visit & Study
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="visitDropdown">
+            <li><h6 class="dropdown-header">Visiting the Library</h6></li>
+            <li><a class="dropdown-item" href="/borrow/access-privileges/visitors/">Visitor Information</a></li>
+            <li><a class="dropdown-item" href="/scrc/visiting/reading-room-access/">Visiting Special Collections</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Using Our Spaces</h6></li>
+            <li><a class="dropdown-item" href="https://rooms.lib.uchicago.edu/r/search/seats#s-lc-public-pt">Book a Room</a></li>
+            <li><a class="dropdown-item" href="/spaces/">Places to Study</a></li>
+            <li><a class="dropdown-item" href="https://printing.uchicago.edu/">Copy, Print & Scan</a></li>
+            <li><a class="dropdown-item" href="/thelibrary/computers-and-wireless/">Computers & Wireless</a></li>
+            <li><a class="dropdown-item" href="/spaces/joseph-regenstein-library/regenstein-lockers/">Lockers</a></li>
+            <li><a class="dropdown-item" href="/thelibrary/techbar/">TechBar</a></li>
+          </ul>
+        </li>
+
+        <!-- Libraries Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="librariesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Libraries
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="librariesDropdown">
+            <li><h6 class="dropdown-header">Our Locations</h6></li>
+            <li><a class="dropdown-item" href="/crerar/">Crerar</a></li>
+            <li><a class="dropdown-item" href="/law/">D'Angelo Law</a></li>
+            <li><a class="dropdown-item" href="/eck/">Eckhart</a></li>
+            <li><a class="dropdown-item" href="/mansueto/">Mansueto</a></li>
+            <li><a class="dropdown-item" href="/spaces/joseph-regenstein-library/">Regenstein</a></li>
+            <li><a class="dropdown-item" href="/swl/">Social Work</a></li>
+            <li><a class="dropdown-item" href="/scrc/">Special Collections</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/libraries/libraries-hours/">Hours</a></li>
+          </ul>
+        </li>
+
+        <!-- About Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            About
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutDropdown">
+            <li><h6 class="dropdown-header">The Library</h6></li>
+            <li><a class="dropdown-item" href="/about/thelibrary/">About the Library</a></li>
+            <li><a class="dropdown-item" href="/about/thelibrary/mission/">Mission & Strategic Plan</a></li>
+            <li><a class="dropdown-item" href="/about/thelibrary/library-diversity-equity-and-inclusion-vision-statement/">DEI Vision Statement</a></li>
+            <li><a class="dropdown-item" href="/about/directory/">Departments & Staff</a></li>
+            <li><a class="dropdown-item" href="/about/thelibrary/employment/">Employment</a></li>
+            <li><a class="dropdown-item" href="/about/thelibrary/policies/">Library Policies</a></li>
+            <li><a class="dropdown-item" href="/about/thelibrary/committees/">Library Boards & Committees</a></li>
+            <li><a class="dropdown-item" href="/about/thelibrary/supportus/">Support the Library</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">News & Events</h6></li>
+            <li><a class="dropdown-item" href="/about/news/">News</a></li>
+            <li><a class="dropdown-item" href="/about/news-events/events/">Workshops & Events</a></li>
+            <li><a class="dropdown-item" href="/about/thelibrary/conferences/">Conferences</a></li>
+            <li><a class="dropdown-item" href="/about/news-events/libra">Libra Newsletter</a></li>
+            <li><a class="dropdown-item" href="/about/news-events/social-media/">Social Media Directory</a></li>
+          </ul>
+        </li>
+        <!-- // About Dropdown -->
+
+        <!-- Mobile Shortcuts Section (only visible on mobile) -->
+        <li class="nav-item d-lg-none mt-3">
+          <hr class="dropdown-divider my-2" style="border-color: rgba(255, 255, 255, 0.3);">
+        </li>
+        <li class="d-lg-none">
+          <h6 class="dropdown-header text-white-50 px-3">Quick Links</h6>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="/research/help/ask-librarian/">
+            <i class="fa-solid fa-comment me-2" aria-hidden="true"></i>
+            Ask a Librarian
+          </a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="/libraries/libraries-hours/">
+            <i class="fa-solid fa-clock me-2" aria-hidden="true"></i>
+            View Hours
+          </a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="/about/thelibrary/supportus/">
+            <i class="fa-solid fa-gift me-2" aria-hidden="true"></i>
+            Support the Library
+          </a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="http://www.lib.uchicago.edu/myaccount">
+            <i class="fa-solid fa-user me-2" aria-hidden="true"></i>
+            My Library Account
+          </a>
+        </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<main class="container-md my-5">
+  <h1>Guides in Categories</h1>
+  <p><a href="/mockups/">← Back to Mockups</a></p>
+  
+  <!-- Content will be added per your instructions -->
+</main>
+
+<footer id="footer" role="contentinfo" class="footer">
+  <div class="container-md">
+    <div class="row">
+      
+      <!-- Contact Column -->
+      <div class="col-12 col-md-6 col-lg-2 col-footer mb-4">
+        <h2 class="footer-heading" id="contact_label">Contact</h2>
+        <ul aria-labelledby="contact_label">
+          <li><a href="/research/help/ask-librarian/ask-contact/">Contact Us</a></li>
+          <li><a href="/about/directory/?view=department">Library Departments</a></li>
+          <li><a href="/about/directory/?view=staff">Staff Directory</a></li>
+          <li><a href="https://chicagobooth.az1.qualtrics.com/jfe/form/SV_0Ul7ULLhiDnN90W?context_url=https%3A%2F%2Fwww.lib.uchicago.edu%2F&button=footer">Feedback</a></li>
+        </ul>
+      </div>
+
+      <!-- Information Column -->
+      <div class="col-12 col-md-6 col-lg-2 col-footer mb-4">
+        <h2 class="footer-heading" id="information_for_label">Information for</h2>
+        <ul aria-labelledby="information_for_label">
+          <li><a href="/research/help/infofor/accessibility/">Patrons with Disabilities</a></li>
+        </ul>
+
+        <h2 class="footer-heading" id="policies_label">Policies</h2>
+        <ul aria-labelledby="policies_label">
+          <li><a href="/about/thelibrary/policies/">Library Policies</a></li>
+          <li><a href="/about/thelibrary/policies/privacy/">Privacy Statement</a></li>
+          <li><a href="https://accessibility.uchicago.edu/">University Accessibility</a></li>
+        </ul>
+      </div>
+
+      <!-- Address Column (order-first on md+, goes to bottom on mobile) -->
+      <div class="col-12 col-md-12 col-lg-4 col-footer order-lg-3 order-2 mb-4">
+        <div class="centerdiv">
+          <a href="//www.uchicago.edu/">
+            <img alt="The University of Chicago" src="https://www.lib.uchicago.edu/web-resources/img/white-logo.png" width="150">
+          </a>
+          <p>
+            <span>The University of Chicago Library</span><br>
+            <span>1100 E. 57th St., Chicago, IL 60637</span>
+          </p>
+          <small>
+            © <span>The University of Chicago</span><br>
+            <span class="staff-login"><a href="/admin">Staff Login</a></span>
+          </small>
+        </div>
+      </div>
+
+      <!-- Libraries Column -->
+      <div class="col-12 col-md-6 col-lg-2 col-footer order-lg-4 order-1 mb-4">
+        <h2 class="footer-heading" id="library_list_label">Libraries</h2>
+        <ul aria-labelledby="library_list_label">
+          <li><a href="/crerar/">Crerar</a></li>
+          <li><a href="/law/">D'Angelo Law</a></li>
+          <li><a href="/eck/">Eckhart</a></li>
+          <li><a href="/mansueto/">Mansueto</a></li>
+          <li><a href="/spaces/joseph-regenstein-library/">Regenstein</a></li>
+          <li><a href="/scrc/">Special Collections</a></li>
+          <li><a href="/swl/">Social Work</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media Column -->
+      <div class="col-12 col-md-6 col-lg-2 col-footer order-lg-5 order-1 mb-4">
+        <h2 class="footer-heading" id="social_media_label">Library Social Media</h2>
+        <ul aria-labelledby="social_media_label">
+          <li><a href="http://www.facebook.com/uchicagolibrary"><i class="fa-brands fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+          <li><a href="https://twitter.com/UChicagoLibrary"><i class="fa-brands fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+          <li><a href="https://www.instagram.com/uchicagolibrary/"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          <li><a href="http://news.lib.uchicago.edu/"><i class="fa-solid fa-rss" aria-hidden="true"></i> Library News</a></li>
+          <li><a href="https://www.youtube.com/user/uchicagolibrary"><i class="fa-brands fa-youtube" aria-hidden="true"></i> YouTube</a></li>
+          <li><a href="/about/news-events/social-media/"><i class="fa-solid fa-clone" aria-hidden="true"></i> More Library Accounts...</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
