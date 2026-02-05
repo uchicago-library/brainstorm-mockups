@@ -1,36 +1,153 @@
-// Header/Navigation Styles
-.navbar {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+// Header Structure
+header[role="banner"] {
+  position: relative;
 }
 
-.navbar-brand img {
-  max-height: 50px;
-}
-
-.mobile-topnav {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0.5rem 1rem;
-  background-color: $light;
+// Logo Bar with Desktop Shortcuts
+.logo-bar {
+  border-bottom: 1px solid $light;
   
-  a {
-    margin-left: 1rem;
-    color: $primary;
-    
-    &:hover {
-      color: darken($primary, 10%);
+  .navbar-brand {
+    img {
+      max-height: 50px;
+      width: auto;
     }
   }
   
-  @media (min-width: 768px) {
-    display: none;
+  // Desktop shortcuts (same row as logo)
+  #navbar-shortcuts {
+    margin: 0;
+    
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: $primary;
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
+      
+      &:hover {
+        color: darken($primary, 10%);
+        text-decoration: none;
+      }
+      
+      i {
+        font-size: 1rem;
+      }
+    }
+  }
+  
+  // Mobile toggle button
+  .navbar-toggler {
+    padding: 0.25rem 0.5rem;
+    
+    .navbar-toggler-icon {
+      width: 1.5em;
+      height: 1.5em;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(128, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
   }
 }
 
-.navbar-shortcuts {
+// Global Navigation Bar
+.global-navbar {
+  background-color: $primary;
+  
+  .navbar-nav {
+    @media (min-width: 992px) {
+      justify-content: space-around;
+    }
+  }
+  
+  .nav-item {
+    @media (min-width: 992px) {
+      position: relative;
+    }
+  }
+  
   .nav-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+    
+    &:hover,
+    &:focus {
+      background-color: darken($primary, 10%);
+      color: #ffffff;
+    }
+    
+    @media (max-width: 991.98px) {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  .dropdown-toggle::after {
+    margin-left: 0.5rem;
+  }
+  
+  // Dropdown menus
+  .dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 0;
+    margin-top: 0;
+    
+    @media (min-width: 992px) {
+      min-width: 250px;
+    }
+    
+    @media (max-width: 991.98px) {
+      background-color: darken($primary, 5%);
+      padding-left: 1rem;
+      border: none;
+      box-shadow: none;
+    }
+  }
+  
+  .dropdown-header {
+    font-weight: 600;
+    color: $primary;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    padding: 0.75rem 1rem 0.5rem;
+    
+    @media (max-width: 991.98px) {
+      color: #ffffff;
+    }
+  }
+  
+  .dropdown-item {
+    padding: 0.5rem 1rem;
+    color: $dark;
+    transition: background-color 0.2s ease;
+    
+    &:hover,
+    &:focus {
+      background-color: $light;
+      color: $primary;
+    }
+    
+    @media (max-width: 991.98px) {
+      color: #ffffff;
+      
+      &:hover,
+      &:focus {
+        background-color: darken($primary, 15%);
+        color: #ffffff;
+      }
+    }
+  }
+  
+  .dropdown-divider {
+    margin: 0.5rem 0;
+    
+    @media (max-width: 991.98px) {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
   }
 }

@@ -9,34 +9,61 @@
 </head>
 <body>
 
-<!-- Mobile top navigation -->
-<div class="mobile-topnav d-md-none">
-  <a href="/libraries/libraries-hours/" aria-label="Library Hours"><i class="fa-solid fa-clock fa-2x"></i></a>
-  <a href="/research/help/ask-librarian/" aria-label="Ask a Librarian"><i class="fa-solid fa-comment fa-2x"></i></a>
-  <a href="/about/thelibrary/supportus/" aria-label="Support the Library"><i class="fa-solid fa-gift fa-2x"></i></a>
-  <a href="http://www.lib.uchicago.edu/myaccount" aria-label="My Library Account"><i class="fa-solid fa-user fa-2x"></i></a>
-</div>
+<header role="banner">
+  <!-- Logo and Shortcuts Bar -->
+  <div class="logo-bar bg-white">
+    <div class="container-md">
+      <div class="d-flex justify-content-between align-items-center py-3">
+        <!-- Logo -->
+        <a class="navbar-brand m-0" href="/" itemscope itemtype="http://schema.org/Organization">
+          <span class="visually-hidden" itemprop="name">The University of Chicago Library</span>
+          <img itemprop="logo" src="https://www.lib.uchicago.edu/web-resources/img/color-logo.png" alt="University of Chicago Library" style="max-height: 50px;">
+        </a>
 
-<!-- Main Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white" aria-label="main">
-  <div class="container-fluid">
-    <!-- Logo -->
-    <a class="navbar-brand" href="/" itemscope itemtype="http://schema.org/Organization">
-      <span class="visually-hidden" itemprop="name">The University of Chicago Library</span>
-      <img itemprop="logo" src="https://www.lib.uchicago.edu/web-resources/img/color-logo.png" alt="University of Chicago Library" class="img-fluid">
-    </a>
+        <!-- Desktop Shortcuts (same row as logo) -->
+        <ul class="nav d-none d-lg-flex" id="navbar-shortcuts" role="list">
+          <li class="nav-item">
+            <a class="nav-link" href="/research/help/ask-librarian/">
+              <i class="fa-solid fa-comment" aria-hidden="true"></i>
+              <span>Ask a Librarian</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/libraries/libraries-hours/">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              <span>View Hours</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about/thelibrary/supportus/">
+              <i class="fa-solid fa-gift" aria-hidden="true"></i>
+              <span>Support the Library</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://www.lib.uchicago.edu/myaccount">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+              <span>My Library Account</span>
+            </a>
+          </li>
+        </ul>
 
-    <!-- Mobile toggle button -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <!-- Mobile toggle button -->
+        <button class="navbar-toggler d-lg-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#global-navbar" aria-controls="global-navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div>
 
-    <!-- Collapsible navbar content -->
-    <div class="collapse navbar-collapse" id="mainNavbar">
-      <!-- Main navigation links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        <!-- Search Dropdown -->
+  <!-- Global Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark global-navbar p-0" aria-label="Main navigation">
+    <div class="container-md">
+      <div class="collapse navbar-collapse" id="global-navbar">
+        <!-- Main navigation links -->
+        <ul class="navbar-nav w-100" role="list">
+          
+          <!-- Search Dropdown -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Search
@@ -199,35 +226,42 @@
             <li><a class="dropdown-item" href="/about/news-events/social-media/">Social Media Directory</a></li>
           </ul>
         </li>
-      </ul>
+        <!-- // About Dropdown -->
 
-      <!-- Right-side utility links (hidden on mobile) -->
-      <ul class="navbar-nav ms-auto d-none d-md-flex navbar-shortcuts">
-        <li class="nav-item">
+        <!-- Mobile Shortcuts Section (only visible on mobile) -->
+        <li class="nav-item d-lg-none mt-3">
+          <hr class="dropdown-divider my-2" style="border-color: rgba(255, 255, 255, 0.3);">
+        </li>
+        <li class="d-lg-none">
+          <h6 class="dropdown-header text-white-50 px-3">Quick Links</h6>
+        </li>
+        <li class="nav-item d-lg-none">
           <a class="nav-link" href="/research/help/ask-librarian/">
-            <i class="fa-solid fa-comment"></i>
+            <i class="fa-solid fa-comment me-2" aria-hidden="true"></i>
             Ask a Librarian
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-lg-none">
           <a class="nav-link" href="/libraries/libraries-hours/">
-            <i class="fa-solid fa-clock"></i>
+            <i class="fa-solid fa-clock me-2" aria-hidden="true"></i>
             View Hours
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-lg-none">
           <a class="nav-link" href="/about/thelibrary/supportus/">
-            <i class="fa-solid fa-gift"></i>
+            <i class="fa-solid fa-gift me-2" aria-hidden="true"></i>
             Support the Library
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-lg-none">
           <a class="nav-link" href="http://www.lib.uchicago.edu/myaccount">
-            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-user me-2" aria-hidden="true"></i>
             My Library Account
           </a>
         </li>
-      </ul>
+
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</header>
