@@ -1,5 +1,5 @@
 module.exports = function(eleventyConfig) {
-  // Copy assets to dist
+  // Copy assets to docs
   eleventyConfig.addPassthroughCopy("src/assets");
   
   // Watch SCSS files (Sass will handle compilation)
@@ -9,7 +9,7 @@ module.exports = function(eleventyConfig) {
   return {
     dir: {
       input: "src",
-      output: "dist",
+      output: "docs",
       includes: "_includes",
       data: "_data"
     },

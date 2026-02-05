@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
     "dev:eleventy": "eleventy --serve",
-    "dev:sass": "sass --watch src/styles:dist/styles",
+    "dev:sass": "sass --watch src/styles:docs/styles",
     "build": "npm-run-all build:*",
     "build:eleventy": "eleventy",
-    "build:sass": "sass src/styles:dist/styles --style=compressed",
+    "build:sass": "sass src/styles:docs/styles --style=compressed",
     "prod": "npm run build"
   },
   "keywords": [
