@@ -1,0 +1,60 @@
+// Footer Styles
+.footer {
+  background-color: $dark;
+  color: #ffffff;
+  padding: 3rem 0 2rem;
+  margin-top: 4rem;
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    
+    &:hover {
+      color: $light;
+      text-decoration: underline;
+    }
+  }
+
+  .footer-heading {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .centerdiv {
+    text-align: center;
+    
+    img {
+      margin-bottom: 1.5rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .col-footer {
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      padding-left: 1.5rem;
+      
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+}

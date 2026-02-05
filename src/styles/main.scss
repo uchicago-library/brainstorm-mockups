@@ -1,0 +1,9 @@
+// Import Bootstrap variable overrides first
+@import "variables";
+
+// Import Bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Import custom component styles
+@import "header";
+@import "footer";

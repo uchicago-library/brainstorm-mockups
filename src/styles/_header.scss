@@ -1,0 +1,36 @@
+// Header/Navigation Styles
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+  max-height: 50px;
+}
+
+.mobile-topnav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 1rem;
+  background-color: $light;
+  
+  a {
+    margin-left: 1rem;
+    color: $primary;
+    
+    &:hover {
+      color: darken($primary, 10%);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.navbar-shortcuts {
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
