@@ -1,0 +1,9 @@
+// Global element overrides
+// Use this file for customizing HTML elements that can't be controlled via Bootstrap variables
+
+
+// Preformatted text
+pre {
+  background-color: $brand-lighter-greystone;
+  color: $brand-dark-greystone;
+}

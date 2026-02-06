@@ -10,6 +10,7 @@ $dark: #000000;            // Black
 
 // Extended Brand Colors
 $brand-maroon: #800000;
+$brand-lighter-greystone: #f7f7f7;
 $brand-light-greystone: #D9D9D9;
 $brand-greystone: #A6A6A6;
 $brand-dark-greystone: #737373;
@@ -56,11 +57,6 @@ $font-family-sans-serif: "UChicago Sans Serif", -apple-system, BlinkMacSystemFon
 $body-bg: #ffffff;
 $body-color: $dark;
 
-// Code blocks
-$pre-bg: mix($body-bg, $light, 85%);
-$pre-color: $brand-dark-greystone;
-$pre-border-color: mix($body-bg, $brand-greystone, 80%);
-$code-color: $brand-dark-greystone;
 
 // Accordion
 $accordion-button-bg: $brand-light-greystone;
