@@ -55,3 +55,10 @@ $font-family-sans-serif: "UChicago Sans Serif", -apple-system, BlinkMacSystemFon
 // Body
 $body-bg: #ffffff;
 $body-color: $dark;
+
+// Accordion
+$accordion-button-bg: $brand-light-greystone;
+$accordion-button-active-bg: $brand-greystone;
+$accordion-button-color: $body-color;
+$accordion-button-active-color: $body-color;
+$accordion-button-focus-box-shadow: 0 0 0 0.25rem rgba($primary, 0.25);
