@@ -91,6 +91,7 @@ applyTo: '**'
   {% include "header.html" %}
   ```
 - **Keep markup clean**: No inline styles or scripts.
+- **Mockups Exception**: Since mockups are experimental, you may use `<style>` tags directly in mockup HTML files for new/prototype components. Centralize styles in a `<style>` block at the top of the file rather than inline styles. Once a component is finalized, move styles to dedicated SCSS files in `src/styles/`.
 
 ### **5. JavaScript Rules**
 - **Only use JavaScript for:**
