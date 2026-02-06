@@ -6,7 +6,7 @@
   <title>University of Chicago Library</title>
   <link rel="icon" type="image/x-icon" href="https://www.lib.uchicago.edu/web-resources/img/favicon-m.ico">
   <link rel="stylesheet" href="/brainstorm-mockups/styles/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
@@ -277,11 +277,116 @@
   </ol>
 </nav>
 
-<main class="container-md py-4 mb-5">
-  <h1>Guides in Categories</h1>
-  <p><a href="/brainstorm-mockups/mockups/">← Back to Mockups</a></p>
-  
-  <!-- Content will be added per your instructions -->
+<!-- Page Header -->
+<div class="container-md py-4">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      <h1 class="display-4 mb-2">Library Guides</h1>
+      <p class="lead text-muted mb-0">Find research guidance organized by subject, course, or topic.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .category-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid #800000;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    min-height: 280px;
+  }
+
+  .category-button:hover {
+    background-color: #f8f9fa;
+    border-color: #800000;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(128, 0, 0, 0.15);
+  }
+
+  .category-button-icon {
+    font-size: 3rem;
+    color: #800000;
+    margin-bottom: 1rem;
+  }
+
+  .category-button-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #000;
+  }
+
+  .category-button-description {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+  }
+</style>
+
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      
+      <!-- Search Box -->
+      <div class="mb-5">
+        <div class="input-group input-group-lg">
+          <input type="search" class="form-control" placeholder="Search library guides..." aria-label="Search library guides">
+          <button class="btn btn-primary" type="button">
+            <i class="fa-solid fa-search" aria-hidden="true"></i>
+            <span class="ms-1">Search</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Buttons Grid -->
+      <div class="row g-4">
+        
+        <!-- Subject Guides -->
+        <div class="col-md-6 col-lg-4">
+          <a href="#" class="category-button">
+            <div class="category-button-icon">
+              <i class="fa-solid fa-book"></i>
+            </div>
+            <div class="category-button-title">Subject Guides</div>
+            <p class="category-button-description">Choose from a broad list of academic disciplines for research. A great place to start!</p>
+          </a>
+        </div>
+
+        <!-- Course Guides -->
+        <div class="col-md-6 col-lg-4">
+          <a href="#" class="category-button">
+            <div class="category-button-icon">
+              <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <div class="category-button-title">Course Guides</div>
+            <p class="category-button-description">Find resources for your course assignments.</p>
+          </a>
+        </div>
+
+        <!-- How-to Guides -->
+        <div class="col-md-6 col-lg-4">
+          <a href="#" class="category-button">
+            <div class="category-button-icon">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <div class="category-button-title">How-to Guides</div>
+            <p class="category-button-description">Explore resources on a variety of tools and topics.</p>
+          </a>
+        </div>
+
+      </div><!-- End Category Buttons Grid -->
+
+    </div>
+  </div>
 </main>
 
 <footer id="footer" role="contentinfo" class="footer">
