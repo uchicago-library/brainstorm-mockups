@@ -272,19 +272,174 @@
 <nav aria-label="breadcrumb" class="container-md pt-2">
   <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
     <li class="breadcrumb-item"><a href="/brainstorm-mockups/" class="text-muted text-decoration-none">Home</a></li>
-    <li class="breadcrumb-item active text-muted" aria-current="page">Mockups</li>
+    <li class="breadcrumb-item"><a href="/brainstorm-mockups/mockups/" class="text-muted text-decoration-none">Mockups</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">Guides in Types</li>
   </ol>
 </nav>
 
-<main class="container-md py-4 mb-5">
-  <h1>Page Mockups</h1>
-  <p><a href="/brainstorm-mockups/">← Back to Home</a></p>
-  
-  <ul>
-    <li><a href="/brainstorm-mockups/mockups/guides-in-accordion/">Guides in Accordion</a></li>
-    <li><a href="/brainstorm-mockups/mockups/guides-in-photos/">Guides in Photos</a></li>
-    <li><a href="/brainstorm-mockups/mockups/guides-in-types/">Guides in Types</a></li>
-  </ul>
+<!-- Page Header -->
+<div class="container-md py-4">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      <h1 class="display-4 mb-2">Library Guides</h1>
+      <p class="lead text-muted mb-0">Find research guidance organized by subject, course, or topic.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .category-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid #800000;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    min-height: 280px;
+  }
+
+  .category-button:hover {
+    background-color: #f8f9fa;
+    border-color: #800000;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(128, 0, 0, 0.15);
+  }
+
+  .category-button-icon {
+    font-size: 3rem;
+    color: #800000;
+    margin-bottom: 1rem;
+  }
+
+  .category-button-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #000;
+  }
+
+  .category-button-description {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+  }
+</style>
+
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      
+      <!-- Search Box -->
+      <div class="mb-5">
+        <div class="input-group input-group-lg">
+          <input type="search" class="form-control" placeholder="Search library guides..." aria-label="Search library guides">
+          <button class="btn btn-primary" type="button">
+            <i class="fa-solid fa-search" aria-hidden="true"></i>
+            <span class="ms-1">Search</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Buttons Grid -->
+      <div class="row g-4">
+        
+        <!-- Subject Guides -->
+        <div class="col-md-6 col-lg-4">
+          <a href="#" class="category-button">
+            <div class="category-button-icon">
+              <i class="fa-solid fa-book"></i>
+            </div>
+            <div class="category-button-title">Subject Guides</div>
+            <p class="category-button-description">Choose from a broad list of academic disciplines for research. A great place to start!</p>
+          </a>
+        </div>
+
+        <!-- Course Guides -->
+        <div class="col-md-6 col-lg-4">
+          <a href="#" class="category-button">
+            <div class="category-button-icon">
+              <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <div class="category-button-title">Course Guides</div>
+            <p class="category-button-description">Find resources for your course assignments.</p>
+          </a>
+        </div>
+
+        <!-- How-to Guides -->
+        <div class="col-md-6 col-lg-4">
+          <a href="#" class="category-button">
+            <div class="category-button-icon">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <div class="category-button-title">How-to Guides</div>
+            <p class="category-button-description">Explore resources on a variety of tools and topics.</p>
+          </a>
+        </div>
+
+      </div><!-- End Category Buttons Grid -->
+
+      <!-- Two Column Section with Accordions -->
+      <div class="row g-4 mt-5">
+        
+        <!-- Popular Guides Accordion -->
+        <div class="col-md-6">
+          <div class="accordion accordion-flush" id="popularGuides">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#popularCollapse" aria-expanded="true" aria-controls="popularCollapse">
+                  Popular Guides
+                </button>
+              </h2>
+              <div id="popularCollapse" class="accordion-collapse collapse show" data-bs-parent="#popularGuides">
+                <div class="accordion-body p-0">
+                  <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action">Introduction to Academic Research</a>
+                    <a href="#" class="list-group-item list-group-item-action">Finding Peer-Reviewed Articles</a>
+                    <a href="#" class="list-group-item list-group-item-action">Citation Management Tools</a>
+                    <a href="#" class="list-group-item list-group-item-action">Evaluating Sources</a>
+                    <a href="#" class="list-group-item list-group-item-action">Using the Library Catalog</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- New Guides Accordion -->
+        <div class="col-md-6">
+          <div class="accordion accordion-flush" id="newGuides">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#newCollapse" aria-expanded="true" aria-controls="newCollapse">
+                  New Guides
+                </button>
+              </h2>
+              <div id="newCollapse" class="accordion-collapse collapse show" data-bs-parent="#newGuides">
+                <div class="accordion-body p-0">
+                  <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action">AI Research Tools in Academia</a>
+                    <a href="#" class="list-group-item list-group-item-action">Open Access Publishing Guide</a>
+                    <a href="#" class="list-group-item list-group-item-action">Data Visualization Resources</a>
+                    <a href="#" class="list-group-item list-group-item-action">Qualitative Research Methods</a>
+                    <a href="#" class="list-group-item list-group-item-action">Digital Humanities Tools</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- End Two Column Section -->
+
+    </div>
+  </div>
 </main>
 
 <footer id="footer" role="contentinfo" class="footer">

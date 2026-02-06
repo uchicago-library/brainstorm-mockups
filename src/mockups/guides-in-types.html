@@ -5,7 +5,7 @@
   <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
     <li class="breadcrumb-item"><a href="{{ '/' | url }}" class="text-muted text-decoration-none">Home</a></li>
     <li class="breadcrumb-item"><a href="{{ '/mockups/' | url }}" class="text-muted text-decoration-none">Mockups</a></li>
-    <li class="breadcrumb-item active text-muted" aria-current="page">Guides in Categories</li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">Guides in Types</li>
   </ol>
 </nav>
 
@@ -116,6 +116,59 @@
         </div>
 
       </div><!-- End Category Buttons Grid -->
+
+      <!-- Two Column Section with Accordions -->
+      <div class="row g-4 mt-5">
+        
+        <!-- Popular Guides Accordion -->
+        <div class="col-md-6">
+          <div class="accordion accordion-flush" id="popularGuides">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#popularCollapse" aria-expanded="true" aria-controls="popularCollapse">
+                  Popular Guides
+                </button>
+              </h2>
+              <div id="popularCollapse" class="accordion-collapse collapse show" data-bs-parent="#popularGuides">
+                <div class="accordion-body p-0">
+                  <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action">Introduction to Academic Research</a>
+                    <a href="#" class="list-group-item list-group-item-action">Finding Peer-Reviewed Articles</a>
+                    <a href="#" class="list-group-item list-group-item-action">Citation Management Tools</a>
+                    <a href="#" class="list-group-item list-group-item-action">Evaluating Sources</a>
+                    <a href="#" class="list-group-item list-group-item-action">Using the Library Catalog</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- New Guides Accordion -->
+        <div class="col-md-6">
+          <div class="accordion accordion-flush" id="newGuides">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#newCollapse" aria-expanded="true" aria-controls="newCollapse">
+                  New Guides
+                </button>
+              </h2>
+              <div id="newCollapse" class="accordion-collapse collapse show" data-bs-parent="#newGuides">
+                <div class="accordion-body p-0">
+                  <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action">AI Research Tools in Academia</a>
+                    <a href="#" class="list-group-item list-group-item-action">Open Access Publishing Guide</a>
+                    <a href="#" class="list-group-item list-group-item-action">Data Visualization Resources</a>
+                    <a href="#" class="list-group-item list-group-item-action">Qualitative Research Methods</a>
+                    <a href="#" class="list-group-item list-group-item-action">Digital Humanities Tools</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- End Two Column Section -->
 
     </div>
   </div>
