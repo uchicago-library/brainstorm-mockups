@@ -1,0 +1,319 @@
+{% include "header.html" %}
+
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md pt-2">
+  <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
+    <li class="breadcrumb-item"><a href="{{ '/' | url }}" class="text-muted text-decoration-none">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ '/demo/' | url }}" class="text-muted text-decoration-none">Demos</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">Components</li>
+  </ol>
+</nav>
+
+<!-- Page Header -->
+<div class="container-md py-4">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      <h1 class="display-3 mb-2">Components</h1>
+      <p class="lead text-muted mb-0">Reusable UI components and patterns for the design system.</p>
+    </div>
+  </div>
+</div>
+
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+
+      <!-- Buttons Section -->
+      <section>
+        <h2 class="h4 mb-3">Buttons</h2>
+        
+        <div class="mb-4">
+          <h3 class="h6">Button Styles</h3>
+          <button class="btn btn-primary me-2 mb-2">Primary</button>
+          <button class="btn btn-secondary me-2 mb-2">Secondary</button>
+          <button class="btn btn-outline-primary me-2 mb-2">Outline Primary</button>
+          <button class="btn btn-outline-secondary mb-2">Outline Secondary</button>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="h6">Button Sizes</h3>
+          <button class="btn btn-primary btn-sm me-2 mb-2">Small</button>
+          <button class="btn btn-primary me-2 mb-2">Regular</button>
+          <button class="btn btn-primary btn-lg mb-2">Large</button>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="h6">Button States</h3>
+          <button class="btn btn-primary me-2 mb-2">Default</button>
+          <button class="btn btn-primary active me-2 mb-2">Active</button>
+          <button class="btn btn-primary disabled mb-2">Disabled</button>
+        </div>
+
+        <hr class="my-5">
+      </section>
+
+      <!-- Forms Section -->
+      <section>
+        <h2 class="h4 mb-3">Forms</h2>
+
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <h3 class="h6">Text Input</h3>
+            <div class="mb-3">
+              <label for="textInput" class="form-label">Text Input</label>
+              <input type="text" class="form-control" id="textInput" placeholder="Enter text">
+            </div>
+
+            <h3 class="h6">Checkboxes</h3>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="check1" checked>
+              <label class="form-check-label" for="check1">Option 1</label>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="check2">
+              <label class="form-check-label" for="check2">Option 2</label>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <h3 class="h6">Select</h3>
+            <select class="form-select mb-3">
+              <option selected>Choose an option</option>
+              <option>Option 1</option>
+              <option>Option 2</option>
+            </select>
+
+            <h3 class="h6">Radio Buttons</h3>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="radio" name="radio" id="radio1" checked>
+              <label class="form-check-label" for="radio1">Option A</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="radio" id="radio2">
+              <label class="form-check-label" for="radio2">Option B</label>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5">
+      </section>
+
+      <!-- Cards Section -->
+      <section>
+        <h2 class="h4 mb-3">Cards</h2>
+
+        <div class="row g-3 mb-4">
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Card Title</h5>
+                <p class="card-text">This is a basic card with a title, text, and footer.</p>
+                <a href="#" class="btn btn-primary btn-sm">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card border-primary">
+              <div class="card-body">
+                <h5 class="card-title">Primary Card</h5>
+                <p class="card-text">Card with a primary border for emphasis.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-header">Header</div>
+              <div class="card-body">
+                <h5 class="card-title">With Header</h5>
+                <p class="card-text">Card with a separate header section.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5">
+      </section>
+
+      <!-- Accordions Section -->
+      <section>
+        <h2 class="h4 mb-3">Accordions</h2>
+
+        <div class="accordion mb-4" id="accordionDemo">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true">
+                Accordion Item 1
+              </button>
+            </h3>
+            <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#accordionDemo">
+              <div class="accordion-body">
+                This is the body content for the first accordion item.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                Accordion Item 2
+              </button>
+            </h3>
+            <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#accordionDemo">
+              <div class="accordion-body">
+                This is the body content for the second accordion item.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                Accordion Item 3
+              </button>
+            </h3>
+            <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionDemo">
+              <div class="accordion-body">
+                This is the body content for the third accordion item.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5">
+      </section>
+
+      <!-- Lists Section -->
+      <section>
+        <h2 class="h4 mb-3">Lists</h2>
+
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <h3 class="h6">List Group</h3>
+            <ul class="list-group">
+              <li class="list-group-item">Item 1</li>
+              <li class="list-group-item">Item 2</li>
+              <li class="list-group-item">Item 3</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <h3 class="h6">List Group with Links</h3>
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action">Link Item 1</a>
+              <a href="#" class="list-group-item list-group-item-action active">Link Item 2 (Active)</a>
+              <a href="#" class="list-group-item list-group-item-action">Link Item 3</a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5">
+      </section>
+
+      <!-- Tables Section -->
+      <section>
+        <h2 class="h4 mb-3">Tables</h2>
+
+        <div class="table-responsive mb-4">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+              </tr>
+              <tr>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>Data 6</td>
+              </tr>
+              <tr>
+                <td>Data 7</td>
+                <td>Data 8</td>
+                <td>Data 9</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="my-5">
+      </section>
+
+      <!-- Icons Section -->
+      <section>
+        <h2 class="h4 mb-3">Icons (FontAwesome)</h2>
+
+        <div class="mb-4">
+          <p>FontAwesome icons can be used in various sizes and styles:</p>
+          <i class="fa-solid fa-heart me-3"></i>
+          <i class="fa-solid fa-star me-3"></i>
+          <i class="fa-solid fa-user me-3"></i>
+          <i class="fa-solid fa-search me-3"></i>
+          <i class="fa-solid fa-book me-3"></i>
+          <i class="fa-solid fa-check"></i>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="h6">Larger Icons</h3>
+          <i class="fa-solid fa-heart fa-2x me-3" style="color: #800000;"></i>
+          <i class="fa-solid fa-star fa-2x me-3" style="color: #800000;"></i>
+          <i class="fa-solid fa-book fa-2x" style="color: #800000;"></i>
+        </div>
+
+        <hr class="my-5">
+      </section>
+
+      <!-- Badges & Pills Section -->
+      <section>
+        <h2 class="h4 mb-3">Badges & Pills</h2>
+
+        <div class="mb-4">
+          <h3 class="h6">Badges</h3>
+          <span class="badge bg-primary me-2">Primary</span>
+          <span class="badge bg-secondary me-2">Secondary</span>
+          <span class="badge bg-success me-2">Success</span>
+          <span class="badge bg-danger me-2">Danger</span>
+        </div>
+
+        <div class="mb-4">
+          <h3 class="h6">Pills</h3>
+          <span class="badge rounded-pill bg-primary me-2">Primary Pill</span>
+          <span class="badge rounded-pill bg-secondary me-2">Secondary Pill</span>
+          <span class="badge rounded-pill bg-success">Success Pill</span>
+        </div>
+
+        <hr class="my-5">
+      </section>
+
+      <!-- Pagination Section -->
+      <section>
+        <h2 class="h4 mb-3">Pagination</h2>
+
+        <nav>
+          <ul class="pagination">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}
