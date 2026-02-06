@@ -55,6 +55,96 @@ npm run prod
 ```
 - This generates the `dist/` folder, which is ready for deployment.
 
+
+## 🎨 Design System
+
+This repo aims at structuring, demoeing, and documenting the UChicago Library Design System. For more information about it, consult the [planning document](https://uchicago.box.com/s/jf05ybrn63rgky5f66j8uhms6ljr26ez) (work in progress).
+
+### Design Tokens
+
+Design token are SCSS and CSS variables. Their structure allows to easily update the whole styling (for example, brighten the primary color). They are loosely organized into three levels of abstraction.
+- **Level 1**: Core Brand/utility (foundational) `primary, secondary, red-500, gray-200`
+- **Level 2**: Semantic Generic roles
+(reusable)
+`background, text-muted, border-subtle`
+- **Level 3**: Component Component/ role-specific `btn-primary-bg, search-placeholder-text`
+```
+scss/
+├── _variables.scss # Level 1 & 2 tokens
+├── _components.scss # Level 3 tokens + component styles
+├── _utilities.scss # Custom utilities (if needed)
+└── main.scss # Imports everything
+```
+Consider using CSS classes when a value is prone to be changed, like dark-light themes.
+
+### Design Atomization
+Examples.
+#### A. Design Tokens
+Design Tokens will be mostly defined by Bootstrap with our customizing overrides.
+- Colors (primary, secondary, neutrals, semantic colors)
+- Typography (font families, weights, sizes, line heights)
+- Spacing (margins, paddings, gaps)
+- Shadows, borders, radii
+- Transitions, animations
+#### B. Components
+- Buttons (primary, secondary, tertiary, sizes, states, specific)
+   - Search button
+   - Dropdown
+   - Subject (tag/badge/pill)
+   - Clickable headings
+- Forms (inputs, selects, checkboxes, radios, validation states)
+   - Search input
+- Navigation (headers, footers, breadcrumbs, menus)
+- Cards, thumbnails, accordions, modals, tooltips, panels(book a room)
+- Tables, lists, pagination, tabs
+- Icons (Font Awesome usage guidelines)
+- Utility classes (for spacing, alignment, etc.)
+- All Wagtail body blocks (streamfield blocks)
+- All Wagtail Widgets?
+   - Search Widget
+   - Quicklinks
+   - Auto-generated Sitemap
+   - Granular hours
+   - Banner
+   - Workshops and Events
+   - News
+   - Find Spaces
+   - Featured Collection
+   - Rich Text
+   - Carousel items
+   - Custom Icon Links
+   - Reusable Content Blocks
+   - Featured Expert Link*
+   - Featured library expert fallback
+   - Featured library experts
+   - CGIMail Form
+   - Social media
+#### C. Patterns 
+Components that may contain other components or likely page specific.
+- AAL chat
+- Main Search box
+- Home page widgets
+- Sidebar widgets, quick links, 
+- Left sidebar secondary navigation
+- Listings
+      - Staff listing, org chart, subjects listing, exhibits listing, collections listing, 
+      - Catalog item listing
+      - Events Listing
+      - Search results listing
+#### D. Layouts and Templates
+- Grid system (Bootstrap’s grid, custom breakpoints)
+- Page templates (all page types)
+- Responsive behaviors
+- Graphical Landing pages, CDS, SCRC, Exhibits
+- Services, buildings? (if we end up making a list of services and resources as a data type)
+#### E. Documentation
+- Design principles and guidelines
+- Usage examples (when to use what)
+- Contribution guidelines (how to add/update components)
+- Bootstrap customization (SCSS variables, overrides)
+- Font Awesome usage (icons, sizing, customization)
+
+
 ## 📝 Usage Guidelines
 - Branding variables (e.g., colors, typography) are defined in `src/styles/_variables.scss` and override Bootstrap’s default variables.
 - Elements like buttons, forms, inputs are styled using Bootstrap’s utility classes and custom SCSS.
@@ -65,6 +155,16 @@ npm run prod
    - Styling: Follows the same SCSS structure as elements (separate files in `src/styles/`).
 - Demo pages (`src/demo/`) showcase individual styles, elements, and components in isolation.
 - Mockup pages (`src/mockups/`) simulate real-world page layouts using the design system.
+
+### BEM (Block–Element–Modifier) Naming convention
+Having a naming convention can make it much easier to learn the system and find out where to make changes.
+`.block__elem—mod`
+1.	**Layout rules** (columns, grids used across templates)
+	Don’t BEM these. They’re structural, not semantic. Use utilities from BS.
+2.	**Bespoke components** (search box, news thumbnail, quick-links box)
+	Perfect BEM territory.
+3.	**Custom one-off elements** (like a specific spacer)
+	Don’t force BEM here. Use utilities for spacing, sizing, or alignment.
 
 
 ### Adding a New Component
@@ -89,6 +189,7 @@ npm run prod
   $body-bg: #f8f9fa;
   ```
 - Use Bootstrap's [SCSS documentation](https://getbootstrap.com/docs/5.3/customize/overview/) for reference.
+
 
 ## 🔧 Dependencies
 | Dependency       | Version   | Purpose                          |
