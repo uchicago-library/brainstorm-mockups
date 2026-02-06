@@ -287,49 +287,51 @@
   </div>
 </div>
 
+<style>
+  .guide-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.375rem;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    display: block;
+  }
+
+  .guide-card:hover {
+    transform: scale(1.05);
+  }
+
+  .guide-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
+  }
+
+  .guide-card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+    z-index: 1;
+  }
+
+  .guide-card-content h3 {
+    color: white;
+    margin-bottom: 0;
+  }
+</style>
+
 <main class="container-md py-5 mb-5">
-  <style>
-    .guide-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 0.375rem;
-      height: 250px;
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.3s ease;
-      text-decoration: none;
-      display: block;
-    }
 
-    .guide-card:hover {
-      transform: scale(1.05);
-    }
-
-    .guide-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
-    }
-
-    .guide-card-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 1rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-      z-index: 1;
-    }
-
-    .guide-card-content h3 {
-      color: white;
-      margin-bottom: 0;
-    }
-  </style>
 
   <div class="row">
     <div class="col-lg-10 mx-auto">
@@ -359,7 +361,7 @@
 
         <!-- Education -->
         <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1574258495687-cd881f5b6595?w=400&h=300&fit=crop');">
+          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&h=300&fit=crop');">
             <div class="guide-card-content">
               <h3 class="h5">Education</h3>
             </div>
@@ -368,7 +370,7 @@
 
         <!-- Engineering and Computing -->
         <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1512941691920-25bda36dc643?w=400&h=300&fit=crop');">
+          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400&h=300&fit=crop');">
             <div class="guide-card-content">
               <h3 class="h5">Engineering & Computing</h3>
             </div>
@@ -404,7 +406,7 @@
 
         <!-- Math and Quantitative Sciences -->
         <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop');">
+          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://plus.unsplash.com/premium_photo-1753380849525-d8c1f406fa4e?w=400&h=300&fit=crop');">
             <div class="guide-card-content">
               <h3 class="h5">Math & Quantitative Sciences</h3>
             </div>
@@ -413,7 +415,7 @@
 
         <!-- Social Sciences and Policy -->
         <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop');">
+          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1760892165556-a109903281c6?w=400&h=300&fit=crop');">
             <div class="guide-card-content">
               <h3 class="h5">Social Sciences & Policy</h3>
             </div>
@@ -431,7 +433,7 @@
 
         <!-- Writing, Communication, Literature, and Media -->
         <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1507842210811-62fb471b94ad?w=400&h=300&fit=crop');">
+          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop');">
             <div class="guide-card-content">
               <h3 class="h5">Writing & Media</h3>
             </div>
@@ -440,7 +442,7 @@
 
         <!-- @ the Libraries -->
         <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1564399579883-451a5d44be7f?w=400&h=300&fit=crop');">
+          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://www.lib.uchicago.edu/media/images/1stfloorrr.width-800.jpg');">
             <div class="guide-card-content">
               <h3 class="h5">@ the Libraries</h3>
             </div>
