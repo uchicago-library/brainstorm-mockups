@@ -11999,7 +11999,6 @@ header[role=banner] {
   background-color: #404040;
   color: #ffffff;
   padding: 3rem 0 2rem;
-  margin-top: 4rem;
 }
 .footer a {
   color: #ffffff;
@@ -12033,7 +12032,8 @@ header[role=banner] {
 }
 
 .sidebar {
-  background-color: #D9D9D9;
+  background-color: #f7f7f7;
+  border-left: 4px solid #800000;
 }
 
 /*# sourceMappingURL=main.css.map */
