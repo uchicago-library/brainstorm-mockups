@@ -1,0 +1,157 @@
+{% include "header.html" %}
+
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md pt-2">
+  <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
+    <li class="breadcrumb-item"><a href="{{ '/' | url }}" class="text-muted text-decoration-none">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ '/demo/' | url }}" class="text-muted text-decoration-none">Demos</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">Layouts</li>
+  </ol>
+</nav>
+
+<!-- Page Header -->
+<div class="container-md py-4">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      <h1 class="display-3 mb-2">Page Layouts</h1>
+      <p class="lead text-muted mb-3">Common page layout patterns for structuring content.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Single Column Layout Demo -->
+<section class="py-5 bg-light">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <h2 class="mb-3">Single Column Layout</h2>
+        <p class="text-muted mb-4">Simple centered layout for focused content. Best for articles, documentation, and forms.</p>
+        <h3 class="h5">Example Content</h3>
+        <p>This is a single column layout using <code>container-md</code> with a <code>col-lg-10 mx-auto</code> column. It provides a comfortable reading width and centers the content.</p>
+        <p class="mb-4">Perfect for documentation pages, blog posts, and long-form content where focus and readability are priorities.</p>
+
+        <!-- Code Example -->
+        <pre class="border p-3 rounded"><code>&lt;main class="container-md"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-lg-10 mx-auto"&gt;
+      &lt;!-- Content here --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main + Sidebar Layout Demo -->
+<section class="py-5 bg-white">
+  <div class="container-lg">
+    <div class="row g-4 mb-4">
+      <div class="col-lg-8">
+        <h2 class="mb-3">Main Column + Right Sidebar</h2>
+        <p class="text-muted mb-4">Two-column layout with primary content and supplementary sidebar. Sidebar stacks below on mobile.</p>
+        <h3 class="h5">Main Content</h3>
+        <p>The main content area uses <code>col-lg-8</code> for primary information. This column contains the core content users are looking for.</p>
+        <p class="mb-0">On mobile devices, this column takes full width and appears first.</p>
+      </div>
+      <div class="col-lg-4">
+        <div class="sidebar p-4 rounded">
+          <h3 class="h6">Sidebar</h3>
+          <p class="small">The sidebar uses <code>col-lg-4</code> for supplementary content like navigation, related links, or metadata.</p>
+          <ul class="small mb-0">
+            <li>Quick links</li>
+            <li>Related content</li>
+            <li>Additional info</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Code Example -->
+    <div class="row">
+      <div class="col-12">
+        <pre class="border p-3 rounded"><code>&lt;main class="container-md"&gt;
+  &lt;div class="row g-4"&gt;
+    &lt;div class="col-lg-8"&gt;
+      &lt;!-- Main content --&gt;
+    &lt;/div&gt;
+    &lt;div class="col-lg-4"&gt;
+      &lt;!-- Sidebar --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Full Width Sections Layout Demo -->
+<section class="py-5 bg-light">
+  <section class="py-5 bg-white">
+    <div class="container-md">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h2 class="mb-3">Full Width Sections with Centered Content</h2>
+          <p class="text-muted mb-4">Full-width sections with different backgrounds, but content constrained to standard container width. Perfect for landing pages with visual variety.</p>
+          <h3 class="h5">Section with White Background</h3>
+          <p class="mb-0">Each section spans full width but content is contained within <code>container-md</code> and <code>col-lg-10 mx-auto</code>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-5 bg-light">
+    <div class="container-md">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h3 class="h5">Section with Gray Background</h3>
+          <p class="mb-0">Different sections can have unique backgrounds while maintaining consistent content width and alignment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-5" style="background-color: #800000; color: white;">
+    <div class="container-md">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h3 class="h5 text-white">Section with Brand Background</h3>
+          <p class="mb-0">Create visual interest with full-width colored sections while keeping content readable and aligned.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Code Example -->
+  <div class="container-md mt-4">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <pre class="border p-3 rounded"><code>&lt;!-- Section 1 --&gt;
+&lt;section class="py-5" style="background-color: #ffffff;"&gt;
+  &lt;div class="container-md"&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="col-lg-10 mx-auto"&gt;
+        &lt;!-- Content --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- Section 2 --&gt;
+&lt;section class="py-5 bg-light"&gt;
+  &lt;div class="container-md"&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="col-lg-10 mx-auto"&gt;
+        &lt;!-- Content --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="py-4"></div>
+
+{% include "footer.html" %}
