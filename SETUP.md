@@ -61,9 +61,9 @@ brainstorm-mockups/
 │   │   ├── _header.scss         # Header/nav styles
 │   │   ├── _footer.scss         # Footer styles
 │   │   └── main.scss            # Main SCSS entry point
-│   ├── demo/                     # Demo pages
+│   ├── design_system/            # Demo pages
 │   │   └── typography.html      # Typography showcase
-│   ├── mockups/                  # Full page mockups (empty for now)
+│   ├── design_mockups/           # Full page mockups (empty for now)
 │   ├── assets/                   # Static assets
 │   │   └── images/              # Image files
 │   └── index.html               # Homepage
@@ -80,7 +80,7 @@ brainstorm-mockups/
 
 ### Create a New Page
 
-1. Create an HTML file in `src/demo/` or `src/mockups/`
+1. Create an HTML file in `src/design_system/` or `src/design_mockups/`
 2. Include the header and footer:
 
 ```html
@@ -166,8 +166,8 @@ npm install bootstrap
 
 1. **Add Logo Images**: Place the required logo files in `src/assets/images/`
 2. **Customize Colors**: Edit `src/styles/_variables.scss` to adjust brand colors
-3. **Create Components**: Add new component demos in `src/demo/`
-4. **Build Mockups**: Create full page layouts in `src/mockups/`
+3. **Create Components**: Add new component demos in `src/design_system/`
+4. **Build Mockups**: Create full page layouts in `src/design_mockups/`
 
 ## Resources
 

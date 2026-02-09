@@ -18,8 +18,8 @@ project-root/
 │   │   ├── _variables.scss # Bootstrap variable overrides
 │   │   ├── _buttons.scss   # Custom button styles
 │   │   └── main.scss       # Main SCSS entry point
-│   ├── demo/               # Demo pages (HTML)
-│   ├── mockups/            # Mockup pages (HTML)
+│   ├── design_system/      # Demo pages (HTML)
+│   ├── design_mockups/     # Mockup pages (HTML)
 │   └── index.html          # Homepage
 ├── docs/                   # Built site (deployed to GitHub Pages)
 ├── package.json            # NPM scripts and dependencies
@@ -153,8 +153,8 @@ Components that may contain other components or likely page specific.
 - Global components (e.g., header, footer) are defined as HTML partials in `src/_includes/` (e.g., `header.html`, `footer.html`).
    - Markup: Dedicated HTML partial files.
    - Styling: Follows the same SCSS structure as elements (separate files in `src/styles/`).
-- Demo pages (`src/demo/`) showcase individual styles, elements, and components in isolation, as well as finalized pages.
-- Mockup pages (`src/mockups/`) to brainstorm and experiment with page layouts using the design system.
+- Demo pages (`src/design_system/`) showcase individual styles, elements, and components in isolation, as well as finalized pages.
+- Mockup pages (`src/design_mockups/`) to brainstorm and experiment with page layouts using the design system.
 
 ### BEM (Block–Element–Modifier) Naming convention
 Having a naming convention can make it much easier to learn the system and find out where to make changes.
@@ -173,10 +173,10 @@ Having a naming convention can make it much easier to learn the system and find 
    ```scss
    @import "cards";
    ```
-3. **Create a demo page** in `src/demo/` or `src/mockups/` to showcase the component.
+3. **Create a demo page** in `src/design_system/` or `src/design_mockups/` to showcase the component.
 
 ### Adding a New Page
-1. **Create a new HTML file** in `src/demo/` or `src/mockups/`.
+1. **Create a new HTML file** in `src/design_system/` or `src/design_mockups/`.
 2. **Include reusable components** (header/footer) using Eleventy's `include` tag:
    ```html
    {% include "header.html" %}
