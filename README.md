@@ -21,7 +21,7 @@ project-root/
 │   ├── demo/               # Demo pages (HTML)
 │   ├── mockups/            # Mockup pages (HTML)
 │   └── index.html          # Homepage
-├── dist/                   # Built site (deployed to GitHub Pages)
+├── docs/                   # Built site (deployed to GitHub Pages)
 ├── package.json            # NPM scripts and dependencies
 └── .eleventy.js            # Eleventy configuration
 ```
@@ -53,7 +53,7 @@ npm run dev
 ```bash
 npm run prod
 ```
-- This generates the `dist/` folder, which is ready for deployment.
+- This generates the `docs/` folder, which is ready for deployment.
 
 
 ## 🎨 Design System

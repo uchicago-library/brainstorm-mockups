@@ -43,7 +43,7 @@ The site will automatically reload when you make changes to HTML or SCSS files.
 npm run prod
 ```
 
-This creates an optimized production build in the `dist/` directory with:
+This creates an optimized production build in the `docs/` directory with:
 - Compiled and minified CSS
 - Static HTML files
 - Copied assets
@@ -67,7 +67,7 @@ brainstorm-mockups/
 │   ├── assets/                   # Static assets
 │   │   └── images/              # Image files
 │   └── index.html               # Homepage
-├── dist/                         # Built site (generated, not in git)
+├── docs/                         # Built site (generated, not in git)
 ├── .eleventy.js                 # Eleventy configuration
 ├── package.json                 # NPM dependencies and scripts
 ├── .gitignore                   # Git ignore rules
@@ -93,7 +93,7 @@ brainstorm-mockups/
 {% include "footer.html" %}
 ```
 
-3. The page will be automatically built to `dist/`
+3. The page will be automatically built to `docs/`
 
 ### Create a New Component Style
 
@@ -134,13 +134,13 @@ brainstorm-mockups/
 - Automatically reloads on file changes
 
 ### Production Build
-Open `dist/index.html` in your browser or deploy the `dist/` folder to a web server.
+Open `docs/index.html` in your browser or deploy the `docs/` folder to a web server.
 
 ## Deployment to GitHub Pages
 
 1. Build the site: `npm run prod`
-2. The `dist/` folder contains the deployable site
-3. Configure GitHub Pages to serve from the `dist/` folder (or use a deployment action)
+2. The `docs/` folder contains the deployable site
+3. Configure GitHub Pages to serve from the `docs/` folder (or use a deployment action)
 
 ## Troubleshooting
 
