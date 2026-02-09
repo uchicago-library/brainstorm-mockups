@@ -153,8 +153,8 @@ Components that may contain other components or likely page specific.
 - Global components (e.g., header, footer) are defined as HTML partials in `src/_includes/` (e.g., `header.html`, `footer.html`).
    - Markup: Dedicated HTML partial files.
    - Styling: Follows the same SCSS structure as elements (separate files in `src/styles/`).
-- Demo pages (`src/demo/`) showcase individual styles, elements, and components in isolation.
-- Mockup pages (`src/mockups/`) simulate real-world page layouts using the design system.
+- Demo pages (`src/demo/`) showcase individual styles, elements, and components in isolation, as well as finalized pages.
+- Mockup pages (`src/mockups/`) to brainstorm and experiment with page layouts using the design system.
 
 ### BEM (Block–Element–Modifier) Naming convention
 Having a naming convention can make it much easier to learn the system and find out where to make changes.
