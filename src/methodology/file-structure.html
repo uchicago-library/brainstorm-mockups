@@ -1,0 +1,161 @@
+{% include "header.html" %}
+
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      
+      <h1 class="display-4 mb-4">Project Structure</h1>
+      
+      <p class="lead">Understanding the organization of files, folders, and where to place your work.</p>
+
+      <hr class="my-5">
+
+      <section class="mb-5">
+        <h2>Directory Layout</h2>
+        <pre><code>brainstorm-mockups/
+├── src/
+│   ├── _includes/              # Reusable HTML partials
+│   │   ├── header.html         # Site header with navigation
+│   │   └── footer.html         # Site footer
+│   ├── styles/                 # SCSS files
+│   │   ├── _variables.scss     # Bootstrap variable overrides
+│   │   ├── base/               # Base/foundational styles
+│   │   │   ├── _global.scss    # Global element overrides
+│   │   │   └── layout/
+│   │   │       └── _layout.scss
+│   │   ├── components/         # Component-specific styles
+│   │   │   ├── _header.scss
+│   │   │   ├── _footer.scss
+│   │   │   └── _*.scss         # Additional components
+│   │   └── main.scss           # Main entry point (imports everything)
+│   ├── design_system/          # Demo pages (HTML)
+│   ├── design_mockups/         # Full page mockups (HTML)
+│   ├── methodology/            # Development guidelines (this folder)
+│   ├── system/                 # Design system documentation
+│   ├── assets/                 # Static assets
+│   │   └── images/             # Image files
+│   └── index.html              # Homepage
+├── docs/                       # Built site (deployed to GitHub Pages)
+├── package.json                # NPM scripts and dependencies
+├── .eleventy.js                # Eleventy configuration
+└── README.md                   # Project documentation</code></pre>
+      </section>
+
+      <section class="mb-5">
+        <h2>File Organization Rules</h2>
+        
+        <div class="mb-4">
+          <h3>HTML Files</h3>
+          <ul>
+            <li><strong>Component demos</strong>: <code>src/design_system/</code></li>
+            <li><strong>Page mockups</strong>: <code>src/design_mockups/</code></li>
+            <li><strong>Documentation pages</strong>: <code>src/methodology/</code> and <code>src/system/</code></li>
+            <li><strong>Reusable partials</strong>: <code>src/_includes/</code></li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h3>SCSS Files</h3>
+          <ul>
+            <li><strong>All styles live in</strong>: <code>src/styles/</code></li>
+            <li><strong>Bootstrap overrides</strong>: <code>src/styles/_variables.scss</code></li>
+            <li><strong>Base/global styles</strong>: <code>src/styles/base/_global.scss</code></li>
+            <li><strong>Component styles</strong>: <code>src/styles/components/</code> (one file per component)</li>
+            <li><strong>Layout styles</strong>: <code>src/styles/base/layout/</code></li>
+            <li><strong>Entry point</strong>: <code>src/styles/main.scss</code></li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h3>Assets</h3>
+          <ul>
+            <li><strong>Images, fonts, icons</strong>: <code>src/assets/</code></li>
+            <li><strong>Reference in HTML</strong>: <code>/assets/images/filename.png</code></li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h3>Naming Conventions</h3>
+          <ul>
+            <li><strong>SCSS files</strong>: Prefix with underscore (e.g., <code>_buttons.scss</code>)</li>
+            <li><strong>HTML files</strong>: Use kebab-case (e.g., <code>demo-buttons.html</code>)</li>
+            <li><strong>CSS classes</strong>: Use BEM convention for components (e.g., <code>.card__header—primary</code>)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>What Goes Where</h2>
+        
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Content Type</th>
+              <th>Location</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Button component demo</td>
+              <td><code>src/design_system/components/buttons.html</code></td>
+              <td>Show all button variations</td>
+            </tr>
+            <tr>
+              <td>Full page mockup</td>
+              <td><code>src/design_mockups/guide-layout.html</code></td>
+              <td>Experimental page layouts</td>
+            </tr>
+            <tr>
+              <td>Component SCSS</td>
+              <td><code>src/styles/components/_buttons.scss</code></td>
+              <td>Import in main.scss</td>
+            </tr>
+            <tr>
+              <td>Global SCSS</td>
+              <td><code>src/styles/base/_global.scss</code></td>
+              <td>Element overrides, not component-specific</td>
+            </tr>
+            <tr>
+              <td>Layout utilities</td>
+              <td><code>src/styles/base/layout/_layout.scss</code></td>
+              <td>Grid, spacing, alignment</td>
+            </tr>
+            <tr>
+              <td>Header/Footer</td>
+              <td><code>src/_includes/header.html</code>, <code>footer.html</code></td>
+              <td>Included in all pages</td>
+            </tr>
+            <tr>
+              <td>Logo images</td>
+              <td><code>src/assets/images/</code></td>
+              <td>Reference as <code>/assets/images/logo.png</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="mb-5">
+        <h2>Important Reminders</h2>
+        <div class="alert alert-warning">
+          <strong>⚠️ Never modify the <code>docs/</code> folder.</strong> It's auto-generated during the build process. All work happens in <code>src/</code>.
+        </div>
+        <div class="alert alert-info">
+          <strong>ℹ️ Maintaining folder and navigation structure is manual.</strong> When you add new pages, make sure to update the relevant index pages and navigation menus.
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>Next Steps</h2>
+        <ul>
+          <li><strong><a href="{{ '/methodology/adding-components/' | url }}">Learn how to add a new component</a></strong></li>
+          <li><strong><a href="{{ '/methodology/adding-pages/' | url }}">Learn how to add a new page</a></strong></li>
+          <li><strong><a href="{{ '/methodology/naming-conventions/' | url }}">Review naming conventions</a></strong></li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}

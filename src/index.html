@@ -5,89 +5,84 @@
   <div class="row">
     <div class="col-lg-10 mx-auto">
       
-      <h1 class="display-4 mb-4">University of Chicago Library Design System</h1>
+      <h1 class="display-4 mb-4">UChicago Library Design System</h1>
       
-      <p class="lead">A static site for documenting and demonstrating the University of Chicago Library design system, built with Eleventy, Bootstrap 5, and FontAwesome.</p>
+      <p class="lead">A comprehensive design system for the University of Chicago Library, providing reusable components, design tokens, and development guidelines built on Bootstrap 5.</p>
 
       <hr class="my-5">
 
       <section class="mb-5">
-        <h2>Getting Started</h2>
-        <p>Explore the design system through our organized sections:</p>
+        <h2>New to the Project?</h2>
+        <p><strong>Start here for a quick overview:</strong></p>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title">👨‍💻 Developer Quick Start</h3>
+                <p class="card-text">Setup, installation, and project structure for developers and contributors.</p>
+                <a href="{{ '/methodology/setup/' | url }}" class="btn btn-sm btn-primary">Get Started →</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title">🎨 Designer's Guide</h3>
+                <p class="card-text">Design principles, color palette, and component patterns.</p>
+                <a href="{{ '/system/design-principles/' | url }}" class="btn btn-sm btn-primary">Explore →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>Explore the System</h2>
+        <p>Navigate through different sections of the design system:</p>
         
         <div class="row g-4">
           <div class="col-md-6">
             <a href="{{ '/design_system/' | url }}">
               <h3 class="h5">Component Demos</h3>
             </a>
+            <p>Browse and copy reusable components:</p>
             <ul>
-              <li><a href="{{ '/design_system/layouts/' | url }}">Layouts</a> - Page layout patterns and structures</li>
-              <li><a href="{{ '/design_system/components/' | url }}">Components</a> - Buttons, forms, cards, accordions, and more</li>
-              <li><a href="{{ '/design_system/design-tokens/' | url }}">Design Tokens</a> - Colors, spacing, borders, shadows
-                <ul>
-                  <li><a href="{{ '/design_system/typography/' | url }}">Typography</a> - Text styles, headings, lists, tables</li>
-                </ul>
-              </li>
+              <li><a href="{{ '/design_system/layouts/' | url }}">Layouts</a> - Page structure and grid patterns</li>
+              <li><a href="{{ '/design_system/components/' | url }}">Components</a> - Buttons, forms, cards, and more</li>
+              <li><a href="{{ '/design_system/design-tokens/' | url }}">Design Tokens</a> - Colors, typography, spacing</li>
+              <li><a href="{{ '/design_system/typography/' | url }}">Typography</a> - Headings, text styles, scales</li>
             </ul>
-            
           </div>
           <div class="col-md-6">
             <a href="{{ '/design_mockups/' | url }}">
               <h3 class="h5">Page Mockups</h3>
             </a>
+            <p>Full-page layouts demonstrating component combinations:</p>
             <ul>
               <li><a href="{{ '/design_mockups/guides-in-accordions/' | url }}">Guides in Accordions</a></li>
               <li><a href="{{ '/design_mockups/guides-in-photos/' | url }}">Guides in Photos</a></li>
               <li><a href="{{ '/design_mockups/guides-in-types/' | url }}">Guides in Types</a></li>
             </ul>
-            
           </div>
         </div>
       </section>
 
       <section class="mb-5">
-        <h2>About This Project</h2>
-        <p>This design system documentation site serves multiple purposes:</p>
-        <ul>
-          <li><strong>Component Library:</strong> Demonstrates reusable UI components (buttons, forms, cards, etc.)</li>
-          <li><strong>Style Guide:</strong> Documents the visual design language including colors, typography, and spacing</li>
-          <li><strong>Mockup Showcase:</strong> Provides full-page layouts demonstrating how components work together</li>
-          <li><strong>Developer Resource:</strong> Offers copy-paste ready HTML/SCSS code for use in other projects</li>
-        </ul>
-      </section>
-
-      <section class="mb-5">
-        <h2>Key Features</h2>
+        <h2>Documentation & Guidelines</h2>
         <div class="row g-4">
           <div class="col-md-6">
             <div class="card h-100">
               <div class="card-body">
-                <h3 class="h5 card-title">Static & Fast</h3>
-                <p class="card-text">Built with Eleventy for minimal dependencies and maximum performance. Perfect for GitHub Pages hosting.</p>
+                <h3 class="h5 card-title"><a href="{{ '/methodology/' | url }}">Development Methodology</a></h3>
+                <p class="card-text">Best practices, setup, naming conventions, and how to add components and pages.</p>
               </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="card h-100">
               <div class="card-body">
-                <h3 class="h5 card-title">Bootstrap 5 Foundation</h3>
-                <p class="card-text">Leverages Bootstrap's powerful SCSS variables and components with custom brand overrides.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">Accessible by Design</h3>
-                <p class="card-text">Follows WCAG 2.1 Level AA standards with semantic HTML, proper ARIA labels, and keyboard navigation.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">Highly Reusable</h3>
-                <p class="card-text">Copy components directly into your projects. All code is modular and well-documented.</p>
+                <h3 class="h5 card-title"><a href="{{ '/system/' | url }}">Design System Principles</a></h3>
+                <p class="card-text">Design principles, color palette, accessibility standards, and design tokens.</p>
               </div>
             </div>
           </div>
@@ -95,37 +90,60 @@
       </section>
 
       <section class="mb-5">
-        <h2>Brand Colors</h2>
-        <p>The design system uses the official University of Chicago Library color palette:</p>
-        <div class="row g-3">
-          <div class="col-6 col-md-3">
-            <div class="p-3 text-white" style="background-color: #800000;">
-              <strong>Primary</strong><br>
-              Maroon<br>
-              #800000
+        <h2>Quick Facts</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title">Based on Brand Guidelines</h3>
+                <p class="card-text">Uses the official University of Chicago Library brand colors and typography (UChicago Sans Serif).</p>
+              </div>
             </div>
           </div>
-          <div class="col-6 col-md-3">
-            <div class="p-3 text-white" style="background-color: #737373;">
-              <strong>Secondary</strong><br>
-              Dark Greystone<br>
-              #737373
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title">WCAG 2.1 Level AA</h3>
+                <p class="card-text">All components meet accessibility standards for contrast, keyboard navigation, and screen readers.</p>
+              </div>
             </div>
           </div>
-          <div class="col-6 col-md-3">
-            <div class="p-3 text-white" style="background-color: #789D4A;">
-              <strong>Success</strong><br>
-              Ivy<br>
-              #789D4A
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title">Built on Bootstrap 5</h3>
+                <p class="card-text">Leverages Bootstrap's powerful foundation with custom brand overrides and extensions.</p>
+              </div>
             </div>
           </div>
-          <div class="col-6 col-md-3">
-            <div class="p-3 text-white" style="background-color: #007396;">
-              <strong>Info</strong><br>
-              Lake<br>
-              #007396
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title">Copy-Paste Ready</h3>
+                <p class="card-text">All components can be directly copied into other projects with minimal dependencies.</p>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>Use Cases</h2>
+        <p>This design system is designed to support:</p>
+        <ul>
+          <li><strong><a href="https://repository.lib.uchicago.edu" target="_blank">Digital Repository</a></strong></li>
+          <li><strong>LibGuides</strong> (custom CSS)</li>
+          <li><strong>Book a Room</strong> (embedded components)</li>
+          <li><strong>Catalog</strong> (component library)</li>
+          <li><strong>Other library websites and services</strong></li>
+        </ul>
+        <p><em>Smaller platforms can use selective CSS imports to minimize payload size.</em> See <a href="{{ '/methodology/bootstrap-customization/' | url }}">Bootstrap Customization</a> for details.</p>
+      </section>
+
+      <section class="mb-5">
+        <h2>Status & Roadmap</h2>
+        <div class="alert alert-info">
+          <strong>🚀 In Progress:</strong> This design system is a work in progress stabilization effort aimed for completion by <strong>August 2026</strong>. Components, patterns, and guidelines are continuously refined based on feedback.
         </div>
       </section>
 
@@ -136,24 +154,29 @@
             <tr>
               <th>Technology</th>
               <th>Purpose</th>
+              <th>Version</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><strong>Eleventy</strong></td>
               <td>Static site generator</td>
+              <td>2.0.1+</td>
             </tr>
             <tr>
               <td><strong>Bootstrap 5</strong></td>
               <td>CSS framework (SCSS)</td>
-            </tr>
-            <tr>
-              <td><strong>FontAwesome</strong></td>
-              <td>Icon library</td>
+              <td>5.3.2+</td>
             </tr>
             <tr>
               <td><strong>Sass</strong></td>
               <td>SCSS compilation</td>
+              <td>1.69.5+</td>
+            </tr>
+            <tr>
+              <td><strong>FontAwesome</strong></td>
+              <td>Icon library (CDN)</td>
+              <td>Latest</td>
             </tr>
           </tbody>
         </table>

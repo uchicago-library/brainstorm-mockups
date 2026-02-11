@@ -1,0 +1,107 @@
+{% include "header.html" %}
+
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      
+      <h1 class="display-4 mb-4">Methodology & Development Guidelines</h1>
+      
+      <p class="lead">Complete guides for developing with this design system, from project setup to component creation and validation.</p>
+
+      <hr class="my-5">
+
+      <section class="mb-5">
+        <h2>Getting Started</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title"><a href="{{ '/methodology/setup/' | url }}">Setup & Installation</a></h3>
+                <p class="card-text">Prerequisites, installation steps, running the development server, and building for production.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title"><a href="{{ '/methodology/file-structure/' | url }}">Project Structure</a></h3>
+                <p class="card-text">Understand the organization of files, folders, and conventions for HTML, SCSS, and assets.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>Development Best Practices</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title"><a href="{{ '/methodology/design-principles/' | url }}">Usability & Accessibility</a></h3>
+                <p class="card-text">Nielsen's 10 usability heuristics and WCAG 2.1 Level AA accessibility standards.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title"><a href="{{ '/methodology/html-scss-js-rules/' | url }}">Code Rules</a></h3>
+                <p class="card-text">HTML, SCSS, CSS, and JavaScript conventions and best practices.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title"><a href="{{ '/methodology/naming-conventions/' | url }}">Naming Conventions</a></h3>
+                <p class="card-text">File naming, class naming, and BEM methodology for custom components.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title"><a href="{{ '/methodology/bootstrap-customization/' | url }}">Bootstrap Customization</a></h3>
+                <p class="card-text">How to override Bootstrap variables and extend components safely.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>Creating & Contributing</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title"><a href="{{ '/methodology/adding-components/' | url }}">Adding a Component</a></h3>
+                <p class="card-text">Step-by-step guide to creating reusable components with proper structure and documentation.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title"><a href="{{ '/methodology/adding-pages/' | url }}">Adding a Page</a></h3>
+                <p class="card-text">Create design system demo pages and mockup pages using reusable components.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title"><a href="{{ '/methodology/validation/' | url }}">Quality Assurance</a></h3>
+                <p class="card-text">Browser testing, HTML/CSS validation, and accessibility auditing tools.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}

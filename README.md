@@ -1,93 +1,89 @@
-# Design System Documentation Site
+# UChicago Library Design System Documentation
 
-A static site for documenting and demonstrating a design system, built with **Eleventy**, **Bootstrap 5 (SCSS)**, and **FontAwesome**. Designed to be hosted on **GitHub Pages** with minimal dependencies and maximum reusability.
-- Demonstrates reusable components (buttons, forms, etc.)
-- Provides demo and mockup pages
-- Uses **Bootstrap 5 (SCSS)** for styling, with custom overrides
-- Uses **FontAwesome** for icons
-- Is **static** and requires no backend
-- Is optimized for **GitHub Pages** deployment
-- Also a test to see if we can use this to run quick genAI brainstroming mockups.
+A static site for documenting and demonstrating the University of Chicago Library design system, built with **Eleventy**, **Bootstrap 5 (SCSS)**, and **FontAwesome**. Designed to be hosted on **GitHub Pages** with minimal dependencies and maximum reusability.
+
+## 🎯 Purpose
+- **Component Library**: Demonstrates reusable UI components (buttons, forms, cards, etc.)
+- **Design Documentation**: Style guide with colors, typography, and spacing
+- **Development Guide**: Methodology and best practices for contributors
+- **Copy-Paste Ready**: All code can be directly integrated into other projects
+- **Static & Fast**: No backend required; optimized for GitHub Pages
+- **Accessibility First**: WCAG 2.1 Level AA compliant
+
+## 📅 Status
+**Work in Progress** — Aimed to be stabilized for ongoing development by **August 2026**.
 
 ## 📦 Project Structure
 ```
-project-root/
-├── src/
-│   ├── _includes/          # HTML partials (header, footer, etc.)
-│   ├── styles/             # SCSS files
-│   │   ├── _variables.scss # Bootstrap variable overrides, design tokens
-│   │   ├── base/           # Base/foundational styles
-│   │   │   ├── _global.scss # Global element overrides
-│   │   │   └── layout/     # Layout utilities and spacing
-│   │   │       └── _layout.scss
-│   │   ├── components/     # Component-specific styles
-│   │   │   ├── _header.scss # Header component
-│   │   │   ├── _footer.scss # Footer component
-│   │   │   └── _*.scss     # Additional components as needed
-│   │   └── main.scss       # Main SCSS entry point (imports everything)
-│   ├── design_system/      # Demo pages (HTML)
-│   ├── design_mockups/     # Mockup pages (HTML)
-│   ├── pages/              # (Optional) Reusable page-level layouts and patterns
-│   └── index.html          # Homepage
-├── docs/                   # Built site (deployed to GitHub Pages)
-├── package.json            # NPM scripts and dependencies
-└── .eleventy.js            # Eleventy configuration
+src/
+├── _includes/              # HTML partials (header, footer)
+├── styles/                 # SCSS files
+│   ├── _variables.scss     # Bootstrap overrides, design tokens
+│   ├── base/               # Base styles (global, layout)
+│   ├── components/         # Component-specific styles
+│   └── main.scss           # SCSS entry point
+├── design_system/          # Component demos and design documentation
+│   ├── components/         # Individual component demos
+│   ├── design-tokens/      # Design tokens documentation
+│   ├── layouts/            # Layout patterns
+│   └── typography/         # Typography showcase
+├── design_mockups/         # Full-page mockups (experimental)
+├── methodology/            # Development guidelines
+│   ├── setup.html          # Setup and installation
+│   ├── file-structure.html # Project organization
+│   ├── adding-components.html
+│   ├── adding-pages.html
+│   ├── html-scss-js-rules.html
+│   ├── naming-conventions.html
+│   ├── bootstrap-customization.html
+│   └── validation.html     # QA and accessibility auditing
+├── system/                 # Design system documentation
+│   ├── design-principles.html
+│   ├── color-palette.html
+│   └── (more design docs)
+├── assets/                 # Images, fonts, icons
+└── index.html              # Homepage
+
+docs/                       # Built site (auto-generated)
 ```
 
-> **Note:** The `pages/` folder may be created in the future if reusable page-level patterns and layouts need to be shared across multiple pages.
+## � Quick Start
 
-```
-
-## 🛠 Setup Instructions
-
-### 1. Prerequisites
+### Prerequisites
 - [Node.js](https://nodejs.org/) (v16 or later)
 - NPM (comes with Node.js)
 
-### 2. Clone the Repository
+### Installation
 ```bash
 git clone <your-repo-url>
-cd <your-repo-folder>
-```
-
-### 3. Install Dependencies
-```bash
+cd brainstorm-mockups
 npm install
-```
-
-### 4. Run the Development Server
-```bash
 npm run dev
 ```
-- This will start Eleventy's dev server with live reload and watch for SCSS changes.
 
-### 5. Build for Production
+Open `http://localhost:8080` in your browser.
+
+### Build for Production
 ```bash
 npm run prod
 ```
-- This generates the `docs/` folder, which is ready for deployment.
+
+The `docs/` folder is ready to deploy to GitHub Pages.
+
+**For detailed setup instructions, see [Methodology → Setup](./src/methodology/setup.html).**
 
 
-## 🎨 Design System
+## 🎨 Design System Overview
 
-This repo aims at structuring, demoeing, and documenting the UChicago Library Design System. For more information about it, consult the [planning document](https://uchicago.box.com/s/jf05ybrn63rgky5f66j8uhms6ljr26ez) (work in progress).
+This documentation site serves the **UChicago Library Design System** which is based on official brand guidelines. It includes:
 
-### Design Tokens
+- **Design Principles** ([View](./src/system/design-principles.html)): Nielsen's usability heuristics and WCAG 2.1 accessibility standards
+- **Color Palette** ([View](./src/system/color-palette.html)): Official brand colors with semantic mappings
+- **Component Library** ([View](./src/design_system/)): Reusable components (buttons, forms, cards, etc.)
+- **Development Guide** ([View](./src/methodology/)): Best practices for building and extending the system
+- **Page Mockups** ([View](./src/design_mockups/)): Full-page layouts demonstrating how components work together
 
-Design token are SCSS and CSS variables. Their structure allows to easily update the whole styling (for example, brighten the primary color). They are loosely organized into three levels of abstraction.
-- **Level 1**: Core Brand/utility (foundational) `primary, secondary, red-500, gray-200`
-- **Level 2**: Semantic Generic roles
-(reusable)
-`background, text-muted, border-subtle`
-- **Level 3**: Component Component/ role-specific `btn-primary-bg, search-placeholder-text`
-```
-scss/
-├── _variables.scss # Level 1 & 2 tokens
-├── _components.scss # Level 3 tokens + component styles
-├── _utilities.scss # Custom utilities (if needed)
-└── main.scss # Imports everything
-```
-Consider using CSS classes when a value is prone to be changed, like dark-light themes.
+**Design Tokens**: Colors, typography, spacing, shadows, and other design tokens are defined as SCSS/CSS variables for easy system-wide updates.
 
 ### Design Atomization
 Examples.

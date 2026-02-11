@@ -1,0 +1,314 @@
+{% include "header.html" %}
+
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      
+      <h1 class="display-4 mb-4">Bootstrap Customization</h1>
+      
+      <p class="lead">How to safely override Bootstrap variables and extend components without breaking the design system.</p>
+
+      <hr class="my-5">
+
+      <section class="mb-5">
+        <h2>Theory: Why Customize Bootstrap?</h2>
+        
+        <p>This design system builds atop Bootstrap 5 because:</p>
+        <ul>
+          <li><strong>Industry standard:</strong> Bootstrap is widely used and understood</li>
+          <li><strong>Responsive foundation:</strong> Grid system, utilities, and components out of the box</li>
+          <li><strong>Accessibility:</strong> WCAG-compliant markup patterns</li>
+          <li><strong>Reusability:</strong> Copy components directly into other projects</li>
+        </ul>
+
+        <p>However, Bootstrap comes with opinionated defaults that don't match the University of Chicago Library brand. Customization allows us to align Bootstrap with our visual identity while keeping the framework benefits.</p>
+      </section>
+
+      <section class="mb-5">
+        <h2>Customization Methods</h2>
+        
+        <div class="mb-4">
+          <h3>1. Variable Overrides (Recommended)</h3>
+          <p>Override Bootstrap variables <strong>before</strong> importing Bootstrap. This is the safest, most maintainable approach.</p>
+          
+          <p><strong>In <code>src/styles/main.scss</code>:</strong></p>
+          <pre><code>// Step 1: Import functions (required for color functions)
+@import "../../node_modules/bootstrap/scss/functions";
+
+// Step 2: Define custom variables
+@import "variables"; // Our overrides
+
+// Step 3: Import Bootstrap with our variables
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/utilities/api";
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/reboot";
+// ... import other modules as needed</code></pre>
+        </div>
+
+        <div class="mb-4">
+          <h3>2. Common Variable Overrides</h3>
+          <p><strong>In <code>src/styles/_variables.scss</code>:</strong></p>
+          <pre><code>// Brand Colors
+$primary: #800000;          // Maroon
+$secondary: #737373;        // Dark Greystone
+$success: #789D4A;          // Ivy green
+$danger: #A4343A;           // Brick red
+$warning: #EAAA00;          // Goldenrod
+$info: #007396;             // Lake blue
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: ($spacer * 0.25),     // 0.25rem
+  2: ($spacer * 0.5),      // 0.5rem
+  3: $spacer,              // 1rem
+  4: ($spacer * 1.5),      // 1.5rem
+  5: ($spacer * 3),        // 3rem
+);
+
+// Typography
+$font-family-base: 'UChicago Sans Serif', sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.6;
+
+// Borders & Shadows
+$border-radius: 0.25rem;
+$box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+
+// Components
+$btn-padding-y: 0.5rem;
+$btn-padding-x: 1.5rem;
+$btn-border-radius: $border-radius;
+
+// Forms
+$input-padding-y: 0.5rem;
+$input-padding-x: 1rem;
+$input-border-radius: $border-radius;</code></pre>
+        </div>
+
+        <div class="mb-4">
+          <h3>3. Extending Classes (Safe Method)</h3>
+          <p>Create custom classes that extend Bootstrap classes instead of overriding them:</p>
+          <pre><code>// Good: Extend and customize
+.btn-brand {
+  @extend .btn-primary;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}</code></pre>
+
+          <p><strong>Versus Bad:</strong></p>
+          <pre><code>// Bad: Override a Bootstrap class
+.btn-primary {
+  font-weight: 600; // Risky! You're modifying Bootstrap directly
+}</code></pre>
+        </div>
+
+        <div class="mb-4">
+          <h3>4. Custom Utilities (Advanced)</h3>
+          <p>Add custom utilities beyond Bootstrap's standard set:</p>
+          <pre><code>// In _variables.scss or a utilities file
+$custom-utilities: (
+  "text-shadow": (
+    property: text-shadow,
+    class: text-shadow,
+    values: (
+      none: none,
+      sm: 1px 1px 2px rgba(0, 0, 0, 0.1),
+      md: 2px 2px 4px rgba(0, 0, 0, 0.15),
+      lg: 4px 4px 8px rgba(0, 0, 0, 0.2),
+    )
+  )
+);
+
+// Merge with Bootstrap utilities
+$utilities: map-merge($utilities, $custom-utilities);</code></pre>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>Folder Structure for Customization</h2>
+        
+        <pre><code>src/styles/
+├── _variables.scss           # Bootstrap overrides (Level 1, 2, 3 tokens)
+├── main.scss                 # Entry point
+├── base/
+│   ├── _global.scss          # Global element overrides
+│   └── layout/
+│       └── _layout.scss
+└── components/
+    ├── _*.scss               # Component-specific customization</code></pre>
+      </section>
+
+      <section class="mb-5">
+        <h2>What to Customize vs. What to Keep</h2>
+        
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Entity</th>
+              <th>Customize?</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Colors</strong> ($primary, $secondary, etc.)</td>
+              <td>✅ <strong>Yes</strong></td>
+              <td>Use your brand colors</td>
+            </tr>
+            <tr>
+              <td><strong>Spacing</strong> ($spacer, margins, padding)</td>
+              <td>✅ <strong>Yes</strong></td>
+              <td>Adjust for your design rhythm</td>
+            </tr>
+            <tr>
+              <td><strong>Typography</strong> (font, sizes, weights)</td>
+              <td>✅ <strong>Yes</strong></td>
+              <td>Use your brand fonts</td>
+            </tr>
+            <tr>
+              <td><strong>Border radius</strong></td>
+              <td>✅ <strong>Yes</strong></td>
+              <td>Match your design aesthetic</td>
+            </tr>
+            <tr>
+              <td><strong>Component structure</strong> (grids, buttons)</td>
+              <td>❌ <strong>No</strong></td>
+              <td>Keep the HTML structure as Bootstrap expects</td>
+            </tr>
+            <tr>
+              <td><strong>Class naming</strong></td>
+              <td>❌ <strong>No</strong></td>
+              <td>Keep Bootstrap's conventions for consistency</td>
+            </tr>
+            <tr>
+              <td><strong>Responsive breakpoints</strong></td>
+              <td>⚠️ <strong>Maybe</strong></td>
+              <td>Only if you have specific needs</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="mb-5">
+        <h2>Common Customization Examples</h2>
+        
+        <div class="mb-4">
+          <h3>Example 1: Brand Primary Color</h3>
+          <pre><code>// In _variables.scss
+$primary: #800000; // UChicago Maroon
+
+// Now all Bootstrap uses of $primary inherit this color
+// .btn-primary, .btn-primary:hover, alerts, badges, etc. all use maroon</code></pre>
+        </div>
+
+        <div class="mb-4">
+          <h3>Example 2: Custom Button Variant</h3>
+          <pre><code>// In _variables.scss (or components/_buttons.scss)
+$btn-brand-bg: $primary;
+
+// In your components file or after Bootstrap imports:
+.btn-brand {
+  @extend .btn-primary;
+  background-color: $btn-brand-bg;
+  font-weight: 600;
+  
+  &:hover {
+    background-color: darken($btn-brand-bg, 10%);
+  }
+}</code></pre>
+
+          <p><strong>Usage:</strong></p>
+          <pre><code>&lt;button class="btn btn-brand"&gt;Brand Button&lt;/button&gt;</code></pre>
+        </div>
+
+        <div class="mb-4">
+          <h3>Example 3: Adjust Card Styling</h3>
+          <pre><code>// In _variables.scss
+$card-padding: 1.5rem;
+$card-border-radius: $border-radius;
+$card-bg: #ffffff;
+$card-border-color: #D9D9D9;
+$card-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+
+// Bootstrap's card component now uses these variables
+// No additional CSS needed!</code></pre>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>Best Practices</h2>
+        
+        <ul>
+          <li><strong>Override early, verify often:</strong> Test changes immediately after updating variables</li>
+          <li><strong>Use the variable:</strong> Don't hardcode the color—use <code>$primary</code></li>
+          <li><strong>Document your changes:</strong> Add comments explaining why you customized something</li>
+          <li><strong>Keep it DRY:</strong> Use variables and functions; avoid repeating values</li>
+          <li><strong>Test across components:</strong> Verify that buttons, forms, alerts, etc. all respect your customization</li>
+          <li><strong>Avoid !important:</strong> If you need it, that's a sign your approach may be wrong</li>
+          <li><strong>Reference Bootstrap docs:</strong> Check <a href="https://getbootstrap.com/docs/5.3/customize/overview/" target="_blank">Bootstrap's customization guide</a> for a complete list of variables</li>
+        </ul>
+      </section>
+
+      <section class="mb-5">
+        <h2>Advanced: Selective Bootstrap Imports</h2>
+        
+        <p>If you need to reduce CSS size for a platform, you can import only the Bootstrap modules you need:</p>
+        <pre><code>// Example: A minimal set for a simple site
+@import "../../node_modules/bootstrap/scss/functions";
+@import "variables";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// Only utilities, no components
+@import "../../node_modules/bootstrap/scss/utilities/api";
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/reboot";
+
+// Custom components
+@import "base/global";
+@import "components/buttons";
+@import "components/cards";</code></pre>
+
+        <p>This approach saves ~100KB of CSS by excluding unused Bootstrap components.</p>
+      </section>
+
+      <section class="mb-5">
+        <h2>Troubleshooting</h2>
+        
+        <div class="mb-4">
+          <h3>My custom variable isn't being applied</h3>
+          <p><strong>Solution:</strong> Make sure your variable is defined <strong>before</strong> Bootstrap imports it. Check the import order in <code>main.scss</code>.</p>
+        </div>
+
+        <div class="mb-4">
+          <h3>The CSS is too large</h3>
+          <p><strong>Solution:</strong> Use selective Bootstrap imports (see Advanced section above) to include only the modules you need.</p>
+        </div>
+
+        <div class="mb-4">
+          <h3>Bootstrap components don't look right</h3>
+          <p><strong>Solution:</strong> Check that you're using the correct HTML structure. Bootstrap's JavaScript (dropdowns, modals, etc.) expects specific classes and attributes.</p>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="https://getbootstrap.com/docs/5.3/customize/sass/" target="_blank">Bootstrap SCSS Customization Guide</a></li>
+          <li><a href="https://getbootstrap.com/docs/5.3/customize/color/" target="_blank">Bootstrap Color System</a></li>
+          <li><a href="https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss" target="_blank">Bootstrap's _variables.scss (full reference)</a></li>
+          <li><a href="{{ '/system/color-palette/' | url }}">UChicago Library Color Palette</a></li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}

@@ -1,0 +1,258 @@
+{% include "header.html" %}
+
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      
+      <h1 class="display-4 mb-4">Adding a New Component</h1>
+      
+      <p class="lead">Step-by-step guide to creating reusable components with proper structure and documentation.</p>
+
+      <hr class="my-5">
+
+      <section class="mb-5">
+        <h2>Component Overview</h2>
+        <p>A component is a reusable UI element (button variant, card style, form input, etc.) that:</p>
+        <ul>
+          <li>Has dedicated SCSS styling</li>
+          <li>Is documented in a demo page</li>
+          <li>Follows naming conventions and BEM methodology</li>
+          <li>Can be copied into other projects</li>
+        </ul>
+      </section>
+
+      <section class="mb-5">
+        <h2>Step 1: Create the SCSS File</h2>
+        
+        <p>Create a new file in <code>src/styles/components/</code>:</p>
+        <pre><code>src/styles/components/_component-name.scss</code></pre>
+        
+        <p><strong>Naming:</strong> Use kebab-case with underscore prefix (e.g., <code>_search-box.scss</code>)</p>
+
+        <p><strong>Template Example:</strong></p>
+        <pre><code>// Search Box Component
+.search-box {
+  display: flex;
+  position: relative;
+  border: 1px solid $border-subtle;
+  border-radius: $border-radius;
+  padding: $spacing-xs;
+}
+
+.search-box__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: $spacing-sm;
+  
+  &::placeholder {
+    color: $text-muted;
+  }
+}
+
+.search-box__button {
+  padding: $spacing-sm $spacing-md;
+  background: $primary;
+  color: white;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  
+  &:hover {
+    background: darken($primary, 10%);
+  }
+}
+
+// Modifier for expanded state
+.search-box—expanded {
+  .search-box__suggestions {
+    display: block;
+  }
+}</code></pre>
+      </section>
+
+      <section class="mb-5">
+        <h2>Step 2: Import the File</h2>
+        
+        <p>Add your component to <code>src/styles/main.scss</code> in the components section:</p>
+        <pre><code>// Components
+@import "components/component-name";</code></pre>
+        
+        <p>Make sure the import appears after base styles and variables.</p>
+      </section>
+
+      <section class="mb-5">
+        <h2>Step 3: Create Demo HTML</h2>
+        
+        <p>Create a demo page in <code>src/design_system/</code> or <code>src/design_system/components/</code>:</p>
+        <pre><code>src/design_system/components/demo-component-name.html</code></pre>
+
+        <p><strong>Template Example:</strong></p>
+        <pre><code>{% include "header.html" %}
+
+&lt;main class="container-md py-5"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-lg-8 mx-auto"&gt;
+      
+      &lt;h1&gt;Search Box Component&lt;/h1&gt;
+      
+      &lt;p class="lead"&gt;A reusable search input component with icon and button.&lt;/p&gt;
+
+      &lt;hr class="my-5"&gt;
+
+      &lt;section class="mb-5"&gt;
+        &lt;h2&gt;Basic Usage&lt;/h2&gt;
+        &lt;div class="search-box"&gt;
+          &lt;input type="text" class="search-box__input" placeholder="Search..." /&gt;
+          &lt;button class="search-box__button"&gt;
+            &lt;i class="fa-solid fa-magnifying-glass"&gt;&lt;/i&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section class="mb-5"&gt;
+        &lt;h2&gt;With Suggestions&lt;/h2&gt;
+        &lt;div class="search-box search-box—expanded"&gt;
+          &lt;input type="text" class="search-box__input" placeholder="Search..." /&gt;
+          &lt;button class="search-box__button"&gt;
+            &lt;i class="fa-solid fa-magnifying-glass"&gt;&lt;/i&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;section&gt;
+        &lt;h2&gt;HTML Example&lt;/h2&gt;
+        &lt;pre&gt;&lt;code&gt;&amp;lt;div class="search-box"&amp;gt;
+  &amp;lt;input type="text" class="search-box__input" /&amp;gt;
+  &amp;lt;button class="search-box__button"&amp;gt;Search&amp;lt;/button&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+      &lt;/section&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+{% include "footer.html" %}</code></pre>
+      </section>
+
+      <section class="mb-5">
+        <h2>Step 4: Update Navigation</h2>
+        
+        <p>Add a link to your new demo in relevant index pages:</p>
+        <ul>
+          <li><code>src/design_system/components/index.html</code> (if you created a component demo)</li>
+          <li><code>src/index.html</code> (if it's a major component)</li>
+        </ul>
+
+        <p><strong>Example Link:</strong></p>
+        <pre><code>&lt;div class="card"&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h3 class="h5 card-title"&gt;
+      &lt;a href="{{ '/design_system/components/demo-search-box/' | url }}"&gt;Search Box&lt;/a&gt;
+    &lt;/h3&gt;
+    &lt;p class="card-text"&gt;A reusable search input component.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <section class="mb-5">
+        <h2>Step 5: Verify & Test</h2>
+        
+        <ol>
+          <li><strong>Run dev server:</strong> <code>npm run dev</code></li>
+          <li><strong>Navigate to your demo page</strong> and verify styles are applied correctly</li>
+          <li><strong>Test responsive behavior:</strong> Check mobile, tablet, and desktop views</li>
+          <li><strong>Check accessibility:</strong> Use axe DevTools to audit for issues</li>
+          <li><strong>Validate HTML/CSS:</strong> Use W3C Validator</li>
+        </ol>
+      </section>
+
+      <section class="mb-5">
+        <h2>Best Practices</h2>
+        
+        <ul>
+          <li><strong>Use Bootstrap utilities</strong> where appropriate instead of custom CSS</li>
+          <li><strong>Follow BEM naming</strong> for components (see <a href="{{ '/methodology/naming-conventions/' | url }}">Naming Conventions</a>)</li>
+          <li><strong>Use SCSS variables</strong> for all colors, spacing, etc.</li>
+          <li><strong>Make it reusable:</strong> Avoid one-off styles or hard-coded values</li>
+          <li><strong>Test on multiple browsers:</strong> Chrome, Firefox, Safari</li>
+          <li><strong>Document thoroughly:</strong> Explain the purpose and usage with examples</li>
+          <li><strong>Keep it simple:</strong> Avoid over-engineering; reuse Bootstrap components</li>
+        </ul>
+      </section>
+
+      <section class="mb-5">
+        <h2>For Mockup/Experimental Components</h2>
+        
+        <p>If you're experimenting with a new component in a mockup file, you can:</p>
+        <ol>
+          <li>Use a <code>&lt;style&gt;</code> block directly in the mockup HTML (not inline)</li>
+          <li>Keep styles centralized at the top of the file</li>
+          <li>Once finalized, move styles to a dedicated SCSS file</li>
+        </ol>
+
+        <p><strong>Mockup Example:</strong></p>
+        <pre><code>{% include "header.html" %}
+
+&lt;style&gt;
+  .experimental-card {
+    /* Experimental styles */
+  }
+&lt;/style&gt;
+
+&lt;main class="container"&gt;
+  &lt;div class="experimental-card"&gt;...&lt;/div&gt;
+&lt;/main&gt;
+
+{% include "footer.html" %}</code></pre>
+      </section>
+
+      <section class="mb-5">
+        <h2>Checklist</h2>
+        <div class="mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check1">
+            <label class="form-check-label" for="check1">Created SCSS file in <code>src/styles/components/</code></label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check2">
+            <label class="form-check-label" for="check2">Imported file in <code>src/styles/main.scss</code></label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check3">
+            <label class="form-check-label" for="check3">Created demo HTML page</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check4">
+            <label class="form-check-label" for="check4">Updated navigation indexes</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check5">
+            <label class="form-check-label" for="check5">Tested on multiple browsers</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check6">
+            <label class="form-check-label" for="check6">Validated HTML/CSS</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check7">
+            <label class="form-check-label" for="check7">Audited with axe DevTools</label>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Next Steps</h2>
+        <ul>
+          <li><a href="{{ '/methodology/naming-conventions/' | url }}">Review naming conventions</a></li>
+          <li><a href="{{ '/methodology/html-scss-js-rules/' | url }}">Review code rules</a></li>
+          <li><a href="{{ '/methodology/validation/' | url }}">Learn validation techniques</a></li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}
