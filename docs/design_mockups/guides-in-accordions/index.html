@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University of Chicago Library</title>
+  <link rel="icon" type="image/x-icon" href="https://www.lib.uchicago.edu/web-resources/img/favicon-m.ico">
+  <link rel="stylesheet" href="https://uchicago-brand-fonts.s3.us-east-2.amazonaws.com/UChicagoSansSerif.css">
+  <link rel="stylesheet" href="https://www.lib.uchicago.edu/web-resources/css/uchicagoSansSerif.css">
+  <link rel="stylesheet" href="/brainstorm-mockups/styles/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header role="banner">
+  <!-- Logo and Shortcuts Bar -->
+  <div class="logo-bar bg-white">
+    <div class="container-md">
+      <div class="d-flex justify-content-between align-items-center py-3">
+        <!-- Logo -->
+        <a class="navbar-brand m-0" href="/brainstorm-mockups/" itemscope itemtype="http://schema.org/Organization">
+          <span class="visually-hidden" itemprop="name">The University of Chicago Library</span>
+          <img itemprop="logo" src="https://www.lib.uchicago.edu/web-resources/img/color-logo.png" alt="University of Chicago Library" style="max-height: 50px;">
+        </a>
+
+        <!-- Desktop Shortcuts (same row as logo) -->
+        <ul class="nav d-none d-lg-flex" id="navbar-shortcuts" role="list">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-comment" aria-hidden="true"></i>
+              <span>Ask a Librarian</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              <span>View Hours</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-gift" aria-hidden="true"></i>
+              <span>Support the Library</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+              <span>My Library Account</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Mobile toggle button -->
+        <button class="navbar-toggler d-lg-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#global-navbar" aria-controls="global-navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark global-navbar p-0" aria-label="Main navigation">
+    <div class="container-md">
+      <div class="collapse navbar-collapse" id="global-navbar">
+        <!-- Main navigation links -->
+        <ul class="navbar-nav w-100" role="list">
+          
+          <!-- Search Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Search
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-start" aria-labelledby="searchDropdown">
+            <li><h6 class="dropdown-header">Catalogs</h6></li>
+            <li><a class="dropdown-item" href="#">Library Catalog</a></li>
+            <li><a class="dropdown-item" href="#">BorrowDirect</a></li>
+            <li><a class="dropdown-item" href="#">WorldCat</a></li>
+            <li><a class="dropdown-item" href="#">Other Catalogs</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Other Search Tools</h6></li>
+            <li><a class="dropdown-item" href="#">Articles Plus</a></li>
+            <li><a class="dropdown-item" href="#">Database Finder</a></li>
+            <li><a class="dropdown-item" href="#">Database Trials</a></li>
+            <li><a class="dropdown-item" href="#">Ejournals</a></li>
+            <li><a class="dropdown-item" href="#">KnowledgeUChicago</a></li>
+            <li><a class="dropdown-item" href="#">Proxy & Off-Campus Access</a></li>
+            <li><a class="dropdown-item" href="#">Website Search</a></li>
+          </ul>
+        </li>
+
+        <!-- Borrow & Request Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="borrowDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Borrow & Request
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="borrowDropdown">
+            <li><h6 class="dropdown-header">Borrow</h6></li>
+            <li><a class="dropdown-item" href="#">Due Dates & Loan Periods</a></li>
+            <li><a class="dropdown-item" href="#">Renewing & Returning Items</a></li>
+            <li><a class="dropdown-item" href="#">Fines & Lost Items</a></li>
+            <li><a class="dropdown-item" href="#">Course Reserves</a></li>
+            <li><a class="dropdown-item" href="#">Checkout UChicago</a></li>
+            <li><a class="dropdown-item" href="#">My Library Account</a></li>
+            <li><a class="dropdown-item" href="#">Who Can Borrow</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Request</h6></li>
+            <li><a class="dropdown-item" href="#">Interlibrary Loan</a></li>
+            <li><a class="dropdown-item" href="#">Paging & Pickup</a></li>
+            <li><a class="dropdown-item" href="#">Scan & Deliver</a></li>
+            <li><a class="dropdown-item" href="#">Suggest a Purchase</a></li>
+            <li><a class="dropdown-item" href="#">Digitization Services</a></li>
+          </ul>
+        </li>
+
+        <!-- Research & Teaching Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Research & Teaching
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="researchDropdown">
+            <li><h6 class="dropdown-header">Research Help & Tools</h6></li>
+            <li><a class="dropdown-item" href="#">Ask a Librarian</a></li>
+            <li><a class="dropdown-item" href="#">Subject Specialists</a></li>
+            <li><a class="dropdown-item" href="#">Citation Management</a></li>
+            <li><a class="dropdown-item" href="#">Help Guides</a></li>
+            <li><a class="dropdown-item" href="#">Subject Guides</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Programs</h6></li>
+            <li><a class="dropdown-item" href="#">Kim-Park Program for the Study of the Book</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Teaching Support</h6></li>
+            <li><a class="dropdown-item" href="#">Course Reserves Setup</a></li>
+            <li><a class="dropdown-item" href="#">Instruction for Courses</a></li>
+            <li><a class="dropdown-item" href="#">Teaching & Learning Services</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Digital Scholarship</h6></li>
+            <li><a class="dropdown-item" href="#">Center for Digital Scholarship</a></li>
+            <li><a class="dropdown-item" href="#">Dissertation Office</a></li>
+            <li><a class="dropdown-item" href="#">KnowledgeUChicago</a></li>
+            <li><a class="dropdown-item" href="#">Copyright Info</a></li>
+          </ul>
+        </li>
+
+        <!-- Collections & Exhibits Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="collectionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Collections & Exhibits
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="collectionsDropdown">
+            <li><h6 class="dropdown-header">Collections</h6></li>
+            <li><a class="dropdown-item" href="#">Notable Collections</a></li>
+            <li><a class="dropdown-item" href="#">Digital Collections</a></li>
+            <li><a class="dropdown-item" href="#">Collecting Areas by Subject</a></li>
+            <li><a class="dropdown-item" href="#">Other Local Collections</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Exhibits</h6></li>
+            <li><a class="dropdown-item" href="#">All Exhibits</a></li>
+            <li><a class="dropdown-item" href="#">Web Exhibits</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Research Centers</h6></li>
+            <li><a class="dropdown-item" href="#">East Asian Collection</a></li>
+            <li><a class="dropdown-item" href="#">Map Collection</a></li>
+            <li><a class="dropdown-item" href="#">Southern Asia Collection</a></li>
+            <li><a class="dropdown-item" href="#">Special Collections</a></li>
+          </ul>
+        </li>
+
+        <!-- Visit & Study Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="visitDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Visit & Study
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="visitDropdown">
+            <li><h6 class="dropdown-header">Visiting the Library</h6></li>
+            <li><a class="dropdown-item" href="#">Visitor Information</a></li>
+            <li><a class="dropdown-item" href="#">Visiting Special Collections</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Using Our Spaces</h6></li>
+            <li><a class="dropdown-item" href="#">Book a Room</a></li>
+            <li><a class="dropdown-item" href="#">Places to Study</a></li>
+            <li><a class="dropdown-item" href="#">Copy, Print & Scan</a></li>
+            <li><a class="dropdown-item" href="#">Computers & Wireless</a></li>
+            <li><a class="dropdown-item" href="#">Lockers</a></li>
+            <li><a class="dropdown-item" href="#">TechBar</a></li>
+          </ul>
+        </li>
+
+        <!-- Libraries Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="librariesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Libraries
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="librariesDropdown">
+            <li><h6 class="dropdown-header">Our Locations</h6></li>
+            <li><a class="dropdown-item" href="#">Crerar</a></li>
+            <li><a class="dropdown-item" href="#">D'Angelo Law</a></li>
+            <li><a class="dropdown-item" href="#">Eckhart</a></li>
+            <li><a class="dropdown-item" href="#">Mansueto</a></li>
+            <li><a class="dropdown-item" href="#">Regenstein</a></li>
+            <li><a class="dropdown-item" href="#">Social Work</a></li>
+            <li><a class="dropdown-item" href="#">Special Collections</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Hours</a></li>
+          </ul>
+        </li>
+
+        <!-- About Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            About
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutDropdown">
+            <li><h6 class="dropdown-header">The Library</h6></li>
+            <li><a class="dropdown-item" href="#">About the Library</a></li>
+            <li><a class="dropdown-item" href="#">Mission & Strategic Plan</a></li>
+            <li><a class="dropdown-item" href="#">DEI Vision Statement</a></li>
+            <li><a class="dropdown-item" href="#">Departments & Staff</a></li>
+            <li><a class="dropdown-item" href="#">Employment</a></li>
+            <li><a class="dropdown-item" href="#">Library Policies</a></li>
+            <li><a class="dropdown-item" href="#">Library Boards & Committees</a></li>
+            <li><a class="dropdown-item" href="#">Support the Library</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">News & Events</h6></li>
+            <li><a class="dropdown-item" href="#">News</a></li>
+            <li><a class="dropdown-item" href="#">Workshops & Events</a></li>
+            <li><a class="dropdown-item" href="#">Conferences</a></li>
+            <li><a class="dropdown-item" href="#">Libra Newsletter</a></li>
+            <li><a class="dropdown-item" href="#">Social Media Directory</a></li>
+          </ul>
+        </li>
+        <!-- // About Dropdown -->
+
+        <!-- Mobile Shortcuts Section (only visible on mobile) -->
+        <li class="nav-item d-lg-none mt-3">
+          <hr class="dropdown-divider my-2" style="border-color: rgba(255, 255, 255, 0.3);">
+        </li>
+        <li class="d-lg-none">
+          <h6 class="dropdown-header text-white-50 px-3">Quick Links</h6>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-comment me-2" aria-hidden="true"></i>
+            Ask a Librarian
+          </a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-clock me-2" aria-hidden="true"></i>
+            View Hours
+          </a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-gift me-2" aria-hidden="true"></i>
+            Support the Library
+          </a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-user me-2" aria-hidden="true"></i>
+            My Library Account
+          </a>
+        </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md pt-2">
+  <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
+    <li class="breadcrumb-item"><a href="/brainstorm-mockups/" class="text-muted text-decoration-none">Home</a></li>
+    <li class="breadcrumb-item"><a href="/brainstorm-mockups/design_mockups/" class="text-muted text-decoration-none">Mockups</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">Guides in Accordions</li>
+  </ol>
+</nav>
+
+<main class="container-md py-4 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      
+      <h1 class="display-4 mb-3">Library Guides</h1>
+      <p class="lead mb-4">Explore our comprehensive collection of research guides organized by subject area.</p>
+
+      <!-- Search Box -->
+      <div class="mb-5">
+        <div class="input-group input-group-lg">
+          <input type="search" class="form-control" placeholder="Search library guides..." aria-label="Search library guides">
+          <button class="btn btn-primary" type="button">
+            <i class="fa-solid fa-search" aria-hidden="true"></i>
+            <span class="ms-1">Search</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Accordion -->
+      <div class="accordion accordion-flush" id="guidesAccordion">
+        
+        <!-- Business, Economics, and Management -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-business" aria-expanded="false" aria-controls="collapse-business">
+              Business, Economics, and Management
+            </button>
+          </h2>
+          <div id="collapse-business" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Introduction to Business Research</a>
+                <a href="#" class="list-group-item list-group-item-action">Financial Databases and Resources</a>
+                <a href="#" class="list-group-item list-group-item-action">Marketing Analytics Tools</a>
+                <a href="#" class="list-group-item list-group-item-action">Entrepreneurship Resources</a>
+                <a href="#" class="list-group-item list-group-item-action">International Business Data Sources</a>
+                <a href="#" class="list-group-item list-group-item-action">Corporate Strategy and Management</a>
+                <a href="#" class="list-group-item list-group-item-action">Economics Data and Statistics</a>
+                <a href="#" class="list-group-item list-group-item-action">Supply Chain Management</a>
+                <a href="#" class="list-group-item list-group-item-action">Business Ethics and Sustainability</a>
+                <a href="#" class="list-group-item list-group-item-action">Investment and Portfolio Management</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-education" aria-expanded="false" aria-controls="collapse-education">
+              Education
+            </button>
+          </h2>
+          <div id="collapse-education" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Educational Psychology Resources</a>
+                <a href="#" class="list-group-item list-group-item-action">Curriculum Design and Development</a>
+                <a href="#" class="list-group-item list-group-item-action">Assessment and Evaluation Methods</a>
+                <a href="#" class="list-group-item list-group-item-action">History of Education</a>
+                <a href="#" class="list-group-item list-group-item-action">Special Education Resources</a>
+                <a href="#" class="list-group-item list-group-item-action">Educational Technology and Innovation</a>
+                <a href="#" class="list-group-item list-group-item-action">Higher Education Administration</a>
+                <a href="#" class="list-group-item list-group-item-action">Early Childhood Education</a>
+                <a href="#" class="list-group-item list-group-item-action">Education Policy and Reform</a>
+                <a href="#" class="list-group-item list-group-item-action">Teacher Professional Development</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Engineering and Computing -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-engineering" aria-expanded="false" aria-controls="collapse-engineering">
+              Engineering and Computing
+            </button>
+          </h2>
+          <div id="collapse-engineering" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Computer Science Fundamentals</a>
+                <a href="#" class="list-group-item list-group-item-action">Software Engineering Best Practices</a>
+                <a href="#" class="list-group-item list-group-item-action">Artificial Intelligence and Machine Learning</a>
+                <a href="#" class="list-group-item list-group-item-action">Data Structures and Algorithms</a>
+                <a href="#" class="list-group-item list-group-item-action">Cybersecurity and Information Assurance</a>
+                <a href="#" class="list-group-item list-group-item-action">Electrical Engineering Resources</a>
+                <a href="#" class="list-group-item list-group-item-action">Mechanical Engineering Design</a>
+                <a href="#" class="list-group-item list-group-item-action">Civil and Environmental Engineering</a>
+                <a href="#" class="list-group-item list-group-item-action">Biomedical Engineering</a>
+                <a href="#" class="list-group-item list-group-item-action">Quantum Computing</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Health Sciences -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-health" aria-expanded="false" aria-controls="collapse-health">
+              Health Sciences
+            </button>
+          </h2>
+          <div id="collapse-health" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Public Health Research Methods</a>
+                <a href="#" class="list-group-item list-group-item-action">Clinical Medicine Resources</a>
+                <a href="#" class="list-group-item list-group-item-action">Epidemiology and Biostatistics</a>
+                <a href="#" class="list-group-item list-group-item-action">Health Policy and Administration</a>
+                <a href="#" class="list-group-item list-group-item-action">Global Health Issues</a>
+                <a href="#" class="list-group-item list-group-item-action">Nursing Research and Practice</a>
+                <a href="#" class="list-group-item list-group-item-action">Mental Health and Psychology</a>
+                <a href="#" class="list-group-item list-group-item-action">Nutrition and Dietetics</a>
+                <a href="#" class="list-group-item list-group-item-action">Environmental and Occupational Health</a>
+                <a href="#" class="list-group-item list-group-item-action">Health Informatics</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Languages, Culture, and Society -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-languages" aria-expanded="false" aria-controls="collapse-languages">
+              Languages, Culture, and Society
+            </button>
+          </h2>
+          <div id="collapse-languages" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Linguistics and Language Development</a>
+                <a href="#" class="list-group-item list-group-item-action">Cultural Anthropology</a>
+                <a href="#" class="list-group-item list-group-item-action">World Languages and Literature</a>
+                <a href="#" class="list-group-item list-group-item-action">Translation and Interpretation Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Comparative Literature</a>
+                <a href="#" class="list-group-item list-group-item-action">Folklore and Mythology</a>
+                <a href="#" class="list-group-item list-group-item-action">Area Studies Resources</a>
+                <a href="#" class="list-group-item list-group-item-action">Cultural Studies and Theory</a>
+                <a href="#" class="list-group-item list-group-item-action">Digital Humanities</a>
+                <a href="#" class="list-group-item list-group-item-action">Language Learning Resources</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Life and Natural Sciences -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-sciences" aria-expanded="false" aria-controls="collapse-sciences">
+              Life and Natural Sciences
+            </button>
+          </h2>
+          <div id="collapse-sciences" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Biology Research Resources</a>
+                <a href="#" class="list-group-item list-group-item-action">Chemistry Databases and Journals</a>
+                <a href="#" class="list-group-item list-group-item-action">Physics and Astronomy</a>
+                <a href="#" class="list-group-item list-group-item-action">Genetics and Genomics</a>
+                <a href="#" class="list-group-item list-group-item-action">Ecology and Environmental Science</a>
+                <a href="#" class="list-group-item list-group-item-action">Neuroscience</a>
+                <a href="#" class="list-group-item list-group-item-action">Molecular and Cellular Biology</a>
+                <a href="#" class="list-group-item list-group-item-action">Earth and Planetary Sciences</a>
+                <a href="#" class="list-group-item list-group-item-action">Microbiology and Immunology</a>
+                <a href="#" class="list-group-item list-group-item-action">Biochemistry</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Math and Quantitative Sciences -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-math" aria-expanded="false" aria-controls="collapse-math">
+              Math and Quantitative Sciences
+            </button>
+          </h2>
+          <div id="collapse-math" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Pure Mathematics Resources</a>
+                <a href="#" class="list-group-item list-group-item-action">Applied Mathematics</a>
+                <a href="#" class="list-group-item list-group-item-action">Statistics and Data Analysis</a>
+                <a href="#" class="list-group-item list-group-item-action">Computational Mathematics</a>
+                <a href="#" class="list-group-item list-group-item-action">Operations Research</a>
+                <a href="#" class="list-group-item list-group-item-action">Mathematical Modeling</a>
+                <a href="#" class="list-group-item list-group-item-action">Probability Theory</a>
+                <a href="#" class="list-group-item list-group-item-action">Numerical Analysis</a>
+                <a href="#" class="list-group-item list-group-item-action">Mathematical Physics</a>
+                <a href="#" class="list-group-item list-group-item-action">Financial Mathematics</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Sciences and Policy -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-social" aria-expanded="false" aria-controls="collapse-social">
+              Social Sciences and Policy
+            </button>
+          </h2>
+          <div id="collapse-social" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Political Science Research</a>
+                <a href="#" class="list-group-item list-group-item-action">Sociology and Social Work</a>
+                <a href="#" class="list-group-item list-group-item-action">Public Policy Analysis</a>
+                <a href="#" class="list-group-item list-group-item-action">International Relations</a>
+                <a href="#" class="list-group-item list-group-item-action">Urban Studies and Planning</a>
+                <a href="#" class="list-group-item list-group-item-action">Criminal Justice and Criminology</a>
+                <a href="#" class="list-group-item list-group-item-action">Human Geography</a>
+                <a href="#" class="list-group-item list-group-item-action">Law and Legal Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Demographics and Population Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Social Development and Inequality</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual and Performing Arts -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-arts" aria-expanded="false" aria-controls="collapse-arts">
+              Visual and Performing Arts
+            </button>
+          </h2>
+          <div id="collapse-arts" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Art History and Criticism</a>
+                <a href="#" class="list-group-item list-group-item-action">Music Theory and History</a>
+                <a href="#" class="list-group-item list-group-item-action">Theater and Drama</a>
+                <a href="#" class="list-group-item list-group-item-action">Film and Cinema Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Photography and Digital Arts</a>
+                <a href="#" class="list-group-item list-group-item-action">Architecture and Design</a>
+                <a href="#" class="list-group-item list-group-item-action">Dance and Movement</a>
+                <a href="#" class="list-group-item list-group-item-action">Contemporary Art Practices</a>
+                <a href="#" class="list-group-item list-group-item-action">Museum Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Art Conservation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Writing, Communication, Literature, and Media -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-writing" aria-expanded="false" aria-controls="collapse-writing">
+              Writing, Communication, Literature, and Media
+            </button>
+          </h2>
+          <div id="collapse-writing" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Academic Writing and Research</a>
+                <a href="#" class="list-group-item list-group-item-action">Creative Writing Resources</a>
+                <a href="#" class="list-group-item list-group-item-action">Journalism and News Media</a>
+                <a href="#" class="list-group-item list-group-item-action">English Literature</a>
+                <a href="#" class="list-group-item list-group-item-action">Rhetoric and Composition</a>
+                <a href="#" class="list-group-item list-group-item-action">Mass Communication</a>
+                <a href="#" class="list-group-item list-group-item-action">Digital Media and Publishing</a>
+                <a href="#" class="list-group-item list-group-item-action">Literary Theory and Criticism</a>
+                <a href="#" class="list-group-item list-group-item-action">Technical Writing</a>
+                <a href="#" class="list-group-item list-group-item-action">Publishing and Book History</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- @ the Libraries -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-libraries" aria-expanded="false" aria-controls="collapse-libraries">
+              @ the Libraries
+            </button>
+          </h2>
+          <div id="collapse-libraries" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Using the Library Catalog</a>
+                <a href="#" class="list-group-item list-group-item-action">Study Spaces and Reservations</a>
+                <a href="#" class="list-group-item list-group-item-action">Library Technology and Equipment</a>
+                <a href="#" class="list-group-item list-group-item-action">Special Collections Access</a>
+                <a href="#" class="list-group-item list-group-item-action">Interlibrary Loan Services</a>
+                <a href="#" class="list-group-item list-group-item-action">Digital Scholarship Services</a>
+                <a href="#" class="list-group-item list-group-item-action">Library Workshops and Events</a>
+                <a href="#" class="list-group-item list-group-item-action">Research Support Services</a>
+                <a href="#" class="list-group-item list-group-item-action">Copyright and Fair Use</a>
+                <a href="#" class="list-group-item list-group-item-action">Archive Research Methods</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- How-to guides -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-howto" aria-expanded="false" aria-controls="collapse-howto">
+              How-to Guides
+            </button>
+          </h2>
+          <div id="collapse-howto" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">How to Search Databases Effectively</a>
+                <a href="#" class="list-group-item list-group-item-action">How to Cite Sources (APA, MLA, Chicago)</a>
+                <a href="#" class="list-group-item list-group-item-action">How to Evaluate Information Sources</a>
+                <a href="#" class="list-group-item list-group-item-action">How to Use Citation Management Tools</a>
+                <a href="#" class="list-group-item list-group-item-action">How to Access Full-Text Articles</a>
+                <a href="#" class="list-group-item list-group-item-action">How to Conduct a Literature Review</a>
+                <a href="#" class="list-group-item list-group-item-action">How to Request Materials</a>
+                <a href="#" class="list-group-item list-group-item-action">How to Find Primary Sources</a>
+                <a href="#" class="list-group-item list-group-item-action">How to Navigate Open Access Resources</a>
+                <a href="#" class="list-group-item list-group-item-action">How to Get Research Help</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- End Accordion -->
+
+    </div>
+  </div>
+</main>
+
+<footer id="footer" role="contentinfo" class="footer">
+  <div class="container-md">
+    <div class="row">
+      
+      <!-- Contact Column -->
+      <div class="col-12 col-md-6 col-lg-2 col-footer mb-4">
+        <h2 class="footer-heading" id="contact_label">Contact</h2>
+        <ul aria-labelledby="contact_label">
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Library Departments</a></li>
+          <li><a href="#">Staff Directory</a></li>
+          <li><a href="#">Feedback</a></li>
+        </ul>
+      </div>
+
+      <!-- Information Column -->
+      <div class="col-12 col-md-6 col-lg-2 col-footer mb-4">
+        <h2 class="footer-heading" id="information_for_label">Information for</h2>
+        <ul aria-labelledby="information_for_label">
+          <li><a href="#">Patrons with Disabilities</a></li>
+        </ul>
+
+        <h2 class="footer-heading" id="policies_label">Policies</h2>
+        <ul aria-labelledby="policies_label">
+          <li><a href="#">Library Policies</a></li>
+          <li><a href="#">Privacy Statement</a></li>
+          <li><a href="#">University Accessibility</a></li>
+        </ul>
+      </div>
+
+      <!-- Address Column (order-first on md+, goes to bottom on mobile) -->
+      <div class="col-12 col-md-12 col-lg-4 col-footer order-lg-3 order-2 mb-4">
+        <div class="centerdiv">
+          <a href="#">
+            <img alt="The University of Chicago" src="https://www.lib.uchicago.edu/web-resources/img/white-logo.png" width="150">
+          </a>
+          <p>
+            <span>The University of Chicago Library</span><br>
+            <span>1100 E. 57th St., Chicago, IL 60637</span>
+          </p>
+          <small>
+            © <span>The University of Chicago</span><br>
+            <span class="staff-login"><a href="#">Staff Login</a></span>
+          </small>
+        </div>
+      </div>
+
+      <!-- Libraries Column -->
+      <div class="col-12 col-md-6 col-lg-2 col-footer order-lg-4 order-1 mb-4">
+        <h2 class="footer-heading" id="library_list_label">Libraries</h2>
+        <ul aria-labelledby="library_list_label">
+          <li><a href="#">Crerar</a></li>
+          <li><a href="#">D'Angelo Law</a></li>
+          <li><a href="#">Eckhart</a></li>
+          <li><a href="#">Mansueto</a></li>
+          <li><a href="#">Regenstein</a></li>
+          <li><a href="#">Special Collections</a></li>
+          <li><a href="#">Social Work</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media Column -->
+      <div class="col-12 col-md-6 col-lg-2 col-footer order-lg-5 order-1 mb-4">
+        <h2 class="footer-heading" id="social_media_label">Library Social Media</h2>
+        <ul aria-labelledby="social_media_label">
+          <li><a href="#"><i class="fa-brands fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+          <li><a href="#"><i class="fa-brands fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+          <li><a href="#"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          <li><a href="#"><i class="fa-solid fa-rss" aria-hidden="true"></i> Library News</a></li>
+          <li><a href="#"><i class="fa-brands fa-youtube" aria-hidden="true"></i> YouTube</a></li>
+          <li><a href="#"><i class="fa-solid fa-clone" aria-hidden="true"></i> More Library Accounts...</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+

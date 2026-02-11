@@ -11864,6 +11864,11 @@ pre {
   color: #737373;
 }
 
+.sidebar {
+  background-color: #f7f7f7;
+  border-left: 4px solid #800000;
+}
+
 header[role=banner] {
   position: relative;
 }
@@ -12029,11 +12034,6 @@ header[role=banner] {
 }
 .footer .centerdiv p {
   margin-bottom: 1rem;
-}
-
-.sidebar {
-  background-color: #f7f7f7;
-  border-left: 4px solid #800000;
 }
 
 /*# sourceMappingURL=main.css.map */

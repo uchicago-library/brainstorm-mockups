@@ -15,15 +15,27 @@ project-root/
 ├── src/
 │   ├── _includes/          # HTML partials (header, footer, etc.)
 │   ├── styles/             # SCSS files
-│   │   ├── _variables.scss # Bootstrap variable overrides
-│   │   ├── _buttons.scss   # Custom button styles
-│   │   └── main.scss       # Main SCSS entry point
+│   │   ├── _variables.scss # Bootstrap variable overrides, design tokens
+│   │   ├── base/           # Base/foundational styles
+│   │   │   ├── _global.scss # Global element overrides
+│   │   │   └── layout/     # Layout utilities and spacing
+│   │   │       └── _layout.scss
+│   │   ├── components/     # Component-specific styles
+│   │   │   ├── _header.scss # Header component
+│   │   │   ├── _footer.scss # Footer component
+│   │   │   └── _*.scss     # Additional components as needed
+│   │   └── main.scss       # Main SCSS entry point (imports everything)
 │   ├── design_system/      # Demo pages (HTML)
 │   ├── design_mockups/     # Mockup pages (HTML)
+│   ├── pages/              # (Optional) Reusable page-level layouts and patterns
 │   └── index.html          # Homepage
 ├── docs/                   # Built site (deployed to GitHub Pages)
 ├── package.json            # NPM scripts and dependencies
 └── .eleventy.js            # Eleventy configuration
+```
+
+> **Note:** The `pages/` folder may be created in the future if reusable page-level patterns and layouts need to be shared across multiple pages.
+
 ```
 
 ## 🛠 Setup Instructions
@@ -168,12 +180,49 @@ Having a naming convention can make it much easier to learn the system and find 
 
 
 ### Adding a New Component
-1. **Create a new SCSS file** in `src/styles/` (e.g., `_cards.scss`).
-2. **Import it** in `main.scss`:
-   ```scss
-   @import "cards";
+
+1. **Create a new SCSS file** in the appropriate `src/styles/` subfolder:
+   - **For components** (buttons, cards, search boxes, etc.): Create `src/styles/components/_component-name.scss`
+   - **For layout utilities**: Add to `src/styles/base/layout/_layout.scss` or create a new file in `src/styles/base/layout/`
+   - **For global styles**: Add to `src/styles/base/_global.scss`
+
+   Example: For a new "card" component:
+   ```bash
+   # Create the file
+   src/styles/components/_cards.scss
    ```
-3. **Create a demo page** in `src/design_system/` or `src/design_mockups/` to showcase the component.
+
+2. **Import the new file** in `src/styles/main.scss`:
+   ```scss
+   // In the components section:
+   @import "components/cards";
+   
+   // Or if adding a new layout file:
+   @import "base/layout/layout-name";
+   ```
+
+3. **Follow naming conventions**:
+   - File names: `_component-name.scss` (lowercase, kebab-case, with underscore prefix)
+   - Class names: Use BEM convention for bespoke components (e.g., `.card__header—primary`)
+   - Or use Bootstrap utilities for simple styling (no BEM needed)
+
+4. **Create a demo page** in `src/design_system/` to showcase the component:
+   ```html
+   <!-- src/design_system/components/cards.html -->
+   {% include "header.html" %}
+   
+   <main class="container">
+     <h1>Cards Component</h1>
+     <!-- Show examples here -->
+   </main>
+   
+   {% include "footer.html" %}
+   ```
+
+5. **The build system will automatically**:
+   - Compile your SCSS to CSS
+   - Include it in the main stylesheet
+   - Hot-reload your changes during development
 
 ### Adding a New Page
 1. **Create a new HTML file** in `src/design_system/` or `src/design_mockups/`.
@@ -181,6 +230,7 @@ Having a naming convention can make it much easier to learn the system and find 
    ```html
    {% include "header.html" %}
    ```
+3. **If creating reusable page patterns:** If you notice page-level patterns or layouts being reused across multiple pages, create a `src/pages/` folder to store shared page layouts and templates for future scaling.
 
 ### Customizing Bootstrap
 - Override Bootstrap variables in `src/styles/_variables.scss`:

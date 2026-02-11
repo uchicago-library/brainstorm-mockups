@@ -4,10 +4,10 @@
 // Import Bootstrap
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-// Global element overrides (after Bootstrap)
-@import "global";
+// Import base styles (after Bootstrap)
+@import "base/global";
+@import "base/layout/layout";
 
-// Import custom component styles
-@import "header";
-@import "footer";
-@import "layout";
+// Import component styles
+@import "components/header";
+@import "components/footer";

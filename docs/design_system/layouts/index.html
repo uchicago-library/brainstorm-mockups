@@ -270,168 +270,161 @@
 </header>
 
 
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md pt-2">
+  <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
+    <li class="breadcrumb-item"><a href="/brainstorm-mockups/" class="text-muted text-decoration-none">Home</a></li>
+    <li class="breadcrumb-item"><a href="/brainstorm-mockups/design_system/" class="text-muted text-decoration-none">Demos</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">Layouts</li>
+  </ol>
+</nav>
 
-<main class="container-md py-5 mb-5">
+<!-- Page Header -->
+<div class="container-md py-4">
   <div class="row">
     <div class="col-lg-10 mx-auto">
-      
-      <h1 class="display-4 mb-4">University of Chicago Library Design System</h1>
-      
-      <p class="lead">A static site for documenting and demonstrating the University of Chicago Library design system, built with Eleventy, Bootstrap 5, and FontAwesome.</p>
-
-      <hr class="my-5">
-
-      <section class="mb-5">
-        <h2>Getting Started</h2>
-        <p>Explore the design system through our organized sections:</p>
-        
-        <div class="row g-4">
-          <div class="col-md-6">
-            <a href="/brainstorm-mockups/design_system/">
-              <h3 class="h5">Component Demos</h3>
-            </a>
-            <ul>
-              <li><a href="/brainstorm-mockups/design_system/layouts/">Layouts</a> - Page layout patterns and structures</li>
-              <li><a href="/brainstorm-mockups/design_system/components/">Components</a> - Buttons, forms, cards, accordions, and more</li>
-              <li><a href="/brainstorm-mockups/design_system/design-tokens/">Design Tokens</a> - Colors, spacing, borders, shadows
-                <ul>
-                  <li><a href="/brainstorm-mockups/design_system/typography/">Typography</a> - Text styles, headings, lists, tables</li>
-                </ul>
-              </li>
-            </ul>
-            
-          </div>
-          <div class="col-md-6">
-            <a href="/brainstorm-mockups/design_mockups/">
-              <h3 class="h5">Page Mockups</h3>
-            </a>
-            <ul>
-              <li><a href="/brainstorm-mockups/design_mockups/guides-in-accordions/">Guides in Accordions</a></li>
-              <li><a href="/brainstorm-mockups/design_mockups/guides-in-photos/">Guides in Photos</a></li>
-              <li><a href="/brainstorm-mockups/design_mockups/guides-in-types/">Guides in Types</a></li>
-            </ul>
-            
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-5">
-        <h2>About This Project</h2>
-        <p>This design system documentation site serves multiple purposes:</p>
-        <ul>
-          <li><strong>Component Library:</strong> Demonstrates reusable UI components (buttons, forms, cards, etc.)</li>
-          <li><strong>Style Guide:</strong> Documents the visual design language including colors, typography, and spacing</li>
-          <li><strong>Mockup Showcase:</strong> Provides full-page layouts demonstrating how components work together</li>
-          <li><strong>Developer Resource:</strong> Offers copy-paste ready HTML/SCSS code for use in other projects</li>
-        </ul>
-      </section>
-
-      <section class="mb-5">
-        <h2>Key Features</h2>
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">Static & Fast</h3>
-                <p class="card-text">Built with Eleventy for minimal dependencies and maximum performance. Perfect for GitHub Pages hosting.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">Bootstrap 5 Foundation</h3>
-                <p class="card-text">Leverages Bootstrap's powerful SCSS variables and components with custom brand overrides.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">Accessible by Design</h3>
-                <p class="card-text">Follows WCAG 2.1 Level AA standards with semantic HTML, proper ARIA labels, and keyboard navigation.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">Highly Reusable</h3>
-                <p class="card-text">Copy components directly into your projects. All code is modular and well-documented.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-5">
-        <h2>Brand Colors</h2>
-        <p>The design system uses the official University of Chicago Library color palette:</p>
-        <div class="row g-3">
-          <div class="col-6 col-md-3">
-            <div class="p-3 text-white" style="background-color: #800000;">
-              <strong>Primary</strong><br>
-              Maroon<br>
-              #800000
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="p-3 text-white" style="background-color: #737373;">
-              <strong>Secondary</strong><br>
-              Dark Greystone<br>
-              #737373
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="p-3 text-white" style="background-color: #789D4A;">
-              <strong>Success</strong><br>
-              Ivy<br>
-              #789D4A
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="p-3 text-white" style="background-color: #007396;">
-              <strong>Info</strong><br>
-              Lake<br>
-              #007396
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-5">
-        <h2>Technology Stack</h2>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Technology</th>
-              <th>Purpose</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Eleventy</strong></td>
-              <td>Static site generator</td>
-            </tr>
-            <tr>
-              <td><strong>Bootstrap 5</strong></td>
-              <td>CSS framework (SCSS)</td>
-            </tr>
-            <tr>
-              <td><strong>FontAwesome</strong></td>
-              <td>Icon library</td>
-            </tr>
-            <tr>
-              <td><strong>Sass</strong></td>
-              <td>SCSS compilation</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
+      <h1 class="display-3 mb-2">Page Layouts</h1>
+      <p class="lead text-muted mb-3">Common page layout patterns for structuring content.</p>
     </div>
   </div>
-</main>
+</div>
+
+<!-- Main + Sidebar Layout Demo -->
+<section class="py-5">
+  <div class="container-lg">
+    <div class="row g-4 mb-4">
+      <div class="col-lg-8">
+        <h2 class="mb-3">Main Column + Right Sidebar</h2>
+        <p class="text-muted mb-4">Two-column layout with primary content and supplementary sidebar. Sidebar stacks below on mobile.</p>
+        <h3 class="h5">Main Content</h3>
+        <p>The main content area uses <code>col-lg-8</code> for primary information. This column contains the core content users are looking for.</p>
+        <p class="mb-0">On mobile devices, this column takes full width and appears first.</p>
+      </div>
+      <div class="col-lg-4">
+        <div class="sidebar p-4 rounded">
+          <h3 class="h6">Sidebar</h3>
+          <p class="small">The sidebar uses <code>col-lg-4</code> for supplementary content like navigation, related links, or metadata.</p>
+          <ul class="small mb-0">
+            <li>Quick links</li>
+            <li>Related content</li>
+            <li>Additional info</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Code Example -->
+    <div class="row">
+      <div class="col-12">
+        <pre class="border p-3 rounded"><code>&lt;main class="container-md"&gt;
+  &lt;div class="row g-4"&gt;
+    &lt;div class="col-lg-8"&gt;
+      &lt;!-- Main content --&gt;
+    &lt;/div&gt;
+    &lt;div class="col-lg-4"&gt;
+      &lt;!-- Sidebar --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+<!-- Single Column Layout Demo -->
+<section class="py-5">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <h2 class="mb-3">Single Column Layout</h2>
+        <p class="text-muted mb-4">Simple centered layout for focused content. Best for articles, documentation, and forms.</p>
+        <h3 class="h5">Example Content</h3>
+        <p>This is a single column layout using <code>container-md</code> with a <code>col-lg-10 mx-auto</code> column. It provides a comfortable reading width and centers the content.</p>
+        <p class="mb-4">Perfect for documentation pages, blog posts, and long-form content where focus and readability are priorities.</p>
+
+        <!-- Code Example -->
+        <pre class="border p-3 rounded"><code>&lt;main class="container-md"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-lg-10 mx-auto"&gt;
+      &lt;!-- Content here --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+<!-- Full Width Sections Layout Demo -->
+<section class="py-5">
+  <section class="py-5 bg-white">
+    <div class="container-md">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h2 class="mb-3">Full Width Sections with Centered Content</h2>
+          <p class="text-muted mb-4">Full-width sections with different backgrounds, but content constrained to standard container width. Perfect for landing pages with visual variety.</p>
+          <h3 class="h5">Section with White Background</h3>
+          <p class="mb-0">Each section spans full width but content is contained within <code>container-md</code> and <code>col-lg-10 mx-auto</code>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-5 bg-light">
+    <div class="container-md">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h3 class="h5">Section with Gray Background</h3>
+          <p class="mb-0">Different sections can have unique backgrounds while maintaining consistent content width and alignment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="py-5 bg-primary text-white">
+    <div class="container-md">
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <h3 class="h5">Section with Brand Background</h3>
+          <p class="mb-0">Create visual interest with full-width colored sections while keeping content readable and aligned.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Code Example -->
+  <div class="container-md mt-4">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <pre class="border p-3 rounded">
+        <code>
+&lt;!-- Section 1 --&gt;
+&lt;section class="py-5" style="background-color: #ffffff;"&gt;
+    &lt;div class="container-md"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-lg-10 mx-auto"&gt;
+                &lt;!-- Content --&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- Section 2 --&gt;
+&lt;section class="py-5 bg-light"&gt;
+    &lt;div class="container-md"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-lg-10 mx-auto"&gt;
+                &lt;!-- Content --&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section
+          </code>
+        </pre>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer id="footer" role="contentinfo" class="footer">
   <div class="container-md">
