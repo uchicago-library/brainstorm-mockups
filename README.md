@@ -283,12 +283,13 @@ If selective Bootstrap module imports become standard, also consider:
 - Documenting which Bootstrap JS components each platform requires
 
 ## 🔧 Dependencies
+as of 2026-feb-11
 | Dependency       | Version   | Purpose                          |
 |------------------|-----------|----------------------------------|
-| Eleventy         | 2.0.1     | Static site generator            |
-| Bootstrap        | 5         | CSS framework (SCSS)             |
-| FontAwesome      | 5         | Icons (CDN or self-hosted)       |
-| Sass             | Latest    | SCSS compilation                 |
+| Eleventy         | 2.0.1+    | Static site generator            |
+| Bootstrap        | 5.3.2+    | CSS framework (SCSS)             |
+| Sass             | 1.69.5+   | SCSS compilation                 |
+| FontAwesome      | CDN       | Icons (via CDN or self-hosted)   |
 
 ## 📄 License
 MIT License. See [LICENSE](LICENSE) for details.
