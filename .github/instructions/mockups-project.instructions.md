@@ -11,7 +11,7 @@ applyTo: '**'
 ### **1. General Rules**
 - Always start with the provided `README.md`.
 - Never modify files inside `/docs/` and most work will happen in `/src/`.
-- Aks for clarifications if any instruction is unclear or conflicting.
+- Ask for clarifications if any instruction is unclear, conflicting, or appears to be a bad idea.
 
 ## Design Principles
 

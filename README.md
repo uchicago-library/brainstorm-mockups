@@ -13,40 +13,6 @@ A static site for documenting and demonstrating the University of Chicago Librar
 ## 📅 Status
 **Work in Progress** — Aimed to be stabilized for ongoing development by **August 2026**.
 
-## 📦 Project Structure
-```
-src/
-├── _includes/              # HTML partials (header, footer)
-├── styles/                 # SCSS files
-│   ├── _variables.scss     # Bootstrap overrides, design tokens
-│   ├── base/               # Base styles (global, layout)
-│   ├── components/         # Component-specific styles
-│   └── main.scss           # SCSS entry point
-├── design_system/          # Component demos and design documentation
-│   ├── components/         # Individual component demos
-│   ├── design-tokens/      # Design tokens documentation
-│   ├── layouts/            # Layout patterns
-│   └── typography/         # Typography showcase
-├── design_mockups/         # Full-page mockups (experimental)
-├── methodology/            # Development guidelines
-│   ├── setup.html          # Setup and installation
-│   ├── file-structure.html # Project organization
-│   ├── adding-components.html
-│   ├── adding-pages.html
-│   ├── html-scss-js-rules.html
-│   ├── naming-conventions.html
-│   ├── bootstrap-customization.html
-│   └── validation.html     # QA and accessibility auditing
-├── system/                 # Design system documentation
-│   ├── design-principles.html
-│   ├── color-palette.html
-│   └── (more design docs)
-├── assets/                 # Images, fonts, icons
-└── index.html              # Homepage
-
-docs/                       # Built site (auto-generated)
-```
-
 ## � Quick Start
 
 ### Prerequisites
