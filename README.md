@@ -240,13 +240,54 @@ Having a naming convention can make it much easier to learn the system and find 
   ```
 - Use Bootstrap's [SCSS documentation](https://getbootstrap.com/docs/5.3/customize/overview/) for reference.
 
+## 🚀 Future: Multi-Platform Support
+
+This design system is architected to support distribution across multiple platforms with varying CSS footprints:
+
+### Vision
+- **Main output** (`main.scss`): Full design system with all components and Bootstrap modules
+- **Platform-specific outputs** (1–2): `libguides.scss`, `satellite.scss`, etc. for platforms with custom CSS needs
+- **Minimal output**: Lightweight build for ~10 small platforms that need only core styles (variables, base, Bootstrap utilities)
+
+### Implementation Strategy
+When multi-platform support is needed:
+
+1. **Create platform-specific entry points** in `src/styles/`:
+   ```
+   src/styles/
+   ├── main.scss              # Full design system
+   ├── libguides.scss         # LibGuides-specific (selective imports)
+   ├── minimal.scss           # Minimal for small platforms
+   └── _variables.scss
+   ```
+
+2. **Selectively import Bootstrap modules** per platform:
+   ```scss
+   // minimal.scss - lightweight output
+   @import "variables";
+   @import "../../node_modules/bootstrap/scss/functions";
+   @import "../../node_modules/bootstrap/scss/variables";
+   @import "../../node_modules/bootstrap/scss/utilities/api";
+   // Only utilities, no components—saves ~100KB
+   ```
+
+3. **Update build script** to generate multiple CSS files:
+   ```json
+   "build:sass": "sass src/styles/main.scss:docs/styles/main.css src/styles/libguides.scss:docs/styles/libguides.css src/styles/minimal.scss:docs/styles/minimal.css"
+   ```
+
+### Future JavaScript Consideration
+If selective Bootstrap module imports become standard, also consider:
+- Bundling platform-specific Bootstrap JS modules (if needed)
+- Creating lightweight JS entry points for minimal platforms
+- Documenting which Bootstrap JS components each platform requires
 
 ## 🔧 Dependencies
 | Dependency       | Version   | Purpose                          |
 |------------------|-----------|----------------------------------|
-| Eleventy         | Latest    | Static site generator            |
-| Bootstrap        | Latest    | CSS framework (SCSS)             |
-| FontAwesome      | Latest    | Icons (CDN or self-hosted)       |
+| Eleventy         | 2.0.1     | Static site generator            |
+| Bootstrap        | 5         | CSS framework (SCSS)             |
+| FontAwesome      | 5         | Icons (CDN or self-hosted)       |
 | Sass             | Latest    | SCSS compilation                 |
 
 ## 📄 License
