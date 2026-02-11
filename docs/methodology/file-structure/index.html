@@ -273,7 +273,9 @@
 <!-- Breadcrumbs -->
 <nav aria-label="breadcrumb" class="container-md pt-2">
   <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
-    <li class="breadcrumb-item active text-muted" aria-current="page">Home</li>
+    <li class="breadcrumb-item"><a href="/brainstorm-mockups/" class="text-muted text-decoration-none">Home</a></li>
+    <li class="breadcrumb-item"><a href="/brainstorm-mockups/methodology/" class="text-muted text-decoration-none">Methodology</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">File Structure</li>
   </ol>
 </nav>
 
@@ -281,176 +283,154 @@
   <div class="row">
     <div class="col-lg-10 mx-auto">
       
-      <h1 class="display-4 mb-4">UChicago Library Design System</h1>
+      <h1 class="display-4 mb-4">Project Structure</h1>
       
-      <p class="lead">A comprehensive design system for the University of Chicago Library, providing reusable components, design tokens, and development guidelines built on Bootstrap 5.</p>
+      <p class="lead">Understanding the organization of files, folders, and where to place your work.</p>
 
       <hr class="my-5">
 
       <section class="mb-5">
-        <h2>New to the Project?</h2>
-        <p><strong>Start here for a quick overview:</strong></p>
+        <h2>Directory Layout</h2>
+        <pre><code>brainstorm-mockups/
+├── src/
+│   ├── _includes/              # Reusable HTML partials
+│   │   ├── header.html         # Site header with navigation
+│   │   └── footer.html         # Site footer
+│   ├── styles/                 # SCSS files
+│   │   ├── _variables.scss     # Bootstrap variable overrides
+│   │   ├── base/               # Base/foundational styles
+│   │   │   ├── _global.scss    # Global element overrides
+│   │   │   └── layout/
+│   │   │       └── _layout.scss
+│   │   ├── components/         # Component-specific styles
+│   │   │   ├── _header.scss
+│   │   │   ├── _footer.scss
+│   │   │   └── _*.scss         # Additional components
+│   │   └── main.scss           # Main entry point (imports everything)
+│   ├── design_system/          # Demo pages (HTML)
+│   ├── design_mockups/         # Full page mockups (HTML)
+│   ├── methodology/            # Development guidelines (this folder)
+│   ├── system/                 # Design system documentation
+│   ├── assets/                 # Static assets
+│   │   └── images/             # Image files
+│   └── index.html              # Homepage
+├── docs/                       # Built site (deployed to GitHub Pages)
+├── package.json                # NPM scripts and dependencies
+├── .eleventy.js                # Eleventy configuration
+└── README.md                   # Project documentation</code></pre>
+      </section>
+
+      <section class="mb-5">
+        <h2>File Organization Rules</h2>
         
-        <div class="row g-4">
-          <div class="col-md-6">
-            <h3 class="h5">👨‍💻 Developers</h3>
-            <ul>
-              <li><a href="/brainstorm-mockups/methodology/setup/">Setup & Installation</a></li>
-              <li><a href="/brainstorm-mockups/methodology/#creating-ontributing">Creating & Contributing</a></li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <h3 class="h5">🎨 Designers</h3>
-            <ul>
-              <li><a href="/brainstorm-mockups/design_system/">Design System</a></li>
-            </ul>
-          </div>
+        <div class="mb-4">
+          <h3>HTML Files</h3>
+          <ul>
+            <li><strong>Component demos</strong>: <code>src/design_system/</code></li>
+            <li><strong>Page mockups</strong>: <code>src/design_mockups/</code></li>
+            <li><strong>Documentation pages</strong>: <code>src/methodology/</code> and <code>src/design_system/</code></li>
+            <li><strong>Reusable partials</strong>: <code>src/_includes/</code></li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h3>SCSS Files</h3>
+          <ul>
+            <li><strong>All styles live in</strong>: <code>src/styles/</code></li>
+            <li><strong>Bootstrap overrides</strong>: <code>src/styles/_variables.scss</code></li>
+            <li><strong>Base/global styles</strong>: <code>src/styles/base/_global.scss</code></li>
+            <li><strong>Component styles</strong>: <code>src/styles/components/</code> (one file per component)</li>
+            <li><strong>Layout styles</strong>: <code>src/styles/base/layout/</code></li>
+            <li><strong>Entry point</strong>: <code>src/styles/main.scss</code></li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h3>Assets</h3>
+          <ul>
+            <li><strong>Images, fonts, icons</strong>: <code>src/assets/</code></li>
+            <li><strong>Reference in HTML</strong>: <code>/assets/images/filename.png</code></li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h3>Naming Conventions</h3>
+          <ul>
+            <li><strong>SCSS files</strong>: Prefix with underscore (e.g., <code>_buttons.scss</code>)</li>
+            <li><strong>HTML files</strong>: Use kebab-case (e.g., <code>demo-buttons.html</code>)</li>
+            <li><strong>CSS classes</strong>: Use BEM convention for components (e.g., <code>.card__header—primary</code>)</li>
+          </ul>
         </div>
       </section>
 
       <section class="mb-5">
-        <h2>Explore the System</h2>
-        <p>Navigate through different sections of the design system:</p>
+        <h2>What Goes Where</h2>
         
-        <div class="row g-4">
-          <div class="col-md-6">
-            <a href="/brainstorm-mockups/design_system/">
-              <h3 class="h5">Component Demos</h3>
-            </a>
-            <p>Browse and copy reusable components:</p>
-            <ul>
-              <li><a href="/brainstorm-mockups/design_system/layouts/">Layouts</a> - Page structure and grid patterns</li>
-              <li><a href="/brainstorm-mockups/design_system/components/">Components</a> - Buttons, forms, cards, and more</li>
-              <li><a href="/brainstorm-mockups/design_system/design-tokens/">Design Tokens</a> - Colors, typography, spacing</li>
-              <li><a href="/brainstorm-mockups/design_system/typography/">Typography</a> - Headings, text styles, scales</li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <a href="/brainstorm-mockups/design_mockups/">
-              <h3 class="h5">Page Mockups</h3>
-            </a>
-            <p>Full-page layouts demonstrating component combinations:</p>
-            <ul>
-              <li><a href="/brainstorm-mockups/design_mockups/guides-in-accordions/">Guides in Accordions</a></li>
-              <li><a href="/brainstorm-mockups/design_mockups/guides-in-photos/">Guides in Photos</a></li>
-              <li><a href="/brainstorm-mockups/design_mockups/guides-in-types/">Guides in Types</a></li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-5">
-        <h2>Documentation & Guidelines</h2>
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title"><a href="/brainstorm-mockups/methodology/">Development Methodology</a></h3>
-                <p class="card-text">Best practices, setup, naming conventions, and how to add components and pages.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title"><a href="/brainstorm-mockups/design_system/">Design System Principles</a></h3>
-                <p class="card-text">Design principles, color palette, accessibility standards, and design tokens.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-5">
-        <h2>Quick Facts</h2>
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">Based on Brand Guidelines</h3>
-                <p class="card-text">Uses the official University of Chicago Library brand colors and typography (UChicago Sans Serif).</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">WCAG 2.1 Level AA</h3>
-                <p class="card-text">All components meet accessibility standards for contrast, keyboard navigation, and screen readers.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">Built on Bootstrap 5</h3>
-                <p class="card-text">Leverages Bootstrap's powerful foundation with custom brand overrides and extensions.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">Copy-Paste Ready</h3>
-                <p class="card-text">All components can be directly copied into other projects with minimal dependencies.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-5">
-        <h2>Use Cases</h2>
-        <p>This design system is designed to support:</p>
-        <ul>
-          <li><strong><a href="https://repository.lib.uchicago.edu" target="_blank">Digital Repository</a></strong></li>
-          <li><strong>LibGuides</strong> (custom CSS)</li>
-          <li><strong>Book a Room</strong> (embedded components)</li>
-          <li><strong>Catalog</strong> (component library)</li>
-          <li><strong>Other library websites and services</strong></li>
-        </ul>
-      </section>
-
-      <section class="mb-5">
-        <h2>Status & Roadmap</h2>
-        <div class="alert alert-info">
-          <strong>🚀 In Progress:</strong> This design system is a work in progress stabilization effort aimed for completion by <strong>August 2026</strong>. Components, patterns, and guidelines are continuously refined based on feedback.
-        </div>
-      </section>
-
-      <section class="mb-5">
-        <h2>Technology Stack</h2>
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>Technology</th>
-              <th>Purpose</th>
-              <th>Version</th>
+              <th>Content Type</th>
+              <th>Location</th>
+              <th>Notes</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Eleventy</strong></td>
-              <td>Static site generator</td>
-              <td>2.0.1+</td>
+              <td>Button component demo</td>
+              <td><code>src/design_system/components/buttons.html</code></td>
+              <td>Show all button variations</td>
             </tr>
             <tr>
-              <td><strong>Bootstrap 5</strong></td>
-              <td>CSS framework (SCSS)</td>
-              <td>5.3.2+</td>
+              <td>Full page mockup</td>
+              <td><code>src/design_mockups/guide-layout.html</code></td>
+              <td>Experimental page layouts</td>
             </tr>
             <tr>
-              <td><strong>Sass</strong></td>
-              <td>SCSS compilation</td>
-              <td>1.69.5+</td>
+              <td>Component SCSS</td>
+              <td><code>src/styles/components/_buttons.scss</code></td>
+              <td>Import in main.scss</td>
             </tr>
             <tr>
-              <td><strong>FontAwesome</strong></td>
-              <td>Icon library (CDN)</td>
-              <td>Latest</td>
+              <td>Global SCSS</td>
+              <td><code>src/styles/base/_global.scss</code></td>
+              <td>Element overrides, not component-specific</td>
+            </tr>
+            <tr>
+              <td>Layout utilities</td>
+              <td><code>src/styles/base/layout/_layout.scss</code></td>
+              <td>Grid, spacing, alignment</td>
+            </tr>
+            <tr>
+              <td>Header/Footer</td>
+              <td><code>src/_includes/header.html</code>, <code>footer.html</code></td>
+              <td>Included in all pages</td>
+            </tr>
+            <tr>
+              <td>Logo images</td>
+              <td><code>src/assets/images/</code></td>
+              <td>Reference as <code>/assets/images/logo.png</code></td>
             </tr>
           </tbody>
         </table>
+      </section>
+
+      <section class="mb-5">
+        <h2>Important Reminders</h2>
+        <div class="alert alert-warning">
+          <strong>⚠️ Never modify the <code>docs/</code> folder.</strong> It's auto-generated during the build process. All work happens in <code>src/</code>.
+        </div>
+        <div class="alert alert-info">
+          <strong>ℹ️ Maintaining folder and navigation structure is manual.</strong> When you add new pages, make sure to update the relevant index pages and navigation menus.
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>Next Steps</h2>
+        <ul>
+          <li><strong><a href="/brainstorm-mockups/methodology/adding-components/">Learn how to add a new component</a></strong></li>
+          <li><strong><a href="/brainstorm-mockups/methodology/adding-pages/">Learn how to add a new page</a></strong></li>
+          <li><strong><a href="/brainstorm-mockups/methodology/naming-conventions/">Review naming conventions</a></strong></li>
+        </ul>
       </section>
 
     </div>

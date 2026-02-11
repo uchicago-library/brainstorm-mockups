@@ -77,8 +77,8 @@ The `docs/` folder is ready to deploy to GitHub Pages.
 
 This documentation site serves the **UChicago Library Design System** which is based on official brand guidelines. It includes:
 
-- **Design Principles** ([View](./src/system/design-principles.html)): Nielsen's usability heuristics and WCAG 2.1 accessibility standards
-- **Color Palette** ([View](./src/system/color-palette.html)): Official brand colors with semantic mappings
+- **Design Principles** ([View](./src/design_system/design-principles.html)): Nielsen's usability heuristics and WCAG 2.1 accessibility standards
+- **Color Palette** ([View](./src/design_system/color-palette.html)): Official brand colors with semantic mappings
 - **Component Library** ([View](./src/design_system/)): Reusable components (buttons, forms, cards, etc.)
 - **Development Guide** ([View](./src/methodology/)): Best practices for building and extending the system
 - **Page Mockups** ([View](./src/design_mockups/)): Full-page layouts demonstrating how components work together

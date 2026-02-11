@@ -1,5 +1,14 @@
 {% include "header.html" %}
 
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md pt-2">
+  <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
+    <li class="breadcrumb-item"><a href="{{ '/' | url }}" class="text-muted text-decoration-none">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ '/methodology/' | url }}" class="text-muted text-decoration-none">Methodology</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">Setup</li>
+  </ol>
+</nav>
+
 <main class="container-md py-5 mb-5">
   <div class="row">
     <div class="col-lg-10 mx-auto">
@@ -128,7 +137,7 @@ cd brainstorm-mockups</code></pre>
         <ul>
           <li><strong><a href="{{ '/methodology/file-structure/' | url }}">Understand the Project Structure</a></strong></li>
           <li><strong><a href="{{ '/methodology/adding-components/' | url }}">Create Your First Component</a></strong></li>
-          <li><strong><a href="{{ '/system/design-principles/' | url }}">Learn Design Principles</a></strong></li>
+          <li><strong><a href="{{ '/design_system/design-principles/' | url }}">Learn Design Principles</a></strong></li>
         </ul>
       </section>
 

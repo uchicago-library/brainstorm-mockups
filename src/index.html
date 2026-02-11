@@ -1,5 +1,11 @@
 {% include "header.html" %}
 
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md pt-2">
+  <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
+    <li class="breadcrumb-item active text-muted" aria-current="page">Home</li>
+  </ol>
+</nav>
 
 <main class="container-md py-5 mb-5">
   <div class="row">
@@ -14,24 +20,20 @@
       <section class="mb-5">
         <h2>New to the Project?</h2>
         <p><strong>Start here for a quick overview:</strong></p>
-        <div class="row g-3">
+        
+        <div class="row g-4">
           <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">👨‍💻 Developer Quick Start</h3>
-                <p class="card-text">Setup, installation, and project structure for developers and contributors.</p>
-                <a href="{{ '/methodology/setup/' | url }}" class="btn btn-sm btn-primary">Get Started →</a>
-              </div>
-            </div>
+            <h3 class="h5">👨‍💻 Developers</h3>
+            <ul>
+              <li><a href="{{ '/methodology/setup/' | url }}">Setup & Installation</a></li>
+              <li><a href="{{ '/methodology/' | url }}#creating-ontributing">Creating & Contributing</a></li>
+            </ul>
           </div>
           <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">🎨 Designer's Guide</h3>
-                <p class="card-text">Design principles, color palette, and component patterns.</p>
-                <a href="{{ '/system/design-principles/' | url }}" class="btn btn-sm btn-primary">Explore →</a>
-              </div>
-            </div>
+            <h3 class="h5">🎨 Designers</h3>
+            <ul>
+              <li><a href="{{ '/design_system/' | url }}">Design System</a></li>
+            </ul>
           </div>
         </div>
       </section>
@@ -81,7 +83,7 @@
           <div class="col-md-6">
             <div class="card h-100">
               <div class="card-body">
-                <h3 class="h5 card-title"><a href="{{ '/system/' | url }}">Design System Principles</a></h3>
+                <h3 class="h5 card-title"><a href="{{ '/design_system/' | url }}">Design System Principles</a></h3>
                 <p class="card-text">Design principles, color palette, accessibility standards, and design tokens.</p>
               </div>
             </div>
@@ -137,7 +139,6 @@
           <li><strong>Catalog</strong> (component library)</li>
           <li><strong>Other library websites and services</strong></li>
         </ul>
-        <p><em>Smaller platforms can use selective CSS imports to minimize payload size.</em> See <a href="{{ '/methodology/bootstrap-customization/' | url }}">Bootstrap Customization</a> for details.</p>
       </section>
 
       <section class="mb-5">

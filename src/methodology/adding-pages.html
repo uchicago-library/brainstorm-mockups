@@ -1,5 +1,14 @@
 {% include "header.html" %}
 
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md pt-2">
+  <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
+    <li class="breadcrumb-item"><a href="{{ '/' | url }}" class="text-muted text-decoration-none">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ '/methodology/' | url }}" class="text-muted text-decoration-none">Methodology</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">Adding Pages</li>
+  </ol>
+</nav>
+
 <main class="container-md py-5 mb-5">
   <div class="row">
     <div class="col-lg-10 mx-auto">
@@ -37,7 +46,7 @@
             </tr>
             <tr>
               <td><strong>Documentation</strong></td>
-              <td><code>src/methodology/</code> or <code>src/system/</code></td>
+              <td><code>src/methodology/</code> or <code>src/design_system/</code></td>
               <td>Guided documentation for development</td>
               <td>Setup, best practices, principles</td>
             </tr>
@@ -277,7 +286,7 @@ src/design_mockups/guides-in-photos.html</code></pre>
             </tr>
             <tr>
               <td>Design system doc</td>
-              <td><code>src/system/</code></td>
+              <td><code>src/design_system/</code></td>
               <td><code>topic-name.html</code></td>
             </tr>
           </tbody>

@@ -273,7 +273,9 @@
 <!-- Breadcrumbs -->
 <nav aria-label="breadcrumb" class="container-md pt-2">
   <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
-    <li class="breadcrumb-item active text-muted" aria-current="page">Home</li>
+    <li class="breadcrumb-item"><a href="/brainstorm-mockups/" class="text-muted text-decoration-none">Home</a></li>
+    <li class="breadcrumb-item"><a href="/brainstorm-mockups/methodology/" class="text-muted text-decoration-none">Methodology</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">Validation</li>
   </ol>
 </nav>
 
@@ -281,176 +283,334 @@
   <div class="row">
     <div class="col-lg-10 mx-auto">
       
-      <h1 class="display-4 mb-4">UChicago Library Design System</h1>
+      <h1 class="display-4 mb-4">Quality Assurance & Validation</h1>
       
-      <p class="lead">A comprehensive design system for the University of Chicago Library, providing reusable components, design tokens, and development guidelines built on Bootstrap 5.</p>
+      <p class="lead">Ensure your components meet quality standards through browser testing, validation, and accessibility auditing.</p>
 
       <hr class="my-5">
 
       <section class="mb-5">
-        <h2>New to the Project?</h2>
-        <p><strong>Start here for a quick overview:</strong></p>
+        <h2>Overview</h2>
+        <p>Before shipping a component or page, validate it across three dimensions:</p>
+        <ol>
+          <li><strong>Functional:</strong> Works as intended across browsers and devices</li>
+          <li><strong>Standards-compliant:</strong> Valid HTML, CSS, and semantic markup</li>
+          <li><strong>Accessible:</strong> WCAG 2.1 Level AA compliant</li>
+        </ol>
+      </section>
+
+      <section class="mb-5">
+        <h2>1. Browser Testing</h2>
         
-        <div class="row g-4">
-          <div class="col-md-6">
-            <h3 class="h5">👨‍💻 Developers</h3>
-            <ul>
-              <li><a href="/brainstorm-mockups/methodology/setup/">Setup & Installation</a></li>
-              <li><a href="/brainstorm-mockups/methodology/#creating-ontributing">Creating & Contributing</a></li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <h3 class="h5">🎨 Designers</h3>
-            <ul>
-              <li><a href="/brainstorm-mockups/design_system/">Design System</a></li>
-            </ul>
-          </div>
+        <div class="mb-4">
+          <h3>Minimum Browser Coverage</h3>
+          <table class="table table-bordered table-sm">
+            <thead>
+              <tr>
+                <th>Browser</th>
+                <th>Minimum Version</th>
+                <th>Priority</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Chrome</strong></td>
+                <td>Latest 2 versions</td>
+                <td>High</td>
+              </tr>
+              <tr>
+                <td><strong>Firefox</strong></td>
+                <td>Latest 2 versions</td>
+                <td>High</td>
+              </tr>
+              <tr>
+                <td><strong>Safari</strong></td>
+                <td>Latest version (macOS + iOS)</td>
+                <td>High</td>
+              </tr>
+              <tr>
+                <td><strong>Edge</strong></td>
+                <td>Latest version</td>
+                <td>Medium</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mb-4">
+          <h3>Responsive Testing</h3>
+          <ul>
+            <li><strong>Mobile:</strong> 375px (iPhone SE), 768px (iPad)</li>
+            <li><strong>Tablet:</strong> 768px to 1024px</li>
+            <li><strong>Desktop:</strong> 1024px+</li>
+            <li><strong>Wide screens:</strong> 1920px+</li>
+          </ul>
+          <p><strong>Tools:</strong> Browser DevTools (F12), <a href="https://www.responsively.app/" target="_blank">Responsively App</a></p>
+        </div>
+
+        <div class="mb-4">
+          <h3>Testing Checklist</h3>
+          <ul>
+            <li>✅ Page loads without errors</li>
+            <li>✅ All interactive elements work (buttons, links, forms)</li>
+            <li>✅ Images display correctly</li>
+            <li>✅ Text is readable (no overflow, proper sizing)</li>
+            <li>✅ Responsive layout adapts properly at each breakpoint</li>
+            <li>✅ Animations/transitions perform smoothly</li>
+            <li>✅ Print styles work (if applicable)</li>
+          </ul>
         </div>
       </section>
 
       <section class="mb-5">
-        <h2>Explore the System</h2>
-        <p>Navigate through different sections of the design system:</p>
+        <h2>2. HTML & CSS Validation</h2>
         
-        <div class="row g-4">
-          <div class="col-md-6">
-            <a href="/brainstorm-mockups/design_system/">
-              <h3 class="h5">Component Demos</h3>
-            </a>
-            <p>Browse and copy reusable components:</p>
-            <ul>
-              <li><a href="/brainstorm-mockups/design_system/layouts/">Layouts</a> - Page structure and grid patterns</li>
-              <li><a href="/brainstorm-mockups/design_system/components/">Components</a> - Buttons, forms, cards, and more</li>
-              <li><a href="/brainstorm-mockups/design_system/design-tokens/">Design Tokens</a> - Colors, typography, spacing</li>
-              <li><a href="/brainstorm-mockups/design_system/typography/">Typography</a> - Headings, text styles, scales</li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <a href="/brainstorm-mockups/design_mockups/">
-              <h3 class="h5">Page Mockups</h3>
-            </a>
-            <p>Full-page layouts demonstrating component combinations:</p>
-            <ul>
-              <li><a href="/brainstorm-mockups/design_mockups/guides-in-accordions/">Guides in Accordions</a></li>
-              <li><a href="/brainstorm-mockups/design_mockups/guides-in-photos/">Guides in Photos</a></li>
-              <li><a href="/brainstorm-mockups/design_mockups/guides-in-types/">Guides in Types</a></li>
-            </ul>
-          </div>
+        <div class="mb-4">
+          <h3>W3C Validator</h3>
+          <p><strong>Tool:</strong> <a href="https://validator.w3.org/" target="_blank">W3C Markup Validation Service</a></p>
+          
+          <p><strong>How to use:</strong></p>
+          <ol>
+            <li>Navigate to validator.w3.org</li>
+            <li>Enter your page URL or upload the HTML file</li>
+            <li>Review any errors and warnings</li>
+            <li>Fix issues before deploying</li>
+          </ol>
+
+          <p><strong>What to look for:</strong></p>
+          <ul>
+            <li>Missing or mismatched tags</li>
+            <li>Invalid attributes</li>
+            <li>Missing alt text on images</li>
+            <li>Unclosed elements</li>
+            <li>Deprecated HTML elements</li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h3>CSS Validation</h3>
+          <p><strong>Tool:</strong> <a href="https://jigsaw.w3.org/css-validator/" target="_blank">W3C CSS Validation Service</a></p>
+          
+          <p><strong>Common CSS issues to fix:</strong></p>
+          <ul>
+            <li>Misspelled properties</li>
+            <li>Invalid color values</li>
+            <li>Missing units (e.g., <code>margin: 10</code> should be <code>margin: 10px</code>)</li>
+            <li>Deprecated vendor prefixes (usually safe to ignore)</li>
+          </ul>
         </div>
       </section>
 
       <section class="mb-5">
-        <h2>Documentation & Guidelines</h2>
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title"><a href="/brainstorm-mockups/methodology/">Development Methodology</a></h3>
-                <p class="card-text">Best practices, setup, naming conventions, and how to add components and pages.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title"><a href="/brainstorm-mockups/design_system/">Design System Principles</a></h3>
-                <p class="card-text">Design principles, color palette, accessibility standards, and design tokens.</p>
-              </div>
-            </div>
-          </div>
+        <h2>3. Accessibility Auditing</h2>
+        
+        <div class="mb-4">
+          <h3>axe DevTools Browser Extension</h3>
+          <p><strong>Download:</strong> <a href="https://www.deque.com/axe/devtools/" target="_blank">axe DevTools for Chrome, Firefox, Safari, Edge</a></p>
+          
+          <p><strong>How to use:</strong></p>
+          <ol>
+            <li>Install the extension in your browser</li>
+            <li>Navigate to your page</li>
+            <li>Open DevTools (F12)</li>
+            <li>Click the "axe DevTools" tab</li>
+            <li>Run a scan</li>
+            <li>Review and fix violations</li>
+          </ol>
+
+          <p><strong>What it checks:</strong></p>
+          <ul>
+            <li>Color contrast ratios (4.5:1 for normal text, 3:1 for large)</li>
+            <li>Missing alt text on images</li>
+            <li>Missing form labels</li>
+            <li>Missing ARIA roles and attributes</li>
+            <li>Keyboard navigation issues</li>
+            <li>Focus indicators</li>
+            <li>Semantic HTML violations</li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h3>Supported Assistive Technology</h3>
+          <p>Test with screen readers if your site serves users with visual impairments:</p>
+          <ul>
+            <li><strong>Windows:</strong> <a href="https://www.nvaccess.org/" target="_blank">NVDA (free)</a>, JAWS (commercial)</li>
+            <li><strong>macOS/iOS:</strong> VoiceOver (built-in, VO + Right Arrow)</li>
+            <li><strong>Android:</strong> TalkBack (built-in)</li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h3>Keyboard Navigation Testing</h3>
+          <p>Ensure your site is fully usable with keyboard only:</p>
+          <ul>
+            <li>✅ Tab through all interactive elements (forms, buttons, links)</li>
+            <li>✅ Tab order is logical (left to right, top to bottom)</li>
+            <li>✅ Focus indicator is visible on all interactive elements</li>
+            <li>✅ Can activate buttons with Enter or Space</li>
+            <li>✅ Can navigate menus with keyboard</li>
+            <li>✅ Can close modals with Escape</li>
+          </ul>
         </div>
       </section>
 
       <section class="mb-5">
-        <h2>Quick Facts</h2>
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">Based on Brand Guidelines</h3>
-                <p class="card-text">Uses the official University of Chicago Library brand colors and typography (UChicago Sans Serif).</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">WCAG 2.1 Level AA</h3>
-                <p class="card-text">All components meet accessibility standards for contrast, keyboard navigation, and screen readers.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">Built on Bootstrap 5</h3>
-                <p class="card-text">Leverages Bootstrap's powerful foundation with custom brand overrides and extensions.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title">Copy-Paste Ready</h3>
-                <p class="card-text">All components can be directly copied into other projects with minimal dependencies.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-5">
-        <h2>Use Cases</h2>
-        <p>This design system is designed to support:</p>
-        <ul>
-          <li><strong><a href="https://repository.lib.uchicago.edu" target="_blank">Digital Repository</a></strong></li>
-          <li><strong>LibGuides</strong> (custom CSS)</li>
-          <li><strong>Book a Room</strong> (embedded components)</li>
-          <li><strong>Catalog</strong> (component library)</li>
-          <li><strong>Other library websites and services</strong></li>
-        </ul>
-      </section>
-
-      <section class="mb-5">
-        <h2>Status & Roadmap</h2>
-        <div class="alert alert-info">
-          <strong>🚀 In Progress:</strong> This design system is a work in progress stabilization effort aimed for completion by <strong>August 2026</strong>. Components, patterns, and guidelines are continuously refined based on feedback.
-        </div>
-      </section>
-
-      <section class="mb-5">
-        <h2>Technology Stack</h2>
-        <table class="table table-bordered">
+        <h2>WCAG 2.1 Level AA Compliance Checklist</h2>
+        
+        <table class="table table-bordered table-sm">
           <thead>
             <tr>
-              <th>Technology</th>
-              <th>Purpose</th>
-              <th>Version</th>
+              <th>Criteria</th>
+              <th>How to Test</th>
+              <th>Fix</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Eleventy</strong></td>
-              <td>Static site generator</td>
-              <td>2.0.1+</td>
+              <td><strong>Color Contrast</strong><br/>(4.5:1 normal, 3:1 large)</td>
+              <td>axe DevTools, manually with <a href="https://webaim.org/resources/contrastchecker/" target="_blank">Contrast Checker</a></td>
+              <td>Adjust foreground/background colors</td>
             </tr>
             <tr>
-              <td><strong>Bootstrap 5</strong></td>
-              <td>CSS framework (SCSS)</td>
-              <td>5.3.2+</td>
+              <td><strong>Alt Text</strong><br/>(all images)</td>
+              <td>Check HTML, axe DevTools</td>
+              <td>Add descriptive <code>alt=""</code> to <code>&lt;img&gt;</code> tags</td>
             </tr>
             <tr>
-              <td><strong>Sass</strong></td>
-              <td>SCSS compilation</td>
-              <td>1.69.5+</td>
+              <td><strong>Form Labels</strong></td>
+              <td>axe DevTools, inspect <code>&lt;label&gt;</code> elements</td>
+              <td>Associate labels: <code>&lt;label for="id"&gt;</code></td>
             </tr>
             <tr>
-              <td><strong>FontAwesome</strong></td>
-              <td>Icon library (CDN)</td>
-              <td>Latest</td>
+              <td><strong>Heading Hierarchy</strong><br/>(h1 → h2 → h3...)</td>
+              <td>Inspect page outline, <a href="https://www.w3schools.com/tools/webcode_h1_checker.asp" target="_blank">H1/H2 Checker</a></td>
+              <td>Use proper heading levels, don't skip</td>
+            </tr>
+            <tr>
+              <td><strong>Keyboard Navigation</strong></td>
+              <td>Tab through with keyboard, check focus visible</td>
+              <td>Add visible <code>:focus</code> styles, fix tab order</td>
+            </tr>
+            <tr>
+              <td><strong>Focus Visible</strong></td>
+              <td>Tab through page, verify focus outline</td>
+              <td>Ensure <code>:focus</code> styles are not removed</td>
+            </tr>
+            <tr>
+              <td><strong>Semantic HTML</strong></td>
+              <td>axe DevTools, W3C Validator</td>
+              <td>Use <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>, etc.</td>
+            </tr>
+            <tr>
+              <td><strong>No Flashing Content</strong><br/>(&gt;3 Hz)</td>
+              <td>Visual inspection</td>
+              <td>Reduce flash frequency or avoid flashing</td>
             </tr>
           </tbody>
         </table>
+      </section>
+
+      <section class="mb-5">
+        <h2>Automated Testing Workflow</h2>
+        
+        <p>Before you consider a component "done":</p>
+        <ol>
+          <li><strong>Browser Test:</strong> Chrome, Firefox, Safari on desktop and mobile</li>
+          <li><strong>Run W3C Validators:</strong> Fix HTML and CSS errors</li>
+          <li><strong>Run axe DevTools:</strong> Fix accessibility violations</li>
+          <li><strong>Keyboard Test:</strong> Ensure full keyboard navigation works</li>
+          <li><strong>Responsive Test:</strong> Check all breakpoints (mobile, tablet, desktop)</li>
+          <li><strong>Print Test:</strong> (if applicable) Check print styles</li>
+        </ol>
+      </section>
+
+      <section class="mb-5">
+        <h2>Performance Testing</h2>
+        
+        <div class="mb-4">
+          <h3>Google PageSpeed Insights</h3>
+          <p><strong>Tool:</strong> <a href="https://pagespeed.web.dev/" target="_blank">PageSpeed Insights</a></p>
+          <ul>
+            <li>Measures page load performance</li>
+            <li>Identifies Core Web Vitals issues</li>
+            <li>Provides optimization suggestions</li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h3>Key Performance Metrics</h3>
+          <ul>
+            <li><strong>LCP</strong> (Largest Contentful Paint): &lt; 2.5s</li>
+            <li><strong>FID</strong> (First Input Delay): &lt; 100ms</li>
+            <li><strong>CLS</strong> (Cumulative Layout Shift): &lt; 0.1</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>Pre-Deployment Checklist</h2>
+        
+        <div class="mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check1">
+            <label class="form-check-label" for="check1">✅ Tested on Chrome, Firefox, Safari</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check2">
+            <label class="form-check-label" for="check2">✅ Tested on mobile (375px), tablet (768px), desktop (1024px+)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check3">
+            <label class="form-check-label" for="check3">✅ W3C HTML validation passed</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check4">
+            <label class="form-check-label" for="check4">✅ W3C CSS validation passed</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check5">
+            <label class="form-check-label" for="check5">✅ axe DevTools audit passed (no critical issues)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check6">
+            <label class="form-check-label" for="check6">✅ Keyboard navigation works (Tab, Enter, Escape)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check7">
+            <label class="form-check-label" for="check7">✅ Focus indicators are visible</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check8">
+            <label class="form-check-label" for="check8">✅ All images have alt text</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check9">
+            <label class="form-check-label" for="check9">✅ Color contrast meets WCAG AA standards (4.5:1)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check10">
+            <label class="form-check-label" for="check10">✅ Heading hierarchy is correct</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check11">
+            <label class="form-check-label" for="check11">✅ Form labels are properly associated</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check12">
+            <label class="form-check-label" for="check12">✅ Semantic HTML used throughout</label>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank">WCAG 2.1 Quick Reference</a></li>
+          <li><a href="https://www.deque.com/axe/devtools/" target="_blank">axe DevTools</a></li>
+          <li><a href="https://webaim.org/articles/" target="_blank">WebAIM Articles</a></li>
+          <li><a href="https://validator.w3.org/" target="_blank">W3C Markup Validation Service</a></li>
+          <li><a href="https://pagespeed.web.dev/" target="_blank">Google PageSpeed Insights</a></li>
+        </ul>
       </section>
 
     </div>
