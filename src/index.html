@@ -4,13 +4,6 @@ title: "UChicago Library Design System"
 
 {% include "header.html" %}
 
-<!-- Breadcrumbs -->
-<nav aria-label="breadcrumb" class="container-md pt-2">
-  <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
-    <li class="breadcrumb-item active text-muted" aria-current="page">Home</li>
-  </ol>
-</nav>
-
 <main class="container-md py-5 mb-5">
   <div class="row">
     <div class="col-lg-10 mx-auto">
@@ -22,28 +15,29 @@ title: "UChicago Library Design System"
       <hr class="my-5">
 
       <section class="mb-5">
-        <h2>New to the Project?</h2>
-        <p><strong>Start here for a quick overview:</strong></p>
-        
         <div class="row g-4">
           <div class="col-md-6">
-            <h3 class="h5">👨‍💻 Developers</h3>
-            <ul>
-              <li><a href="{{ '/methodology/setup/' | url }}">Setup & Installation</a></li>
-              <li><a href="{{ '/methodology/system-architecture/' | url }}">System Architecture</a></li>
-            </ul>
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title"><a href="{{ '/methodology/system-architecture/' | url }}">System Architecture</a></h3>
+                <p class="card-text">Understand the project structure and technical foundation.</p>
+              </div>
+            </div>
           </div>
           <div class="col-md-6">
-            <h3 class="h5">🎨 Designers</h3>
-            <ul>
-              <li><a href="{{ '/design_system/' | url }}">Design System</a></li>
-            </ul>
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="h5 card-title"><a href="{{ '/design_system/' | url }}">Design System</a></h3>
+                <p class="card-text">Documentation and examples of how to style and use components.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="mb-5">
         <h2>Status & Roadmap</h2>
+        <p>Thie System is based on a planning document hosted <a href="https://uchicago.app.box.com/file/2095747484682?s=jf05ybrn63rgky5f66j8uhms6ljr26ez">here</a>.</p>
         <div class="alert alert-info">
           <strong>🚀 In Progress:</strong> This design system is a work in progress stabilization effort aimed for completion by <strong>August 2026</strong>.
         </div>
@@ -65,7 +59,7 @@ title: "UChicago Library Design System"
           <div class="col-md-6">
             <div class="card h-100">
               <div class="card-body">
-                <h3 class="h5 card-title"><a href="{{ '/methodology/' | url }}">Development Methodology</a></h3>
+                <h3 class="h5 card-title"><a href="{{ '/methodology/' | url }}">Methodology</a></h3>
                 <p class="card-text">Best practices, setup, naming conventions, and how to add components and pages.</p>
               </div>
             </div>
