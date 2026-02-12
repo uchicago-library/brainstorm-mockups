@@ -9,7 +9,57 @@ pre {
     padding: $spacer * 0.5;
 }
 
-// Add breathing room above H2s so they don't crowd preceding content
+// Heading styles
+// Consistent typography across all heading levels with proper hierarchy and spacing
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: $spacer * 2;
+    margin-bottom: $spacer * 1;
+    color: $brand-maroon;
+}
+
 h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: $spacer * 2;
+    margin-bottom: $spacer * 0.75;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
     margin-top: $spacer * 1.5;
+    margin-bottom: $spacer * 0.5;
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-top: $spacer * 1.25;
+    margin-bottom: $spacer * 0.5;
+}
+
+h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-top: $spacer * 1;
+    margin-bottom: $spacer * 0.375;
+}
+
+h6 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-top: $spacer * 1;
+    margin-bottom: $spacer * 0.375;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $brand-dark-greystone;
 }
