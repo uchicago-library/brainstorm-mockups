@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Setup &amp; Installation | UCL DS Exploration</title>
+  <title>Design Principles | UCL DS Exploration</title>
   <link rel="icon" type="image/x-icon" href="https://www.lib.uchicago.edu/web-resources/img/favicon-m.ico">
   <link rel="stylesheet" href="https://uchicago-brand-fonts.s3.us-east-2.amazonaws.com/UChicagoSansSerif.css">
   <link rel="stylesheet" href="https://www.lib.uchicago.edu/web-resources/css/uchicagoSansSerif.css">
@@ -276,7 +276,7 @@
   <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
     <li class="breadcrumb-item"><a href="/brainstorm-mockups/" class="text-muted text-decoration-none">Home</a></li>
     <li class="breadcrumb-item"><a href="/brainstorm-mockups/methodology/" class="text-muted text-decoration-none">Methodology</a></li>
-    <li class="breadcrumb-item active text-muted" aria-current="page">Setup</li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">Design Principles</li>
   </ol>
 </nav>
 
@@ -284,153 +284,182 @@
   <div class="row">
     <div class="col-lg-10 mx-auto">
       
-      <h1 class="display-4 mb-4">Setup & Installation</h1>
+      <h1 class="display-4 mb-4">Design Principles</h1>
       
-      <p class="lead">Get the design system documentation site up and running on your local machine.</p>
+      <p class="lead">Nielsen's usability heuristics and WCAG 2.1 Level AA accessibility standards that guide all design decisions.</p>
 
       <hr class="my-5">
 
       <section class="mb-5">
-        <h2>Prerequisites</h2>
-        <p>Before you begin, ensure you have the following installed:</p>
-        <ul>
-          <li><strong>Node.js</strong> (v16 or later) — <a href="https://nodejs.org/" target="_blank">Download here</a></li>
-          <li><strong>npm</strong> (comes with Node.js)</li>
-          <li><strong>Git</strong> (for version control)</li>
-        </ul>
-      </section>
-
-      <section class="mb-5">
-        <h2>Quick Start</h2>
+        <h2>Usability Heuristics (Nielsen's 10)</h2>
+        <p>These heuristics are the cornerstone of usable interface design:</p>
         
-        <div class="mb-4">
-          <h3>1. Clone the Repository</h3>
-          <pre><code>git clone &lt;your-repo-url&gt;
-cd brainstorm-mockups</code></pre>
-        </div>
-
-        <div class="mb-4">
-          <h3>2. Install Dependencies</h3>
-          <pre><code>npm install</code></pre>
-          <p><small>This installs Eleventy, Bootstrap 5 (SCSS), Sass compiler, and npm-run-all.</small></p>
-        </div>
-
-        <div class="mb-4">
-          <h3>3. Run Development Server</h3>
-          <pre><code>npm run dev</code></pre>
-          <p>This command will:</p>
-          <ul>
-            <li>Start Eleventy's dev server with live reload</li>
-            <li>Watch and compile SCSS files automatically</li>
-            <li>Open your browser to <code>http://localhost:8080</code></li>
-          </ul>
-          <p class="text-muted"><small>The site will automatically reload when you make changes to HTML or SCSS files.</small></p>
-        </div>
-
-        <div class="mb-4">
-          <h3>4. Build for Production</h3>
-          <pre><code>npm run prod</code></pre>
-          <p>This creates an optimized production build in the <code>docs/</code> directory with:</p>
-          <ul>
-            <li>Compiled and minified CSS</li>
-            <li>Static HTML files</li>
-            <li>Copied assets</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="mb-5">
-        <h2>Available npm Scripts</h2>
-        <table class="table table-bordered table-sm">
-          <thead>
-            <tr>
-              <th>Command</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>npm run dev</code></td>
-              <td>Start development server with live reload</td>
-            </tr>
-            <tr>
-              <td><code>npm run build</code></td>
-              <td>Build the site for production</td>
-            </tr>
-            <tr>
-              <td><code>npm run prod</code></td>
-              <td>Alias for <code>npm run build</code></td>
-            </tr>
-            <tr>
-              <td><code>npm run dev:eleventy</code></td>
-              <td>Run only Eleventy dev server</td>
-            </tr>
-            <tr>
-              <td><code>npm run dev:sass</code></td>
-              <td>Run only Sass watcher</td>
-            </tr>
-            <tr>
-              <td><code>npm run build:eleventy</code></td>
-              <td>Build only Eleventy</td>
-            </tr>
-            <tr>
-              <td><code>npm run build:sass</code></td>
-              <td>Build only Sass (minified)</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="mb-5">
-        <h2>Troubleshooting</h2>
-        
-        <div class="mb-4">
-          <h3>Port 8080 is already in use</h3>
-          <p>Kill the process using port 8080 or specify a different port:</p>
-          <pre><code>npx @11ty/eleventy --serve --port=3000</code></pre>
-        </div>
-
-        <div class="mb-4">
-          <h3>SCSS not compiling</h3>
-          <p>Ensure Sass is installed:</p>
-          <pre><code>npm install sass</code></pre>
-        </div>
-
-        <div class="mb-4">
-          <h3>Bootstrap styles not working</h3>
-          <p>Check that Bootstrap is installed and imported in <code>main.scss</code>:</p>
-          <pre><code>npm install bootstrap</code></pre>
-        </div>
-      </section>
-
-      <section class="mb-5">
-        <h2>Next Steps</h2>
-        <ul>
-          <li><strong><a href="/brainstorm-mockups/methodology/file-structure/">Understand the Project Structure</a></strong></li>
-          <li><strong><a href="/brainstorm-mockups/methodology/how-to-add-content/">How to Add Content</a></strong></li>
-        </ul>
-      </section>
-
-      <section class="mb-5">
-        <h2>Viewing the Site</h2>
-        
-        <h3>Development</h3>
-        <ul>
-          <li>Local: <code>http://localhost:8080</code></li>
-          <li>Automatically reloads on file changes</li>
-        </ul>
-
-        <h3>Production</h3>
-        <p>Open <code>docs/index.html</code> in your browser or deploy the <code>docs/</code> folder to a web server.</p>
-      </section>
-
-      <section class="mb-5">
-        <h2>Deployment to GitHub Pages</h2>
-        <ol>
-          <li>Build the site: <code>npm run prod</code></li>
-          <li>The <code>docs/</code> folder contains the deployable site</li>
-          <li>Configure GitHub Pages to serve from the <code>docs/</code> folder (or use a deployment action)</li>
+        <ol class="mb-0">
+          <li class="mb-4">
+            <strong>Visibility of System Status</strong>
+            <p>The system should always keep users informed about what is happening. Provide real-time feedback and status updates.</p>
+            <p><strong>Example:</strong> Show loading indicators, success messages, and error alerts promptly.</p>
+          </li>
+          <li class="mb-4">
+            <strong>Match Between System and Real World</strong>
+            <p>Use language and concepts familiar to users. Speak the user's language, not in system-oriented terms.</p>
+            <p><strong>Example:</strong> Use "Find Resources" instead of "Query Database API".</p>
+          </li>
+          <li class="mb-4">
+            <strong>User Control and Freedom</strong>
+            <p>Provide users with exit routes from unwanted situations. Offer undo and redo functionality.</p>
+            <p><strong>Example:</strong> Allow users to cancel actions, close modals with Escape, and navigate back.</p>
+          </li>
+          <li class="mb-4">
+            <strong>Consistency and Standards</strong>
+            <p>Users should not wonder whether different words, situations, or actions mean the same thing. Follow platform conventions.</p>
+            <p><strong>Example:</strong> Use consistent button labels, colors, and interaction patterns throughout the system.</p>
+          </li>
+          <li class="mb-4">
+            <strong>Error Prevention</strong>
+            <p>More important than good error messages is a careful design that prevents problems from occurring in the first place.</p>
+            <p><strong>Example:</strong> Disable submit buttons until required fields are filled; confirm destructive actions.</p>
+          </li>
+          <li class="mb-4">
+            <strong>Recognition Rather Than Recall</strong>
+            <p>Minimize the user's memory load. Make objects, actions, and options visible. Instructions should be easy to search and review.</p>
+            <p><strong>Example:</strong> Use dropdowns instead of requiring users to remember codes; show recently searched items.</p>
+          </li>
+          <li class="mb-4">
+            <strong>Flexibility and Efficiency of Use</strong>
+            <p>Provide shortcuts and accelerators for expert users. Allow customization of frequent actions.</p>
+            <p><strong>Example:</strong> Offer keyboard shortcuts, search filters, and saved preferences.</p>
+          </li>
+          <li class="mb-4">
+            <strong>Aesthetic and Minimalist Design</strong>
+            <p>Dialogs should not contain information which is irrelevant or rarely needed. Remove clutter and focus on essentials.</p>
+            <p><strong>Example:</strong> Show only essential controls on first load; use progressive disclosure for advanced options.</p>
+          </li>
+          <li class="mb-4">
+            <strong>Help Users Recognize, Diagnose, and Recover from Errors</strong>
+            <p>Error messages should be expressed in plain language (no codes), precisely indicate the problem, and constructively suggest a solution.</p>
+            <p><strong>Example:</strong> Instead of "Error 404", say "This search returned no results. Try fewer keywords or check your spelling."</p>
+          </li>
+          <li>
+            <strong>Help and Documentation</strong>
+            <p>Even though it is better if the system can be used without documentation, it may be necessary to provide help and documentation.</p>
+            <p><strong>Example:</strong> Provide tooltips, FAQs, tutorials, and contact information for support.</p>
+          </li>
         </ol>
+      </section>
+
+      <section class="mb-5">
+        <h2>Accessibility Standards (WCAG 2.1 Level AA)</h2>
+        <p>All components and pages must meet <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank">WCAG 2.1 Level AA</a> compliance, organized into four principles:</p>
+        
+        <ol class="mb-0">
+          <li class="mb-4">
+            <strong>🎯 Perceivable</strong>
+            <p>Information and user interface components must be presentable to users in ways they can perceive.</p>
+            <ul>
+              <li><strong>Text Alternatives:</strong> All images have descriptive alt text</li>
+              <li><strong>Color Contrast:</strong> 4.5:1 for normal text, 3:1 for large text (18pt+)</li>
+              <li><strong>Adaptable Layout:</strong> Semantic HTML (header, main, article, nav, etc.)</li>
+              <li><strong>Distinguishable:</strong> Text is resizable; no information conveyed by color alone</li>
+              <li><strong>Accessibility Mode:</strong> Optional high-contrast mode with larger fonts</li>
+            </ul>
+          </li>
+          <li class="mb-4">
+            <strong>⌨️ Operable</strong>
+            <p>User interface components and navigation must be operable.</p>
+            <ul>
+              <li><strong>Keyboard Accessible:</strong> All functionality available via keyboard</li>
+              <li><strong>Focus Visible:</strong> Clear, visible focus indicators on all interactive elements</li>
+              <li><strong>Skip Links:</strong> Allow users to bypass repeated content blocks</li>
+              <li><strong>Timing:</strong> No time limits on interactions (or provide extensions)</li>
+              <li><strong>Seizures:</strong> No flashing content (>3 Hz), respect <code>prefers-reduced-motion</code></li>
+            </ul>
+          </li>
+          <li class="mb-4">
+            <strong>📖 Understandable</strong>
+            <p>Information and the operation of user interface must be understandable.</p>
+            <ul>
+              <li><strong>Readable:</strong> Language attribute set on HTML element</li>
+              <li><strong>Predictable:</strong> Consistent navigation and component behavior</li>
+              <li><strong>Input Assistance:</strong> Clear labels, error identification, and constructive suggestions</li>
+              <li><strong>Form Labels:</strong> All inputs have associated, descriptive labels</li>
+            </ul>
+          </li>
+          <li>
+            <strong>🔒 Robust</strong>
+            <p>Content must be robust enough to be interpreted reliably by a wide variety of user agents, including assistive technologies.</p>
+            <ul>
+              <li><strong>Compatible:</strong> Valid HTML5, ARIA roles and attributes where appropriate</li>
+              <li><strong>Name, Role, Value:</strong> All custom controls have proper ARIA labeling</li>
+              <li><strong>Status Messages:</strong> ARIA live regions for dynamic content updates</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section class="mb-5">
+        <h2>Additional Design Principles</h2>
+        
+        <ol class="mb-0">
+          <li class="mb-4">
+            <strong>Aesthetic Excellence</strong>
+            <ul>
+              <li><strong>Brand Alignment:</strong> All designs respect the primary Maroon (#800000) and supporting color palette</li>
+              <li><strong>Clean & Modern:</strong> Uncluttered layouts with generous whitespace</li>
+              <li><strong>Engaging Visuals:</strong> Purposeful use of typography, icons, and imagery</li>
+              <li><strong>Smooth Interactions:</strong> Thoughtful animations and transitions (respecting reduced motion preferences)</li>
+              <li><strong>Typography:</strong> UChicago Sans Serif as primary typeface</li>
+            </ul>
+          </li>
+          <li class="mb-4">
+            <strong>Reusability</strong>
+            <ul>
+              <li><strong>Copy-Paste Ready:</strong> Components can be copied directly into other projects</li>
+              <li><strong>Self-Contained:</strong> Minimal dependencies; Bootstrap and FontAwesome only</li>
+              <li><strong>Well-Documented:</strong> Clear code and usage examples</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Performance</strong>
+            <ul>
+              <li><strong>Static First:</strong> No backend required; optimized for CDN delivery</li>
+              <li><strong>Minimal Dependencies:</strong> Only essential libraries (Bootstrap, Sass)</li>
+              <li><strong>Fast Load Times:</strong> Optimized CSS, images, and assets</li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section class="mb-5">
+        <h2>Applying These Principles</h2>
+        
+        <p>When designing or developing components, ask yourself:</p>
+        <ol>
+          <li>☑️ <strong>Is the purpose clear?</strong> (Visibility of System Status)</li>
+          <li>☑️ <strong>Would a library user understand this?</strong> (Match Between System and Real World)</li>
+          <li>☑️ <strong>Can users get out of this state?</strong> (User Control and Freedom)</li>
+          <li>☑️ <strong>Does this match other parts of the system?</strong> (Consistency and Standards)</li>
+          <li>☑️ <strong>Could this error have been prevented?</strong> (Error Prevention)</li>
+          <li>☑️ <strong>Is everything visible, or hidden away?</strong> (Recognition Rather Than Recall)</li>
+          <li>☑️ <strong>Is there a shortcut for power users?</strong> (Flexibility and Efficiency)</li>
+          <li>☑️ <strong>Is this cluttered or focused?</strong> (Aesthetic and Minimalist Design)</li>
+          <li>☑️ <strong>Are error messages helpful?</strong> (Help Users Recover from Errors)</li>
+          <li>☑️ <strong>Is it documented?</strong> (Help and Documentation)</li>
+          <li>☑️ <strong>Is color contrast sufficient?</strong> (WCAG Perceivable)</li>
+          <li>☑️ <strong>Can it be used with keyboard only?</strong> (WCAG Operable)</li>
+          <li>☑️ <strong>Is the language clear?</strong> (WCAG Understandable)</li>
+          <li>☑️ <strong>Is the HTML valid?</strong> (WCAG Robust)</li>
+        </ol>
+      </section>
+
+      <section class="mb-5">
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="https://www.nngroup.com/articles/ten-usability-heuristics/" target="_blank">Nielsen Norman Group: 10 Usability Heuristics</a></li>
+          <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank">WCAG 2.1 Quick Reference</a></li>
+          <li><a href="https://www.deque.com/axe/" target="_blank">axe Accessibility Testing Tools</a></li>
+          <li><a href="https://webaim.org/" target="_blank">WebAIM: Web Accessibility In Mind</a></li>
+        </ul>
       </section>
 
     </div>

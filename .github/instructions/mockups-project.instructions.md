@@ -9,7 +9,7 @@ applyTo: '**'
 
 ## **📌 Instructions**
 ### **1. General Rules**
-- Always start with the provided `README.md`.
+- Always start with the provided `src/methodology/system-architecture.html`.
 - Never modify files inside `/docs/` and most work will happen in `/src/`.
 - Do not add code examples.
 - Maintain a navigation of `/design_system/` and `/design_mockups/` and `/methodology/` in `src/index.html` with appropriate nesting.
