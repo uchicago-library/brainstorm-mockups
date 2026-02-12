@@ -25,14 +25,17 @@ title: "How to Add Content to the Design System"
       <nav class="mb-5">
         <h2 class="mb-3">Quick Navigation</h2>
         <ul class="list-unstyled">
+          <li><a href="#core-concepts">Core Concepts</a></li>
+          <li><a href="#design-tokens">Design Tokens</a></li>
           <li><a href="#naming">Naming Conventions</a></li>
           <li><a href="#file-org">File Organization</a></li>
           <li><a href="#best-practices">Code Rules & Best Practices</a></li>
+          <li><a href="#resources">Resources & References</a></li>
         </ul>
       </nav>
 
-      <section class="mb-4" aria-label="Implementation Overview">
-        <h2>Implementation Overview</h2>
+      <section class="mb-4" id="core-concepts" aria-label="Core Concepts">
+        <h2>Core Concepts</h2>
         <ul>
           <li><b>Brand:</b> variables (e.g., colors, typography) are defined in <code>src/styles/_variables.scss</code> and override Bootstrap's default variables.</li>
           <li><b>Elements</b> like buttons, forms, and inputs are styled using Bootstrap utilities and custom SCSS.
@@ -52,10 +55,12 @@ title: "How to Add Content to the Design System"
           <li><b>Demonstration:</b> Each bespoke element, component, or page should (in principle) have a corresponding demo page in <code>src/design_system/</code>.</li>
           <li> Demonstration pages do not need code examples.</li>
         </ul>
+      </section>
 
       <hr class="my-5">
 
-      <h2 class="mb-3">Design tokens</h2>
+      <section class="mb-4" id="design-tokens" aria-label="Design Tokens">
+        <h2 class="mb-3">Design Tokens</h2>
       <p class="mb-3">Design tokens are SCSS and CSS variables. Their structure allows you to update the full styling system (for example, brightening the primary color). They are loosely organized into three levels of abstraction for this purpose: Core (brand or utility), Semantic (generic roles), and Component (role-specific).</p>
       <dl class="row g-3 mb-0">
         <div class="col-12">
@@ -112,7 +117,7 @@ title: "How to Add Content to the Design System"
 └── main.scss             # Imports everything
 </code></pre>
       </div>
-</section>
+      </section>
 
       <hr class="my-5">
 
@@ -260,7 +265,7 @@ title: "How to Add Content to the Design System"
       </section>
 
       <!-- RESOURCES -->
-      <section class="mb-5">
+      <section class="mb-5" id="resources">
         <h2>Resources & References</h2>
         <ul>
           <li><a href="https://getbootstrap.com/docs/5.3/" target="_blank">Bootstrap 5 Documentation</a></li>
