@@ -4,8 +4,8 @@
 
 // Preformatted text
 pre {
-    background-color: $brand-lighter-greystone;
-    color: $brand-dark-greystone;
+    background-color: $ucl-greystone-lighter;
+    color: $ucl-greystone-dark;
     padding: $spacer * 0.5;
 }
 
@@ -18,7 +18,7 @@ h1 {
     line-height: 1.2;
     margin-top: $spacer * 2;
     margin-bottom: $spacer * 1;
-    color: $brand-maroon;
+    color: $ucl-maroon;
 }
 
 h2 {
@@ -61,5 +61,5 @@ h6 {
     margin-bottom: $spacer * 0.375;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: $brand-dark-greystone;
+    color: $ucl-greystone-dark;
 }

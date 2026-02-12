@@ -1,54 +1,56 @@
-// Brand Colors - Bootstrap Semantic Mapping
-$primary: #800000;         // Maroon
-$secondary: #737373;       // Dark Greystone
-$success: #789D4A;         // Ivy
-$info: #007396;            // Lake
-$warning: #EAAA00;         // Goldenrod
-$danger: #A4343A;          // Brick
-$light: #D9D9D9;           // Light Greystone
-$dark: #000000;            // Black
+// Primary Brand Colors
+$ucl-maroon: #800000;
+$ucl-greystone-lighter: #f7f7f7;
+$ucl-greystone-light: #D9D9D9;
+$ucl-greystone: #A6A6A6;
+$ucl-greystone-dark: #737373;
+$ucl-greystone-darker: #58595B;
+$ucl-greystone-darkest: #404040;
 
-// Extended Brand Colors
-$brand-maroon: #800000;
-$brand-lighter-greystone: #f7f7f7;
-$brand-light-greystone: #D9D9D9;
-$brand-greystone: #A6A6A6;
-$brand-dark-greystone: #737373;
+// Secondary Brand Colors - Goldenrod Family
+$ucl-goldenrod-light: #F3D03E;
+$ucl-goldenrod: #EAAA00;
+$ucl-goldenrod-dark: #CC8A00;
 
-// Goldenrod Family
-$brand-goldenrod: #EAAA00;
-$brand-light-goldenrod: #F3D03E;
-$brand-dark-goldenrod: #CC8A00;
+// Secondary Brand Colors - Terracotta Family
+$ucl-terracotta-light: #ECA154;
+$ucl-terracotta: #DE7C00;
+$ucl-terracotta-dark: #A9431E;
 
-// Terracotta Family
-$brand-terracotta: #DE7C00;
-$brand-light-terracotta: #ECA154;
-$brand-dark-terracotta: #A9431E;
+// Secondary Brand Colors - Ivy Family
+$ucl-ivy-light: #A9C47F;
+$ucl-ivy: #789D4A;
+$ucl-ivy-dark: #13301C;
 
-// Ivy Family
-$brand-ivy: #789D4A;
-$brand-light-ivy: #A9C47F;
-$brand-dark-ivy: #13301C;
+// Secondary Brand Colors - Forest Family
+$ucl-forest-light: #9CAF88;
+$ucl-forest: #275D38;
+$ucl-forest-dark: #284734;
 
-// Forest Family
-$brand-forest: #275D38;
-$brand-light-forest: #9CAF88;
-$brand-dark-forest: #284734;
+// Secondary Brand Colors - Lake Family
+$ucl-lake-light: #3EB1C8;
+$ucl-lake: #007396;
+$ucl-lake-dark: #002A3A;
 
-// Lake Family
-$brand-lake: #007396;
-$brand-light-lake: #3EB1C8;
-$brand-dark-lake: #002A3A;
+// Secondary Brand Colors - Violet Family
+$ucl-violet-light: #86647A;
+$ucl-violet: #59315F;
+$ucl-violet-dark: #41273B;
 
-// Violet Family
-$brand-violet: #59315F;
-$brand-light-violet: #86647A;
-$brand-dark-violet: #41273B;
+// Secondary Brand Colors - Brick Family
+$ucl-brick-light: #B46A55;
+$ucl-brick: #A4343A;
+$ucl-brick-dark: #643335;
 
-// Brick Family
-$brand-brick: #A4343A;
-$brand-light-brick: #B46A55;
-$brand-dark-brick: #643335;
+// Bootstrap Semantic Colors - Mapped to Brand Colors
+$primary: $ucl-maroon; // Maroon
+$secondary: $ucl-greystone-dark; // Dark Greystone
+$success: $ucl-ivy; // Ivy
+$info: $ucl-lake; // Lake
+$warning: $ucl-goldenrod; // Goldenrod
+$danger: #dc3545; // Bootstrap default
+$light: $ucl-greystone-light; // Light Greystone
+$dark: #000000; // Black
 
 // Typography
 $font-family-sans-serif: "UChicago Sans Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -59,8 +61,8 @@ $body-color: $dark;
 
 
 // Accordion
-$accordion-button-bg: $brand-light-greystone;
-$accordion-button-active-bg: $brand-greystone;
+$accordion-button-bg: $ucl-greystone-light;
+$accordion-button-active-bg: $ucl-greystone;
 $accordion-button-color: $body-color;
 $accordion-button-active-color: $body-color;
 $accordion-button-focus-box-shadow: 0 0 0 0.25rem rgba($primary, 0.25);
