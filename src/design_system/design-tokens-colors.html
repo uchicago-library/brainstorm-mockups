@@ -1,0 +1,354 @@
+---
+title: "Design Tokens - Colors"
+---
+
+{% include "header.html" %}
+
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md pt-2">
+  <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
+    <li class="breadcrumb-item"><a href="{{ '/' | url }}" class="text-muted text-decoration-none">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ '/design_system/' | url }}" class="text-muted text-decoration-none">Demos</a></li>
+    <li class="breadcrumb-item"><a href="{{ '/design_system/design-tokens/' | url }}" class="text-muted text-decoration-none">Design Tokens</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">Colors</li>
+  </ol>
+</nav>
+
+<!-- Page Header -->
+<div class="container-md py-4">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      <h1 class="display-3 mb-2">Colors</h1>
+      <p class="lead text-muted mb-0">The complete color palette for the University of Chicago Library design system.</p>
+    </div>
+  </div>
+</div>
+
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+
+      <!-- Bootstrap Semantic Colors -->
+      <section>
+        <h2 class="mb-4">Bootstrap Semantic Colors</h2>
+        <p class="text-muted mb-4">Semantic utility colors for communicating state and intent. These map to primary and secondary brand color families.</p>
+        
+        <div class="row g-3 mb-4">
+          <div class="col-sm-6 col-md-4">
+            <div class="p-4 text-white rounded" style="background-color: #800000;">
+              <strong>Primary</strong><br>
+              <span class="badge bg-light text-dark"><code>$primary</code></span><br>
+              <span class="badge bg-light text-dark"><code>#800000</code></span><br>
+              <small class="text-white-50">→ $ucl-maroon</small>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="p-4 text-white rounded" style="background-color: #737373;">
+              <strong>Secondary</strong><br>
+              <span class="badge bg-light text-dark"><code>$secondary</code></span><br>
+              <span class="badge bg-light text-dark"><code>#737373</code></span><br>
+              <small class="text-white-50">→ $ucl-greystone-dark</small>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="p-4 text-white rounded" style="background-color: #789D4A;">
+              <strong>Success</strong><br>
+              <span class="badge bg-light text-dark"><code>$success</code></span><br>
+              <span class="badge bg-light text-dark"><code>#789D4A</code></span><br>
+              <small class="text-white-50">→ $ucl-ivy</small>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="p-4 text-white rounded" style="background-color: #007396;">
+              <strong>Info</strong><br>
+              <span class="badge bg-light text-dark"><code>$info</code></span><br>
+              <span class="badge bg-light text-dark"><code>#007396</code></span><br>
+              <small class="text-white-50">→ $ucl-lake</small>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="p-4 text-white rounded" style="background-color: #EAAA00;">
+              <strong>Warning</strong><br>
+              <span class="badge bg-light text-dark"><code>$warning</code></span><br>
+              <span class="badge bg-light text-dark"><code>#EAAA00</code></span><br>
+              <small class="text-white-50">→ $ucl-goldenrod</small>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="p-4 text-white rounded" style="background-color: #dc3545;">
+              <strong>Danger</strong><br>
+              <span class="badge bg-light text-dark"><code>$danger</code></span><br>
+              <span class="badge bg-light text-dark"><code>#dc3545</code></span><br>
+              <small class="text-white-50">Bootstrap default</small>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="p-4 rounded border" style="background-color: #D9D9D9;">
+              <strong>Light</strong><br>
+              <span class="badge bg-light text-dark"><code>$light</code></span><br>
+              <span class="badge bg-light text-dark"><code>#D9D9D9</code></span><br>
+              <small>→ $ucl-greystone-light</small>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="p-4 text-white rounded" style="background-color: #000000;">
+              <strong>Dark</strong><br>
+              <span class="badge bg-light text-dark"><code>$dark</code></span><br>
+              <span class="badge bg-light text-dark"><code>#000000</code></span>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5">
+      </section>
+
+      <!-- Brand Color Families -->
+      <section>
+        <h2 class="mb-4">Brand Color Families</h2>
+
+        <!-- Maroon -->
+        <div class="mb-4">
+          <h3 class="mb-3">Maroon</h3>
+          <p class="text-muted small mb-3">Primary brand color for main CTAs and important actions.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #800000;">
+                <strong>Maroon</strong><br>
+                <span class="badge bg-light text-dark"><code>#800000</code></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Greystone Family -->
+        <div class="mb-4">
+          <h3 class="mb-3">Greystone Family</h3>
+          <p class="text-muted small mb-3">Neutral color hierarchy for text, backgrounds, and borders.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 rounded border" style="background-color: #f7f7f7;">
+                <strong>Lighter</strong><br>
+                <span class="badge bg-light text-dark"><code>#f7f7f7</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 rounded border" style="background-color: #D9D9D9;">
+                <strong>Light</strong><br>
+                <span class="badge bg-light text-dark"><code>#D9D9D9</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #A6A6A6;">
+                <strong>Base</strong><br>
+                <span class="badge bg-light text-dark"><code>#A6A6A6</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #737373;">
+                <strong>Dark</strong><br>
+                <span class="badge bg-light text-dark"><code>#737373</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #58595B;">
+                <strong>Darker</strong><br>
+                <span class="badge bg-light text-dark"><code>#58595B</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #404040;">
+                <strong>Darkest</strong><br>
+                <span class="badge bg-light text-dark"><code>#404040</code></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Goldenrod Family -->
+        <div class="mb-4">
+          <h3 class="mb-3">Goldenrod Family</h3>
+          <p class="text-muted small mb-3">Warnings, highlights, and attention-grabbing elements.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #F3D03E;">
+                <strong>Light</strong><br>
+                <span class="badge bg-light text-dark"><code>#F3D03E</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #EAAA00;">
+                <strong>Goldenrod</strong><br>
+                <span class="badge bg-light text-dark"><code>#EAAA00</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #CC8A00;">
+                <strong>Dark</strong><br>
+                <span class="badge bg-light text-dark"><code>#CC8A00</code></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terracotta Family -->
+        <div class="mb-4">
+          <h3 class="mb-3">Terracotta Family</h3>
+          <p class="text-muted small mb-3">Warm accent colors for secondary actions and highlights.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #ECA154;">
+                <strong>Light</strong><br>
+                <span class="badge bg-light text-dark"><code>#ECA154</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #DE7C00;">
+                <strong>Terracotta</strong><br>
+                <span class="badge bg-light text-dark"><code>#DE7C00</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #A9431E;">
+                <strong>Dark</strong><br>
+                <span class="badge bg-light text-dark"><code>#A9431E</code></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ivy Family -->
+        <div class="mb-4">
+          <h3 class="mb-3">Ivy Family</h3>
+          <p class="text-muted small mb-3">Success states and nature-inspired accents.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #A9C47F;">
+                <strong>Light</strong><br>
+                <span class="badge bg-light text-dark"><code>#A9C47F</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #789D4A;">
+                <strong>Ivy</strong><br>
+                <span class="badge bg-light text-dark"><code>#789D4A</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #13301C;">
+                <strong>Dark</strong><br>
+                <span class="badge bg-light text-dark"><code>#13301C</code></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Forest Family -->
+        <div class="mb-4">
+          <h3 class="mb-3">Forest Family</h3>
+          <p class="text-muted small mb-3">Deep green accents for sophisticated design elements.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #9CAF88;">
+                <strong>Light</strong><br>
+                <span class="badge bg-light text-dark"><code>#9CAF88</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #275D38;">
+                <strong>Forest</strong><br>
+                <span class="badge bg-light text-dark"><code>#275D38</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #284734;">
+                <strong>Dark</strong><br>
+                <span class="badge bg-light text-dark"><code>#284734</code></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lake Family -->
+        <div class="mb-4">
+          <h3 class="mb-3">Lake Family</h3>
+          <p class="text-muted small mb-3">Informational states and link colors.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #3EB1C8;">
+                <strong>Light</strong><br>
+                <span class="badge bg-light text-dark"><code>#3EB1C8</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #007396;">
+                <strong>Lake</strong><br>
+                <span class="badge bg-light text-dark"><code>#007396</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #002A3A;">
+                <strong>Dark</strong><br>
+                <span class="badge bg-light text-dark"><code>#002A3A</code></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Violet Family -->
+        <div class="mb-4">
+          <h3 class="mb-3">Violet Family</h3>
+          <p class="text-muted small mb-3">Purple accents for distinctive design elements.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #86647A;">
+                <strong>Light</strong><br>
+                <span class="badge bg-light text-dark"><code>#86647A</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #59315F;">
+                <strong>Violet</strong><br>
+                <span class="badge bg-light text-dark"><code>#59315F</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #41273B;">
+                <strong>Dark</strong><br>
+                <span class="badge bg-light text-dark"><code>#41273B</code></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brick Family -->
+        <div class="mb-4">
+          <h3 class="mb-3">Brick Family</h3>
+          <p class="text-muted small mb-3">Error states and alerts.</p>
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #B46A55;">
+                <strong>Light</strong><br>
+                <span class="badge bg-light text-dark"><code>#B46A55</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #A4343A;">
+                <strong>Brick</strong><br>
+                <span class="badge bg-light text-dark"><code>#A4343A</code></span>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="p-4 text-white rounded" style="background-color: #643335;">
+                <strong>Dark</strong><br>
+                <span class="badge bg-light text-dark"><code>#643335</code></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}
