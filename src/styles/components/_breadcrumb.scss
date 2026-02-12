@@ -1,0 +1,15 @@
+// Breadcrumb Navigation
+// Bootstrap variables are customized in _variables.scss
+// This file only adds styling not covered by Bootstrap defaults
+
+.breadcrumb-item {
+    a {
+        color: var(--bs-breadcrumb-divider-color);
+        text-decoration: none;
+
+        &:hover {
+            color: darken($primary, 15%);
+            text-decoration: underline;
+        }
+    }
+}

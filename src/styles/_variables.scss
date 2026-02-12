@@ -60,6 +60,14 @@ $body-bg: #ffffff;
 $body-color: $dark;
 
 
+// Breadcrumb
+$breadcrumb-font-size: 0.75rem;
+$breadcrumb-padding-y: 0.5rem;
+$breadcrumb-padding-x: 0;
+$breadcrumb-margin-bottom: 0;
+$breadcrumb-divider-color: $secondary;
+$breadcrumb-active-color: $secondary;
+
 // Accordion
 $accordion-button-bg: $ucl-greystone-light;
 $accordion-button-active-bg: $ucl-greystone;
