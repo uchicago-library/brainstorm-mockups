@@ -6,4 +6,10 @@
 pre {
     background-color: $brand-lighter-greystone;
     color: $brand-dark-greystone;
+    padding: $spacer * 0.5;
+}
+
+// Add breathing room above H2s so they don't crowd preceding content
+h2 {
+    margin-top: $spacer * 1.5;
 }

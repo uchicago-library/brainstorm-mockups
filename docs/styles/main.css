@@ -11862,6 +11862,11 @@ textarea.form-control-lg {
 pre {
   background-color: #f7f7f7;
   color: #737373;
+  padding: 0.5rem;
+}
+
+h2, .h2 {
+  margin-top: 1.5rem;
 }
 
 .sidebar {

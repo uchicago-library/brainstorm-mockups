@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UCL DS Exploration</title>
+  <link rel="icon" type="image/x-icon" href="https://www.lib.uchicago.edu/web-resources/img/favicon-m.ico">
+  <link rel="stylesheet" href="https://uchicago-brand-fonts.s3.us-east-2.amazonaws.com/UChicagoSansSerif.css">
+  <link rel="stylesheet" href="https://www.lib.uchicago.edu/web-resources/css/uchicagoSansSerif.css">
+  <link rel="stylesheet" href="/brainstorm-mockups/styles/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header role="banner">
+  <!-- Logo and Shortcuts Bar -->
+  <div class="logo-bar bg-white">
+    <div class="container-md">
+      <div class="d-flex justify-content-between align-items-center py-3">
+        <!-- Logo -->
+        <a class="navbar-brand m-0" href="/brainstorm-mockups/" itemscope itemtype="http://schema.org/Organization">
+          <span class="visually-hidden" itemprop="name">The University of Chicago Library</span>
+          <img itemprop="logo" src="https://www.lib.uchicago.edu/web-resources/img/color-logo.png" alt="University of Chicago Library" style="max-height: 50px;">
+        </a>
+
+        <!-- Desktop Shortcuts (same row as logo) -->
+        <ul class="nav d-none d-lg-flex" id="navbar-shortcuts" role="list">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-comment" aria-hidden="true"></i>
+              <span>Ask a Librarian</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              <span>View Hours</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-gift" aria-hidden="true"></i>
+              <span>Support the Library</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+              <span>My Library Account</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Mobile toggle button -->
+        <button class="navbar-toggler d-lg-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#global-navbar" aria-controls="global-navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark global-navbar p-0" aria-label="Main navigation">
+    <div class="container-md">
+      <div class="collapse navbar-collapse" id="global-navbar">
+        <!-- Main navigation links -->
+        <ul class="navbar-nav w-100" role="list">
+          
+          <!-- Search Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Search
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-start" aria-labelledby="searchDropdown">
+            <li><h6 class="dropdown-header">Catalogs</h6></li>
+            <li><a class="dropdown-item" href="#">Library Catalog</a></li>
+            <li><a class="dropdown-item" href="#">BorrowDirect</a></li>
+            <li><a class="dropdown-item" href="#">WorldCat</a></li>
+            <li><a class="dropdown-item" href="#">Other Catalogs</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Other Search Tools</h6></li>
+            <li><a class="dropdown-item" href="#">Articles Plus</a></li>
+            <li><a class="dropdown-item" href="#">Database Finder</a></li>
+            <li><a class="dropdown-item" href="#">Database Trials</a></li>
+            <li><a class="dropdown-item" href="#">Ejournals</a></li>
+            <li><a class="dropdown-item" href="#">KnowledgeUChicago</a></li>
+            <li><a class="dropdown-item" href="#">Proxy & Off-Campus Access</a></li>
+            <li><a class="dropdown-item" href="#">Website Search</a></li>
+          </ul>
+        </li>
+
+        <!-- Borrow & Request Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="borrowDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Borrow & Request
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="borrowDropdown">
+            <li><h6 class="dropdown-header">Borrow</h6></li>
+            <li><a class="dropdown-item" href="#">Due Dates & Loan Periods</a></li>
+            <li><a class="dropdown-item" href="#">Renewing & Returning Items</a></li>
+            <li><a class="dropdown-item" href="#">Fines & Lost Items</a></li>
+            <li><a class="dropdown-item" href="#">Course Reserves</a></li>
+            <li><a class="dropdown-item" href="#">Checkout UChicago</a></li>
+            <li><a class="dropdown-item" href="#">My Library Account</a></li>
+            <li><a class="dropdown-item" href="#">Who Can Borrow</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Request</h6></li>
+            <li><a class="dropdown-item" href="#">Interlibrary Loan</a></li>
+            <li><a class="dropdown-item" href="#">Paging & Pickup</a></li>
+            <li><a class="dropdown-item" href="#">Scan & Deliver</a></li>
+            <li><a class="dropdown-item" href="#">Suggest a Purchase</a></li>
+            <li><a class="dropdown-item" href="#">Digitization Services</a></li>
+          </ul>
+        </li>
+
+        <!-- Research & Teaching Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Research & Teaching
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="researchDropdown">
+            <li><h6 class="dropdown-header">Research Help & Tools</h6></li>
+            <li><a class="dropdown-item" href="#">Ask a Librarian</a></li>
+            <li><a class="dropdown-item" href="#">Subject Specialists</a></li>
+            <li><a class="dropdown-item" href="#">Citation Management</a></li>
+            <li><a class="dropdown-item" href="#">Help Guides</a></li>
+            <li><a class="dropdown-item" href="#">Subject Guides</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Programs</h6></li>
+            <li><a class="dropdown-item" href="#">Kim-Park Program for the Study of the Book</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Teaching Support</h6></li>
+            <li><a class="dropdown-item" href="#">Course Reserves Setup</a></li>
+            <li><a class="dropdown-item" href="#">Instruction for Courses</a></li>
+            <li><a class="dropdown-item" href="#">Teaching & Learning Services</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Digital Scholarship</h6></li>
+            <li><a class="dropdown-item" href="#">Center for Digital Scholarship</a></li>
+            <li><a class="dropdown-item" href="#">Dissertation Office</a></li>
+            <li><a class="dropdown-item" href="#">KnowledgeUChicago</a></li>
+            <li><a class="dropdown-item" href="#">Copyright Info</a></li>
+          </ul>
+        </li>
+
+        <!-- Collections & Exhibits Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="collectionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Collections & Exhibits
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="collectionsDropdown">
+            <li><h6 class="dropdown-header">Collections</h6></li>
+            <li><a class="dropdown-item" href="#">Notable Collections</a></li>
+            <li><a class="dropdown-item" href="#">Digital Collections</a></li>
+            <li><a class="dropdown-item" href="#">Collecting Areas by Subject</a></li>
+            <li><a class="dropdown-item" href="#">Other Local Collections</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Exhibits</h6></li>
+            <li><a class="dropdown-item" href="#">All Exhibits</a></li>
+            <li><a class="dropdown-item" href="#">Web Exhibits</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Research Centers</h6></li>
+            <li><a class="dropdown-item" href="#">East Asian Collection</a></li>
+            <li><a class="dropdown-item" href="#">Map Collection</a></li>
+            <li><a class="dropdown-item" href="#">Southern Asia Collection</a></li>
+            <li><a class="dropdown-item" href="#">Special Collections</a></li>
+          </ul>
+        </li>
+
+        <!-- Visit & Study Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="visitDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Visit & Study
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="visitDropdown">
+            <li><h6 class="dropdown-header">Visiting the Library</h6></li>
+            <li><a class="dropdown-item" href="#">Visitor Information</a></li>
+            <li><a class="dropdown-item" href="#">Visiting Special Collections</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Using Our Spaces</h6></li>
+            <li><a class="dropdown-item" href="#">Book a Room</a></li>
+            <li><a class="dropdown-item" href="#">Places to Study</a></li>
+            <li><a class="dropdown-item" href="#">Copy, Print & Scan</a></li>
+            <li><a class="dropdown-item" href="#">Computers & Wireless</a></li>
+            <li><a class="dropdown-item" href="#">Lockers</a></li>
+            <li><a class="dropdown-item" href="#">TechBar</a></li>
+          </ul>
+        </li>
+
+        <!-- Libraries Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="librariesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Libraries
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="librariesDropdown">
+            <li><h6 class="dropdown-header">Our Locations</h6></li>
+            <li><a class="dropdown-item" href="#">Crerar</a></li>
+            <li><a class="dropdown-item" href="#">D'Angelo Law</a></li>
+            <li><a class="dropdown-item" href="#">Eckhart</a></li>
+            <li><a class="dropdown-item" href="#">Mansueto</a></li>
+            <li><a class="dropdown-item" href="#">Regenstein</a></li>
+            <li><a class="dropdown-item" href="#">Social Work</a></li>
+            <li><a class="dropdown-item" href="#">Special Collections</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Hours</a></li>
+          </ul>
+        </li>
+
+        <!-- About Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            About
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutDropdown">
+            <li><h6 class="dropdown-header">The Library</h6></li>
+            <li><a class="dropdown-item" href="#">About the Library</a></li>
+            <li><a class="dropdown-item" href="#">Mission & Strategic Plan</a></li>
+            <li><a class="dropdown-item" href="#">DEI Vision Statement</a></li>
+            <li><a class="dropdown-item" href="#">Departments & Staff</a></li>
+            <li><a class="dropdown-item" href="#">Employment</a></li>
+            <li><a class="dropdown-item" href="#">Library Policies</a></li>
+            <li><a class="dropdown-item" href="#">Library Boards & Committees</a></li>
+            <li><a class="dropdown-item" href="#">Support the Library</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">News & Events</h6></li>
+            <li><a class="dropdown-item" href="#">News</a></li>
+            <li><a class="dropdown-item" href="#">Workshops & Events</a></li>
+            <li><a class="dropdown-item" href="#">Conferences</a></li>
+            <li><a class="dropdown-item" href="#">Libra Newsletter</a></li>
+            <li><a class="dropdown-item" href="#">Social Media Directory</a></li>
+          </ul>
+        </li>
+        <!-- // About Dropdown -->
+
+        <!-- Mobile Shortcuts Section (only visible on mobile) -->
+        <li class="nav-item d-lg-none mt-3">
+          <hr class="dropdown-divider my-2" style="border-color: rgba(255, 255, 255, 0.3);">
+        </li>
+        <li class="d-lg-none">
+          <h6 class="dropdown-header text-white-50 px-3">Quick Links</h6>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-comment me-2" aria-hidden="true"></i>
+            Ask a Librarian
+          </a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-clock me-2" aria-hidden="true"></i>
+            View Hours
+          </a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-gift me-2" aria-hidden="true"></i>
+            Support the Library
+          </a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-user me-2" aria-hidden="true"></i>
+            My Library Account
+          </a>
+        </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md pt-2">
+  <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
+    <li class="breadcrumb-item"><a href="/brainstorm-mockups/" class="text-muted text-decoration-none">Home</a></li>
+    <li class="breadcrumb-item"><a href="/brainstorm-mockups/methodology/" class="text-muted text-decoration-none">Methodology</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">How to Add Content</li>
+  </ol>
+</nav>
+
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      
+      <h1 class="display-4 mb-4">How to Add Content to the Design System</h1>
+      
+      <p class="lead">Guide for adding components and pages following project conventions, naming patterns, code rules, and best practices.</p>
+
+      <hr class="my-5">
+
+      <!-- TABLE OF CONTENTS -->
+      <nav class="mb-5">
+        <h2 class="h5 mb-3">Quick Navigation</h2>
+        <ul class="list-unstyled">
+          <li><a href="#overview">How to Add Content</a></li>
+          <li><a href="#naming">Naming Conventions</a></li>
+          <li><a href="#file-org">File Organization</a></li>
+          <li><a href="#best-practices">Code Rules & Best Practices</a></li>
+        </ul>
+      </nav>
+
+      <!-- SECTION 0: HOW TO ADD CONTENT OVERVIEW -->
+      <section class="mb-5" id="overview">
+        <h2>How to Add Content</h2>
+        <p>Whether you're adding a new component or page, the process follows the same pattern:</p>
+
+        <h3>For Components (SCSS + Demo Page)</h3>
+        <ol>
+          <li><strong>Create an SCSS file</strong> in <code>src/styles/components/_component-name.scss</code> with BEM-structured styles</li>
+          <li><strong>Import the file</strong> in <code>src/styles/main.scss</code></li>
+          <li><strong>Create a demo page</strong> in <code>src/design_system/</code> to showcase the component</li>
+          <li><strong>Update navigation</strong> by adding a link to the relevant index page</li>
+          <li><strong>Test</strong> on multiple browsers and devices</li>
+        </ol>
+
+        <h3>For Pages (HTML + Optional Styles)</h3>
+        <ol>
+          <li><strong>Create an HTML file</strong> in <code>src/design_system/</code> (documentation) or <code>src/design_mockups/</code> (brainstorming/testing)</li>
+          <li><strong>Include partials</strong> using Eleventy syntax for header and footer</li>
+          <li><strong>Add styles</strong> as needed:
+            <ul>
+              <li><strong>For permanent styles:</strong> Create a dedicated SCSS file in <code>src/styles/components/</code></li>
+              <li><strong>For experimental styles:</strong> Use a <code>&lt;style&gt;</code> block at the top of the mockup HTML file (not inline). Move to a dedicated SCSS file once finalized.</li>
+            </ul>
+          </li>
+          <li><strong>Update navigation</strong> by adding a link to the relevant index page</li>
+          <li><strong>Test</strong> responsive behavior and accessibility</li>
+        </ol>
+
+        <div class="alert alert-info">
+          <strong>Important:</strong> Don't include template code examples in methodology files. Study existing components and pages in the repository to understand the structure. Copy them as starting templates and adapt as needed.
+        </div>
+      </section>
+
+      <!-- SECTION 1: NAMING CONVENTIONS -->
+      <section class="mb-5" id="naming">
+        <h2>Naming Conventions</h2>
+        <p>Consistent naming ensures clarity and maintainability across the project.</p>
+
+        <h3>File Naming</h3>
+        <ul>
+          <li><strong>SCSS:</strong> <code>_component-name.scss</code> (underscore prefix, kebab-case)</li>
+          <li><strong>HTML:</strong> <code>component-name.html</code> (kebab-case, descriptive)</li>
+          <li><strong>Folders:</strong> kebab-case or underscore format</li>
+        </ul>
+
+        <h3>CSS Class Naming: BEM (Block–Element–Modifier)</h3>
+        <p><strong>Pattern:</strong> <code>.block__element—modifier</code></p>
+
+        <p><strong>Apply BEM judiciously:</strong></p>
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered table-sm">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Use BEM?</th>
+                <th>Approach</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Layout rules</strong> (columns, grids)</td>
+                <td>❌ No</td>
+                <td>Use Bootstrap utilities: <code>col-md-6</code>, <code>d-flex</code></td>
+              </tr>
+              <tr>
+                <td><strong>Bespoke components</strong> (cards, search boxes, nav)</td>
+                <td>✅ Yes</td>
+                <td><code>.card__header</code>, <code>.search-box__input</code></td>
+              </tr>
+              <tr>
+                <td><strong>One-off elements</strong> (custom spacers)</td>
+                <td>❌ No</td>
+                <td>Use Bootstrap utilities: <code>mt-4</code>, <code>p-3</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>BEM Rules:</strong></p>
+        <ul>
+          <li><strong>Block:</strong> Top-level component (e.g., <code>.card</code>)</li>
+          <li><strong>Element:</strong> Child of a block, preceded by <code>__</code> (e.g., <code>.card__header</code>)</li>
+          <li><strong>Modifier:</strong> Variation, preceded by <code>—</code> (e.g., <code>.card—featured</code>)</li>
+        </ul>
+
+        <p><strong>Avoid:</strong></p>
+        <ul>
+          <li>❌ Over-nesting: <code>.card__content__inner__text</code></li>
+          <li>❌ Mixing BEM with Bootstrap utilities randomly</li>
+          <li>❌ Using BEM for simple spacing or alignment</li>
+        </ul>
+
+        <h3>SCSS Variable Naming</h3>
+        <p>Variables organized in three levels of abstraction:</p>
+        <ul>
+          <li><strong>Level 1 - Core Brand:</strong> <code>$primary: #800000;</code></li>
+          <li><strong>Level 2 - Semantic:</strong> <code>$text-muted: #737373;</code></li>
+          <li><strong>Level 3 - Component-Specific:</strong> <code>$btn-primary-bg: $primary;</code></li>
+        </ul>
+        <p><strong>Rules:</strong> Use kebab-case, be descriptive, group related variables, define in <code>_variables.scss</code>.</p>
+      </section>
+
+      <!-- SECTION 2: FILE ORGANIZATION -->
+      <section class="mb-5" id="file-org">
+        <h2>File Organization</h2>
+
+        <h3>Directory Structure</h3>
+        <pre><code>src/
+├── _includes/              # Reusable partials (header, footer)
+├── assets/                 # Images, fonts
+├── design_system/          # Design documentation and component demos
+├── design_mockups/         # Full-page mockups for brainstorming
+├── methodology/            # Usage and contribution guidelines
+└── styles/
+    ├── _variables.scss     # Bootstrap overrides + custom tokens
+    ├── main.scss           # Entry point
+    ├── base/
+    │   ├── _global.scss    # Global element overrides
+    │   └── layout/
+    │       └── _layout.scss
+    └── components/
+        ├── _header.scss
+        ├── _footer.scss
+        ├── _pages/         # Optional: Page/mockup-specific styles
+        └── _*.scss         # One file per custom component</code></pre>
+
+        <h3>File Organization Rules</h3>
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered table-sm">
+            <thead>
+              <tr>
+                <th>Content Type</th>
+                <th>Folder</th>
+                <th>Filename</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Component demo</td>
+                <td><code>src/design_system/</code></td>
+                <td><code>component-name.html</code></td>
+              </tr>
+              <tr>
+                <td>Page mockup</td>
+                <td><code>src/design_mockups/</code></td>
+                <td><code>mockup-name.html</code></td>
+              </tr>
+              <tr>
+                <td>Documentation</td>
+                <td><code>src/methodology/</code></td>
+                <td><code>topic-name.html</code></td>
+              </tr>
+              <tr>
+                <td>SCSS component</td>
+                <td><code>src/styles/components/</code></td>
+                <td><code>_component-name.scss</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>SCSS Files Organization</h3>
+        <div class="table-responsive mb-4">
+          <table class="table table-bordered table-sm">
+            <thead>
+              <tr>
+                <th>File Type</th>
+                <th>Location</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bootstrap overrides</td>
+                <td><code>src/styles/_variables.scss</code></td>
+                <td>Color, typography, spacing, Bootstrap customizations</td>
+              </tr>
+              <tr>
+                <td>Global styles</td>
+                <td><code>src/styles/base/_global.scss</code></td>
+                <td>Global element overrides (body, headings, links)</td>
+              </tr>
+              <tr>
+                <td>Layout utilities</td>
+                <td><code>src/styles/base/layout/_layout.scss</code></td>
+                <td>Layout utilities and spacing helpers</td>
+              </tr>
+              <tr>
+                <td>Component styles</td>
+                <td><code>src/styles/components/_component-name.scss</code></td>
+                <td>One file per custom component</td>
+              </tr>
+              <tr>
+                <td>Page-specific styles</td>
+                <td><code>src/styles/components/_pages/</code></td>
+                <td>Optional: Styles for mockups or page-specific designs</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 3: CODE RULES & BEST PRACTICES -->
+      <section class="mb-5" id="best-practices">
+        <h2>Code Rules & Best Practices</h2>
+
+        <h3>HTML Rules</h3>
+        <ul>
+          <li><strong>Use Bootstrap classes</strong> for layout and components</li>
+          <li><strong>Add custom classes only for unique styling</strong> (e.g., <code>.btn-brand</code>)</li>
+          <li><strong>Include partials</strong> using Eleventy: <code><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UCL DS Exploration</title>
+  <link rel="icon" type="image/x-icon" href="https://www.lib.uchicago.edu/web-resources/img/favicon-m.ico">
+  <link rel="stylesheet" href="https://uchicago-brand-fonts.s3.us-east-2.amazonaws.com/UChicagoSansSerif.css">
+  <link rel="stylesheet" href="https://www.lib.uchicago.edu/web-resources/css/uchicagoSansSerif.css">
+  <link rel="stylesheet" href="/brainstorm-mockups/styles/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header role="banner">
+  <!-- Logo and Shortcuts Bar -->
+  <div class="logo-bar bg-white">
+    <div class="container-md">
+      <div class="d-flex justify-content-between align-items-center py-3">
+        <!-- Logo -->
+        <a class="navbar-brand m-0" href="/brainstorm-mockups/" itemscope itemtype="http://schema.org/Organization">
+          <span class="visually-hidden" itemprop="name">The University of Chicago Library</span>
+          <img itemprop="logo" src="https://www.lib.uchicago.edu/web-resources/img/color-logo.png" alt="University of Chicago Library" style="max-height: 50px;">
+        </a>
+
+        <!-- Desktop Shortcuts (same row as logo) -->
+        <ul class="nav d-none d-lg-flex" id="navbar-shortcuts" role="list">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-comment" aria-hidden="true"></i>
+              <span>Ask a Librarian</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              <span>View Hours</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-gift" aria-hidden="true"></i>
+              <span>Support the Library</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+              <span>My Library Account</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Mobile toggle button -->
+        <button class="navbar-toggler d-lg-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#global-navbar" aria-controls="global-navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark global-navbar p-0" aria-label="Main navigation">
+    <div class="container-md">
+      <div class="collapse navbar-collapse" id="global-navbar">
+        <!-- Main navigation links -->
+        <ul class="navbar-nav w-100" role="list">
+          
+          <!-- Search Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Search
+          </a>
+          <ul class="dropdown-menu dropdown-menu-lg-start" aria-labelledby="searchDropdown">
+            <li><h6 class="dropdown-header">Catalogs</h6></li>
+            <li><a class="dropdown-item" href="#">Library Catalog</a></li>
+            <li><a class="dropdown-item" href="#">BorrowDirect</a></li>
+            <li><a class="dropdown-item" href="#">WorldCat</a></li>
+            <li><a class="dropdown-item" href="#">Other Catalogs</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Other Search Tools</h6></li>
+            <li><a class="dropdown-item" href="#">Articles Plus</a></li>
+            <li><a class="dropdown-item" href="#">Database Finder</a></li>
+            <li><a class="dropdown-item" href="#">Database Trials</a></li>
+            <li><a class="dropdown-item" href="#">Ejournals</a></li>
+            <li><a class="dropdown-item" href="#">KnowledgeUChicago</a></li>
+            <li><a class="dropdown-item" href="#">Proxy & Off-Campus Access</a></li>
+            <li><a class="dropdown-item" href="#">Website Search</a></li>
+          </ul>
+        </li>
+
+        <!-- Borrow & Request Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="borrowDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Borrow & Request
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="borrowDropdown">
+            <li><h6 class="dropdown-header">Borrow</h6></li>
+            <li><a class="dropdown-item" href="#">Due Dates & Loan Periods</a></li>
+            <li><a class="dropdown-item" href="#">Renewing & Returning Items</a></li>
+            <li><a class="dropdown-item" href="#">Fines & Lost Items</a></li>
+            <li><a class="dropdown-item" href="#">Course Reserves</a></li>
+            <li><a class="dropdown-item" href="#">Checkout UChicago</a></li>
+            <li><a class="dropdown-item" href="#">My Library Account</a></li>
+            <li><a class="dropdown-item" href="#">Who Can Borrow</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Request</h6></li>
+            <li><a class="dropdown-item" href="#">Interlibrary Loan</a></li>
+            <li><a class="dropdown-item" href="#">Paging & Pickup</a></li>
+            <li><a class="dropdown-item" href="#">Scan & Deliver</a></li>
+            <li><a class="dropdown-item" href="#">Suggest a Purchase</a></li>
+            <li><a class="dropdown-item" href="#">Digitization Services</a></li>
+          </ul>
+        </li>
+
+        <!-- Research & Teaching Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="researchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Research & Teaching
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="researchDropdown">
+            <li><h6 class="dropdown-header">Research Help & Tools</h6></li>
+            <li><a class="dropdown-item" href="#">Ask a Librarian</a></li>
+            <li><a class="dropdown-item" href="#">Subject Specialists</a></li>
+            <li><a class="dropdown-item" href="#">Citation Management</a></li>
+            <li><a class="dropdown-item" href="#">Help Guides</a></li>
+            <li><a class="dropdown-item" href="#">Subject Guides</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Programs</h6></li>
+            <li><a class="dropdown-item" href="#">Kim-Park Program for the Study of the Book</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Teaching Support</h6></li>
+            <li><a class="dropdown-item" href="#">Course Reserves Setup</a></li>
+            <li><a class="dropdown-item" href="#">Instruction for Courses</a></li>
+            <li><a class="dropdown-item" href="#">Teaching & Learning Services</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Digital Scholarship</h6></li>
+            <li><a class="dropdown-item" href="#">Center for Digital Scholarship</a></li>
+            <li><a class="dropdown-item" href="#">Dissertation Office</a></li>
+            <li><a class="dropdown-item" href="#">KnowledgeUChicago</a></li>
+            <li><a class="dropdown-item" href="#">Copyright Info</a></li>
+          </ul>
+        </li>
+
+        <!-- Collections & Exhibits Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="collectionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Collections & Exhibits
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="collectionsDropdown">
+            <li><h6 class="dropdown-header">Collections</h6></li>
+            <li><a class="dropdown-item" href="#">Notable Collections</a></li>
+            <li><a class="dropdown-item" href="#">Digital Collections</a></li>
+            <li><a class="dropdown-item" href="#">Collecting Areas by Subject</a></li>
+            <li><a class="dropdown-item" href="#">Other Local Collections</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Exhibits</h6></li>
+            <li><a class="dropdown-item" href="#">All Exhibits</a></li>
+            <li><a class="dropdown-item" href="#">Web Exhibits</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Research Centers</h6></li>
+            <li><a class="dropdown-item" href="#">East Asian Collection</a></li>
+            <li><a class="dropdown-item" href="#">Map Collection</a></li>
+            <li><a class="dropdown-item" href="#">Southern Asia Collection</a></li>
+            <li><a class="dropdown-item" href="#">Special Collections</a></li>
+          </ul>
+        </li>
+
+        <!-- Visit & Study Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="visitDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Visit & Study
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="visitDropdown">
+            <li><h6 class="dropdown-header">Visiting the Library</h6></li>
+            <li><a class="dropdown-item" href="#">Visitor Information</a></li>
+            <li><a class="dropdown-item" href="#">Visiting Special Collections</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">Using Our Spaces</h6></li>
+            <li><a class="dropdown-item" href="#">Book a Room</a></li>
+            <li><a class="dropdown-item" href="#">Places to Study</a></li>
+            <li><a class="dropdown-item" href="#">Copy, Print & Scan</a></li>
+            <li><a class="dropdown-item" href="#">Computers & Wireless</a></li>
+            <li><a class="dropdown-item" href="#">Lockers</a></li>
+            <li><a class="dropdown-item" href="#">TechBar</a></li>
+          </ul>
+        </li>
+
+        <!-- Libraries Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="librariesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Libraries
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="librariesDropdown">
+            <li><h6 class="dropdown-header">Our Locations</h6></li>
+            <li><a class="dropdown-item" href="#">Crerar</a></li>
+            <li><a class="dropdown-item" href="#">D'Angelo Law</a></li>
+            <li><a class="dropdown-item" href="#">Eckhart</a></li>
+            <li><a class="dropdown-item" href="#">Mansueto</a></li>
+            <li><a class="dropdown-item" href="#">Regenstein</a></li>
+            <li><a class="dropdown-item" href="#">Social Work</a></li>
+            <li><a class="dropdown-item" href="#">Special Collections</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Hours</a></li>
+          </ul>
+        </li>
+
+        <!-- About Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            About
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutDropdown">
+            <li><h6 class="dropdown-header">The Library</h6></li>
+            <li><a class="dropdown-item" href="#">About the Library</a></li>
+            <li><a class="dropdown-item" href="#">Mission & Strategic Plan</a></li>
+            <li><a class="dropdown-item" href="#">DEI Vision Statement</a></li>
+            <li><a class="dropdown-item" href="#">Departments & Staff</a></li>
+            <li><a class="dropdown-item" href="#">Employment</a></li>
+            <li><a class="dropdown-item" href="#">Library Policies</a></li>
+            <li><a class="dropdown-item" href="#">Library Boards & Committees</a></li>
+            <li><a class="dropdown-item" href="#">Support the Library</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><h6 class="dropdown-header">News & Events</h6></li>
+            <li><a class="dropdown-item" href="#">News</a></li>
+            <li><a class="dropdown-item" href="#">Workshops & Events</a></li>
+            <li><a class="dropdown-item" href="#">Conferences</a></li>
+            <li><a class="dropdown-item" href="#">Libra Newsletter</a></li>
+            <li><a class="dropdown-item" href="#">Social Media Directory</a></li>
+          </ul>
+        </li>
+        <!-- // About Dropdown -->
+
+        <!-- Mobile Shortcuts Section (only visible on mobile) -->
+        <li class="nav-item d-lg-none mt-3">
+          <hr class="dropdown-divider my-2" style="border-color: rgba(255, 255, 255, 0.3);">
+        </li>
+        <li class="d-lg-none">
+          <h6 class="dropdown-header text-white-50 px-3">Quick Links</h6>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-comment me-2" aria-hidden="true"></i>
+            Ask a Librarian
+          </a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-clock me-2" aria-hidden="true"></i>
+            View Hours
+          </a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-gift me-2" aria-hidden="true"></i>
+            Support the Library
+          </a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="#">
+            <i class="fa-solid fa-user me-2" aria-hidden="true"></i>
+            My Library Account
+          </a>
+        </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+</code></li>
+          <li><strong>Keep markup clean:</strong> No inline styles or scripts</li>
+          <li><strong>Use semantic HTML:</strong> <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code></li>
+          <li><strong>Always include alt text</strong> on images for accessibility</li>
+          <li><strong>Experimental styles:</strong> Use <code>&lt;style&gt;</code> block at the top of mockup files (not inline). Move to dedicated SCSS once finalized.</li>
+        </ul>
+
+        <h3>SCSS/CSS Rules</h3>
+        <ul>
+          <li><strong>Use SCSS variables</strong> for colors, spacing, etc. Never hardcode values</li>
+          <li><strong>Avoid <code>!important</code></strong> unless absolutely necessary</li>
+          <li><strong>Define variables in <code>_variables.scss</code></strong> or at the top of component files</li>
+          <li><strong>Follow BEM conventions</strong> for custom components</li>
+          <li><strong>Use Bootstrap utilities</strong> for common patterns instead of custom CSS</li>
+          <li><strong>Create one file per component:</strong> <code>src/styles/components/_component-name.scss</code></li>
+          <li><strong>Import all files in <code>src/styles/main.scss</code></strong> to ensure compilation</li>
+        </ul>
+
+        <h3>JavaScript Rules</h3>
+        <p><strong>Minimize custom JavaScript.</strong> Only use JavaScript for:</p>
+        <ul>
+          <li>Initializing Bootstrap components (dropdowns, modals, etc.) via data attributes</li>
+          <li>Build-time tasks (e.g., Eleventy plugins)</li>
+          <li>When no alternative exists for critical functionality</li>
+        </ul>
+        <p class="alert alert-info"><strong>Tip:</strong> Bootstrap components typically work with just HTML data attributes—no custom JS needed.</p>
+
+        <h3>Bootstrap Customization</h3>
+        <ul>
+          <li><strong>Override variables before importing Bootstrap</strong> in <code>src/styles/main.scss</code></li>
+          <li><strong>Common overrides:</strong> Colors, typography, spacing, borders, shadows</li>
+          <li><strong>Extend Bootstrap classes</strong> instead of overriding them (e.g., <code>.btn-brand { @extend .btn-primary; }</code>)</li>
+          <li><strong>Avoid overriding:</strong> Component structure, class naming conventions, responsive breakpoints</li>
+          <li><strong>Use variables consistently:</strong> Don't hardcode colors—use <code>$primary</code>, <code>$text-muted</code>, etc.</li>
+        </ul>
+
+        <h3>Performance Considerations</h3>
+        <ul>
+          <li>Minimize HTTP requests—use CSS instead of images where possible</li>
+          <li>Compress images—use optimized formats (WebP, AVIF)</li>
+          <li>Minify CSS automatically with <code>npm run prod</code></li>
+          <li>Lazy-load images—add <code>loading="lazy"</code> to images below the fold</li>
+        </ul>
+
+        <h3>Testing & Quality Assurance</h3>
+        <ul>
+          <li><strong>Run dev server:</strong> <code>npm run dev</code> and navigate to your page</li>
+          <li><strong>Test responsive behavior:</strong> Check mobile, tablet, and desktop views</li>
+          <li><strong>Check accessibility:</strong> Use axe DevTools to audit for issues</li>
+          <li><strong>Validate HTML/CSS:</strong> Use <a href="https://validator.w3.org/" target="_blank">W3C Validator</a></li>
+          <li><strong>Test on multiple browsers:</strong> Chrome, Firefox, Safari</li>
+        </ul>
+
+        <h3>Future-Proofing</h3>
+        <ul>
+          <li>Avoid adding new libraries unless absolutely necessary</li>
+          <li>Keep components modular so they can be copied into other projects</li>
+          <li>Document your code with comments explaining why, not what</li>
+          <li>Test edge cases and different screen sizes</li>
+        </ul>
+      </section>
+
+      <!-- RESOURCES -->
+      <section class="mb-5">
+        <h2>Resources & References</h2>
+        <ul>
+          <li><a href="https://getbootstrap.com/docs/5.3/" target="_blank">Bootstrap 5 Documentation</a></li>
+          <li><a href="https://getbootstrap.com/docs/5.3/customize/overview/" target="_blank">Bootstrap Customization Guide</a></li>
+          <li><a href="https://sass-lang.com/documentation" target="_blank">Sass Documentation</a></li>
+          <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank">WCAG 2.1 Quick Reference</a></li>
+          <li><a href="https://validator.w3.org/" target="_blank">W3C HTML Validator</a></li>
+          <li><a href="https://www.deque.com/axe/" target="_blank">axe DevTools (Accessibility)</a></li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<footer id="footer" role="contentinfo" class="footer">
+  <div class="container-md">
+    <div class="row">
+      
+      <!-- Contact Column -->
+      <div class="col-12 col-md-6 col-lg-2 col-footer mb-4">
+        <h2 class="footer-heading" id="contact_label">Contact</h2>
+        <ul aria-labelledby="contact_label">
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Library Departments</a></li>
+          <li><a href="#">Staff Directory</a></li>
+          <li><a href="#">Feedback</a></li>
+        </ul>
+      </div>
+
+      <!-- Information Column -->
+      <div class="col-12 col-md-6 col-lg-2 col-footer mb-4">
+        <h2 class="footer-heading" id="information_for_label">Information for</h2>
+        <ul aria-labelledby="information_for_label">
+          <li><a href="#">Patrons with Disabilities</a></li>
+        </ul>
+
+        <h2 class="footer-heading" id="policies_label">Policies</h2>
+        <ul aria-labelledby="policies_label">
+          <li><a href="#">Library Policies</a></li>
+          <li><a href="#">Privacy Statement</a></li>
+          <li><a href="#">University Accessibility</a></li>
+        </ul>
+      </div>
+
+      <!-- Address Column (order-first on md+, goes to bottom on mobile) -->
+      <div class="col-12 col-md-12 col-lg-4 col-footer order-lg-3 order-2 mb-4">
+        <div class="centerdiv">
+          <a href="#">
+            <img alt="The University of Chicago" src="https://www.lib.uchicago.edu/web-resources/img/white-logo.png" width="150">
+          </a>
+          <p>
+            <span>The University of Chicago Library</span><br>
+            <span>1100 E. 57th St., Chicago, IL 60637</span>
+          </p>
+          <small>
+            © <span>The University of Chicago</span><br>
+            <span class="staff-login"><a href="#">Staff Login</a></span>
+          </small>
+        </div>
+      </div>
+
+      <!-- Libraries Column -->
+      <div class="col-12 col-md-6 col-lg-2 col-footer order-lg-4 order-1 mb-4">
+        <h2 class="footer-heading" id="library_list_label">Libraries</h2>
+        <ul aria-labelledby="library_list_label">
+          <li><a href="#">Crerar</a></li>
+          <li><a href="#">D'Angelo Law</a></li>
+          <li><a href="#">Eckhart</a></li>
+          <li><a href="#">Mansueto</a></li>
+          <li><a href="#">Regenstein</a></li>
+          <li><a href="#">Special Collections</a></li>
+          <li><a href="#">Social Work</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media Column -->
+      <div class="col-12 col-md-6 col-lg-2 col-footer order-lg-5 order-1 mb-4">
+        <h2 class="footer-heading" id="social_media_label">Library Social Media</h2>
+        <ul aria-labelledby="social_media_label">
+          <li><a href="#"><i class="fa-brands fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+          <li><a href="#"><i class="fa-brands fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+          <li><a href="#"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          <li><a href="#"><i class="fa-solid fa-rss" aria-hidden="true"></i> Library News</a></li>
+          <li><a href="#"><i class="fa-brands fa-youtube" aria-hidden="true"></i> YouTube</a></li>
+          <li><a href="#"><i class="fa-solid fa-clone" aria-hidden="true"></i> More Library Accounts...</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+

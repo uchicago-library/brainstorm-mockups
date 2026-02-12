@@ -11,6 +11,10 @@ applyTo: '**'
 ### **1. General Rules**
 - Always start with the provided `README.md`.
 - Never modify files inside `/docs/` and most work will happen in `/src/`.
+- Do not add code examples.
+- Maintain a navigation of `/design_system/` and `/design_mockups/` and `/methodology/` in `src/index.html` with appropriate nesting.
+- HTML page files (not components) are documental and don't need extra styling to be engaging. Focus on clean, semantic markup and basic Bootstrap styling. Do not apply heading classes (e.g., `h1`, `h2`).
+- Always use existing variables, classes and components where possible. Avoid creating new ones unless necessary.
 - Ask for clarifications if any instruction is unclear, conflicting, or appears to be a bad idea.
 
 ## Design Principles
@@ -64,11 +68,13 @@ applyTo: '**'
 
 ### **2. File Structure Rules**
 - **HTML files** go in:
-  - `src/demo/` (for component demos)
-  - `src/mockups/` (for page mockups)
+  - `src/design_system/` (for component demos and design documentation)
+  - `src/design_mockups/` (for full-page mockups used in brainstorming and testing)
+  - `src/methodology/` (for usage and contribution guidelines)
 - **SCSS files** go in `src/styles/`:
   - Use `_variables.scss` for Bootstrap overrides.
-  - Create a new file (e.g., `_cards.scss`) for each custom component.
+  - Create a new file (e.g., `_cards.scss`) for each custom component in `src/styles/components/`.
+  - Optional: Use `src/styles/components/_pages/` for page/mockup-specific styles.
 - **Reusable HTML partials** (header/footer) go in `src/_includes/`.
 - **Assets** (images, fonts) go in `src/assets/`.
 

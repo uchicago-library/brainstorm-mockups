@@ -274,7 +274,8 @@
 <nav aria-label="breadcrumb" class="container-md pt-2">
   <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
     <li class="breadcrumb-item"><a href="/brainstorm-mockups/" class="text-muted text-decoration-none">Home</a></li>
-    <li class="breadcrumb-item active text-muted" aria-current="page">Methodology</li>
+    <li class="breadcrumb-item"><a href="/brainstorm-mockups/methodology/" class="text-muted text-decoration-none">Methodology</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">How to Add Content</li>
   </ol>
 </nav>
 
@@ -282,68 +283,259 @@
   <div class="row">
     <div class="col-lg-10 mx-auto">
       
-      <h1 class="display-4 mb-4">Usage & Contribution Guidelines</h1>
+      <h1 class="display-4 mb-4">How to Add Content to the Design System</h1>
       
-      <p class="lead">Complete guides for understanding and contributing to this design system, from project setup to component creation, naming conventions, and best practices.</p>
+      <p class="lead">Guide for adding components and pages following project conventions, naming patterns, code rules, and best practices.</p>
+
+      <!-- TABLE OF CONTENTS -->
+      <nav class="mb-5">
+        <h2 class="mb-3">Quick Navigation</h2>
+        <ul class="list-unstyled">
+          <li><a href="#naming">Naming Conventions</a></li>
+          <li><a href="#file-org">File Organization</a></li>
+          <li><a href="#best-practices">Code Rules & Best Practices</a></li>
+        </ul>
+      </nav>
+
+      <section class="mb-4" aria-label="Implementation Overview">
+        <h2>Implementation Overview</h2>
+        <ul>
+          <li><b>Brand:</b> variables (e.g., colors, typography) are defined in <code>src/styles/_variables.scss</code> and override Bootstrap's default variables.</li>
+          <li><b>Elements</b> like buttons, forms, and inputs are styled using Bootstrap utilities and custom SCSS.
+            <ul>
+              <li>Custom classes should only be added when necessary (e.g., <code>.btn-brand</code> for branded buttons).</li>
+            </ul>
+          </li>
+          <li><b>Global components</b> (e.g., header, footer) are defined as HTML partials in <code>src/_includes/</code> (e.g., <code>header.html</code>, <code>footer.html</code>).
+            <ul>
+              <li>Markup: Dedicated HTML partial files.</li>
+            </ul>
+          </li>
+          <li><b>Design System pages</b> (<code>src/design_system/</code>) showcase individual styles, elements, and components in isolation, as well as finalized pages.</li>
+          <li><b>Mockup pages</b> (<code>src/design_mockups/</code>) are for brainstorming and experimenting with page layouts using the design system. Add styling as a `&lt;style&gt;` block inside the HTML.</li>
+          <li><b>Styling:</b> One SCSS file per <b>bespoke element, component, or page</b> in <code>src/styles/</code>.</li>
+          <li><b>Importing:</b> Each custom SCSS file should be in <code>src/styles/</code> should be imported in <code>src/styles/main.scss</code>.</li>
+          <li><b>Demonstration:</b> Each bespoke element, component, or page should (in principle) have a corresponding demo page in <code>src/design_system/</code>.</li>
+          <li> Demonstration pages do not need code examples.</li>
+        </ul>
 
       <hr class="my-5">
 
-      <section class="mb-5">
-        <h2>Getting Started</h2>
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title"><a href="/brainstorm-mockups/methodology/setup/">Setup & Installation</a></h3>
-                <p class="card-text">Prerequisites, installation steps, running the development server, and building for production.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title"><a href="/brainstorm-mockups/methodology/file-structure/">Project Structure</a></h3>
-                <p class="card-text">Understand the organization of files, folders, and conventions for HTML, SCSS, and assets.</p>
-              </div>
-            </div>
+      <h2 class="mb-3">Design tokens</h2>
+      <p class="mb-3">Design tokens are SCSS and CSS variables. Their structure allows you to update the full styling system (for example, brightening the primary color). They are loosely organized into three levels of abstraction for this purpose: Core (brand or utility), Semantic (generic roles), and Component (role-specific).</p>
+      <dl class="row g-3 mb-0">
+        <div class="col-12">
+          <div class="row g-3">
+            <dt class="col-12 col-sm-3 mb-0 fw-semibold">Level 1: Core</dt>
+            <dd class="col-12 col-sm-4 mb-0">
+              <p class="small text-muted mb-0">Brand/utility (foundational)</p>
+            </dd>
+            <dd class="col-12 col-sm-5 mb-0">
+              <ul class="list-unstyled small mb-0">
+                <li><code>primary</code></li>
+                <li><code>secondary</code></li>
+                <li><code>red-500</code></li>
+                <li><code>gray-200</code></li>
+              </ul>
+            </dd>
           </div>
         </div>
+        <div class="col-12">
+          <div class="row g-3">
+            <dt class="col-12 col-sm-3 mb-0 fw-semibold">Level 2: Semantic</dt>
+            <dd class="col-12 col-sm-4 mb-0">
+              <p class="small text-muted mb-0">Generic roles (reusable)</p>
+            </dd>
+            <dd class="col-12 col-sm-5 mb-0">
+              <ul class="list-unstyled small mb-0">
+                <li><code>background</code></li>
+                <li><code>text-muted</code></li>
+                <li><code>border-subtle</code></li>
+              </ul>
+            </dd>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="row g-3">
+            <dt class="col-12 col-sm-3 mb-0 fw-semibold">Level 3: Component</dt>
+            <dd class="col-12 col-sm-4 mb-0">
+              <p class="small text-muted mb-0">Component/role-specific</p>
+            </dd>
+            <dd class="col-12 col-sm-5 mb-0">
+              <ul class="list-unstyled small mb-0">
+                <li><code>btn-primary-bg</code></li>
+                <li><code>search-placeholder-text</code></li>
+              </ul>
+            </dd>
+          </div>
+        </div>
+      </dl>
+
+      <div class="mt-4">
+        <pre><code>├── _variables.scss       # Level 1 &amp; 2 tokens
+├── _components.scss      # Level 3 tokens + component styles
+├── _utilities.scss       # Custom utilities (if needed)
+└── main.scss             # Imports everything
+</code></pre>
+      </div>
+</section>
+
+      <hr class="my-5">
+
+
+      <!-- SECTION 1: NAMING CONVENTIONS -->
+      <section class="mb-5" id="naming">
+        <h2>Naming Conventions</h2>
+        <p>Consistent naming ensures clarity and maintainability across the project.</p>
+
+        <h3>File Naming</h3>
+        <ul>
+          <li><strong>SCSS:</strong> <code>_component-name.scss</code> (underscore prefix, kebab-case)</li>
+          <li><strong>HTML:</strong> <code>component-name.html</code> (kebab-case, descriptive)</li>
+          <li><strong>Folders:</strong> kebab-case or underscore format</li>
+        </ul>
+
+        <h3>CSS Class Naming: BEM (Block–Element–Modifier)</h3>
+        <p><strong>Pattern:</strong> <code>.block__element—modifier</code></p>
+        <ul>
+          <li><strong>Block:</strong> Top-level component (e.g., <code>.card</code>)</li>
+          <li><strong>Element:</strong> Child of a block, preceded by <code>__</code> (e.g., <code>.card__header</code>)</li>
+          <li><strong>Modifier:</strong> Variation, preceded by <code>—</code> (e.g., <code>.card—featured</code>)</li>
+        </ul>
+        <p><strong>Avoid:</strong></p>
+        <ul>
+          <li>❌ Over-nesting: <code>.card__content__inner__text</code></li>
+          <li>❌ Mixing BEM with Bootstrap utilities randomly</li>
+          <li>❌ Using BEM for simple spacing or alignment</li>
+        </ul>
+
+        <dl class="row g-3 mb-4">
+          <div class="col-12">
+            <div class="row g-3">
+              <dt class="col-12 col-sm-6 mb-0 fw-semibold">
+                Layout rules<br>
+                <span class="fw-normal small text-muted"> (columns, grids used across templates)</span>
+              </dt>
+              <dd class="col-12 col-sm-6 mb-0">
+                <p>Don't BEM these. They are structural, not semantic. Use utilities from BS.</p>
+              </dd>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="row g-3">
+              <dt class="col-12 col-sm-6 mb-0 fw-semibold">
+                Bespoke components<br> 
+                <span class="fw-normal small text-muted"> (search box, news thumbnail, quick-links box)</span>
+              </dt>
+              <dd class="col-12 col-sm-6 mb-0">
+                <p>Perfect BEM territory.</p>
+              </dd>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="row g-3">
+              <dt class="col-12 col-sm-6 mb-0 fw-semibold">
+                Custom one-off elements<br>
+                <span class="fw-normal small text-muted"> (like a specific spacer)</span>
+              </dt>
+              <dd class="col-12 col-sm-6 mb-0">
+                <p>Don't force BEM here. Use utilities for spacing, sizing, or alignment.</p>
+              </dd>
+            </div>
+          </div>
+        </dl>
+
       </section>
 
-      <section class="mb-5">
-        <h2>Development Best Practices</h2>
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title"><a href="/brainstorm-mockups/design_system/design-principles/">Usability & Accessibility</a></h3>
-                <p class="card-text">Nielsen's 10 usability heuristics and WCAG 2.1 Level AA accessibility standards.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title"><a href="/brainstorm-mockups/methodology/how-to-add-content/">How to Add Content</a></h3>
-                <p class="card-text">Comprehensive guide covering naming conventions, code rules, Bootstrap customization, and adding components and pages.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- SECTION 2: FILE ORGANIZATION -->
+      <section class="mb-5" id="file-org">
+        <h2>File Organization</h2>
+
+        <h3>Directory Structure</h3>
+        <pre><code>src/
+├── _includes/              # Reusable partials (header, footer)
+├── assets/                 # Images, fonts
+├── design_system/          # Design documentation and component demos
+├── design_mockups/         # Full-page mockups for brainstorming
+├── methodology/            # Usage and contribution guidelines
+└── styles/
+    ├── _variables.scss     # Bootstrap overrides + custom tokens
+    ├── main.scss           # Entry point
+    ├── base/
+    │   ├── _global.scss    # Global element overrides
+    │   └── layout/
+    │       └── _layout.scss
+    └── components/
+        ├── _header.scss
+        ├── _footer.scss
+        ├── _pages/         # Optional: Page/mockup-specific styles
+        └── _*.scss         # One file per custom component</code></pre>
+
+       
       </section>
 
+      <!-- SECTION 3: CODE RULES & BEST PRACTICES -->
+      <section class="mb-5" id="best-practices">
+        <h2>Code Rules & Best Practices</h2>
+
+        <h3>HTML Rules</h3>
+        <ul>
+          <li><strong>Include partials</strong> using Eleventy: <code>&#123;% include "header.html" %&#125;</code></li>
+          <li><strong>Keep markup clean:</strong> No inline styles or scripts</li>
+          <li><strong>Use semantic HTML:</strong> <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code></li>
+          <li><strong>Always include alt text</strong> on images for accessibility</li>
+          <li><strong>Experimental styles:</strong> Use <code>&lt;style&gt;</code> block at the top of mockup files (not inline). Move to dedicated SCSS once finalized.</li>
+        </ul>
+
+        <h3>SCSS/CSS Rules</h3>
+        <ul>
+          <li><strong>Use SCSS variables</strong> for colors, spacing, etc. Never hardcode values</li>
+          <li><strong>Avoid <code>!important</code></strong> unless absolutely necessary</li>
+          <li><strong>Define variables in <code>_variables.scss</code></strong> or at the top of component files</li>
+          <li><strong>Follow BEM conventions</strong> for custom components</li>
+          <li><strong>Use Bootstrap utilities</strong> for common patterns instead of custom CSS</li>
+          <li><strong>Create one file per component:</strong> <code>src/styles/components/_component-name.scss</code></li>
+          <li><strong>Import all files in <code>src/styles/main.scss</code></strong> to ensure compilation</li>
+        </ul>
+
+        <h3>JavaScript Rules</h3>
+        <p><strong>Minimize custom JavaScript.</strong> Only use JavaScript for:</p>
+        <ul>
+          <li>Initializing Bootstrap components (dropdowns, modals, etc.) via data attributes</li>
+          <li>Build-time tasks (e.g., Eleventy plugins)</li>
+          <li>When no alternative exists for critical functionality</li>
+        </ul>
+        <p class="alert alert-info"><strong>Tip:</strong> Bootstrap components typically work with just HTML data attributes—no custom JS needed.</p>
+
+        <h3>Testing & Quality Assurance</h3>
+        <ul>
+          <li><strong>Run dev server:</strong> <code>npm run dev</code> and navigate to your page</li>
+          <li><strong>Test responsive behavior:</strong> Check mobile, tablet, and desktop views</li>
+          <li><strong>Check accessibility:</strong> Use axe DevTools to audit for issues</li>
+          <li><strong>Validate HTML/CSS:</strong> Use <a href="https://validator.w3.org/" target="_blank">W3C Validator</a></li>
+          <li><strong>Test on multiple browsers:</strong> Chrome, Firefox, Safari</li>
+        </ul>
+
+        <h3>Future-Proofing</h3>
+        <ul>
+          <li>Avoid adding new libraries unless absolutely necessary</li>
+          <li>Keep components modular so they can be copied into other projects</li>
+          <li>Document your code with comments explaining why, not what</li>
+          <li>Test edge cases and different screen sizes</li>
+        </ul>
+      </section>
+
+      <!-- RESOURCES -->
       <section class="mb-5">
-        <h2>Quality Assurance & Validation</h2>
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="h5 card-title"><a href="/brainstorm-mockups/methodology/validation/">Quality Assurance</a></h3>
-                <p class="card-text">Browser testing, HTML/CSS validation, and accessibility auditing tools and techniques.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <h2>Resources & References</h2>
+        <ul>
+          <li><a href="https://getbootstrap.com/docs/5.3/" target="_blank">Bootstrap 5 Documentation</a></li>
+          <li><a href="https://getbootstrap.com/docs/5.3/customize/overview/" target="_blank">Bootstrap Customization Guide</a></li>
+          <li><a href="https://sass-lang.com/documentation" target="_blank">Sass Documentation</a></li>
+          <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank">WCAG 2.1 Quick Reference</a></li>
+          <li><a href="https://validator.w3.org/" target="_blank">W3C HTML Validator</a></li>
+          <li><a href="https://www.deque.com/axe/" target="_blank">axe DevTools (Accessibility)</a></li>
+        </ul>
       </section>
 
     </div>
