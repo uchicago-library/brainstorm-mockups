@@ -6,7 +6,7 @@ applyTo: '**'
 - **This is a static site.** No backend, no database.
 - **GitHub Pages is the host.** Optimize for performance and simplicity.
 - **Reusability is key.** Developers should copy/paste HTML/SCSS directly into other projects.
-- Check `src/methodology/system-architecture.html` when relevant.
+- Keep in mind `src/methodology/system-architecture.html`.
 - Never modify files inside `/docs/` and most work will happen in `/src/`.
 - Do not add code examples.
 - Maintain a navigation of `/design_system/` and `/design_mockups/` and `/methodology/` in `src/index.html` with appropriate nesting everytime pages are added, removed, or renamed.
