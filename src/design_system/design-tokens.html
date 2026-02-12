@@ -1,5 +1,6 @@
 ---
 title: "Design Tokens"
+description: "The foundational design decisions that make up the University of Chicago Library design system."
 ---
 
 {% include "header.html" %}
@@ -17,7 +18,7 @@ title: "Design Tokens"
   <ol class="breadcrumb mb-0 small">
     <li class="breadcrumb-item"><a href="{{ '/' | url }}" class="text-muted text-decoration-none">Home</a></li>
     <li class="breadcrumb-item"><a href="{{ '/design_system/' | url }}" class="text-muted text-decoration-none">Demos</a></li>
-    <li class="breadcrumb-item active text-muted" aria-current="page">Design Tokens</li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">{{ page.data.title }}</li>
   </ol>
 </nav>
 
@@ -25,8 +26,8 @@ title: "Design Tokens"
 <div class="container-md py-4">
   <div class="row">
     <div class="col-lg-10 mx-auto">
-      <h1 class="display-3 mb-2">Design Tokens</h1>
-      <p class="lead text-muted mb-0">The foundational design decisions that make up the University of Chicago Library design system.</p>
+      <h1 class="display-3 mb-2">{{ page.data.title }}</h1>
+      <p class="lead text-muted mb-0">{{ page.data.description }}</p>
     </div>
   </div>
 </div>

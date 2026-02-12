@@ -1,10 +1,10 @@
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   // Copy assets to docs
   eleventyConfig.addPassthroughCopy("src/assets");
-  
+
   // Watch SCSS files (Sass will handle compilation)
   eleventyConfig.addWatchTarget("src/styles/");
-  
+
   // Set input and output directories
   return {
     dir: {

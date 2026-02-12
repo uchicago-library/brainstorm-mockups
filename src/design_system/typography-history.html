@@ -1,5 +1,6 @@
 ---
 title: "A History of the Book"
+description: "How one of humanity's greatest inventions transformed knowledge, culture, and civilization."
 ---
 
 {% include "header.html" %}
@@ -35,7 +36,7 @@ title: "A History of the Book"
   <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
     <li class="breadcrumb-item"><a href="{{ '/' | url }}" class="text-muted text-decoration-none">Home</a></li>
     <li class="breadcrumb-item"><a href="{{ '/design_system/' | url }}" class="text-muted text-decoration-none">Demos</a></li>
-    <li class="breadcrumb-item active text-muted" aria-current="page">Typography Example</li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">{{ page.data.title }}</li>
   </ol>
 </nav>
 
@@ -43,8 +44,8 @@ title: "A History of the Book"
   <div class="row">
     <div class="col-lg-10 mx-auto">
       
-      <h1 class="display-3 mb-2">A History of the Book</h1>
-      <p class="lead text-muted mb-5">How one of humanity's greatest inventions transformed knowledge, culture, and civilization.</p>
+      <h1 class="display-3 mb-2">{{ page.data.title }}</h1>
+      <p class="lead text-muted mb-5">{{ page.data.description }}</p>
 
       <hr class="my-5">
 
