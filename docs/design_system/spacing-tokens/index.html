@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Design Tokens | UCL DS Exploration</title>
+  <title>Spacing Tokens | UCL DS Exploration</title>
   <link rel="icon" type="image/x-icon" href="https://www.lib.uchicago.edu/web-resources/img/favicon-m.ico">
   <link rel="stylesheet" href="https://uchicago-brand-fonts.s3.us-east-2.amazonaws.com/UChicagoSansSerif.css">
   <link rel="stylesheet" href="https://www.lib.uchicago.edu/web-resources/css/uchicagoSansSerif.css">
@@ -272,10 +272,19 @@
 
 
 <style>
-  .color-swatch {
-    width: 1em;
-    height: 1em;
-    vertical-align: middle;
+  .spacing-example {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+  }
+  
+  .spacing-visual {
+    background: #e7f3ff;
+    border: 2px dashed #0dcaf0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0c5460;
+    font-weight: 500;
   }
 </style>
 
@@ -283,8 +292,8 @@
 <nav aria-label="breadcrumb" class="container-md pt-2">
   <ol class="breadcrumb mb-0 small">
     <li class="breadcrumb-item"><a href="/brainstorm-mockups/" class="text-muted text-decoration-none">Home</a></li>
-    <li class="breadcrumb-item"><a href="/brainstorm-mockups/design_system/" class="text-muted text-decoration-none">Demos</a></li>
-    <li class="breadcrumb-item active text-muted" aria-current="page">Design Tokens</li>
+    <li class="breadcrumb-item"><a href="/brainstorm-mockups/design_system/" class="text-muted text-decoration-none">Design System</a></li>
+    <li class="breadcrumb-item active text-muted" aria-current="page">Spacing Tokens</li>
   </ol>
 </nav>
 
@@ -292,238 +301,176 @@
 <div class="container-md py-4">
   <div class="row">
     <div class="col-lg-10 mx-auto">
-      <h1 class="display-3 mb-2">Design Tokens</h1>
-      <p class="lead text-muted mb-0">The foundational design decisions that make up the University of Chicago Library design system.</p>
+      <h1 class="display-3 mb-2">Spacing Tokens</h1>
+      <p class="lead text-muted mb-0">Principles for choosing spacing utilities that create consistent, harmonious layouts at scale.</p>
     </div>
   </div>
 </div>
-
 
 <main class="container-md py-5 mb-5">
   <div class="row">
     <div class="col-lg-10 mx-auto">
 
-      <!-- Colors -->
+      <!-- Framework Section -->
       <section>
-        <h2 class="mb-4">Colors</h2>
+        <h2 class="mb-4">Spacing Decision Framework</h2>
         
-        <div class="mb-4">
-          <h3>Semantic Colors</h3>
-          <ul class="list-unstyled">
-            <li class="mb-2">
-              <span class="color-swatch d-inline-block rounded bg-primary"></span>
-              <strong>Primary</strong> → <code>$ucl-maroon</code>
-            </li>
-            <li class="mb-2">
-              <span class="color-swatch d-inline-block rounded bg-secondary"></span>
-              <strong>Secondary</strong> → <code>$ucl-greystone-dark</code>
-            </li>
-            <li class="mb-2">
-              <span class="color-swatch d-inline-block rounded bg-success"></span>
-              <strong>Success</strong> → <code>$ucl-ivy</code>
-            </li>
-            <li class="mb-2">
-              <span class="color-swatch d-inline-block rounded bg-info"></span>
-              <strong>Info</strong> → <code>$ucl-lake</code>
-            </li>
-            <li class="mb-2">
-              <span class="color-swatch d-inline-block rounded bg-warning"></span>
-              <strong>Warning</strong> → <code>$ucl-goldenrod</code>
-            </li>
-            <li class="mb-2">
-              <span class="color-swatch d-inline-block rounded bg-danger"></span>
-              <strong>Danger</strong> → Bootstrap default
-            </li>
-            <li class="mb-2">
-              <span class="color-swatch d-inline-block rounded border bg-light"></span>
-              <strong>Light</strong> → <code>$ucl-greystone-light</code>
-            </li>
-            <li class="mb-2">
-              <span class="color-swatch d-inline-block rounded bg-dark"></span>
-              <strong>Dark</strong> → Black
-            </li>
-          </ul>
+        <p class="mb-4">Choose spacing based on <strong>how closely related the elements are</strong>:</p>
+
+        <div class="mb-5">
+          <h3 class="mb-3">Component Interior (`.m-1`, `.p-1`)</h3>
+          <p class="text-muted mb-3">Tightest spacing for elements that form a single UI unit.</p>
+          <div class="spacing-example p-3 mb-3">
+            <div class="mb-1">Icon: 📝</div>
+            <div class="spacing-visual p-1">Tightly grouped elements</div>
+          </div>
+          <p><strong>When to use:</strong> Icon + text in a button, items inside a list, form field internals, badge + count</p>
         </div>
-        
-        <p>View the complete <a href="/brainstorm-mockups/design_system/design-tokens-colors/">color palette and semantic colors</a> for the design system.</p>
+
+        <div class="mb-5">
+          <h3 class="mb-3">Element to Element (`.m-2`, `.p-2`) — Most Common</h3>
+          <p class="text-muted mb-3">Default spacing between elements within a component or section.</p>
+          <div class="spacing-example p-3 mb-3">
+            <div class="spacing-visual p-2 mb-2">Element 1</div>
+            <div class="spacing-visual p-2">Element 2</div>
+          </div>
+          <p><strong>When to use:</strong> Between inputs in a form, list items, button groups, cards in a grid, content inside a card body</p>
+        </div>
+
+        <div class="mb-5">
+          <h3 class="mb-3">Component to Component (`.m-4`, `.p-4`) — Most Common</h3>
+          <p class="text-muted mb-3">Standard spacing between distinct components or major content blocks.</p>
+          <div class="spacing-example p-4 mb-3">
+            <div class="spacing-visual p-3 mb-4">Component Block 1</div>
+            <div class="spacing-visual p-3">Component Block 2</div>
+          </div>
+          <p><strong>When to use:</strong> Between separate cards, section padding, gap between major content areas, page structure rhythm</p>
+        </div>
+
+        <div class="mb-5">
+          <h3 class="mb-3">Section & Page Level (`.m-5`, `.p-5`)</h3>
+          <p class="text-muted mb-3">Generous spacing for top-level page structure and breathing room.</p>
+          <div class="spacing-example p-5 mb-3">
+            <div class="spacing-visual p-3">Page section with breathing room</div>
+          </div>
+          <p><strong>When to use:</strong> Page padding, gap between major sections, hero to content transition, footer spacing</p>
+        </div>
+
+        <div class="mb-5">
+          <h3 class="mb-3">Extreme Cases (`.m-3`, `.m-6`, etc.)</h3>
+          <p class="text-muted mb-3">Use when the standard levels don't fit. Intentional deviations for special situations.</p>
+          <p><strong>When to use:</strong> Subtle adjustments between `.m-2` and `.m-4`, or extra breathing room beyond `.m-5`</p>
+        </div>
       </section>
 
       <hr class="my-5">
 
-      <!-- Spacing Section -->
+      <!-- Quick Reference -->
       <section>
-        <h2 class="mb-4">Spacing</h2>
-        <p>Choose spacing based on how closely related elements are:</p>
-        <ul class="mb-0">
-          <li><code>.m-1, .p-1</code> – Component internals (icon + text, tight groupings)</li>
-          <li><code>.m-2, .p-2</code> – Elements within a component and most paddings. (form inputs, list items, card content)</li>
-          <li><code>.m-4, .p-4, g-4</code> – Between components, gaps (cards, layout rhythm)</li>
-          <li><code>.m-5, .p-5</code> – Page-level structure and breathing room</li>
-          <li>Typically horizontal spacing is larger than vertical to create a more open, readable layout. <code>gx-3 gy-2</code> or <code>px-3 py-2</code> are common patterns.</li>
-        </ul>
+        <h2 class="mb-4">Quick Reference Table</h2>
 
-
-        <h3 class="mt-5 mb-3">Spacing Utilities</h3>
-
-        <p>Use <code>.m-</code>, <code>.p-</code>, <code>.ms-</code>, <code>.ps-</code>, <code>.g-</code>, etc. utility classes for margins and padding.</p>
-        <p>Spacing scale (based on 0.25rem base unit):</p>
-
-        <div class="mb-4">
-          <div class="row gx-3 gy-2">
-            <div class="col-md-4 col-6">
-              
-              <div class="bg-light mt-2">
-                <div class="bg-info-subtle p-0"><code>.p-0</code></div>
-              </div>
-            </div>
-            <div class="col-md-4 col-6">
-              <div class="bg-light mt-2">
-                <div class="bg-info-subtle p-1"><code>.p-1</code></div>
-              </div>
-            </div>
-            <div class="col-md-4 col-6">
-              <div class="bg-light mt-2">
-                <div class="bg-info-subtle p-2"><code>.p-2</code></div>
-              </div>
-            </div>
-            <div class="col-md-4 col-6">
-              <div class="bg-light mt-2">
-                <div class="bg-info-subtle p-3"><code>.p-3</code></div>
-              </div>
-            </div>
-            <div class="col-md-4 col-6">
-              <div class="bg-light mt-2">
-                <div class="bg-info-subtle p-4"><code>.p-4</code></div>
-              </div>
-            </div>
-            <div class="col-md-4 col-6">
-              <div class="bg-light mt-2">
-                <div class="bg-info-subtle p-5"><code>.p-5</code></div>
-              </div>
-            </div>
-          </div>
+        <div class="table-responsive">
+          <table class="table table-sm">
+            <thead class="table-light">
+              <tr>
+                <th>Spacing Class</th>
+                <th>Use Case</th>
+                <th>Examples</th>
+                <th>Frequency</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>.m-1, .p-1</code></td>
+                <td>Component internals</td>
+                <td>Icon + text, tight groupings</td>
+                <td class="text-muted small">Occasional</td>
+              </tr>
+              <tr class="table-active">
+                <td><code>.m-2, .p-2</code></td>
+                <td>Element to element</td>
+                <td>Form inputs, list items, card content</td>
+                <td class="text-muted small"><strong>Very Common</strong></td>
+              </tr>
+              <tr class="table-active">
+                <td><code>.m-4, .p-4</code></td>
+                <td>Component to component</td>
+                <td>Card spacing, section padding, layout rhythm</td>
+                <td class="text-muted small"><strong>Very Common</strong></td>
+              </tr>
+              <tr>
+                <td><code>.m-5, .p-5</code></td>
+                <td>Page-level breathing</td>
+                <td>Page padding, major section gaps</td>
+                <td class="text-muted small">Common</td>
+              </tr>
+              <tr>
+                <td><code>.m-3, .m-6, etc.</code></td>
+                <td>Fine-tuning</td>
+                <td>Adjustments when standard levels don't fit</td>
+                <td class="text-muted small">Rare</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
-        <hr class="my-5">
       </section>
 
-      <!-- Borders Section -->
+      <hr class="my-5">
+
+      <!-- Decision Flowchart -->
       <section>
-        <h2 class="mb-4">Borders & Corners</h2>
+        <h2 class="mb-4">Decision Flow</h2>
 
-        <div class="mb-4">
-          <h3>Border Radius</h3>
-          <div class="row g-3 mb-4">
-            <div class="col-md-3">
-              <div class="p-3 bg-light rounded-1">
-                <code>.rounded-1</code>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="p-3 bg-light rounded-2">
-                <code>.rounded-2</code> (default)
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="p-3 bg-light rounded-3">
-                <code>.rounded-3</code>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="p-3 bg-light rounded-circle">
-                <code>.rounded-circle</code>
-              </div>
-            </div>
+        <div class="card bg-light-subtle p-4">
+          <div class="mb-4">
+            <strong>1. Ask: Are these elements part of the same component?</strong>
+            <ul class="mt-2 mb-0">
+              <li><strong>Yes, tightly grouped:</strong> Use <code>.m-1</code> or <code>.p-1</code></li>
+              <li><strong>Yes, loosely grouped:</strong> Use <code>.m-2</code> or <code>.p-2</code></li>
+              <li><strong>No, different components:</strong> → Go to step 2</li>
+            </ul>
+          </div>
+
+          <div class="mb-4">
+            <strong>2. Ask: Are these components close together (same row/section)?</strong>
+            <ul class="mt-2 mb-0">
+              <li><strong>Yes:</strong> Use <code>.m-4</code> or <code>.p-4</code></li>
+              <li><strong>No, far apart (major sections):</strong> Use <code>.m-5</code> or <code>.p-5</code></li>
+            </ul>
+          </div>
+
+          <div>
+            <strong>3. If nothing feels right: Use <code>.m-3</code> or <code>.m-6</code> for fine-tuning</strong>
           </div>
         </div>
-
-        <div class="mb-4">
-          <h3>Border Styles</h3>
-          <div class="row g-3">
-            <div class="col-md-6">
-              <div class="p-3 border border-1">
-                <code>.border .border-1</code>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="p-3 border border-2">
-                <code>.border .border-2</code>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <hr class="my-5">
       </section>
 
-      <!-- Shadows Section -->
+      <hr class="my-5">
+
+      <!-- Margin vs Padding -->
       <section>
-        <h2 class="mb-4">Shadows</h2>
+        <h2 class="mb-4">Margin vs Padding</h2>
 
-        <div class="row g-3">
-          <div class="col-md-4">
-            <div class="p-4 shadow-sm">
-              <code>.shadow-sm</code>
-            </div>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <h3>Use Margin (<code>.m-*</code>)</h3>
+            <p>For spacing <strong>outside</strong> a component:</p>
+            <ul class="text-muted">
+              <li>Spacing between components</li>
+              <li>Pushing elements away from siblings</li>
+              <li>Section gaps and layout rhythm</li>
+            </ul>
           </div>
-          <div class="col-md-4">
-            <div class="p-4 shadow">
-              <code>.shadow</code>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="p-4 shadow-lg">
-              <code>.shadow-lg</code>
-            </div>
-          </div>
-        </div>
-
-        <hr class="my-5">
-      </section>
-
-      <!-- Transitions Section -->
-      <section>
-        <h2 class="mb-4">Transitions & Animations</h2>
-
-        <div class="mb-4">
-          <h3>Transition Duration</h3>
-          <p><code>0.15s</code> - Base transition duration for hover states</p>
-          <p><code>0.3s</code> - Standard transition for interactive elements</p>
-          <p><code>0.6s</code> - Longer transitions for major state changes</p>
-        </div>
-
-        <div class="mb-4">
-          <h3>Easing Functions</h3>
-          <p><code>ease</code> - Default (cubic-bezier(0.25, 0.46, 0.45, 0.94))</p>
-          <p><code>ease-in-out</code> - Smooth acceleration and deceleration</p>
-        </div>
-
-        <div class="mb-4">
-          <h3>Interactive Examples</h3>
-          <div class="row g-3">
-            <div class="col-md-4">
-              <button class="btn btn-primary w-100">
-                Hover me
-              </button>
-              <small class="text-muted d-block mt-2">Built-in button transitions</small>
-            </div>
-            <div class="col-md-4">
-              <a href="#" class="d-block p-3 text-primary text-decoration-none">
-                Link hover effect
-              </a>
-              <small class="text-muted">Built-in link transitions</small>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-body">
-                  Hover for shadow
-                </div>
-              </div>
-              <small class="text-muted d-block mt-2">Card with hover effect</small>
-            </div>
+          <div class="col-md-6">
+            <h3>Use Padding (<code>.p-*</code>)</h3>
+            <p>For spacing <strong>inside</strong> a component:</p>
+            <ul class="text-muted">
+              <li>Content breathing room inside a box</li>
+              <li>Card bodies and containers</li>
+              <li>Page/section containers</li>
+            </ul>
           </div>
         </div>
-
       </section>
 
     </div>

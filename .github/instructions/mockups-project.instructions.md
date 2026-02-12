@@ -10,7 +10,7 @@ applyTo: '**'
 - Never modify files inside `/docs/` and most work will happen in `/src/`.
 - Do not add code examples.
 - Maintain a navigation of `/design_system/` and `/design_mockups/` and `/methodology/` in `src/index.html` with appropriate nesting everytime pages are added, removed, or renamed.
-- HTML page files (not components) are documental and don't need extra styling to be engaging. Focus on clean, semantic markup and basic Bootstrap styling. Do not apply heading classes (e.g., `h1`, `h2`).
+- HTML page files (not components) are documental and don't need extra styling to be engaging. Focus on clean, semantic markup and basic Bootstrap styling. Do not apply heading classes (e.g., `h1`, `h2`). Do not apply mb-* classes on <p> tags.
 - Always use the highest dimension variables possible (BS classes and custom components). Avoid creating new ones unless necessary. Avoid using utilities when there are appropriate classes. Avoid inline styles. Use a <style></style> tag on `src/design_mockups/` pages or when a page specific style is needed for demonstration purposes.
 - Ask for clarifications if any instruction is unclear, conflicting, or appears to be a bad idea.
 - This is a self-documented design system website that uses it's own design system. Keep in mind `src/methodology` when writing content. 
