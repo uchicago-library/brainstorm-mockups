@@ -271,9 +271,17 @@
 </header>
 
 
+<style>
+  .color-swatch {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+  }
+</style>
+
 <!-- Breadcrumbs -->
 <nav aria-label="breadcrumb" class="container-md pt-2">
-  <ol class="breadcrumb mb-0" style="font-size: 0.75rem;">
+  <ol class="breadcrumb mb-0 small">
     <li class="breadcrumb-item"><a href="/brainstorm-mockups/" class="text-muted text-decoration-none">Home</a></li>
     <li class="breadcrumb-item"><a href="/brainstorm-mockups/design_system/" class="text-muted text-decoration-none">Demos</a></li>
     <li class="breadcrumb-item active text-muted" aria-current="page">Design Tokens</li>
@@ -298,6 +306,45 @@
       <!-- Colors -->
       <section>
         <h2 class="mb-4">Colors</h2>
+        
+        <div class="mb-4">
+          <h3>Semantic Colors</h3>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <span class="color-swatch d-inline-block rounded bg-primary"></span>
+              <strong>Primary</strong> → <code>$ucl-maroon</code>
+            </li>
+            <li class="mb-2">
+              <span class="color-swatch d-inline-block rounded bg-secondary"></span>
+              <strong>Secondary</strong> → <code>$ucl-greystone-dark</code>
+            </li>
+            <li class="mb-2">
+              <span class="color-swatch d-inline-block rounded bg-success"></span>
+              <strong>Success</strong> → <code>$ucl-ivy</code>
+            </li>
+            <li class="mb-2">
+              <span class="color-swatch d-inline-block rounded bg-info"></span>
+              <strong>Info</strong> → <code>$ucl-lake</code>
+            </li>
+            <li class="mb-2">
+              <span class="color-swatch d-inline-block rounded bg-warning"></span>
+              <strong>Warning</strong> → <code>$ucl-goldenrod</code>
+            </li>
+            <li class="mb-2">
+              <span class="color-swatch d-inline-block rounded bg-danger"></span>
+              <strong>Danger</strong> → Bootstrap default
+            </li>
+            <li class="mb-2">
+              <span class="color-swatch d-inline-block rounded border bg-light"></span>
+              <strong>Light</strong> → <code>$ucl-greystone-light</code>
+            </li>
+            <li class="mb-2">
+              <span class="color-swatch d-inline-block rounded bg-dark"></span>
+              <strong>Dark</strong> → Black
+            </li>
+          </ul>
+        </div>
+        
         <p class="mb-4">View the complete <a href="/brainstorm-mockups/design_system/design-tokens-colors/">color palette and semantic colors</a> for the design system.</p>
       </section>
 
@@ -309,48 +356,45 @@
 
         <p class="mb-4">Bootstrap's spacing scale (based on 0.25rem base unit):</p>
 
-        <div class="table-responsive mb-4">
-          <table class="table table-sm">
-            <thead>
-              <tr>
-                <th>Token</th>
-                <th>Value</th>
-                <th>Example</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>0</code></td>
-                <td>0</td>
-                <td><div class="bg-light p-1" style="width: 0;"></div></td>
-              </tr>
-              <tr>
-                <td><code>1</code></td>
-                <td>0.25rem (4px)</td>
-                <td><div class="bg-light" style="width: 4px; height: 20px;"></div></td>
-              </tr>
-              <tr>
-                <td><code>2</code></td>
-                <td>0.5rem (8px)</td>
-                <td><div class="bg-light" style="width: 8px; height: 20px;"></div></td>
-              </tr>
-              <tr>
-                <td><code>3</code></td>
-                <td>1rem (16px)</td>
-                <td><div class="bg-light" style="width: 16px; height: 20px;"></div></td>
-              </tr>
-              <tr>
-                <td><code>4</code></td>
-                <td>1.5rem (24px)</td>
-                <td><div class="bg-light" style="width: 24px; height: 20px;"></div></td>
-              </tr>
-              <tr>
-                <td><code>5</code></td>
-                <td>3rem (48px)</td>
-                <td><div class="bg-light" style="width: 48px; height: 20px;"></div></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="mb-4">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <code>.p-0</code>
+              <div class="bg-light mt-2">
+                <div class="bg-info-subtle p-0">Content</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <code>.p-1</code>
+              <div class="bg-light mt-2">
+                <div class="bg-info-subtle p-1">Content</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <code>.p-2</code>
+              <div class="bg-light mt-2">
+                <div class="bg-info-subtle p-2">Content</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <code>.p-3</code>
+              <div class="bg-light mt-2">
+                <div class="bg-info-subtle p-3">Content</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <code>.p-4</code>
+              <div class="bg-light mt-2">
+                <div class="bg-info-subtle p-4">Content</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <code>.p-5</code>
+              <div class="bg-light mt-2">
+                <div class="bg-info-subtle p-5">Content</div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <p class="text-muted small">Use <code>.m-</code>, <code>.p-</code>, <code>.ms-</code>, <code>.ps-</code>, etc. utility classes for margins and padding.</p>
@@ -366,23 +410,23 @@
           <h3>Border Radius</h3>
           <div class="row g-3 mb-4">
             <div class="col-md-3">
-              <div class="p-3 bg-light" style="border-radius: 0.25rem;">
-                <code>0.25rem</code>
+              <div class="p-3 bg-light rounded-1">
+                <code>.rounded-1</code>
               </div>
             </div>
             <div class="col-md-3">
-              <div class="p-3 bg-light" style="border-radius: 0.375rem;">
-                <code>0.375rem</code> (default)
+              <div class="p-3 bg-light rounded-2">
+                <code>.rounded-2</code> (default)
               </div>
             </div>
             <div class="col-md-3">
-              <div class="p-3 bg-light" style="border-radius: 0.5rem;">
-                <code>0.5rem</code>
+              <div class="p-3 bg-light rounded-3">
+                <code>.rounded-3</code>
               </div>
             </div>
             <div class="col-md-3">
-              <div class="p-3 bg-light" style="border-radius: 50%;">
-                <code>50%</code> (circle)
+              <div class="p-3 bg-light rounded-circle">
+                <code>.rounded-circle</code>
               </div>
             </div>
           </div>
@@ -391,19 +435,14 @@
         <div class="mb-4">
           <h3>Border Styles</h3>
           <div class="row g-3">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="p-3 border border-1">
-                Solid border (1px)
+                <code>.border .border-1</code>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="p-3 border border-2">
-                Solid border (2px)
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="p-3" style="border: 1px dashed #800000;">
-                Dashed border
+                <code>.border .border-2</code>
               </div>
             </div>
           </div>
@@ -418,18 +457,18 @@
 
         <div class="row g-3">
           <div class="col-md-4">
-            <div class="p-4" style="box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);">
-              <small>Small Shadow</small>
+            <div class="p-4 shadow-sm">
+              <code>.shadow-sm</code>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="p-4" style="box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);">
-              <small>Medium Shadow</small>
+            <div class="p-4 shadow">
+              <code>.shadow</code>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="p-4" style="box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);">
-              <small>Large Shadow</small>
+            <div class="p-4 shadow-lg">
+              <code>.shadow-lg</code>
             </div>
           </div>
         </div>
@@ -458,22 +497,24 @@
           <h3>Interactive Examples</h3>
           <div class="row g-3">
             <div class="col-md-4">
-              <button class="btn btn-primary w-100" style="transition: all 0.3s ease;">
+              <button class="btn btn-primary w-100">
                 Hover me
               </button>
-              <small class="text-muted d-block mt-2">Button: 0.3s ease</small>
+              <small class="text-muted d-block mt-2">Built-in button transitions</small>
             </div>
             <div class="col-md-4">
-              <a href="#" class="d-block p-3 text-primary" style="transition: color 0.3s ease;">
+              <a href="#" class="d-block p-3 text-primary text-decoration-none">
                 Link hover effect
               </a>
-              <small class="text-muted">Link: 0.3s ease on color</small>
+              <small class="text-muted">Built-in link transitions</small>
             </div>
             <div class="col-md-4">
-              <div class="p-3 bg-light rounded" style="transition: box-shadow 0.3s ease; cursor: pointer;" onmouseover="this.style.boxShadow='0 0.5rem 1rem rgba(0, 0, 0, 0.15)'" onmouseout="this.style.boxShadow='none'">
-                Box shadow on hover
+              <div class="card">
+                <div class="card-body">
+                  Hover for shadow
+                </div>
               </div>
-              <small class="text-muted d-block mt-2">Shadow: 0.3s ease</small>
+              <small class="text-muted d-block mt-2">Card with hover effect</small>
             </div>
           </div>
         </div>
