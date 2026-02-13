@@ -406,60 +406,37 @@
         <hr class="my-5">
       </section>
 
-      <!-- Borders, Corners & Elevation Section -->
+      <!-- Boxed content -->
       <section>
-        <h2>Borders, Corners & Elevation</h2>
+        <h2>Boxed content</h2>
         
-        <p>Use borders and shadows to establish visual hierarchy and component boundaries:</p>
+        <p>Use borders, backgrounds, and shadows to establish visual hierarchy and component boundaries:</p>
         <ul class="mb-4">
-          <li><code>.border</code> – Subtle separation between sections or to define component edges</li>
-          <li><code>.rounded-2</code> – Default corner rounding for most components (cards, buttons, inputs)</li>
-          <li><code>.shadow-sm</code> – Subtle elevation for interactive elements on hover</li>
-          <li><code>.shadow</code> – Standard elevation for cards and raised components</li>
-          <li><code>.shadow-lg</code> – Strong elevation for modals, dropdowns, and floating elements</li>
+          <li><code>.border</code> – Use borders to define component boundaries in UI-driven layouts (cards, forms, sidebars). Content-focused pages rely on whitespace and typography instead.</li>
+          <li><code>.rounded-2</code> – Apply to interactive containers (clickable cards, buttons) and floating elements (modals, dropdowns) for a modern, approachable feel.</li>
+          <li><code>.rounded-pill</code> – Use for prominent call-to-action elements that need maximum visual emphasis.</li>
+          <li><code>.shadow</code> – Apply to floating elements (modals, dropdowns) or interactive cards on hover to establish elevation hierarchy.</li>
         </ul>
 
-        <h3 class="mt-5 mb-3">Border & Corner Utilities</h3>
+        <h3 class="mt-5 mb-3">Utilities</h3>
 
         <div class="row g-3 mb-4">
-          <div class="col-md-3">
-            <div class="p-3 bg-light border rounded-1">
-              <code>.rounded-1</code>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="p-3 bg-light border rounded-2">
-              <code>.rounded-2</code>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="p-3 bg-light border rounded-3">
-              <code>.rounded-3</code>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="p-3 bg-light border rounded-circle">
-              <code>.rounded-circle</code>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="mt-5 mb-3">Shadow Utilities</h3>
-
-        <div class="row g-3">
           <div class="col-md-4">
-            <div class="p-4 shadow-sm">
-              <code>.shadow-sm</code>
+            <div class="p-3 bg-light">
+              <code>.bg-light</code>
+              Static secondary content
             </div>
           </div>
           <div class="col-md-4">
-            <div class="p-4 shadow">
-              <code>.shadow</code>
+            <div class="p-3 border rounded-2 shadow">
+              <code>.border.rounded-2.shadow</code>
+              Interactive floating content
             </div>
           </div>
           <div class="col-md-4">
-            <div class="p-4 shadow-lg">
-              <code>.shadow-lg</code>
+            <div class="px-4 py-3 bg-primary text-white fw-bold rounded-5">
+              <code>.bg-primary.text-white.fw-bold.rounded-5</code>
+              Call to action content
             </div>
           </div>
         </div>
