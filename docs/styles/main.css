@@ -12099,6 +12099,9 @@ header[role=banner] {
   margin-bottom: 1rem;
 }
 
+.accordion .accordion-button {
+  font-weight: var(--bs-font-weight-bold);
+}
 .accordion h1, .accordion .h1,
 .accordion h2,
 .accordion .h2,
