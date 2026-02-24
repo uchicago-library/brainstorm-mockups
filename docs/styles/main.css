@@ -4491,7 +4491,7 @@ textarea.form-control-lg {
   --bs-accordion-btn-padding-x: 1.25rem;
   --bs-accordion-btn-padding-y: 1rem;
   --bs-accordion-btn-color: #404040;
-  --bs-accordion-btn-bg: #D9D9D9;
+  --bs-accordion-btn-bg: #ffffff;
   --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23404040' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
   --bs-accordion-btn-icon-width: 1.25rem;
   --bs-accordion-btn-icon-transform: rotate(-180deg);
@@ -4501,7 +4501,7 @@ textarea.form-control-lg {
   --bs-accordion-body-padding-x: 1.25rem;
   --bs-accordion-body-padding-y: 1rem;
   --bs-accordion-active-color: #404040;
-  --bs-accordion-active-bg: #A6A6A6;
+  --bs-accordion-active-bg: var(--bs-info-bg-subtle);
 }
 
 .accordion-button {
@@ -12097,6 +12097,20 @@ header[role=banner] {
 }
 .footer .centerdiv p {
   margin-bottom: 1rem;
+}
+
+.accordion h1, .accordion .h1,
+.accordion h2,
+.accordion .h2,
+.accordion h3,
+.accordion .h3,
+.accordion h4,
+.accordion .h4,
+.accordion h5,
+.accordion .h5,
+.accordion h6,
+.accordion .h6 {
+  margin: 0;
 }
 
 /*# sourceMappingURL=main.css.map */
