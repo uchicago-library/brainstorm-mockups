@@ -24,50 +24,97 @@ title: "Guides in Photos"
 </div>
 
 <style>
-  .meta-page-nav {
-    border: 2px dashed var(--bs-border-color);
-    background-color: var(--bs-tertiary-bg);
+  .photo-accordion {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
   }
 
-  .guide-card {
+  .photo-accordion-col {
+    break-inside: avoid;
+  }
+
+  .photo-accordion .accordion-item > .accordion-header .accordion-button {
     position: relative;
     overflow: hidden;
     border-radius: 0.375rem;
     height: 180px;
     background-size: cover;
     background-position: center;
-    transition: transform 0.3s ease;
-    text-decoration: none;
-    display: block;
+    padding: 0;
+    border: none;
+    background-color: transparent;
   }
 
-  .guide-card:hover {
-    transform: scale(1.05);
+  .photo-accordion .accordion-item > .accordion-header .accordion-button::after {
+    display: none;
   }
 
-  .guide-card::before {
+  .photo-accordion .accordion-item > .accordion-header .accordion-button:not(.collapsed) {
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0.375rem 0.375rem 0 0;
+  }
+
+  .photo-accordion .accordion-item > .accordion-header .accordion-button::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
+    background: rgba(0,0,0,0.3);
+    transition: background 0.3s ease;
   }
 
-  .guide-card-content {
+  .photo-accordion .accordion-item > .accordion-header .accordion-button:hover::before {
+    background: rgba(0,0,0,0.5);
+  }
+
+  .photo-accordion .accordion-item > .accordion-header .accordion-button:focus {
+    box-shadow: none;
+    border: none;
+  }
+
+  .photo-accordion .accordion-item > .accordion-header .accordion-button.collapsed {
+    border-radius: 0.375rem;
+  }
+
+  .photo-card-content {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     padding: 1rem;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.5) 73%, transparent);
     z-index: 1;
   }
 
-  .guide-card-content h3 {
+  .photo-card-content h3 {
     color: white;
     margin-bottom: 0;
+    margin-top: 0;
+    line-height: 1.1;
+    font-size: 1.25rem;
+  }
+
+  .photo-accordion .accordion-item {
+    border: none;
+    border-radius: 0.375rem;
+    overflow: hidden;
+  }
+
+  .photo-accordion .accordion-item > .accordion-collapse {
+    border-radius: 0 0 0.375rem 0.375rem;
+    overflow: hidden;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    top: 100%;
+    left: 0;
+  }
+
+  .photo-accordion .accordion-body {
+    padding: 0;
   }
 </style>
 
@@ -88,118 +135,357 @@ title: "Guides in Photos"
         </div>
       </div>
 
-      <!-- Category Cards Grid -->
-      <div class="row g-4">
-
-        <!-- Business, Economics, and Management -->
-        <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop');">
-            <div class="guide-card-content">
-              <h3>Business, Economics & Management</h3>
+      <!-- Photo Accordion -->
+      <div id="photoGuidesAccordion" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 photo-accordion">
+          <!-- Business, Economics, and Management -->
+          <div class="col photo-accordion-col">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-business" aria-expanded="false" aria-controls="collapse-business" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop');">
+                <div class="photo-card-content">
+                  <h3>Business, Economics, and Management</h3>
+                </div>
+              </button>
+            </h2>
+            <div id="collapse-business" class="accordion-collapse collapse" data-bs-parent="#photoGuidesAccordion">
+              <div class="accordion-body">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action">Introduction to Business Research</a>
+                  <a href="#" class="list-group-item list-group-item-action">Financial Databases and Resources</a>
+                  <a href="#" class="list-group-item list-group-item-action">Marketing Analytics Tools</a>
+                  <a href="#" class="list-group-item list-group-item-action">Entrepreneurship Resources</a>
+                  <a href="#" class="list-group-item list-group-item-action">International Business Data Sources</a>
+                  <a href="#" class="list-group-item list-group-item-action">Corporate Strategy and Management</a>
+                  <a href="#" class="list-group-item list-group-item-action">Economics Data and Statistics</a>
+                  <a href="#" class="list-group-item list-group-item-action">Supply Chain Management</a>
+                  <a href="#" class="list-group-item list-group-item-action">Business Ethics and Sustainability</a>
+                  <a href="#" class="list-group-item list-group-item-action">Investment and Portfolio Management</a>
+                </div>
+              </div>
             </div>
-          </a>
-        </div>
+          </div>
+          </div>
 
-        <!-- Education -->
-        <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&h=300&fit=crop');">
-            <div class="guide-card-content">
-              <h3>Education</h3>
+          <!-- Education -->
+          <div class="col photo-accordion-col">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-education" aria-expanded="false" aria-controls="collapse-education" style="background-image: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&h=300&fit=crop');">
+                <div class="photo-card-content">
+                  <h3>Education</h3>
+                </div>
+              </button>
+            </h2>
+            <div id="collapse-education" class="accordion-collapse collapse" data-bs-parent="#photoGuidesAccordion">
+              <div class="accordion-body">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action">Educational Psychology Resources</a>
+                  <a href="#" class="list-group-item list-group-item-action">Curriculum Design and Development</a>
+                  <a href="#" class="list-group-item list-group-item-action">Assessment and Evaluation Methods</a>
+                  <a href="#" class="list-group-item list-group-item-action">History of Education</a>
+                  <a href="#" class="list-group-item list-group-item-action">Special Education Resources</a>
+                  <a href="#" class="list-group-item list-group-item-action">Educational Technology and Innovation</a>
+                  <a href="#" class="list-group-item list-group-item-action">Higher Education Administration</a>
+                  <a href="#" class="list-group-item list-group-item-action">Early Childhood Education</a>
+                  <a href="#" class="list-group-item list-group-item-action">Education Policy and Reform</a>
+                  <a href="#" class="list-group-item list-group-item-action">Teacher Professional Development</a>
+                </div>
+              </div>
             </div>
-          </a>
-        </div>
+          </div>
+          </div>
 
-        <!-- Engineering and Computing -->
-        <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400&h=300&fit=crop');">
-            <div class="guide-card-content">
-              <h3>Engineering & Computing</h3>
+          <!-- Engineering and Computing -->
+          <div class="col photo-accordion-col">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-engineering" aria-expanded="false" aria-controls="collapse-engineering" style="background-image: url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400&h=300&fit=crop');">
+                <div class="photo-card-content">
+                  <h3>Engineering and Computing</h3>
+                </div>
+              </button>
+            </h2>
+            <div id="collapse-engineering" class="accordion-collapse collapse" data-bs-parent="#photoGuidesAccordion">
+              <div class="accordion-body">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action">Computer Science Fundamentals</a>
+                  <a href="#" class="list-group-item list-group-item-action">Software Engineering Best Practices</a>
+                  <a href="#" class="list-group-item list-group-item-action">Artificial Intelligence and Machine Learning</a>
+                  <a href="#" class="list-group-item list-group-item-action">Data Structures and Algorithms</a>
+                  <a href="#" class="list-group-item list-group-item-action">Cybersecurity and Information Assurance</a>
+                  <a href="#" class="list-group-item list-group-item-action">Electrical Engineering Resources</a>
+                  <a href="#" class="list-group-item list-group-item-action">Mechanical Engineering Design</a>
+                  <a href="#" class="list-group-item list-group-item-action">Civil and Environmental Engineering</a>
+                  <a href="#" class="list-group-item list-group-item-action">Biomedical Engineering</a>
+                  <a href="#" class="list-group-item list-group-item-action">Quantum Computing</a>
+                </div>
+              </div>
             </div>
-          </a>
-        </div>
+          </div>
+          </div>
 
-        <!-- Health Sciences -->
-        <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop');">
-            <div class="guide-card-content">
-              <h3>Health Sciences</h3>
+          <!-- Health Sciences -->
+          <div class="col photo-accordion-col">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-health" aria-expanded="false" aria-controls="collapse-health" style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop');">
+                <div class="photo-card-content">
+                  <h3>Health Sciences</h3>
+                </div>
+              </button>
+            </h2>
+            <div id="collapse-health" class="accordion-collapse collapse" data-bs-parent="#photoGuidesAccordion">
+              <div class="accordion-body">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action">Public Health Research Methods</a>
+                  <a href="#" class="list-group-item list-group-item-action">Clinical Medicine Resources</a>
+                  <a href="#" class="list-group-item list-group-item-action">Epidemiology and Biostatistics</a>
+                  <a href="#" class="list-group-item list-group-item-action">Health Policy and Administration</a>
+                  <a href="#" class="list-group-item list-group-item-action">Global Health Issues</a>
+                  <a href="#" class="list-group-item list-group-item-action">Nursing Research and Practice</a>
+                  <a href="#" class="list-group-item list-group-item-action">Mental Health and Psychology</a>
+                  <a href="#" class="list-group-item list-group-item-action">Nutrition and Dietetics</a>
+                  <a href="#" class="list-group-item list-group-item-action">Environmental and Occupational Health</a>
+                  <a href="#" class="list-group-item list-group-item-action">Health Informatics</a>
+                </div>
+              </div>
             </div>
-          </a>
-        </div>
+          </div>
+          </div>
 
-        <!-- Languages, Culture, and Society -->
-        <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=300&fit=crop');">
-            <div class="guide-card-content">
-              <h3>Languages, Culture & Society</h3>
+          <!-- Languages, Culture, and Society -->
+          <div class="col photo-accordion-col">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-languages" aria-expanded="false" aria-controls="collapse-languages" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=300&fit=crop');">
+                <div class="photo-card-content">
+                  <h3>Languages, Culture, and Society</h3>
+                </div>
+              </button>
+            </h2>
+            <div id="collapse-languages" class="accordion-collapse collapse" data-bs-parent="#photoGuidesAccordion">
+              <div class="accordion-body">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action">Linguistics and Language Development</a>
+                  <a href="#" class="list-group-item list-group-item-action">Cultural Anthropology</a>
+                  <a href="#" class="list-group-item list-group-item-action">World Languages and Literature</a>
+                  <a href="#" class="list-group-item list-group-item-action">Translation and Interpretation Studies</a>
+                  <a href="#" class="list-group-item list-group-item-action">Comparative Literature</a>
+                  <a href="#" class="list-group-item list-group-item-action">Folklore and Mythology</a>
+                  <a href="#" class="list-group-item list-group-item-action">Area Studies Resources</a>
+                  <a href="#" class="list-group-item list-group-item-action">Cultural Studies and Theory</a>
+                  <a href="#" class="list-group-item list-group-item-action">Digital Humanities</a>
+                  <a href="#" class="list-group-item list-group-item-action">Language Learning Resources</a>
+                </div>
+              </div>
             </div>
-          </a>
-        </div>
+          </div>
+          </div>
 
-        <!-- Life and Natural Sciences -->
-        <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=400&h=300&fit=crop');">
-            <div class="guide-card-content">
-              <h3>Life & Natural Sciences</h3>
+          <!-- Life and Natural Sciences -->
+          <div class="col photo-accordion-col">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-sciences" aria-expanded="false" aria-controls="collapse-sciences" style="background-image: url('https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=400&h=300&fit=crop');">
+                <div class="photo-card-content">
+                  <h3>Life and Natural Sciences</h3>
+                </div>
+              </button>
+            </h2>
+            <div id="collapse-sciences" class="accordion-collapse collapse" data-bs-parent="#photoGuidesAccordion">
+              <div class="accordion-body">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action">Biology Research Resources</a>
+                  <a href="#" class="list-group-item list-group-item-action">Chemistry Databases and Journals</a>
+                  <a href="#" class="list-group-item list-group-item-action">Physics and Astronomy</a>
+                  <a href="#" class="list-group-item list-group-item-action">Genetics and Genomics</a>
+                  <a href="#" class="list-group-item list-group-item-action">Ecology and Environmental Science</a>
+                  <a href="#" class="list-group-item list-group-item-action">Neuroscience</a>
+                  <a href="#" class="list-group-item list-group-item-action">Molecular and Cellular Biology</a>
+                  <a href="#" class="list-group-item list-group-item-action">Earth and Planetary Sciences</a>
+                  <a href="#" class="list-group-item list-group-item-action">Microbiology and Immunology</a>
+                  <a href="#" class="list-group-item list-group-item-action">Biochemistry</a>
+                </div>
+              </div>
             </div>
-          </a>
-        </div>
+          </div>
+          </div>
 
-        <!-- Math and Quantitative Sciences -->
-        <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://plus.unsplash.com/premium_photo-1753380849525-d8c1f406fa4e?w=400&h=300&fit=crop');">
-            <div class="guide-card-content">
-              <h3>Math & Quantitative Sciences</h3>
+          <!-- Math and Quantitative Sciences -->
+          <div class="col photo-accordion-col">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-math" aria-expanded="false" aria-controls="collapse-math" style="background-image: url('https://plus.unsplash.com/premium_photo-1753380849525-d8c1f406fa4e?w=400&h=300&fit=crop');">
+                <div class="photo-card-content">
+                  <h3>Math and Quantitative Sciences</h3>
+                </div>
+              </button>
+            </h2>
+            <div id="collapse-math" class="accordion-collapse collapse" data-bs-parent="#photoGuidesAccordion">
+              <div class="accordion-body">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action">Pure Mathematics Resources</a>
+                  <a href="#" class="list-group-item list-group-item-action">Applied Mathematics</a>
+                  <a href="#" class="list-group-item list-group-item-action">Statistics and Data Analysis</a>
+                  <a href="#" class="list-group-item list-group-item-action">Computational Mathematics</a>
+                  <a href="#" class="list-group-item list-group-item-action">Operations Research</a>
+                  <a href="#" class="list-group-item list-group-item-action">Mathematical Modeling</a>
+                  <a href="#" class="list-group-item list-group-item-action">Probability Theory</a>
+                  <a href="#" class="list-group-item list-group-item-action">Numerical Analysis</a>
+                  <a href="#" class="list-group-item list-group-item-action">Mathematical Physics</a>
+                  <a href="#" class="list-group-item list-group-item-action">Financial Mathematics</a>
+                </div>
+              </div>
             </div>
-          </a>
-        </div>
+          </div>
+          </div>
 
-        <!-- Social Sciences and Policy -->
-        <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1760892165556-a109903281c6?w=400&h=300&fit=crop');">
-            <div class="guide-card-content">
-              <h3>Social Sciences & Policy</h3>
+          <!-- Social Sciences and Policy -->
+          <div class="col photo-accordion-col">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-social" aria-expanded="false" aria-controls="collapse-social" style="background-image: url('https://images.unsplash.com/photo-1760892165556-a109903281c6?w=400&h=300&fit=crop');">
+                <div class="photo-card-content">
+                  <h3>Social Sciences and Policy</h3>
+                </div>
+              </button>
+            </h2>
+            <div id="collapse-social" class="accordion-collapse collapse" data-bs-parent="#photoGuidesAccordion">
+              <div class="accordion-body">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action">Political Science Research</a>
+                  <a href="#" class="list-group-item list-group-item-action">Sociology and Social Work</a>
+                  <a href="#" class="list-group-item list-group-item-action">Public Policy Analysis</a>
+                  <a href="#" class="list-group-item list-group-item-action">International Relations</a>
+                  <a href="#" class="list-group-item list-group-item-action">Urban Studies and Planning</a>
+                  <a href="#" class="list-group-item list-group-item-action">Criminal Justice and Criminology</a>
+                  <a href="#" class="list-group-item list-group-item-action">Human Geography</a>
+                  <a href="#" class="list-group-item list-group-item-action">Law and Legal Studies</a>
+                  <a href="#" class="list-group-item list-group-item-action">Demographics and Population Studies</a>
+                  <a href="#" class="list-group-item list-group-item-action">Social Development and Inequality</a>
+                </div>
+              </div>
             </div>
-          </a>
-        </div>
+          </div>
+          </div>
 
-        <!-- Visual and Performing Arts -->
-        <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop');">
-            <div class="guide-card-content">
-              <h3>Visual & Performing Arts</h3>
+          <!-- Visual and Performing Arts -->
+          <div class="col photo-accordion-col">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-arts" aria-expanded="false" aria-controls="collapse-arts" style="background-image: url('https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop');">
+                <div class="photo-card-content">
+                  <h3>Visual and Performing Arts</h3>
+                </div>
+              </button>
+            </h2>
+            <div id="collapse-arts" class="accordion-collapse collapse" data-bs-parent="#photoGuidesAccordion">
+              <div class="accordion-body">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action">Art History and Criticism</a>
+                  <a href="#" class="list-group-item list-group-item-action">Music Theory and History</a>
+                  <a href="#" class="list-group-item list-group-item-action">Theater and Drama</a>
+                  <a href="#" class="list-group-item list-group-item-action">Film and Cinema Studies</a>
+                  <a href="#" class="list-group-item list-group-item-action">Photography and Digital Arts</a>
+                  <a href="#" class="list-group-item list-group-item-action">Architecture and Design</a>
+                  <a href="#" class="list-group-item list-group-item-action">Dance and Movement</a>
+                  <a href="#" class="list-group-item list-group-item-action">Contemporary Art Practices</a>
+                  <a href="#" class="list-group-item list-group-item-action">Museum Studies</a>
+                  <a href="#" class="list-group-item list-group-item-action">Art Conservation</a>
+                </div>
+              </div>
             </div>
-          </a>
-        </div>
+          </div>
+          </div>
 
-        <!-- Writing, Communication, Literature, and Media -->
-        <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop');">
-            <div class="guide-card-content">
-              <h3>Writing & Media</h3>
+          <!-- Writing, Communication, Literature, and Media -->
+          <div class="col photo-accordion-col">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-writing" aria-expanded="false" aria-controls="collapse-writing" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop');">
+                <div class="photo-card-content">
+                  <h3>Writing, Communication, Literature, and Media</h3>
+                </div>
+              </button>
+            </h2>
+            <div id="collapse-writing" class="accordion-collapse collapse" data-bs-parent="#photoGuidesAccordion">
+              <div class="accordion-body">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action">Academic Writing and Research</a>
+                  <a href="#" class="list-group-item list-group-item-action">Creative Writing Resources</a>
+                  <a href="#" class="list-group-item list-group-item-action">Journalism and News Media</a>
+                  <a href="#" class="list-group-item list-group-item-action">English Literature</a>
+                  <a href="#" class="list-group-item list-group-item-action">Rhetoric and Composition</a>
+                  <a href="#" class="list-group-item list-group-item-action">Mass Communication</a>
+                  <a href="#" class="list-group-item list-group-item-action">Digital Media and Publishing</a>
+                  <a href="#" class="list-group-item list-group-item-action">Literary Theory and Criticism</a>
+                  <a href="#" class="list-group-item list-group-item-action">Technical Writing</a>
+                  <a href="#" class="list-group-item list-group-item-action">Publishing and Book History</a>
+                </div>
+              </div>
             </div>
-          </a>
-        </div>
+          </div>
+          </div>
 
-        <!-- @ the Libraries -->
-        <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://www.lib.uchicago.edu/media/images/1stfloorrr.width-800.jpg');">
-            <div class="guide-card-content">
-              <h3>@ the Libraries</h3>
+          <!-- @ the Libraries -->
+          <div class="col photo-accordion-col">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-libraries" aria-expanded="false" aria-controls="collapse-libraries" style="background-image: url('https://www.lib.uchicago.edu/media/images/1stfloorrr.width-800.jpg');">
+                <div class="photo-card-content">
+                  <h3>@ the Libraries</h3>
+                </div>
+              </button>
+            </h2>
+            <div id="collapse-libraries" class="accordion-collapse collapse" data-bs-parent="#photoGuidesAccordion">
+              <div class="accordion-body">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action">Using the Library Catalog</a>
+                  <a href="#" class="list-group-item list-group-item-action">Study Spaces and Reservations</a>
+                  <a href="#" class="list-group-item list-group-item-action">Library Technology and Equipment</a>
+                  <a href="#" class="list-group-item list-group-item-action">Special Collections Access</a>
+                  <a href="#" class="list-group-item list-group-item-action">Interlibrary Loan Services</a>
+                  <a href="#" class="list-group-item list-group-item-action">Digital Scholarship Services</a>
+                  <a href="#" class="list-group-item list-group-item-action">Library Workshops and Events</a>
+                  <a href="#" class="list-group-item list-group-item-action">Research Support Services</a>
+                  <a href="#" class="list-group-item list-group-item-action">Copyright and Fair Use</a>
+                  <a href="#" class="list-group-item list-group-item-action">Archive Research Methods</a>
+                </div>
+              </div>
             </div>
-          </a>
-        </div>
+          </div>
+          </div>
 
-        <!-- How-to Guides -->
-        <div class="col-sm-6 col-lg-4">
-          <a href="#" class="guide-card text-decoration-none" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop');">
-            <div class="guide-card-content">
-              <h3>How-to Guides</h3>
+          <!-- How-to Guides -->
+          <div class="col photo-accordion-col">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-howto" aria-expanded="false" aria-controls="collapse-howto" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop');">
+                <div class="photo-card-content">
+                  <h3>How-to Guides</h3>
+                </div>
+              </button>
+            </h2>
+            <div id="collapse-howto" class="accordion-collapse collapse" data-bs-parent="#photoGuidesAccordion">
+              <div class="accordion-body">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action">How to Search Databases Effectively</a>
+                  <a href="#" class="list-group-item list-group-item-action">How to Cite Sources (APA, MLA, Chicago)</a>
+                  <a href="#" class="list-group-item list-group-item-action">How to Evaluate Information Sources</a>
+                  <a href="#" class="list-group-item list-group-item-action">How to Use Citation Management Tools</a>
+                  <a href="#" class="list-group-item list-group-item-action">How to Access Full-Text Articles</a>
+                  <a href="#" class="list-group-item list-group-item-action">How to Conduct a Literature Review</a>
+                  <a href="#" class="list-group-item list-group-item-action">How to Request Materials</a>
+                  <a href="#" class="list-group-item list-group-item-action">How to Find Primary Sources</a>
+                  <a href="#" class="list-group-item list-group-item-action">How to Navigate Open Access Resources</a>
+                  <a href="#" class="list-group-item list-group-item-action">How to Get Research Help</a>
+                </div>
+              </div>
             </div>
-          </a>
-        </div>
+          </div>
+          </div>
 
-      </div><!-- End Category Cards Grid -->
+      </div><!-- End Photo Accordion -->
 
       <section class="meta-page-nav rounded-3 p-3 mt-5" aria-label="Guides mockup page navigation">
         <h2 class="fs-6 mb-0">Mockup Page Navigation</h2>
@@ -215,5 +501,35 @@ title: "Guides in Photos"
     </div>
   </div>
 </main>
+
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const accordionGrid = document.getElementById('photoGuidesAccordion');
+
+    if (!accordionGrid || typeof Masonry === 'undefined') {
+      return;
+    }
+
+    const masonry = new Masonry(accordionGrid, {
+      itemSelector: '.photo-accordion-col',
+      columnWidth: '.photo-accordion-col',
+      percentPosition: true,
+      horizontalOrder: true,
+      transitionDuration: 0
+    });
+
+    const relayout = function () {
+      masonry.layout();
+    };
+
+    accordionGrid.querySelectorAll('.accordion-collapse').forEach(function (collapseElement) {
+      collapseElement.addEventListener('shown.bs.collapse', relayout);
+      collapseElement.addEventListener('hidden.bs.collapse', relayout);
+    });
+
+    window.addEventListener('resize', relayout);
+  });
+</script>
 
 {% include "footer.html" %}
