@@ -1,3 +1,28 @@
+// ============================================================================
+// Variables Reference
+// This file defines design-token values and Bootstrap variable overrides that
+// are consumed before Bootstrap is imported in src/styles/main.scss.
+// Import order matters:
+// - src/styles/main.scss imports this file first.
+// - Then Bootstrap imports its own stack (functions, variables, maps, utilities,
+//   components), where many map-derived CSS custom properties are generated.
+//
+// Table of Contents
+// 1) Primary Brand Colors
+// 2) Secondary Brand Color Families
+// 3) Bootstrap Semantic Color Mapping
+// 4) Typography
+// 5) Body
+// 6) Breadcrumb Overrides
+// 7) Accordion Overrides
+//
+// Availability Rule
+// - this is the first SCSS file imported so names like $info-bg-subtle are not available in this scope.
+// - If a Sass variable is not declared in this file, it is unavailable.
+// - Use the Bootstrap CSS custom property form instead when needed, such as
+//   var(--bs-info-bg-subtle).
+// ============================================================================
+
 // Primary Brand Colors
 $ucl-maroon: #800000;
 $ucl-greystone-lighter: #f7f7f7;
