@@ -18,6 +18,18 @@ title: "Guides in Accordions (Subjects)"
     border: 2px dashed var(--bs-border-color);
     background-color: var(--bs-tertiary-bg);
   }
+
+  @media (min-width: 768px) {
+    .accordion-two-column {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .accordion-two-column .accordion-item {
+      border-top: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+    }
+  }
 </style>
 
 <main class="container-md py-4 mb-5">
@@ -58,7 +70,7 @@ title: "Guides in Accordions (Subjects)"
         <div class="tab-pane fade show active" id="subject-guides" role="tabpanel" aria-labelledby="subject-guides-tab" tabindex="0">
 
           <!-- Accordion -->
-          <div class="accordion" id="guidesAccordion">
+          <div class="accordion accordion-two-column" id="guidesAccordion">
 
         <!-- AREA & CULTURAL STUDIES -->
         <div class="accordion-item">
@@ -70,16 +82,16 @@ title: "Guides in Accordions (Subjects)"
           <div id="collapse-area-cultural" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action">African Studies</a>
-                <a href="#" class="list-group-item list-group-item-action">Chinese Studies</a>
-                <a href="#" class="list-group-item list-group-item-action">Japanese Studies</a>
-                <a href="#" class="list-group-item list-group-item-action">Jewish Studies</a>
-                <a href="#" class="list-group-item list-group-item-action">Korean Studies</a>
-                <a href="#" class="list-group-item list-group-item-action">Latin American Studies</a>
-                <a href="#" class="list-group-item list-group-item-action">Medieval &amp; Byzantine Studies</a>
-                <a href="#" class="list-group-item list-group-item-action">Middle East</a>
-                <a href="#" class="list-group-item list-group-item-action">Slavic / Eastern Europe / Eurasia</a>
-                <a href="#" class="list-group-item list-group-item-action">Southern Asia</a>
+                <a class="list-group-item list-group-item-action">African Studies</a>
+                <a class="list-group-item list-group-item-action">Chinese Studies</a>
+                <a class="list-group-item list-group-item-action">Japanese Studies</a>
+                <a class="list-group-item list-group-item-action">Jewish Studies</a>
+                <a class="list-group-item list-group-item-action">Korean Studies</a>
+                <a class="list-group-item list-group-item-action">Latin American Studies</a>
+                <a class="list-group-item list-group-item-action">Medieval &amp; Byzantine Studies</a>
+                <a class="list-group-item list-group-item-action">Middle East</a>
+                <a class="list-group-item list-group-item-action">Slavic / Eastern Europe / Eurasia</a>
+                <a class="list-group-item list-group-item-action">Southern Asia</a>
               </div>
             </div>
           </div>
@@ -95,9 +107,9 @@ title: "Guides in Accordions (Subjects)"
           <div id="collapse-ai" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action">Generative AI</a>
-                <a href="#" class="list-group-item list-group-item-action">Generative AI in Legal Research, Education, and Practice</a>
-                <a href="#" class="list-group-item list-group-item-action">AI in Medicine</a>
+                <a class="list-group-item list-group-item-action">Generative AI</a>
+                <a class="list-group-item list-group-item-action">Generative AI in Legal Research, Education, and Practice</a>
+                <a class="list-group-item list-group-item-action">AI in Medicine</a>
               </div>
             </div>
           </div>
@@ -113,14 +125,14 @@ title: "Guides in Accordions (Subjects)"
           <div id="collapse-business" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action">Annual Reports and Corporate Filings</a>
-                <a href="#" class="list-group-item list-group-item-action">Business and Economics</a>
-                <a href="#" class="list-group-item list-group-item-action">Business Plans</a>
-                <a href="#" class="list-group-item list-group-item-action">Case Studies</a>
-                <a href="#" class="list-group-item list-group-item-action">Citation Management</a>
-                <a href="#" class="list-group-item list-group-item-action">Company Information</a>
-                <a href="#" class="list-group-item list-group-item-action">Conducting Industry Research</a>
-                <a href="#" class="list-group-item list-group-item-action">Country Information</a>
+                <a class="list-group-item list-group-item-action">Annual Reports and Corporate Filings</a>
+                <a class="list-group-item list-group-item-action">Business and Economics</a>
+                <a class="list-group-item list-group-item-action">Business Plans</a>
+                <a class="list-group-item list-group-item-action">Case Studies</a>
+                <a class="list-group-item list-group-item-action">Citation Management</a>
+                <a class="list-group-item list-group-item-action">Company Information</a>
+                <a class="list-group-item list-group-item-action">Conducting Industry Research</a>
+                <a class="list-group-item list-group-item-action">Country Information</a>
               </div>
             </div>
           </div>
@@ -136,13 +148,13 @@ title: "Guides in Accordions (Subjects)"
           <div id="collapse-digital-scholarship" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action">Digital Scholarship</a>
-                <a href="#" class="list-group-item list-group-item-action">Author and Research Identifiers</a>
-                <a href="#" class="list-group-item list-group-item-action">Data Management</a>
-                <a href="#" class="list-group-item list-group-item-action">Data Repositories</a>
-                <a href="#" class="list-group-item list-group-item-action">Digital Exhibits with Omeka</a>
-                <a href="#" class="list-group-item list-group-item-action">Open Access</a>
-                <a href="#" class="list-group-item list-group-item-action">Text &amp; Data Mining</a>
+                <a class="list-group-item list-group-item-action">Digital Scholarship</a>
+                <a class="list-group-item list-group-item-action">Author and Research Identifiers</a>
+                <a class="list-group-item list-group-item-action">Data Management</a>
+                <a class="list-group-item list-group-item-action">Data Repositories</a>
+                <a class="list-group-item list-group-item-action">Digital Exhibits with Omeka</a>
+                <a class="list-group-item list-group-item-action">Open Access</a>
+                <a class="list-group-item list-group-item-action">Text &amp; Data Mining</a>
               </div>
             </div>
           </div>
@@ -158,16 +170,16 @@ title: "Guides in Accordions (Subjects)"
           <div id="collapse-humanities" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action">Ancient Near East</a>
-                <a href="#" class="list-group-item list-group-item-action">Art History &amp; Visual Arts</a>
-                <a href="#" class="list-group-item list-group-item-action">Cinema &amp; Media Studies</a>
-                <a href="#" class="list-group-item list-group-item-action">Classics</a>
-                <a href="#" class="list-group-item list-group-item-action">Humanities, General</a>
-                <a href="#" class="list-group-item list-group-item-action">Linguistics</a>
-                <a href="#" class="list-group-item list-group-item-action">Music</a>
-                <a href="#" class="list-group-item list-group-item-action">Philosophy</a>
-                <a href="#" class="list-group-item list-group-item-action">Religion</a>
-                <a href="#" class="list-group-item list-group-item-action">Theater</a>
+                <a class="list-group-item list-group-item-action">Ancient Near East</a>
+                <a class="list-group-item list-group-item-action">Art History &amp; Visual Arts</a>
+                <a class="list-group-item list-group-item-action">Cinema &amp; Media Studies</a>
+                <a class="list-group-item list-group-item-action">Classics</a>
+                <a class="list-group-item list-group-item-action">Humanities, General</a>
+                <a class="list-group-item list-group-item-action">Linguistics</a>
+                <a class="list-group-item list-group-item-action">Music</a>
+                <a class="list-group-item list-group-item-action">Philosophy</a>
+                <a class="list-group-item list-group-item-action">Religion</a>
+                <a class="list-group-item list-group-item-action">Theater</a>
               </div>
             </div>
           </div>
@@ -183,18 +195,18 @@ title: "Guides in Accordions (Subjects)"
           <div id="collapse-law" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action">D’Angelo Law Library Guides</a>
-                <a href="#" class="list-group-item list-group-item-action">U.S. Legal Research for Non-Lawyers</a>
-                <a href="#" class="list-group-item list-group-item-action">Administrative Law</a>
-                <a href="#" class="list-group-item list-group-item-action">Advanced Searching on Bloomberg Law, Lexis, and Westlaw</a>
-                <a href="#" class="list-group-item list-group-item-action">Antitrust Law</a>
-                <a href="#" class="list-group-item list-group-item-action">Citation Management for Law Students</a>
-                <a href="#" class="list-group-item list-group-item-action">Consumer Protection Law</a>
-                <a href="#" class="list-group-item list-group-item-action">Contract Drafting</a>
-                <a href="#" class="list-group-item list-group-item-action">D'Angelo Law Library Research Guides</a>
-                <a href="#" class="list-group-item list-group-item-action">Earl B. Dickerson Research Guide</a>
-                <a href="#" class="list-group-item list-group-item-action">Election Law</a>
-                <a href="#" class="list-group-item list-group-item-action">Environmental Law</a>
+                <a class="list-group-item list-group-item-action">D’Angelo Law Library Guides</a>
+                <a class="list-group-item list-group-item-action">U.S. Legal Research for Non-Lawyers</a>
+                <a class="list-group-item list-group-item-action">Administrative Law</a>
+                <a class="list-group-item list-group-item-action">Advanced Searching on Bloomberg Law, Lexis, and Westlaw</a>
+                <a class="list-group-item list-group-item-action">Antitrust Law</a>
+                <a class="list-group-item list-group-item-action">Citation Management for Law Students</a>
+                <a class="list-group-item list-group-item-action">Consumer Protection Law</a>
+                <a class="list-group-item list-group-item-action">Contract Drafting</a>
+                <a class="list-group-item list-group-item-action">D'Angelo Law Library Research Guides</a>
+                <a class="list-group-item list-group-item-action">Earl B. Dickerson Research Guide</a>
+                <a class="list-group-item list-group-item-action">Election Law</a>
+                <a class="list-group-item list-group-item-action">Environmental Law</a>
               </div>
             </div>
           </div>
@@ -210,15 +222,15 @@ title: "Guides in Accordions (Subjects)"
           <div id="collapse-literature" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action">Creative Writing</a>
-                <a href="#" class="list-group-item list-group-item-action">English Literature</a>
-                <a href="#" class="list-group-item list-group-item-action">French Literature</a>
-                <a href="#" class="list-group-item list-group-item-action">German Literature</a>
-                <a href="#" class="list-group-item list-group-item-action">Italian Literature</a>
-                <a href="#" class="list-group-item list-group-item-action">Scandinavian Literatures</a>
-                <a href="#" class="list-group-item list-group-item-action">Slavic &amp; East European Literature</a>
-                <a href="#" class="list-group-item list-group-item-action">Spanish, Portuguese &amp; Catalan Literatures</a>
-                <a href="#" class="list-group-item list-group-item-action">Theater</a>
+                <a class="list-group-item list-group-item-action">Creative Writing</a>
+                <a class="list-group-item list-group-item-action">English Literature</a>
+                <a class="list-group-item list-group-item-action">French Literature</a>
+                <a class="list-group-item list-group-item-action">German Literature</a>
+                <a class="list-group-item list-group-item-action">Italian Literature</a>
+                <a class="list-group-item list-group-item-action">Scandinavian Literatures</a>
+                <a class="list-group-item list-group-item-action">Slavic &amp; East European Literature</a>
+                <a class="list-group-item list-group-item-action">Spanish, Portuguese &amp; Catalan Literatures</a>
+                <a class="list-group-item list-group-item-action">Theater</a>
               </div>
             </div>
           </div>
@@ -234,22 +246,22 @@ title: "Guides in Accordions (Subjects)"
           <div id="collapse-medicine" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action">History of Medicine</a>
-                <a href="#" class="list-group-item list-group-item-action">Medicine</a>
-                <a href="#" class="list-group-item list-group-item-action">Nursing</a>
-                <a href="#" class="list-group-item list-group-item-action">Pediatrics</a>
-                <a href="#" class="list-group-item list-group-item-action">Biological Sciences - Molecular &amp; Cell Biology</a>
-                <a href="#" class="list-group-item list-group-item-action">Biological Sciences - Organismal Biology</a>
-                <a href="#" class="list-group-item list-group-item-action">Biological Sciences Data Repositories</a>
-                <a href="#" class="list-group-item list-group-item-action">Biomedical Informatics</a>
-                <a href="#" class="list-group-item list-group-item-action">COVID-19</a>
-                <a href="#" class="list-group-item list-group-item-action">Evaluating Resources and Misinformation</a>
-                <a href="#" class="list-group-item list-group-item-action">Evidence-Based Medicine</a>
-                <a href="#" class="list-group-item list-group-item-action">Geographic Information Systems (GIS)</a>
-                <a href="#" class="list-group-item list-group-item-action">Health and Vital Statistics</a>
-                <a href="#" class="list-group-item list-group-item-action">Journal Publishing</a>
-                <a href="#" class="list-group-item list-group-item-action">LaTeX and Overleaf</a>
-                <a href="#" class="list-group-item list-group-item-action">Medical Writing &amp; Editing</a>
+                <a class="list-group-item list-group-item-action">History of Medicine</a>
+                <a class="list-group-item list-group-item-action">Medicine</a>
+                <a class="list-group-item list-group-item-action">Nursing</a>
+                <a class="list-group-item list-group-item-action">Pediatrics</a>
+                <a class="list-group-item list-group-item-action">Biological Sciences - Molecular &amp; Cell Biology</a>
+                <a class="list-group-item list-group-item-action">Biological Sciences - Organismal Biology</a>
+                <a class="list-group-item list-group-item-action">Biological Sciences Data Repositories</a>
+                <a class="list-group-item list-group-item-action">Biomedical Informatics</a>
+                <a class="list-group-item list-group-item-action">COVID-19</a>
+                <a class="list-group-item list-group-item-action">Evaluating Resources and Misinformation</a>
+                <a class="list-group-item list-group-item-action">Evidence-Based Medicine</a>
+                <a class="list-group-item list-group-item-action">Geographic Information Systems (GIS)</a>
+                <a class="list-group-item list-group-item-action">Health and Vital Statistics</a>
+                <a class="list-group-item list-group-item-action">Journal Publishing</a>
+                <a class="list-group-item list-group-item-action">LaTeX and Overleaf</a>
+                <a class="list-group-item list-group-item-action">Medical Writing &amp; Editing</a>
               </div>
             </div>
           </div>
@@ -265,12 +277,12 @@ title: "Guides in Accordions (Subjects)"
           <div id="collapse-sciences-biological" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action">Biomedical Informatics</a>
-                <a href="#" class="list-group-item list-group-item-action">Environmental Science</a>
-                <a href="#" class="list-group-item list-group-item-action">History of Medicine</a>
-                <a href="#" class="list-group-item list-group-item-action">History of Science</a>
-                <a href="#" class="list-group-item list-group-item-action">Molecular &amp; Cell Biology</a>
-                <a href="#" class="list-group-item list-group-item-action">Organismal Biology</a>
+                <a class="list-group-item list-group-item-action">Biomedical Informatics</a>
+                <a class="list-group-item list-group-item-action">Environmental Science</a>
+                <a class="list-group-item list-group-item-action">History of Medicine</a>
+                <a class="list-group-item list-group-item-action">History of Science</a>
+                <a class="list-group-item list-group-item-action">Molecular &amp; Cell Biology</a>
+                <a class="list-group-item list-group-item-action">Organismal Biology</a>
               </div>
             </div>
           </div>
@@ -286,17 +298,17 @@ title: "Guides in Accordions (Subjects)"
           <div id="collapse-sciences-physical" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action">Astronomy &amp; Astrophysics</a>
-                <a href="#" class="list-group-item list-group-item-action">Chemistry</a>
-                <a href="#" class="list-group-item list-group-item-action">Computer Science</a>
-                <a href="#" class="list-group-item list-group-item-action">Financial Mathematics</a>
-                <a href="#" class="list-group-item list-group-item-action">Geophysical Sciences</a>
-                <a href="#" class="list-group-item list-group-item-action">History of Science</a>
-                <a href="#" class="list-group-item list-group-item-action">Mathematics</a>
-                <a href="#" class="list-group-item list-group-item-action">Molecular Engineering</a>
-                <a href="#" class="list-group-item list-group-item-action">Physics</a>
-                <a href="#" class="list-group-item list-group-item-action">Statistics</a>
-                <a href="#" class="list-group-item list-group-item-action">Weather &amp; Climatology</a>
+                <a class="list-group-item list-group-item-action">Astronomy &amp; Astrophysics</a>
+                <a class="list-group-item list-group-item-action">Chemistry</a>
+                <a class="list-group-item list-group-item-action">Computer Science</a>
+                <a class="list-group-item list-group-item-action">Financial Mathematics</a>
+                <a class="list-group-item list-group-item-action">Geophysical Sciences</a>
+                <a class="list-group-item list-group-item-action">History of Science</a>
+                <a class="list-group-item list-group-item-action">Mathematics</a>
+                <a class="list-group-item list-group-item-action">Molecular Engineering</a>
+                <a class="list-group-item list-group-item-action">Physics</a>
+                <a class="list-group-item list-group-item-action">Statistics</a>
+                <a class="list-group-item list-group-item-action">Weather &amp; Climatology</a>
               </div>
             </div>
           </div>
@@ -312,21 +324,21 @@ title: "Guides in Accordions (Subjects)"
           <div id="collapse-social-sciences" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action">African-American Studies</a>
-                <a href="#" class="list-group-item list-group-item-action">Anthropology</a>
-                <a href="#" class="list-group-item list-group-item-action">Chicago Studies</a>
-                <a href="#" class="list-group-item list-group-item-action">Computational Social Science</a>
-                <a href="#" class="list-group-item list-group-item-action">Economics</a>
-                <a href="#" class="list-group-item list-group-item-action">Education</a>
-                <a href="#" class="list-group-item list-group-item-action">Geography</a>
-                <a href="#" class="list-group-item list-group-item-action">History</a>
-                <a href="#" class="list-group-item list-group-item-action">Human Development</a>
-                <a href="#" class="list-group-item list-group-item-action">International Relations</a>
-                <a href="#" class="list-group-item list-group-item-action">LGBTQIA Studies</a>
-                <a href="#" class="list-group-item list-group-item-action">Maps</a>
-                <a href="#" class="list-group-item list-group-item-action">Political Science</a>
-                <a href="#" class="list-group-item list-group-item-action">Psychology</a>
-                <a href="#" class="list-group-item list-group-item-action">Public Policy</a>
+                <a class="list-group-item list-group-item-action">African-American Studies</a>
+                <a class="list-group-item list-group-item-action">Anthropology</a>
+                <a class="list-group-item list-group-item-action">Chicago Studies</a>
+                <a class="list-group-item list-group-item-action">Computational Social Science</a>
+                <a class="list-group-item list-group-item-action">Economics</a>
+                <a class="list-group-item list-group-item-action">Education</a>
+                <a class="list-group-item list-group-item-action">Geography</a>
+                <a class="list-group-item list-group-item-action">History</a>
+                <a class="list-group-item list-group-item-action">Human Development</a>
+                <a class="list-group-item list-group-item-action">International Relations</a>
+                <a class="list-group-item list-group-item-action">LGBTQIA Studies</a>
+                <a class="list-group-item list-group-item-action">Maps</a>
+                <a class="list-group-item list-group-item-action">Political Science</a>
+                <a class="list-group-item list-group-item-action">Psychology</a>
+                <a class="list-group-item list-group-item-action">Public Policy</a>
               </div>
             </div>
           </div>
@@ -342,14 +354,14 @@ title: "Guides in Accordions (Subjects)"
           <div id="collapse-social-work" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action">Education</a>
-                <a href="#" class="list-group-item list-group-item-action">How do I find reviews?</a>
-                <a href="#" class="list-group-item list-group-item-action">ICPSR</a>
-                <a href="#" class="list-group-item list-group-item-action">Public Policy</a>
-                <a href="#" class="list-group-item list-group-item-action">Religion</a>
-                <a href="#" class="list-group-item list-group-item-action">Social Work</a>
-                <a href="#" class="list-group-item list-group-item-action">Tests &amp; Measures</a>
-                <a href="#" class="list-group-item list-group-item-action">Women's Studies</a>
+                <a class="list-group-item list-group-item-action">Education</a>
+                <a class="list-group-item list-group-item-action">How do I find reviews?</a>
+                <a class="list-group-item list-group-item-action">ICPSR</a>
+                <a class="list-group-item list-group-item-action">Public Policy</a>
+                <a class="list-group-item list-group-item-action">Religion</a>
+                <a class="list-group-item list-group-item-action">Social Work</a>
+                <a class="list-group-item list-group-item-action">Tests &amp; Measures</a>
+                <a class="list-group-item list-group-item-action">Women's Studies</a>
               </div>
             </div>
           </div>
@@ -365,12 +377,12 @@ title: "Guides in Accordions (Subjects)"
           <div id="collapse-special-collections" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action">Special Collections Research Center</a>
-                <a href="#" class="list-group-item list-group-item-action">Requesting Materials from SCRC</a>
-                <a href="#" class="list-group-item list-group-item-action">Archives and Manuscripts by Subject</a>
-                <a href="#" class="list-group-item list-group-item-action">Rare Books by Subject</a>
-                <a href="#" class="list-group-item list-group-item-action">SCRC Digital Resources</a>
-                <a href="#" class="list-group-item list-group-item-action">Special Collections Research Center COVID-19 Archive</a>
+                <a class="list-group-item list-group-item-action">Special Collections Research Center</a>
+                <a class="list-group-item list-group-item-action">Requesting Materials from SCRC</a>
+                <a class="list-group-item list-group-item-action">Archives and Manuscripts by Subject</a>
+                <a class="list-group-item list-group-item-action">Rare Books by Subject</a>
+                <a class="list-group-item list-group-item-action">SCRC Digital Resources</a>
+                <a class="list-group-item list-group-item-action">Special Collections Research Center COVID-19 Archive</a>
               </div>
             </div>
           </div>
