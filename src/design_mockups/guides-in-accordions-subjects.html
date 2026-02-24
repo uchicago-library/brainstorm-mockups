@@ -1,0 +1,411 @@
+---
+title: "Guides in Accordions (Subjects)"
+---
+
+{% include "header.html" %}
+
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ '/design_mockups/' | url }}">Mockups</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+  </ol>
+</nav>
+
+<style>
+  .meta-page-nav {
+    border: 2px dashed var(--bs-border-color);
+    background-color: var(--bs-tertiary-bg);
+  }
+</style>
+
+<main class="container-md py-4 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+
+      <h1 class="display-4 mb-3">Research Guides</h1>
+      <p class="lead mb-4">Explore our comprehensive collection of research guides organized by subject area.</p>
+
+      <!-- Search Box -->
+      <div class="mb-5">
+        <div class="input-group input-group-lg">
+          <input type="search" class="form-control" placeholder="Search library guides..." aria-label="Search library guides">
+          <button class="btn btn-primary" type="button">
+            <i class="fa-solid fa-search" aria-hidden="true"></i>
+            <span class="ms-1">Search</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Guide Tabs -->
+      <ul class="nav nav-tabs" id="guidesTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="subject-guides-tab" data-bs-toggle="tab" data-bs-target="#subject-guides" type="button" role="tab" aria-controls="subject-guides" aria-selected="true">Subject Guides</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="help-guides-tab" data-bs-toggle="tab" data-bs-target="#help-guides" type="button" role="tab" aria-controls="help-guides" aria-selected="false">Help Guides</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="course-guides-tab" data-bs-toggle="tab" data-bs-target="#course-guides" type="button" role="tab" aria-controls="course-guides" aria-selected="false">Course Guides</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="all-guides-tab" data-bs-toggle="tab" data-bs-target="#all-guides" type="button" role="tab" aria-controls="all-guides" aria-selected="false">All Guides</button>
+        </li>
+      </ul>
+
+      <div class="tab-content border border-top-0 p-4 mb-4" id="guidesTabsContent">
+        <div class="tab-pane fade show active" id="subject-guides" role="tabpanel" aria-labelledby="subject-guides-tab" tabindex="0">
+
+          <!-- Accordion -->
+          <div class="accordion accordion-flush" id="guidesAccordion">
+
+        <!-- AREA & CULTURAL STUDIES -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-area-cultural" aria-expanded="false" aria-controls="collapse-area-cultural">
+              AREA &amp; CULTURAL STUDIES
+            </button>
+          </h2>
+          <div id="collapse-area-cultural" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">African Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Chinese Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Japanese Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Jewish Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Korean Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Latin American Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Medieval &amp; Byzantine Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Middle East</a>
+                <a href="#" class="list-group-item list-group-item-action">Slavic / Eastern Europe / Eurasia</a>
+                <a href="#" class="list-group-item list-group-item-action">Southern Asia</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ARTIFICIAL INTELLIGENCE -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ai" aria-expanded="false" aria-controls="collapse-ai">
+              ARTIFICIAL INTELLIGENCE
+            </button>
+          </h2>
+          <div id="collapse-ai" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Generative AI</a>
+                <a href="#" class="list-group-item list-group-item-action">Generative AI in Legal Research, Education, and Practice</a>
+                <a href="#" class="list-group-item list-group-item-action">AI in Medicine</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BUSINESS -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-business" aria-expanded="false" aria-controls="collapse-business">
+              BUSINESS
+            </button>
+          </h2>
+          <div id="collapse-business" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Annual Reports and Corporate Filings</a>
+                <a href="#" class="list-group-item list-group-item-action">Business and Economics</a>
+                <a href="#" class="list-group-item list-group-item-action">Business Plans</a>
+                <a href="#" class="list-group-item list-group-item-action">Case Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Citation Management</a>
+                <a href="#" class="list-group-item list-group-item-action">Company Information</a>
+                <a href="#" class="list-group-item list-group-item-action">Conducting Industry Research</a>
+                <a href="#" class="list-group-item list-group-item-action">Country Information</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIGITAL SCHOLARSHIP -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-digital-scholarship" aria-expanded="false" aria-controls="collapse-digital-scholarship">
+              DIGITAL SCHOLARSHIP
+            </button>
+          </h2>
+          <div id="collapse-digital-scholarship" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Digital Scholarship</a>
+                <a href="#" class="list-group-item list-group-item-action">Author and Research Identifiers</a>
+                <a href="#" class="list-group-item list-group-item-action">Data Management</a>
+                <a href="#" class="list-group-item list-group-item-action">Data Repositories</a>
+                <a href="#" class="list-group-item list-group-item-action">Digital Exhibits with Omeka</a>
+                <a href="#" class="list-group-item list-group-item-action">Open Access</a>
+                <a href="#" class="list-group-item list-group-item-action">Text &amp; Data Mining</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HUMANITIES -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-humanities" aria-expanded="false" aria-controls="collapse-humanities">
+              HUMANITIES
+            </button>
+          </h2>
+          <div id="collapse-humanities" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Ancient Near East</a>
+                <a href="#" class="list-group-item list-group-item-action">Art History &amp; Visual Arts</a>
+                <a href="#" class="list-group-item list-group-item-action">Cinema &amp; Media Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Classics</a>
+                <a href="#" class="list-group-item list-group-item-action">Humanities, General</a>
+                <a href="#" class="list-group-item list-group-item-action">Linguistics</a>
+                <a href="#" class="list-group-item list-group-item-action">Music</a>
+                <a href="#" class="list-group-item list-group-item-action">Philosophy</a>
+                <a href="#" class="list-group-item list-group-item-action">Religion</a>
+                <a href="#" class="list-group-item list-group-item-action">Theater</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LAW -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-law" aria-expanded="false" aria-controls="collapse-law">
+              LAW
+            </button>
+          </h2>
+          <div id="collapse-law" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">D’Angelo Law Library Guides</a>
+                <a href="#" class="list-group-item list-group-item-action">U.S. Legal Research for Non-Lawyers</a>
+                <a href="#" class="list-group-item list-group-item-action">Administrative Law</a>
+                <a href="#" class="list-group-item list-group-item-action">Advanced Searching on Bloomberg Law, Lexis, and Westlaw</a>
+                <a href="#" class="list-group-item list-group-item-action">Antitrust Law</a>
+                <a href="#" class="list-group-item list-group-item-action">Citation Management for Law Students</a>
+                <a href="#" class="list-group-item list-group-item-action">Consumer Protection Law</a>
+                <a href="#" class="list-group-item list-group-item-action">Contract Drafting</a>
+                <a href="#" class="list-group-item list-group-item-action">D'Angelo Law Library Research Guides</a>
+                <a href="#" class="list-group-item list-group-item-action">Earl B. Dickerson Research Guide</a>
+                <a href="#" class="list-group-item list-group-item-action">Election Law</a>
+                <a href="#" class="list-group-item list-group-item-action">Environmental Law</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LITERATURE -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-literature" aria-expanded="false" aria-controls="collapse-literature">
+              LITERATURE
+            </button>
+          </h2>
+          <div id="collapse-literature" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Creative Writing</a>
+                <a href="#" class="list-group-item list-group-item-action">English Literature</a>
+                <a href="#" class="list-group-item list-group-item-action">French Literature</a>
+                <a href="#" class="list-group-item list-group-item-action">German Literature</a>
+                <a href="#" class="list-group-item list-group-item-action">Italian Literature</a>
+                <a href="#" class="list-group-item list-group-item-action">Scandinavian Literatures</a>
+                <a href="#" class="list-group-item list-group-item-action">Slavic &amp; East European Literature</a>
+                <a href="#" class="list-group-item list-group-item-action">Spanish, Portuguese &amp; Catalan Literatures</a>
+                <a href="#" class="list-group-item list-group-item-action">Theater</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MEDICINE -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-medicine" aria-expanded="false" aria-controls="collapse-medicine">
+              MEDICINE
+            </button>
+          </h2>
+          <div id="collapse-medicine" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">History of Medicine</a>
+                <a href="#" class="list-group-item list-group-item-action">Medicine</a>
+                <a href="#" class="list-group-item list-group-item-action">Nursing</a>
+                <a href="#" class="list-group-item list-group-item-action">Pediatrics</a>
+                <a href="#" class="list-group-item list-group-item-action">Biological Sciences - Molecular &amp; Cell Biology</a>
+                <a href="#" class="list-group-item list-group-item-action">Biological Sciences - Organismal Biology</a>
+                <a href="#" class="list-group-item list-group-item-action">Biological Sciences Data Repositories</a>
+                <a href="#" class="list-group-item list-group-item-action">Biomedical Informatics</a>
+                <a href="#" class="list-group-item list-group-item-action">COVID-19</a>
+                <a href="#" class="list-group-item list-group-item-action">Evaluating Resources and Misinformation</a>
+                <a href="#" class="list-group-item list-group-item-action">Evidence-Based Medicine</a>
+                <a href="#" class="list-group-item list-group-item-action">Geographic Information Systems (GIS)</a>
+                <a href="#" class="list-group-item list-group-item-action">Health and Vital Statistics</a>
+                <a href="#" class="list-group-item list-group-item-action">Journal Publishing</a>
+                <a href="#" class="list-group-item list-group-item-action">LaTeX and Overleaf</a>
+                <a href="#" class="list-group-item list-group-item-action">Medical Writing &amp; Editing</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCIENCES, BIOLOGICAL -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-sciences-biological" aria-expanded="false" aria-controls="collapse-sciences-biological">
+              SCIENCES, BIOLOGICAL
+            </button>
+          </h2>
+          <div id="collapse-sciences-biological" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Biomedical Informatics</a>
+                <a href="#" class="list-group-item list-group-item-action">Environmental Science</a>
+                <a href="#" class="list-group-item list-group-item-action">History of Medicine</a>
+                <a href="#" class="list-group-item list-group-item-action">History of Science</a>
+                <a href="#" class="list-group-item list-group-item-action">Molecular &amp; Cell Biology</a>
+                <a href="#" class="list-group-item list-group-item-action">Organismal Biology</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCIENCES, PHYSICAL -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-sciences-physical" aria-expanded="false" aria-controls="collapse-sciences-physical">
+              SCIENCES, PHYSICAL
+            </button>
+          </h2>
+          <div id="collapse-sciences-physical" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Astronomy &amp; Astrophysics</a>
+                <a href="#" class="list-group-item list-group-item-action">Chemistry</a>
+                <a href="#" class="list-group-item list-group-item-action">Computer Science</a>
+                <a href="#" class="list-group-item list-group-item-action">Financial Mathematics</a>
+                <a href="#" class="list-group-item list-group-item-action">Geophysical Sciences</a>
+                <a href="#" class="list-group-item list-group-item-action">History of Science</a>
+                <a href="#" class="list-group-item list-group-item-action">Mathematics</a>
+                <a href="#" class="list-group-item list-group-item-action">Molecular Engineering</a>
+                <a href="#" class="list-group-item list-group-item-action">Physics</a>
+                <a href="#" class="list-group-item list-group-item-action">Statistics</a>
+                <a href="#" class="list-group-item list-group-item-action">Weather &amp; Climatology</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOCIAL SCIENCES -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-social-sciences" aria-expanded="false" aria-controls="collapse-social-sciences">
+              SOCIAL SCIENCES
+            </button>
+          </h2>
+          <div id="collapse-social-sciences" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">African-American Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Anthropology</a>
+                <a href="#" class="list-group-item list-group-item-action">Chicago Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Computational Social Science</a>
+                <a href="#" class="list-group-item list-group-item-action">Economics</a>
+                <a href="#" class="list-group-item list-group-item-action">Education</a>
+                <a href="#" class="list-group-item list-group-item-action">Geography</a>
+                <a href="#" class="list-group-item list-group-item-action">History</a>
+                <a href="#" class="list-group-item list-group-item-action">Human Development</a>
+                <a href="#" class="list-group-item list-group-item-action">International Relations</a>
+                <a href="#" class="list-group-item list-group-item-action">LGBTQIA Studies</a>
+                <a href="#" class="list-group-item list-group-item-action">Maps</a>
+                <a href="#" class="list-group-item list-group-item-action">Political Science</a>
+                <a href="#" class="list-group-item list-group-item-action">Psychology</a>
+                <a href="#" class="list-group-item list-group-item-action">Public Policy</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOCIAL WORK -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-social-work" aria-expanded="false" aria-controls="collapse-social-work">
+              SOCIAL WORK
+            </button>
+          </h2>
+          <div id="collapse-social-work" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Education</a>
+                <a href="#" class="list-group-item list-group-item-action">How do I find reviews?</a>
+                <a href="#" class="list-group-item list-group-item-action">ICPSR</a>
+                <a href="#" class="list-group-item list-group-item-action">Public Policy</a>
+                <a href="#" class="list-group-item list-group-item-action">Religion</a>
+                <a href="#" class="list-group-item list-group-item-action">Social Work</a>
+                <a href="#" class="list-group-item list-group-item-action">Tests &amp; Measures</a>
+                <a href="#" class="list-group-item list-group-item-action">Women's Studies</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SPECIAL COLLECTIONS -->
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-special-collections" aria-expanded="false" aria-controls="collapse-special-collections">
+              SPECIAL COLLECTIONS
+            </button>
+          </h2>
+          <div id="collapse-special-collections" class="accordion-collapse collapse" data-bs-parent="#guidesAccordion">
+            <div class="accordion-body p-0">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">Special Collections Research Center</a>
+                <a href="#" class="list-group-item list-group-item-action">Requesting Materials from SCRC</a>
+                <a href="#" class="list-group-item list-group-item-action">Archives and Manuscripts by Subject</a>
+                <a href="#" class="list-group-item list-group-item-action">Rare Books by Subject</a>
+                <a href="#" class="list-group-item list-group-item-action">SCRC Digital Resources</a>
+                <a href="#" class="list-group-item list-group-item-action">Special Collections Research Center COVID-19 Archive</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          </div><!-- End Accordion -->
+
+        </div>
+
+        <div class="tab-pane fade" id="help-guides" role="tabpanel" aria-labelledby="help-guides-tab" tabindex="0">
+          <p>Help Guides content coming soon.</p>
+        </div>
+
+        <div class="tab-pane fade" id="course-guides" role="tabpanel" aria-labelledby="course-guides-tab" tabindex="0">
+          <p>Course Guides content coming soon.</p>
+        </div>
+
+        <div class="tab-pane fade" id="all-guides" role="tabpanel" aria-labelledby="all-guides-tab" tabindex="0">
+          <p>All Guides content coming soon.</p>
+        </div>
+      </div>
+
+        <section class="meta-page-nav rounded-3 p-3 mt-5" aria-label="Guides mockup page navigation">
+          <h2 class="fs-6 mb-0">Mockup Page Navigation</h2>
+          <div class="small">Meta element: navigate between guides page mockups.</div>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <a href="{{ '/design_mockups/guides-in-accordions/' | url }}" class="btn btn-outline-secondary btn-sm">Guides in Accordions</a>
+            <a href="{{ '/design_mockups/guides-in-accordions-subjects/' | url }}" class="btn btn-secondary btn-sm" aria-current="page">Guides in Accordions (Subjects)</a>
+            <a href="{{ '/design_mockups/guides-in-photos/' | url }}" class="btn btn-outline-secondary btn-sm">Guides in Photos</a>
+            <a href="{{ '/design_mockups/guides-in-types/' | url }}" class="btn btn-outline-secondary btn-sm">Guides in Types</a>
+          </div>
+        </section>
+
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}
