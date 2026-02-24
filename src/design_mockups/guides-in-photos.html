@@ -136,7 +136,7 @@ title: "Guides in Photos"
       </div>
 
       <!-- Photo Accordion -->
-      <div id="photoGuidesAccordion" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 photo-accordion">
+      <div id="photoGuidesAccordion" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 photo-accordion">
           <!-- Business, Economics, and Management -->
           <div class="col photo-accordion-col">
           <div class="accordion-item">
@@ -487,16 +487,8 @@ title: "Guides in Photos"
 
       </div><!-- End Photo Accordion -->
 
-      <section class="meta-page-nav rounded-3 p-3 mt-5" aria-label="Guides mockup page navigation">
-        <h2 class="fs-6 mb-0">Mockup Page Navigation</h2>
-        <div class="small">Meta element: navigate between guides page mockups.</div>
-        <div class="d-flex flex-wrap gap-2 mt-3">
-          <a href="{{ '/design_mockups/guides-in-accordions/' | url }}" class="btn btn-outline-secondary btn-sm">Guides in Accordions</a>
-          <a href="{{ '/design_mockups/guides-in-accordions-subjects/' | url }}" class="btn btn-outline-secondary btn-sm">Guides in Accordions (Subjects)</a>
-          <a href="{{ '/design_mockups/guides-in-photos/' | url }}" class="btn btn-secondary btn-sm" aria-current="page">Guides in Photos</a>
-          <a href="{{ '/design_mockups/guides-in-types/' | url }}" class="btn btn-outline-secondary btn-sm">Guides in Types</a>
-        </div>
-      </section>
+      {% set current = "photos" %}
+      {% include "mockup-nav/page-nav.html" %}
 
     </div>
   </div>
