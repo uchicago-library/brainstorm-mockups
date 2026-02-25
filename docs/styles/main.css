@@ -12116,4 +12116,24 @@ header[role=banner] {
   margin: 0;
 }
 
+@media (min-width: 768px) {
+  .accordion-two-column .row {
+    row-gap: 0.5rem;
+  }
+}
+.accordion-two-column .accordion-item {
+  border-radius: var(--bs-accordion-border-radius);
+}
+.accordion-two-column .accordion-item:not(:first-of-type) {
+  border-top: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+}
+.accordion-two-column .accordion-item .accordion-button {
+  border-top-left-radius: var(--bs-accordion-inner-border-radius);
+  border-top-right-radius: var(--bs-accordion-inner-border-radius);
+}
+.accordion-two-column .accordion-item .accordion-button.collapsed {
+  border-bottom-left-radius: var(--bs-accordion-inner-border-radius);
+  border-bottom-right-radius: var(--bs-accordion-inner-border-radius);
+}
+
 /*# sourceMappingURL=main.css.map */

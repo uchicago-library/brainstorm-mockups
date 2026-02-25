@@ -13,3 +13,34 @@
         margin: 0;
     }
 }
+
+// Two-column accordion layout using Bootstrap grid system
+// Wraps accordion items in a Bootstrap row with two columns at md+ breakpoint
+.accordion-two-column {
+
+    @media (min-width: 768px) {
+        .row {
+            row-gap: 0.5rem;
+        }
+    }
+
+    .accordion-item {
+        border-radius: var(--bs-accordion-border-radius);
+    }
+
+    // Restore borders for all items
+    .accordion-item:not(:first-of-type) {
+        border-top: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+    }
+
+    // Ensure buttons match item border-radius
+    .accordion-item .accordion-button {
+        border-top-left-radius: var(--bs-accordion-inner-border-radius);
+        border-top-right-radius: var(--bs-accordion-inner-border-radius);
+    }
+
+    .accordion-item .accordion-button.collapsed {
+        border-bottom-left-radius: var(--bs-accordion-inner-border-radius);
+        border-bottom-right-radius: var(--bs-accordion-inner-border-radius);
+    }
+}

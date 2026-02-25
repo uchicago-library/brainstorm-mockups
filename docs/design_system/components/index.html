@@ -454,67 +454,74 @@
         </div>
 
         <h3>Two-Column Accordion Layout</h3>
-        <p>For larger collections of accordion items, use Bootstrap's grid system to create a responsive two-column layout. Use <code>.gx-3</code> for horizontal gap and <code>.gy-0</code> to eliminate vertical gaps between rows. Each column contains its own accordion with a unique <code>id</code> and corresponding <code>data-bs-parent</code> attributes.</p>
+        <p>For larger collections of accordion items, use <code>.accordion-two-column</code> to create a responsive two-column layout at the <code>md</code> breakpoint. Wrap items in a <code>.row</code>, then wrap each <code>.accordion-item</code> inside a <code>.col-md-6</code> div. Bootstrap's gutter provides horizontal gap (default 1.5rem), and custom <code>row-gap: 0.5rem</code> provides vertical gap.</p>
 
-        <div class="row gx-3 gy-0">
-          <div class="col-md-6">
-            <div class="accordion" id="accordionTwoColDemo1">
-              <div class="accordion-item mb-0">
+        <div class="accordion accordion-two-column" id="accordionTwoColDemo">
+          <div class="row">
+            
+            <div class="col-md-6">
+              <div class="accordion-item">
                 <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#demo-col1-item1" aria-expanded="false" aria-controls="demo-col1-item1">
-                    Column 1 - Item 1
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#demo-item1" aria-expanded="false" aria-controls="demo-item1">
+                    Item 1
                   </button>
                 </h3>
-                <div id="demo-col1-item1" class="accordion-collapse collapse" data-bs-parent="#accordionTwoColDemo1">
+                <div id="demo-item1" class="accordion-collapse collapse" data-bs-parent="#accordionTwoColDemo">
                   <div class="accordion-body">
-                    Content for the first item in column 1.
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item mb-0">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#demo-col1-item2" aria-expanded="false" aria-controls="demo-col1-item2">
-                    Column 1 - Item 2
-                  </button>
-                </h3>
-                <div id="demo-col1-item2" class="accordion-collapse collapse" data-bs-parent="#accordionTwoColDemo1">
-                  <div class="accordion-body">
-                    Content for the second item in column 1.
+                    Content for item 1.
                   </div>
                 </div>
               </div>
             </div>
+
+            <div class="col-md-6">
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#demo-item2" aria-expanded="false" aria-controls="demo-item2">
+                    Item 2
+                  </button>
+                </h3>
+                <div id="demo-item2" class="accordion-collapse collapse" data-bs-parent="#accordionTwoColDemo">
+                  <div class="accordion-body">
+                    Content for item 2.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#demo-item3" aria-expanded="false" aria-controls="demo-item3">
+                    Item 3
+                  </button>
+                </h3>
+                <div id="demo-item3" class="accordion-collapse collapse" data-bs-parent="#accordionTwoColDemo">
+                  <div class="accordion-body">
+                    Content for item 3.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#demo-item4" aria-expanded="false" aria-controls="demo-item4">
+                    Item 4
+                  </button>
+                </h3>
+                <div id="demo-item4" class="accordion-collapse collapse" data-bs-parent="#accordionTwoColDemo">
+                  <div class="accordion-body">
+                    Content for item 4.
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
-
-          <div class="col-md-6">
-            <div class="accordion" id="accordionTwoColDemo2">
-              <div class="accordion-item mb-0">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#demo-col2-item1" aria-expanded="false" aria-controls="demo-col2-item1">
-                    Column 2 - Item 1
-                  </button>
-                </h3>
-                <div id="demo-col2-item1" class="accordion-collapse collapse" data-bs-parent="#accordionTwoColDemo2">
-                  <div class="accordion-body">
-                    Content for the first item in column 2.
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion-item mb-0">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#demo-col2-item2" aria-expanded="false" aria-controls="demo-col2-item2">
-                    Column 2 - Item 2
-                  </button>
-                </h3>
-                <div id="demo-col2-item2" class="accordion-collapse collapse" data-bs-parent="#accordionTwoColDemo2">
-                  <div class="accordion-body">
-                    Content for the second item in column 2.
-                  </div>
-                </div>
-              </div>
-            </div>
+        </div>
+            <h3 class="accordion-header">
           </div>
         </div>
 

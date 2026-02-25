@@ -305,19 +305,22 @@
         </div>
       </div>
 
-      <!-- Accordion -->
-      <div class="row gx-3 gy-0">
-        <div class="col-md-6">
-          <div class="accordion" id="guidesAccordionCol1">
+      <!-- Accordion Two-Column -->
+      <div class="accordion-two-column">
+        <div class="row">
+          
+          <!-- Left Column -->
+          <div class="col-md-6">
+            <div class="accordion" id="guidesAccordionLeft">
         
-        <!-- Business, Economics, and Management -->
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-business" aria-expanded="false" aria-controls="collapse-business">
-              Business, Economics, and Management
-            </button>
-          </h2>
-          <div id="collapse-business" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionCol1">
+              <!-- Business, Economics, and Management -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-business" aria-expanded="false" aria-controls="collapse-business">
+                    Business, Economics, and Management
+                  </button>
+                </h2>
+                <div id="collapse-business" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionLeft">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action">Introduction to Business Research</a>
@@ -342,7 +345,7 @@
               Education
             </button>
           </h2>
-          <div id="collapse-education" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionCol1">
+          <div id="collapse-education" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionLeft">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action">Educational Psychology Resources</a>
@@ -367,7 +370,7 @@
               Engineering and Computing
             </button>
           </h2>
-          <div id="collapse-engineering" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionCol1">
+          <div id="collapse-engineering" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionLeft">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action">Computer Science Fundamentals</a>
@@ -392,7 +395,7 @@
               Health Sciences
             </button>
           </h2>
-          <div id="collapse-health" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionCol1">
+          <div id="collapse-health" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionLeft">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action">Public Health Research Methods</a>
@@ -417,7 +420,7 @@
               Languages, Culture, and Society
             </button>
           </h2>
-          <div id="collapse-languages" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionCol1">
+          <div id="collapse-languages" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionLeft">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action">Linguistics and Language Development</a>
@@ -442,7 +445,7 @@
               Life and Natural Sciences
             </button>
           </h2>
-          <div id="collapse-sciences" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionCol1">
+          <div id="collapse-sciences" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionLeft">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action">Biology Research Resources</a>
@@ -460,11 +463,12 @@
           </div>
         </div>
 
-          </div><!-- End Column 1 Accordion -->
-        </div><!-- End col-md-6 -->
-
-        <div class="col-md-6">
-          <div class="accordion" id="guidesAccordionCol2">
+            </div><!-- End Left Accordion -->
+          </div><!-- End Left Column -->
+          
+          <!-- Right Column -->
+          <div class="col-md-6">
+            <div class="accordion" id="guidesAccordionRight">
 
         <!-- Math and Quantitative Sciences -->
         <div class="accordion-item">
@@ -473,7 +477,7 @@
               Math and Quantitative Sciences
             </button>
           </h2>
-          <div id="collapse-math" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionCol2">
+          <div id="collapse-math" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionRight">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action">Pure Mathematics Resources</a>
@@ -498,7 +502,7 @@
               Social Sciences and Policy
             </button>
           </h2>
-          <div id="collapse-social" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionCol2">
+          <div id="collapse-social" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionRight">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action">Political Science Research</a>
@@ -523,7 +527,7 @@
               Visual and Performing Arts
             </button>
           </h2>
-          <div id="collapse-arts" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionCol2">
+          <div id="collapse-arts" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionRight">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action">Art History and Criticism</a>
@@ -548,7 +552,7 @@
               Writing, Communication, Literature, and Media
             </button>
           </h2>
-          <div id="collapse-writing" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionCol2">
+          <div id="collapse-writing" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionRight">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action">Academic Writing and Research</a>
@@ -573,7 +577,7 @@
               @ the Libraries
             </button>
           </h2>
-          <div id="collapse-libraries" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionCol2">
+          <div id="collapse-libraries" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionRight">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action">Using the Library Catalog</a>
@@ -598,7 +602,7 @@
               How-to Guides
             </button>
           </h2>
-          <div id="collapse-howto" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionCol2">
+          <div id="collapse-howto" class="accordion-collapse collapse" data-bs-parent="#guidesAccordionRight">
             <div class="accordion-body p-0">
               <div class="list-group list-group-flush">
                 <a href="#" class="list-group-item list-group-item-action">How to Search Databases Effectively</a>
@@ -614,9 +618,13 @@
               </div>
             </div>
           </div>
-          </div><!-- End Column 2 Accordion -->
-        </div><!-- End col-md-6 -->
-      </div><!-- End row -->
+        </div>
+
+            </div><!-- End Right Accordion -->
+          </div><!-- End Right Column -->
+          
+        </div><!-- End Row -->
+      </div><!-- End Accordion Two-Column -->
 
       
       <section class="meta-page-nav rounded-3 p-3 mt-5" aria-label="Guides mockup page navigation">
