@@ -9,7 +9,7 @@ header[role="banner"] {
 
     .navbar-brand {
         img {
-            max-height: 50px;
+            max-height: 35px;
             width: auto;
         }
     }
@@ -56,12 +56,12 @@ header[role="banner"] {
     position: relative;
     --bs-navbar-color: #fff;
     --bs-navbar-hover-color: #fff;
-    --bs-nav-link-padding-x: 1rem;
+    --bs-navbar-nav-link-padding-x: .8rem !important;
     --bs-nav-link-font-size: 0.9rem;
     --bs-nav-link-font-weight: 400;
 
     .nav-item {
-        @media (min-width: 992px) {
+        @media (min-width: 768px) {
             position: static;
         }
 
@@ -76,7 +76,7 @@ header[role="banner"] {
                 background-color: darken($primary, 10%);
             }
 
-            @media (max-width: 991.98px) {
+            @media (max-width: 767.98px) {
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
         }
@@ -98,7 +98,7 @@ header[role="banner"] {
         --bs-dropdown-item-padding-y: 0.5rem;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 
-        @media (min-width: 992px) {
+        @media (min-width: 768px) {
             position: absolute;
             left: 0;
             right: 0;
@@ -107,7 +107,7 @@ header[role="banner"] {
             background-color: darken($primary, 10%);
         }
 
-        @media (max-width: 991.98px) {
+        @media (max-width: 767.98px) {
             background-color: darken($primary, 5%);
             padding-left: 1rem;
             box-shadow: none;
@@ -136,8 +136,22 @@ header[role="banner"] {
         margin: 0;
         padding: 0.25rem 1rem 0.5rem;
 
-        @media (max-width: 991.98px) {
+        @media (max-width: 767.98px) {
             color: #ffffff;
+        }
+    }
+
+    .mobile-shortcuts-list {
+        .nav-link {
+            color: #fff;
+            border-bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
+
+            &:hover,
+            &:focus {
+                color: #fff;
+            }
         }
     }
 
@@ -203,7 +217,7 @@ header[role="banner"] {
             }
         }
 
-        @media (max-width: 991.98px) {
+        @media (max-width: 767.98px) {
             width: 100%;
             padding: 0 1rem 1rem;
 

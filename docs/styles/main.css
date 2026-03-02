@@ -11940,7 +11940,7 @@ header[role=banner] {
   border-bottom: 1px solid #D9D9D9;
 }
 .logo-bar .navbar-brand img {
-  max-height: 50px;
+  max-height: 35px;
   width: auto;
 }
 .logo-bar #navbar-shortcuts {
@@ -11976,11 +11976,11 @@ header[role=banner] {
   position: relative;
   --bs-navbar-color: #fff;
   --bs-navbar-hover-color: #fff;
-  --bs-nav-link-padding-x: 1rem;
+  --bs-navbar-nav-link-padding-x: .8rem !important;
   --bs-nav-link-font-size: 0.9rem;
   --bs-nav-link-font-weight: 400;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   #global-navbar .nav-item {
     position: static;
   }
@@ -11992,7 +11992,7 @@ header[role=banner] {
 #global-navbar .nav-item .nav-link:hover, #global-navbar .nav-item .nav-link:focus, #global-navbar .nav-item .nav-link.active, #global-navbar .nav-item .nav-link[aria-expanded=true] {
   background-color: #4d0000;
 }
-@media (max-width: 991.98px) {
+@media (max-width: 767.98px) {
   #global-navbar .nav-item .nav-link {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
@@ -12010,7 +12010,7 @@ header[role=banner] {
   --bs-dropdown-item-padding-y: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   #global-navbar .dropdown-menu {
     position: absolute;
     left: 0;
@@ -12020,7 +12020,7 @@ header[role=banner] {
     background-color: #4d0000;
   }
 }
-@media (max-width: 991.98px) {
+@media (max-width: 767.98px) {
   #global-navbar .dropdown-menu {
     background-color: rgb(102.5, 0, 0);
     padding-left: 1rem;
@@ -12047,10 +12047,19 @@ header[role=banner] {
   margin: 0;
   padding: 0.25rem 1rem 0.5rem;
 }
-@media (max-width: 991.98px) {
+@media (max-width: 767.98px) {
   #global-navbar .dropdown-group-title {
     color: #ffffff;
   }
+}
+#global-navbar .mobile-shortcuts-list .nav-link {
+  color: #fff;
+  border-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+#global-navbar .mobile-shortcuts-list .nav-link:hover, #global-navbar .mobile-shortcuts-list .nav-link:focus {
+  color: #fff;
 }
 #global-navbar .dropdown-item {
   --bs-dropdown-link-color: #fff;
@@ -12101,7 +12110,7 @@ header[role=banner] {
 #global-navbar .global-navbar-search .global-navbar-search-field .global-navbar-search-button:hover, #global-navbar .global-navbar-search .global-navbar-search-field .global-navbar-search-button:focus {
   color: #fff;
 }
-@media (max-width: 991.98px) {
+@media (max-width: 767.98px) {
   #global-navbar .global-navbar-search {
     width: 100%;
     padding: 0 1rem 1rem;

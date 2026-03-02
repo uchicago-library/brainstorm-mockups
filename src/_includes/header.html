@@ -15,274 +15,71 @@
 <header role="banner">
   <div class="logo-bar bg-white">
     <div class="container-md">
-      <div class="d-flex justify-content-between align-items-center py-3">
+      <div class="d-flex justify-content-between align-items-center py-2">
         <a class="navbar-brand m-0" href="{{ '/' | url }}" itemscope itemtype="http://schema.org/Organization">
           <span class="visually-hidden" itemprop="name">The University of Chicago Library</span>
-          <img itemprop="logo" src="https://www.lib.uchicago.edu/web-resources/img/color-logo.png" alt="University of Chicago Library" style="max-height: 50px;">
+          <img itemprop="logo" src="https://www.lib.uchicago.edu/web-resources/img/color-logo.png" alt="University of Chicago Library" style="max-height: 35px;">
         </a>
 
-        <ul class="nav d-none d-lg-flex" id="navbar-shortcuts" role="list">
-          <li class="nav-item">
-            <a class="nav-link" href="">
-              <i class="fa-solid fa-comment" aria-hidden="true"></i>
-              <span>Ask a Librarian</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">
-              <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              <span>View Hours</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">
-              <i class="fa-solid fa-gift" aria-hidden="true"></i>
-              <span>Support the Library</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">
-              <i class="fa-solid fa-user" aria-hidden="true"></i>
-              <span>My Library Account</span>
-            </a>
-          </li>
+        <ul class="nav d-none d-md-flex justify-content-end" id="navbar-shortcuts" role="list">
+          {% for link in globalNav.shortcutLinks %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ link.href }}">
+                <i class="{{ link.icon }}" aria-hidden="true"></i>
+                <span>{{ link.text }}</span>
+              </a>
+            </li>
+          {% endfor %}
         </ul>
 
-        <button class="navbar-toggler d-lg-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#global-navbar" aria-controls="global-navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#global-navbar-collapse" aria-controls="global-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
     </div>
   </div>
 
-  <nav id="global-navbar" class="navbar navbar-expand-lg navbar-dark global-navbar p-0" aria-label="Main navigation">
+  <nav id="global-navbar" class="navbar navbar-expand-md navbar-dark global-navbar p-0" aria-label="Main navigation">
     <div class="container-md">
-      <div class="collapse navbar-collapse" id="global-navbar">
+      <div class="collapse navbar-collapse" id="global-navbar-collapse">
         <ul class="navbar-nav flex-grow-1" role="list">
+          {% for dropdown in globalNav.dropdowns %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" id="{{ dropdown.id }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ dropdown.label }}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="{{ dropdown.id }}">
+                {% set groupCount = dropdown.groups | length %}
+                <li class="dropdown-layout row row-cols-1 row-cols-lg-{% if groupCount > 6 %}6{% elif groupCount < 1 %}1{% else %}{{ groupCount }}{% endif %} g-0">
+                  {% for group in dropdown.groups %}
+                    <div class="dropdown-group col">
+                      <p class="dropdown-group-title">{{ group.title }}</p>
+                      {% for link in group.links %}
+                        <a class="dropdown-item text-wrap" href="{{ link.href }}">{{ link.text }}</a>
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+                </li>
+              </ul>
+            </li>
+          {% endfor %}
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="infoVisitDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Info/Visit
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="infoVisitDropdown">
-              <li class="dropdown-layout row row-cols-1 row-cols-lg-2 g-0">
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Help</p>
-                  <a class="dropdown-item" href="">Ask Us</a>
-                  <a class="dropdown-item" href="">Help Guides</a>
-                </div>
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Visit</p>
-                  <a class="dropdown-item" href="">Hours</a>
-                  <a class="dropdown-item" href="">Visitor Information</a>
-                  <a class="dropdown-item" href="">Visiting Special Collections</a>
-                  <a class="dropdown-item" href="">Borrowing Policies</a>
-                </div>
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">The Library for</p>
-                  <a class="dropdown-item" href="">Students</a>
-                  <a class="dropdown-item" href="">Faculty</a>
-                  <a class="dropdown-item" href="">Staff</a>
-                  <a class="dropdown-item" href="">External Researchers</a>
-                  <a class="dropdown-item" href="">Alumni</a>
-                  <a class="dropdown-item" href="">Community Members</a>
-                </div>
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">News & Events</p>
-                  <a class="dropdown-item" href="">News</a>
-                  <a class="dropdown-item" href="">Workshops & Events</a>
-                  <a class="dropdown-item" href="">Libra Newsletter</a>
-                </div>
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">This website</p>
-                  <a class="dropdown-item" href="">My Library Account</a>
-                  <a class="dropdown-item" href="">Website Search</a>
-                </div>
-              </li>
+          <li class="d-md-none">
+            <p class="dropdown-group-title text-white-50 px-0">Quick Links</p>
+            <ul class="navbar-nav flex-column mobile-shortcuts-list" role="list">
+              {% for link in globalNav.shortcutLinks %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ link.href }}">
+                    <i class="{{ link.icon }} me-2" aria-hidden="true"></i>
+                    {{ link.text }}
+                  </a>
+                </li>
+              {% endfor %}
             </ul>
           </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Services
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-              <li class="dropdown-layout row row-cols-1 row-cols-lg-2 g-0">
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Borrow & Request</p>
-                  <a class="dropdown-item" href="">Self Checkout</a>
-                  <a class="dropdown-item" href="">Scan & Deliver</a>
-                  <a class="dropdown-item" href="">Paging & Pickup</a>
-                  <a class="dropdown-item" href="">Interlibrary Loan</a>
-                  <a class="dropdown-item" href="">Suggest a Purchase</a>
-                  <a class="dropdown-item" href="">Borrowing information</a>
-                  <a class="dropdown-item" href="">Digitization Services</a>
-                </div>
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Using Our Spaces</p>
-                  <a class="dropdown-item" href="">Book a Room</a>
-                  <a class="dropdown-item" href="">Places to Study</a>
-                  <a class="dropdown-item" href="">Copy, Print & Scan</a>
-                  <a class="dropdown-item" href="">Computers & Wireless</a>
-                  <a class="dropdown-item" href="">Lockers</a>
-                  <a class="dropdown-item" href="">TechBar: Tech lending and services</a>
-                </div>
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Digital Research & Scholarship</p>
-                  <a class="dropdown-item" href="">Dissertation Office</a>
-                  <a class="dropdown-item" href="">AI in Research</a>
-                  <a class="dropdown-item" href="">Publishing, Copyright, and Open Access</a>
-                  <a class="dropdown-item" href="">All Digital Scholarship Services</a>
-                </div>
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Teaching Support</p>
-                  <a class="dropdown-item" href="">Course Reserves Setup</a>
-                  <a class="dropdown-item" href="">Instruction for Courses</a>
-                  <a class="dropdown-item" href="">Teaching & Learning Services</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Resources
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
-              <li class="dropdown-layout row row-cols-1 row-cols-lg-2 g-0">
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Catalogs</p>
-                  <a class="dropdown-item" href="">Library Catalog</a>
-                  <a class="dropdown-item" href="">BorrowDirect</a>
-                  <a class="dropdown-item" href="">WorldCat</a>
-                  <a class="dropdown-item" href="">Articles Plus</a>
-                  <a class="dropdown-item" href="">Database Finder</a>
-                  <a class="dropdown-item" href="">Ejournals</a>
-                  <a class="dropdown-item" href="">Knowledge@UChicago</a>
-                  <a class="dropdown-item" href="">Node</a>
-                </div>
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Search Tools</p>
-                  <a class="dropdown-item" href="">Other Catalogs</a>
-                  <a class="dropdown-item" href="">Sp. Collections Finding Aids</a>
-                  <a class="dropdown-item" href="">Database Trials</a>
-                  <a class="dropdown-item" href="">Proxy & Off-Campus Access</a>
-                </div>
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Research Help & Tools</p>
-                  <a class="dropdown-item" href="">Research Guides</a>
-                  <a class="dropdown-item" href="">Ask Us</a>
-                  <a class="dropdown-item" href="">Subjects</a>
-                  <a class="dropdown-item" href="">Center for Digital Scholarship</a>
-                  <a class="dropdown-item" href="">Citation Management</a>
-                  <a class="dropdown-item" href="">Copyright Info</a>
-                  <a class="dropdown-item" href="">Subject Specialists</a>
-                </div>
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Programs</p>
-                  <a class="dropdown-item" href="">Kim-Park Program for the Study of the Book</a>
-                  <a class="dropdown-item" href="">Brooker Prize for Book Collecting</a>
-                  <a class="dropdown-item" href="">Crerar History of Science and Medicine Fellowship</a>
-                  <a class="dropdown-item" href="">Crerar Prize for Undergraduate Research</a>
-                  <a class="dropdown-item" href="">Library Graduate Student Fellowships</a>
-                  <a class="dropdown-item" href="">Judith M. Wright Fellowship</a>
-                  <a class="dropdown-item" href="">Platzman Memorial Fellowship</a>
-                  <a class="dropdown-item" href="">Somit Preservation Internship</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="collectionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Collections
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="collectionsDropdown">
-              <li class="dropdown-layout row row-cols-1 row-cols-lg-2 g-0">
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Exhibits</p>
-                  <a class="dropdown-item" href="">Web Exhibits</a>
-                  <a class="dropdown-item" href="">All Exhibits</a>
-                </div>
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Collections</p>
-                  <a class="dropdown-item" href="">Digital Collections</a>
-                  <a class="dropdown-item" href="">All Collections</a>
-                  <a class="dropdown-item" href="">Other Local Collections</a>
-                </div>
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Research Centers</p>
-                  <a class="dropdown-item" href="">Special Collections</a>
-                  <a class="dropdown-item" href="">East Asian Collection</a>
-                  <a class="dropdown-item" href="">Map Collection</a>
-                  <a class="dropdown-item" href="">Southern Asia Collection</a>
-                  <a class="dropdown-item" href="">Center for Digital Scholarship</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              About
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="aboutDropdown">
-              <li class="dropdown-layout row row-cols-1 row-cols-lg-2 g-0">
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Connect</p>
-                  <a class="dropdown-item" href="">Social Media Directory</a>
-                </div>
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Buildings</p>
-                  <a class="dropdown-item" href="">All Locations</a>
-                  <a class="dropdown-item" href="">Center for Digital Scholarship</a>
-                </div>
-                <div class="dropdown-group col">
-                  <p class="dropdown-group-title">Administrative</p>
-                  <a class="dropdown-item" href="">About the Library</a>
-                  <a class="dropdown-item" href="">Mission & Strategic Plan</a>
-                  <a class="dropdown-item" href="">DEI Vision Statement</a>
-                  <a class="dropdown-item" href="">Departments & Staff</a>
-                  <a class="dropdown-item" href="">Employment</a>
-                  <a class="dropdown-item" href="">Library Boards & Committees</a>
-                  <a class="dropdown-item" href="">Support the Library</a>
-                  <a class="dropdown-item" href="">Library Policies</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-
-          <li class="d-lg-none">
-            <p class="dropdown-group-title text-white-50 px-3">Quick Links</p>
-          </li>
-          <li class="nav-item d-lg-none">
-            <a class="nav-link" href="">
-              <i class="fa-solid fa-comment me-2" aria-hidden="true"></i>
-              Ask a Librarian
-            </a>
-          </li>
-          <li class="nav-item d-lg-none">
-            <a class="nav-link" href="">
-              <i class="fa-solid fa-clock me-2" aria-hidden="true"></i>
-              View Hours
-            </a>
-          </li>
-          <li class="nav-item d-lg-none">
-            <a class="nav-link" href="">
-              <i class="fa-solid fa-gift me-2" aria-hidden="true"></i>
-              Support the Library
-            </a>
-          </li>
-          <li class="nav-item d-lg-none">
-            <a class="nav-link" href="">
-              <i class="fa-solid fa-user me-2" aria-hidden="true"></i>
-              My Library Account
-            </a>
-          </li>
-
         </ul>
 
-        <form class="global-navbar-search ms-lg-auto mt-3 mt-lg-0" role="search">
+        <form class="global-navbar-search ms-lg-auto mt-3 mt-md-0" role="search">
           <label class="visually-hidden" for="global-navbar-search-input">Search the site</label>
           <div class="global-navbar-search-field">
             <input class="form-control form-control-sm" id="global-navbar-search-input" type="search" placeholder="Search" aria-label="Search the site">
