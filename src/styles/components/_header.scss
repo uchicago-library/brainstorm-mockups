@@ -1,9 +1,12 @@
-// Header Structure
+$global-navbar-bg: $primary;
+$global-navbar-bg-open: darken($primary, 10%);
+$global-navbar-bg-mobile: darken($primary, 5%);
+$global-navbar-item-hover: darken($primary, 15%);
+
 header[role="banner"] {
     position: relative;
 }
 
-// Logo Bar with Desktop Shortcuts
 .logo-bar {
     border-bottom: 1px solid $light;
 
@@ -14,7 +17,6 @@ header[role="banner"] {
         }
     }
 
-    // Desktop shortcuts (same row as logo)
     #navbar-shortcuts {
         margin: 0;
 
@@ -38,7 +40,6 @@ header[role="banner"] {
         }
     }
 
-    // Mobile toggle button
     .navbar-toggler {
         padding: 0.25rem 0.5rem;
 
@@ -50,15 +51,21 @@ header[role="banner"] {
     }
 }
 
-// Global Navigation Bar
 #global-navbar {
-    background-color: $primary;
+    background-color: $global-navbar-bg;
     position: relative;
     --bs-navbar-color: #fff;
     --bs-navbar-hover-color: #fff;
     --bs-navbar-nav-link-padding-x: .8rem !important;
     --bs-nav-link-font-size: 0.9rem;
     --bs-nav-link-font-weight: 400;
+
+    @media (max-width: 767.98px) {
+        .navbar-collapse {
+            margin-left: calc(var(--bs-gutter-x) * 0.5 * -1);
+            margin-right: calc(var(--bs-gutter-x) * 0.5 * -1);
+        }
+    }
 
     .nav-item {
         @media (min-width: 768px) {
@@ -73,16 +80,18 @@ header[role="banner"] {
             &:focus,
             &.active,
             &[aria-expanded="true"] {
-                background-color: darken($primary, 10%);
+                background-color: $global-navbar-bg-open;
             }
 
             @media (max-width: 767.98px) {
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding-left: 1rem;
+                padding-right: 1rem;
             }
         }
 
         &.show>.nav-link {
-            background-color: darken($primary, 10%);
+            background-color: $global-navbar-bg-open;
         }
     }
 
@@ -90,7 +99,6 @@ header[role="banner"] {
         margin-left: 0.5rem;
     }
 
-    // Dropdown menus
     .dropdown-menu {
         --bs-dropdown-border-width: 0;
         --bs-dropdown-border-radius: 0;
@@ -104,12 +112,12 @@ header[role="banner"] {
             right: 0;
             width: auto;
             padding: 1rem 2rem;
-            background-color: darken($primary, 10%);
+            background-color: $global-navbar-bg-open;
         }
 
         @media (max-width: 767.98px) {
-            background-color: darken($primary, 5%);
-            padding-left: 1rem;
+            background-color: $global-navbar-bg-mobile;
+            padding: 0;
             box-shadow: none;
         }
     }
@@ -138,6 +146,8 @@ header[role="banner"] {
 
         @media (max-width: 767.98px) {
             color: #ffffff;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
     }
 
@@ -145,8 +155,8 @@ header[role="banner"] {
         .nav-link {
             color: #fff;
             border-bottom: 0;
-            padding-left: 0;
-            padding-right: 0;
+            padding-left: 1rem;
+            padding-right: 1rem;
 
             &:hover,
             &:focus {
@@ -158,8 +168,13 @@ header[role="banner"] {
     .dropdown-item {
         --bs-dropdown-link-color: #fff;
         --bs-dropdown-link-hover-color: #fff;
-        --bs-dropdown-link-hover-bg: #{darken($primary, 15%)};
+        --bs-dropdown-link-hover-bg: #{$global-navbar-item-hover};
         transition: background-color 0.2s ease;
+
+        @media (max-width: 767.98px) {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
     }
 
     .global-navbar-search {
@@ -170,7 +185,7 @@ header[role="banner"] {
             align-items: center;
 
             .form-control {
-                width: 12rem;
+                width: 8rem;
                 border-radius: 999px;
                 padding-right: 2.5rem;
                 background-color: transparent;
@@ -219,7 +234,7 @@ header[role="banner"] {
 
         @media (max-width: 767.98px) {
             width: 100%;
-            padding: 0 1rem 1rem;
+            padding: 0 0 1rem;
 
             .global-navbar-search-field {
                 display: flex;

@@ -11980,6 +11980,12 @@ header[role=banner] {
   --bs-nav-link-font-size: 0.9rem;
   --bs-nav-link-font-weight: 400;
 }
+@media (max-width: 767.98px) {
+  #global-navbar .navbar-collapse {
+    margin-left: calc(var(--bs-gutter-x) * 0.5 * -1);
+    margin-right: calc(var(--bs-gutter-x) * 0.5 * -1);
+  }
+}
 @media (min-width: 768px) {
   #global-navbar .nav-item {
     position: static;
@@ -11995,6 +12001,8 @@ header[role=banner] {
 @media (max-width: 767.98px) {
   #global-navbar .nav-item .nav-link {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 #global-navbar .nav-item.show > .nav-link {
@@ -12023,7 +12031,7 @@ header[role=banner] {
 @media (max-width: 767.98px) {
   #global-navbar .dropdown-menu {
     background-color: rgb(102.5, 0, 0);
-    padding-left: 1rem;
+    padding: 0;
     box-shadow: none;
   }
 }
@@ -12050,13 +12058,15 @@ header[role=banner] {
 @media (max-width: 767.98px) {
   #global-navbar .dropdown-group-title {
     color: #ffffff;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 #global-navbar .mobile-shortcuts-list .nav-link {
   color: #fff;
   border-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 #global-navbar .mobile-shortcuts-list .nav-link:hover, #global-navbar .mobile-shortcuts-list .nav-link:focus {
   color: #fff;
@@ -12067,13 +12077,19 @@ header[role=banner] {
   --bs-dropdown-link-hover-bg: rgb(51.5, 0, 0);
   transition: background-color 0.2s ease;
 }
+@media (max-width: 767.98px) {
+  #global-navbar .dropdown-item {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
 #global-navbar .global-navbar-search .global-navbar-search-field {
   position: relative;
   display: inline-flex;
   align-items: center;
 }
 #global-navbar .global-navbar-search .global-navbar-search-field .form-control {
-  width: 12rem;
+  width: 8rem;
   border-radius: 999px;
   padding-right: 2.5rem;
   background-color: transparent;
@@ -12113,7 +12129,7 @@ header[role=banner] {
 @media (max-width: 767.98px) {
   #global-navbar .global-navbar-search {
     width: 100%;
-    padding: 0 1rem 1rem;
+    padding: 0 0 1rem;
   }
   #global-navbar .global-navbar-search .global-navbar-search-field {
     display: flex;
