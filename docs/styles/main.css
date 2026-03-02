@@ -11974,44 +11974,41 @@ header[role=banner] {
 #global-navbar {
   background-color: #800000;
   position: relative;
+  --bs-navbar-color: #fff;
+  --bs-navbar-hover-color: #fff;
+  --bs-nav-link-padding-x: 1rem;
+  --bs-nav-link-font-size: 0.9rem;
+  --bs-nav-link-font-weight: 400;
 }
 @media (min-width: 992px) {
   #global-navbar .nav-item {
     position: static;
   }
 }
-#global-navbar .nav-link {
-  color: #ffffff;
-  font-weight: 400;
-  font-size: 0.9rem;
-  padding: 0.75rem 1rem;
+#global-navbar .nav-item .nav-link {
   transition: background-color 0.2s ease;
   white-space: nowrap;
 }
-#global-navbar .nav-link:hover, #global-navbar .nav-link:focus {
+#global-navbar .nav-item .nav-link:hover, #global-navbar .nav-item .nav-link:focus, #global-navbar .nav-item .nav-link.active, #global-navbar .nav-item .nav-link[aria-expanded=true] {
   background-color: #4d0000;
-  color: #ffffff;
 }
 @media (max-width: 991.98px) {
-  #global-navbar .nav-link {
-    padding: 0.75rem 1rem;
+  #global-navbar .nav-item .nav-link {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
-#global-navbar .nav-link.active,
-#global-navbar .nav-link[aria-expanded=true],
-#global-navbar .show > .nav-link {
+#global-navbar .nav-item.show > .nav-link {
   background-color: #4d0000;
-  color: #ffffff;
 }
 #global-navbar .dropdown-toggle::after {
   margin-left: 0.5rem;
 }
 #global-navbar .dropdown-menu {
-  border: none;
+  --bs-dropdown-border-width: 0;
+  --bs-dropdown-border-radius: 0;
+  --bs-dropdown-spacer: 0;
+  --bs-dropdown-item-padding-y: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  border-radius: 0;
-  margin-top: 0;
 }
 @media (min-width: 992px) {
   #global-navbar .dropdown-menu {
@@ -12027,7 +12024,6 @@ header[role=banner] {
   #global-navbar .dropdown-menu {
     background-color: rgb(102.5, 0, 0);
     padding-left: 1rem;
-    border: none;
     box-shadow: none;
   }
 }
@@ -12057,31 +12053,10 @@ header[role=banner] {
   }
 }
 #global-navbar .dropdown-item {
-  padding: 0.5rem 1rem;
-  color: #404040;
+  --bs-dropdown-link-color: #fff;
+  --bs-dropdown-link-hover-color: #fff;
+  --bs-dropdown-link-hover-bg: rgb(51.5, 0, 0);
   transition: background-color 0.2s ease;
-}
-#global-navbar .dropdown-item:hover, #global-navbar .dropdown-item:focus {
-  background-color: #D9D9D9;
-  color: #800000;
-}
-@media (max-width: 991.98px) {
-  #global-navbar .dropdown-item {
-    color: #ffffff;
-  }
-  #global-navbar .dropdown-item:hover, #global-navbar .dropdown-item:focus {
-    background-color: rgb(51.5, 0, 0);
-    color: #ffffff;
-  }
-}
-@media (min-width: 992px) {
-  #global-navbar .dropdown-item {
-    color: #ffffff;
-  }
-  #global-navbar .dropdown-item:hover, #global-navbar .dropdown-item:focus {
-    background-color: rgb(51.5, 0, 0);
-    color: #ffffff;
-  }
 }
 #global-navbar .global-navbar-search .global-navbar-search-field {
   position: relative;
@@ -12092,6 +12067,24 @@ header[role=banner] {
   width: 12rem;
   border-radius: 999px;
   padding-right: 2.5rem;
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+#global-navbar .global-navbar-search .global-navbar-search-field .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+#global-navbar .global-navbar-search .global-navbar-search-field .form-control::-webkit-search-cancel-button {
+  filter: invert(1);
+}
+#global-navbar .global-navbar-search .global-navbar-search-field .form-control:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+#global-navbar .global-navbar-search .global-navbar-search-field .form-control:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+  color: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
 }
 #global-navbar .global-navbar-search .global-navbar-search-field .global-navbar-search-button {
   position: absolute;
@@ -12100,13 +12093,13 @@ header[role=banner] {
   transform: translateY(-50%);
   border: 0;
   background: transparent;
-  color: #737373;
+  color: #fff;
   width: 2rem;
   height: 2rem;
   border-radius: 999px;
 }
 #global-navbar .global-navbar-search .global-navbar-search-field .global-navbar-search-button:hover, #global-navbar .global-navbar-search .global-navbar-search-field .global-navbar-search-button:focus {
-  color: #800000;
+  color: #fff;
 }
 @media (max-width: 991.98px) {
   #global-navbar .global-navbar-search {

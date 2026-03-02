@@ -54,38 +54,36 @@ header[role="banner"] {
 #global-navbar {
     background-color: $primary;
     position: relative;
+    --bs-navbar-color: #fff;
+    --bs-navbar-hover-color: #fff;
+    --bs-nav-link-padding-x: 1rem;
+    --bs-nav-link-font-size: 0.9rem;
+    --bs-nav-link-font-weight: 400;
 
     .nav-item {
         @media (min-width: 992px) {
             position: static;
         }
-    }
 
-    .nav-link {
-        color: #ffffff;
-        font-weight: 400;
-        font-size: 0.9rem;
-        padding: 0.75rem 1rem;
-        transition: background-color 0.2s ease;
-        white-space: nowrap;
+        .nav-link {
+            transition: background-color 0.2s ease;
+            white-space: nowrap;
 
-        &:hover,
-        &:focus {
+            &:hover,
+            &:focus,
+            &.active,
+            &[aria-expanded="true"] {
+                background-color: darken($primary, 10%);
+            }
+
+            @media (max-width: 991.98px) {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        &.show>.nav-link {
             background-color: darken($primary, 10%);
-            color: #ffffff;
         }
-
-        @media (max-width: 991.98px) {
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-    }
-
-    .nav-link.active,
-    .nav-link[aria-expanded="true"],
-    .show>.nav-link {
-        background-color: darken($primary, 10%);
-        color: #ffffff;
     }
 
     .dropdown-toggle::after {
@@ -94,10 +92,11 @@ header[role="banner"] {
 
     // Dropdown menus
     .dropdown-menu {
-        border: none;
+        --bs-dropdown-border-width: 0;
+        --bs-dropdown-border-radius: 0;
+        --bs-dropdown-spacer: 0;
+        --bs-dropdown-item-padding-y: 0.5rem;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        border-radius: 0;
-        margin-top: 0;
 
         @media (min-width: 992px) {
             position: absolute;
@@ -111,7 +110,6 @@ header[role="banner"] {
         @media (max-width: 991.98px) {
             background-color: darken($primary, 5%);
             padding-left: 1rem;
-            border: none;
             box-shadow: none;
         }
     }
@@ -144,38 +142,14 @@ header[role="banner"] {
     }
 
     .dropdown-item {
-        padding: 0.5rem 1rem;
-        color: $dark;
+        --bs-dropdown-link-color: #fff;
+        --bs-dropdown-link-hover-color: #fff;
+        --bs-dropdown-link-hover-bg: #{darken($primary, 15%)};
         transition: background-color 0.2s ease;
-
-        &:hover,
-        &:focus {
-            background-color: $light;
-            color: $primary;
-        }
-
-        @media (max-width: 991.98px) {
-            color: #ffffff;
-
-            &:hover,
-            &:focus {
-                background-color: darken($primary, 15%);
-                color: #ffffff;
-            }
-        }
-
-        @media (min-width: 992px) {
-            color: #ffffff;
-
-            &:hover,
-            &:focus {
-                background-color: darken($primary, 15%);
-                color: #ffffff;
-            }
-        }
     }
 
     .global-navbar-search {
+
         .global-navbar-search-field {
             position: relative;
             display: inline-flex;
@@ -185,6 +159,29 @@ header[role="banner"] {
                 width: 12rem;
                 border-radius: 999px;
                 padding-right: 2.5rem;
+                background-color: transparent;
+                border-color: #fff;
+                color: #fff;
+
+                &::placeholder {
+                    color: rgba(#fff, 0.75);
+                }
+
+                // White clear button for search inputs
+                &::-webkit-search-cancel-button {
+                    filter: invert(1);
+                }
+
+                &:hover {
+                    background-color: rgba(#fff, 0.1);
+                }
+
+                &:focus {
+                    background-color: rgba(#fff, 0.1);
+                    border-color: #fff;
+                    color: #fff;
+                    box-shadow: 0 0 0 0.2rem rgba(#fff, 0.25);
+                }
             }
 
             .global-navbar-search-button {
@@ -194,14 +191,14 @@ header[role="banner"] {
                 transform: translateY(-50%);
                 border: 0;
                 background: transparent;
-                color: $secondary;
+                color: #fff;
                 width: 2rem;
                 height: 2rem;
                 border-radius: 999px;
 
                 &:hover,
                 &:focus {
-                    color: $primary;
+                    color: #fff;
                 }
             }
         }
