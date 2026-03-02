@@ -19,14 +19,47 @@ title: "Revised Guides"
     border-bottom: 1px solid var(--bs-border-color);
   }
 
-  .guide-shortcut-btn {
+  .category-button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.35rem;
-    padding: 0.6rem 1.25rem;
-    font-size: 0.9rem;
-    font-weight: 500;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid #800000;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    min-height: 280px;
+  }
+
+  .category-button:hover {
+    background-color: #f8f9fa;
+    border-color: #800000;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(128, 0, 0, 0.15);
+  }
+
+  .category-button-icon {
+    font-size: 3rem;
+    color: #800000;
+    margin-bottom: 1rem;
+  }
+
+  .category-button-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #000;
+  }
+
+  .category-button-description {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
   }
 </style>
 
@@ -57,21 +90,45 @@ title: "Revised Guides"
 
   <div class="container-md py-4">
 
-    <!-- Compact shortcut buttons -->
-    <div class="d-flex flex-wrap gap-2 mb-4">
-      <button class="btn btn-outline-secondary guide-shortcut-btn" data-guide-tab="subject-guides-tab" type="button">
-        <i class="fa-solid fa-book fa-lg" aria-hidden="true"></i>
-        Subject Guides
-      </button>
-      <button class="btn btn-outline-secondary guide-shortcut-btn" data-guide-tab="popular-guides-tab" type="button">
-        <i class="fa-solid fa-star fa-lg" aria-hidden="true"></i>
-        Popular Guides
-      </button>
-      <button class="btn btn-outline-secondary guide-shortcut-btn" data-guide-tab="help-guides-tab" type="button">
-        <i class="fa-solid fa-lightbulb fa-lg" aria-hidden="true"></i>
-        Help Guides
-      </button>
-    </div>
+    <p class="lead text-muted mb-5">Find research guidance organized by subject, course, or topic.</p>
+
+    <!-- Category Buttons Grid -->
+    <div class="row g-4 mb-5">
+
+      <!-- Subject Guides -->
+      <div class="col-md-6 col-lg-4">
+        <button class="category-button w-100 border-0" data-guide-tab="subject-guides-tab" type="button">
+          <div class="category-button-icon">
+            <i class="fa-solid fa-book" aria-hidden="true"></i>
+          </div>
+          <div class="category-button-title">Subject Guides</div>
+          <p class="category-button-description">Choose from a broad list of academic disciplines for research. A great place to start!</p>
+        </button>
+      </div>
+
+      <!-- Popular Guides -->
+      <div class="col-md-6 col-lg-4">
+        <button class="category-button w-100 border-0" data-guide-tab="popular-guides-tab" type="button">
+          <div class="category-button-icon">
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+          </div>
+          <div class="category-button-title">Popular Guides</div>
+          <p class="category-button-description">Browse our most visited, newest, and featured guides.</p>
+        </button>
+      </div>
+
+      <!-- Help Guides -->
+      <div class="col-md-6 col-lg-4">
+        <button class="category-button w-100 border-0" data-guide-tab="help-guides-tab" type="button">
+          <div class="category-button-icon">
+            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+          </div>
+          <div class="category-button-title">Help Guides</div>
+          <p class="category-button-description">Explore resources on a variety of tools and topics.</p>
+        </button>
+      </div>
+
+    </div><!-- End Category Buttons Grid -->
 
     <!-- Guide Tabs -->
     <ul class="nav nav-tabs" id="guidesTabs" role="tablist">
@@ -101,7 +158,7 @@ title: "Revised Guides"
         </div>
 
         <div class="accordion" id="guidesAccordion">
-          <div class="row g-0">
+          <div class="row g-3">
             {% for category in guides.subjects %}
             <div class="col-md-6">
               <div class="accordion-item">
@@ -114,7 +171,7 @@ title: "Revised Guides"
                   <div class="accordion-body">
                     <ul class="list-unstyled mb-0">
                       {% for guide in category.guides %}
-                      <li><a href="{{ guide.url }}">{{ guide.title }}</a></li>
+                      <li class="py-1"><a href="{{ guide.url }}">{{ guide.title }}</a></li>
                       {% endfor %}
                     </ul>
                   </div>
