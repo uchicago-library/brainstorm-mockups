@@ -51,15 +51,9 @@ header[role="banner"] {
 }
 
 // Global Navigation Bar
-.global-navbar {
+#global-navbar {
     background-color: $primary;
     position: relative;
-
-    .navbar-nav {
-        @media (min-width: 992px) {
-            justify-content: space-around;
-        }
-    }
 
     .nav-item {
         @media (min-width: 992px) {
