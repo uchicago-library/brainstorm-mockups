@@ -22,6 +22,25 @@ title: "Revised Guides"
   .guides-header.sticky-top {
     z-index: 999;
   }
+
+  .guides-tabs .nav-link {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+  }
+
+  .guides-tabs .nav-link:hover,
+  .guides-tabs .nav-link:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-tertiary-bg);
+  }
+
+  .guides-tabs .nav-link.active,
+  .guides-tabs .show > .nav-link {
+    color: var(--bs-light);
+    background-color: var(--bs-dark);
+    border-color: var(--bs-dark);
+  }
 </style>
 
 <main class="mb-5">
@@ -79,7 +98,7 @@ title: "Revised Guides"
       <div class="col-md-6 col-lg-4">
         <button class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="subject-guides-tab" type="button">
           <div class="d-flex align-items-center mb-2">
-            <i class="fa-solid fa-book fs-2 me-2" aria-hidden="true"></i>
+            <i class="fa-solid fa-book fs-2 me-3" aria-hidden="true"></i>
             <span class="fw-semibold fs-5 d-block">Subject Guides</span>
           </div>
           <span class="small d-block">Choose from a broad list of academic disciplines for research. A great place to start!</span>
@@ -90,7 +109,7 @@ title: "Revised Guides"
       <div class="col-md-6 col-lg-4">
         <button class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="popular-guides-tab" type="button">
           <div class="d-flex align-items-center mb-2">
-            <i class="fa-solid fa-star fs-2 me-2" aria-hidden="true"></i>
+            <i class="fa-solid fa-star fs-2 me-3" aria-hidden="true"></i>
             <span class="fw-semibold fs-5 d-block">Popular Guides</span>
           </div>
           <span class="small d-block">Browse our most visited, newest, and featured guides.</span>
@@ -101,7 +120,7 @@ title: "Revised Guides"
       <div class="col-md-6 col-lg-4">
         <button class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="help-guides-tab" type="button">
           <div class="d-flex align-items-center mb-2">
-            <i class="fa-solid fa-lightbulb fs-2 me-2" aria-hidden="true"></i>
+            <i class="fa-solid fa-lightbulb fs-2 me-3" aria-hidden="true"></i>
             <span class="fw-semibold fs-5 d-block">Help Guides</span>
           </div>
           <span class="small d-block">Explore resources on a variety of tools and topics.</span>
@@ -111,25 +130,25 @@ title: "Revised Guides"
     </div><!-- End Category Buttons Grid -->
 
     <!-- Guide Tabs -->
-    <ul class="nav nav-tabs" id="guidesTabs" role="tablist">
+    <ul class="nav nav-pills guides-tabs gap-2 justify-content-between" id="guidesTabs" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="subject-guides-tab" data-bs-toggle="tab" data-bs-target="#subject-guides" type="button" role="tab" aria-controls="subject-guides" aria-selected="true">Subject Guides</button>
+        <button class="nav-link rounded-pill active" id="subject-guides-tab" data-bs-toggle="tab" data-bs-target="#subject-guides" type="button" role="tab" aria-controls="subject-guides" aria-selected="true"><i class="fa-solid fa-book me-1" aria-hidden="true"></i>Subject Guides</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="popular-guides-tab" data-bs-toggle="tab" data-bs-target="#popular-guides" type="button" role="tab" aria-controls="popular-guides" aria-selected="false">Popular Guides</button>
+        <button class="nav-link rounded-pill" id="popular-guides-tab" data-bs-toggle="tab" data-bs-target="#popular-guides" type="button" role="tab" aria-controls="popular-guides" aria-selected="false"><i class="fa-solid fa-star me-1" aria-hidden="true"></i>Popular Guides</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="course-guides-tab" data-bs-toggle="tab" data-bs-target="#course-guides" type="button" role="tab" aria-controls="course-guides" aria-selected="false">Course Guides</button>
+        <button class="nav-link rounded-pill" id="help-guides-tab" data-bs-toggle="tab" data-bs-target="#help-guides" type="button" role="tab" aria-controls="help-guides" aria-selected="false"><i class="fa-solid fa-lightbulb me-1" aria-hidden="true"></i>Help Guides</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="help-guides-tab" data-bs-toggle="tab" data-bs-target="#help-guides" type="button" role="tab" aria-controls="help-guides" aria-selected="false">Help Guides</button>
+        <button class="nav-link rounded-pill" id="course-guides-tab" data-bs-toggle="tab" data-bs-target="#course-guides" type="button" role="tab" aria-controls="course-guides" aria-selected="false">Course Guides</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="all-guides-tab" data-bs-toggle="tab" data-bs-target="#all-guides" type="button" role="tab" aria-controls="all-guides" aria-selected="false">All Guides</button>
+        <button class="nav-link rounded-pill" id="all-guides-tab" data-bs-toggle="tab" data-bs-target="#all-guides" type="button" role="tab" aria-controls="all-guides" aria-selected="false">All Guides</button>
       </li>
     </ul>
 
-    <div class="tab-content border border-top-0 p-4 mb-4" id="guidesTabsContent">
+    <div class="tab-content mb-4" id="guidesTabsContent">
 
       <!-- Subject Guides Tab -->
       <div class="tab-pane fade show active" id="subject-guides" role="tabpanel" aria-labelledby="subject-guides-tab" tabindex="0">
@@ -201,14 +220,14 @@ title: "Revised Guides"
         </div>
       </div>
 
-      <!-- Course Guides Tab -->
-      <div class="tab-pane fade" id="course-guides" role="tabpanel" aria-labelledby="course-guides-tab" tabindex="0">
-        <p>Course Guides content coming soon.</p>
-      </div>
-
       <!-- Help Guides Tab -->
       <div class="tab-pane fade" id="help-guides" role="tabpanel" aria-labelledby="help-guides-tab" tabindex="0">
         <p>Help Guides content coming soon.</p>
+      </div>
+
+      <!-- Course Guides Tab -->
+      <div class="tab-pane fade" id="course-guides" role="tabpanel" aria-labelledby="course-guides-tab" tabindex="0">
+        <p>Course Guides content coming soon.</p>
       </div>
 
       <!-- All Guides Tab -->
