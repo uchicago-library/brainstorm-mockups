@@ -1,0 +1,288 @@
+---
+title: "Revised Guides"
+---
+
+{% include "header.html" %}
+
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ '/design_mockups/' | url }}">Mockups</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+  </ol>
+</nav>
+
+<style>
+  .guides-header {
+    background-color: var(--bs-body-bg);
+    border-bottom: 1px solid var(--bs-border-color);
+  }
+
+  .guides-header.sticky-top {
+    z-index: 999;
+  }
+
+  .guides-tabs .nav-link {
+    color: var(--bs-body-color);
+    background-color: var(--bs-tertiary-bg);
+    border: 1px solid var(--bs-border-color);
+  }
+
+  .guides-tabs .nav-link:hover,
+  .guides-tabs .nav-link:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-secondary-bg);
+  }
+
+  .guides-tabs .nav-link i {
+    color: var(--bs-secondary-color);
+  }
+
+  .guides-tabs .nav-link.active,
+  .guides-tabs .show > .nav-link {
+    color: var(--bs-white);
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+  }
+
+  .guides-tabs .nav-link.active i,
+  .guides-tabs .show > .nav-link i {
+    color: currentColor;
+  }
+</style>
+
+<main class="mb-5">
+
+  <!-- Guides Header -->
+  <div class="guides-header sticky-top py-2">
+    <div class="container-md">
+      <div class="row align-items-end g-2">
+        <div class="col">
+          <h1 class="mb-0 fs-2 fw-semibold">Research Guides</h1>
+        </div>
+        <div class="col-auto d-md-none">
+          <button class="btn btn-outline-dark" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#guide-search-mobile"
+                  aria-expanded="false" aria-controls="guide-search-mobile"
+                  aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="col-md-5 ms-md-auto d-none d-md-block">
+          <div class="input-group">
+            <a href="#" class="btn btn-outline-dark" aria-label="Guides home">
+              <i class="fa-solid fa-house" aria-hidden="true"></i>
+            </a>
+            <input type="search" class="form-control" placeholder="Search library guides…" aria-label="Search library guides">
+            <button class="btn btn-primary" type="button">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <span class="ms-1">Search</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="collapse d-md-none" id="guide-search-mobile">
+        <div class="input-group mt-2">
+          <a href="#" class="btn btn-outline-dark" aria-label="Guides home">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+          </a>
+          <input type="search" class="form-control" placeholder="Search library guides…" aria-label="Search library guides">
+          <button class="btn btn-primary" type="button">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-md py-4">
+
+    <p class="lead text-muted mb-5">Find research guidance organized by subject, course, or topic.</p>
+
+    <!-- Category Buttons Grid -->
+    <div class="row g-4 mb-5">
+
+      <!-- Subject Guides -->
+      <div class="col-md-6 col-lg-4">
+        <button class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="subject-guides-tab" type="button">
+          <div class="d-flex align-items-center mb-2">
+            <i class="fa-solid fa-book fs-2 me-3" aria-hidden="true"></i>
+            <span class="fw-semibold fs-5 d-block">Subject Guides</span>
+          </div>
+          <span class="small d-block">Choose from a broad list of academic disciplines for research. A great place to start!</span>
+        </button>
+      </div>
+
+      <!-- Popular Guides -->
+      <div class="col-md-6 col-lg-4">
+        <button class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="popular-guides-tab" type="button">
+          <div class="d-flex align-items-center mb-2">
+            <i class="fa-solid fa-star fs-2 me-3" aria-hidden="true"></i>
+            <span class="fw-semibold fs-5 d-block">Popular Guides</span>
+          </div>
+          <span class="small d-block">Browse our most visited, newest, and featured guides.</span>
+        </button>
+      </div>
+
+      <!-- Help Guides -->
+      <div class="col-md-6 col-lg-4">
+        <button class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="help-guides-tab" type="button">
+          <div class="d-flex align-items-center mb-2">
+            <i class="fa-solid fa-lightbulb fs-2 me-3" aria-hidden="true"></i>
+            <span class="fw-semibold fs-5 d-block">Help Guides</span>
+          </div>
+          <span class="small d-block">Explore resources on a variety of tools and topics.</span>
+        </button>
+      </div>
+
+    </div><!-- End Category Buttons Grid -->
+
+    <!-- Guide Tabs -->
+    <ul class="nav nav-pills guides-tabs gap-2" id="guidesTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-pill active" id="subject-guides-tab" data-bs-toggle="tab" data-bs-target="#subject-guides" type="button" role="tab" aria-controls="subject-guides" aria-selected="true"><i class="fa-solid fa-book me-1" aria-hidden="true"></i>Subject Guides</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-pill" id="popular-guides-tab" data-bs-toggle="tab" data-bs-target="#popular-guides" type="button" role="tab" aria-controls="popular-guides" aria-selected="false"><i class="fa-solid fa-star me-1" aria-hidden="true"></i>Popular Guides</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-pill" id="help-guides-tab" data-bs-toggle="tab" data-bs-target="#help-guides" type="button" role="tab" aria-controls="help-guides" aria-selected="false"><i class="fa-solid fa-lightbulb me-1" aria-hidden="true"></i>Help Guides</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-pill" id="course-guides-tab" data-bs-toggle="tab" data-bs-target="#course-guides" type="button" role="tab" aria-controls="course-guides" aria-selected="false">Course Guides</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link rounded-pill" id="all-guides-tab" data-bs-toggle="tab" data-bs-target="#all-guides" type="button" role="tab" aria-controls="all-guides" aria-selected="false">All Guides</button>
+      </li>
+    </ul>
+
+    <div class="tab-content mb-4" id="guidesTabsContent">
+
+      <!-- Subject Guides Tab -->
+      <div class="tab-pane fade show active" id="subject-guides" role="tabpanel" aria-labelledby="subject-guides-tab" tabindex="0">
+
+        <div class="d-flex justify-content-end mb-3">
+          <button class="btn btn-link btn-sm text-muted p-0" id="toggle-all-btn" type="button" aria-expanded="false">
+            <i class="fa-solid fa-angles-down me-1" aria-hidden="true"></i>Expand all
+          </button>
+        </div>
+
+        <div class="accordion" id="guidesAccordion">
+          <div class="row g-3">
+            {% for category in guides.subjects %}
+            <div class="col-md-6">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ category.id }}" aria-expanded="false" aria-controls="collapse-{{ category.id }}">
+                    {{ category.title }}
+                  </button>
+                </h2>
+                <div id="collapse-{{ category.id }}" class="accordion-collapse collapse">
+                  <div class="accordion-body">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
+                      {% for guide in category.guides %}
+                      <li><a href="{{ guide.url }}">{{ guide.title }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Popular Guides Tab -->
+      <div class="tab-pane fade" id="popular-guides" role="tabpanel" aria-labelledby="popular-guides-tab" tabindex="0">
+        <div class="row g-4">
+
+          <div class="col-md-4">
+            <h3>New</h3>
+            <ul class="list-unstyled">
+              {% for guide in guides.newGuides %}
+              <li><a href="{{ guide.url }}">{{ guide.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <h3>Popular</h3>
+            <ul class="list-unstyled">
+              {% for guide in guides.popularGuides %}
+              <li><a href="{{ guide.url }}">{{ guide.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <h3>Featured</h3>
+            <ul class="list-unstyled">
+              {% for guide in guides.featuredGuides %}
+              <li><a href="{{ guide.url }}">{{ guide.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Help Guides Tab -->
+      <div class="tab-pane fade" id="help-guides" role="tabpanel" aria-labelledby="help-guides-tab" tabindex="0">
+        <div class="py-3">
+          <p>Help Guides content coming soon.</p>
+        </div>
+      </div>
+
+      <!-- Course Guides Tab -->
+      <div class="tab-pane fade" id="course-guides" role="tabpanel" aria-labelledby="course-guides-tab" tabindex="0">
+        <div class="py-3">
+          <p>Course Guides content coming soon.</p>
+        </div>
+      </div>
+
+      <!-- All Guides Tab -->
+      <div class="tab-pane fade" id="all-guides" role="tabpanel" aria-labelledby="all-guides-tab" tabindex="0">
+        <div class="py-3">
+          <p>All Guides content coming soon.</p>
+        </div>
+      </div>
+
+    </div>
+
+    {% set current = "revised" %}
+    {% include "mockup-nav/page-nav.html" %}
+
+  </div>
+</main>
+
+<script>
+  // Shortcut buttons activate their respective tabs
+  document.querySelectorAll('[data-guide-tab]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var targetId = btn.getAttribute('data-guide-tab');
+      var tabEl = document.getElementById(targetId);
+      if (tabEl) {
+        bootstrap.Tab.getOrCreateInstance(tabEl).show();
+      }
+    });
+  });
+
+  // Expand / collapse all accordions
+  var toggleBtn = document.getElementById('toggle-all-btn');
+  var expanded = false;
+  toggleBtn.addEventListener('click', function () {
+    expanded = !expanded;
+    document.querySelectorAll('#guidesAccordion .accordion-collapse').forEach(function (el) {
+      bootstrap.Collapse.getOrCreateInstance(el, { toggle: false })[expanded ? 'show' : 'hide']();
+    });
+    toggleBtn.innerHTML = expanded
+      ? '<i class="fa-solid fa-angles-up me-1" aria-hidden="true"></i>Collapse all'
+      : '<i class="fa-solid fa-angles-down me-1" aria-hidden="true"></i>Expand all';
+    toggleBtn.setAttribute('aria-expanded', expanded);
+  });
+</script>
+
+{% include "footer.html" %}

@@ -1,0 +1,215 @@
+{
+  "subjects": [
+    {
+      "id": "area-cultural",
+      "title": "Area & Cultural Studies",
+      "guides": [
+        { "title": "African Studies", "url": "#" },
+        { "title": "Chinese Studies", "url": "#" },
+        { "title": "Japanese Studies", "url": "#" },
+        { "title": "Jewish Studies", "url": "#" },
+        { "title": "Korean Studies", "url": "#" },
+        { "title": "Latin American Studies", "url": "#" },
+        { "title": "Medieval & Byzantine Studies", "url": "#" },
+        { "title": "Middle East", "url": "#" },
+        { "title": "Slavic / Eastern Europe / Eurasia", "url": "#" },
+        { "title": "Southern Asia", "url": "#" }
+      ]
+    },
+    {
+      "id": "ai",
+      "title": "Artificial Intelligence",
+      "guides": [
+        { "title": "Generative AI", "url": "#" },
+        { "title": "Generative AI in Legal Research, Education, and Practice", "url": "#" },
+        { "title": "AI in Medicine", "url": "#" }
+      ]
+    },
+    {
+      "id": "business",
+      "title": "Business",
+      "guides": [
+        { "title": "Annual Reports and Corporate Filings", "url": "#" },
+        { "title": "Business and Economics", "url": "#" },
+        { "title": "Business Plans", "url": "#" },
+        { "title": "Case Studies", "url": "#" },
+        { "title": "Citation Management", "url": "#" },
+        { "title": "Company Information", "url": "#" },
+        { "title": "Conducting Industry Research", "url": "#" },
+        { "title": "Country Information", "url": "#" }
+      ]
+    },
+    {
+      "id": "digital-scholarship",
+      "title": "Digital Scholarship",
+      "guides": [
+        { "title": "Digital Scholarship", "url": "#" },
+        { "title": "Author and Research Identifiers", "url": "#" },
+        { "title": "Data Management", "url": "#" },
+        { "title": "Data Repositories", "url": "#" },
+        { "title": "Digital Exhibits with Omeka", "url": "#" },
+        { "title": "Open Access", "url": "#" },
+        { "title": "Text & Data Mining", "url": "#" }
+      ]
+    },
+    {
+      "id": "humanities",
+      "title": "Humanities",
+      "guides": [
+        { "title": "Ancient Near East", "url": "#" },
+        { "title": "Art History & Visual Arts", "url": "#" },
+        { "title": "Cinema & Media Studies", "url": "#" },
+        { "title": "Classics", "url": "#" },
+        { "title": "Humanities, General", "url": "#" },
+        { "title": "Linguistics", "url": "#" },
+        { "title": "Music", "url": "#" },
+        { "title": "Philosophy", "url": "#" },
+        { "title": "Religion", "url": "#" },
+        { "title": "Theater", "url": "#" }
+      ]
+    },
+    {
+      "id": "law",
+      "title": "Law",
+      "guides": [
+        { "title": "D'Angelo Law Library Guides", "url": "#" },
+        { "title": "U.S. Legal Research for Non-Lawyers", "url": "#" },
+        { "title": "Administrative Law", "url": "#" },
+        { "title": "Advanced Searching on Bloomberg Law, Lexis, and Westlaw", "url": "#" },
+        { "title": "Antitrust Law", "url": "#" },
+        { "title": "Citation Management for Law Students", "url": "#" },
+        { "title": "Consumer Protection Law", "url": "#" },
+        { "title": "Contract Drafting", "url": "#" },
+        { "title": "Earl B. Dickerson Research Guide", "url": "#" },
+        { "title": "Election Law", "url": "#" },
+        { "title": "Environmental Law", "url": "#" }
+      ]
+    },
+    {
+      "id": "literature",
+      "title": "Literature",
+      "guides": [
+        { "title": "Creative Writing", "url": "#" },
+        { "title": "English Literature", "url": "#" },
+        { "title": "French Literature", "url": "#" },
+        { "title": "German Literature", "url": "#" },
+        { "title": "Italian Literature", "url": "#" },
+        { "title": "Scandinavian Literatures", "url": "#" },
+        { "title": "Slavic & East European Literature", "url": "#" },
+        { "title": "Spanish, Portuguese & Catalan Literatures", "url": "#" },
+        { "title": "Theater", "url": "#" }
+      ]
+    },
+    {
+      "id": "medicine",
+      "title": "Medicine",
+      "guides": [
+        { "title": "History of Medicine", "url": "#" },
+        { "title": "Medicine", "url": "#" },
+        { "title": "Nursing", "url": "#" },
+        { "title": "Pediatrics", "url": "#" },
+        { "title": "Biological Sciences - Molecular & Cell Biology", "url": "#" },
+        { "title": "Biological Sciences - Organismal Biology", "url": "#" },
+        { "title": "Biomedical Informatics", "url": "#" },
+        { "title": "COVID-19", "url": "#" },
+        { "title": "Evidence-Based Medicine", "url": "#" },
+        { "title": "Medical Writing & Editing", "url": "#" }
+      ]
+    },
+    {
+      "id": "sciences-biological",
+      "title": "Sciences, Biological",
+      "guides": [
+        { "title": "Biomedical Informatics", "url": "#" },
+        { "title": "Environmental Science", "url": "#" },
+        { "title": "History of Medicine", "url": "#" },
+        { "title": "History of Science", "url": "#" },
+        { "title": "Molecular & Cell Biology", "url": "#" },
+        { "title": "Organismal Biology", "url": "#" }
+      ]
+    },
+    {
+      "id": "sciences-physical",
+      "title": "Sciences, Physical",
+      "guides": [
+        { "title": "Astronomy & Astrophysics", "url": "#" },
+        { "title": "Chemistry", "url": "#" },
+        { "title": "Computer Science", "url": "#" },
+        { "title": "Financial Mathematics", "url": "#" },
+        { "title": "Geophysical Sciences", "url": "#" },
+        { "title": "History of Science", "url": "#" },
+        { "title": "Mathematics", "url": "#" },
+        { "title": "Molecular Engineering", "url": "#" },
+        { "title": "Physics", "url": "#" },
+        { "title": "Statistics", "url": "#" },
+        { "title": "Weather & Climatology", "url": "#" }
+      ]
+    },
+    {
+      "id": "social-sciences",
+      "title": "Social Sciences",
+      "guides": [
+        { "title": "African-American Studies", "url": "#" },
+        { "title": "Anthropology", "url": "#" },
+        { "title": "Chicago Studies", "url": "#" },
+        { "title": "Computational Social Science", "url": "#" },
+        { "title": "Economics", "url": "#" },
+        { "title": "Education", "url": "#" },
+        { "title": "Geography", "url": "#" },
+        { "title": "History", "url": "#" },
+        { "title": "International Relations", "url": "#" },
+        { "title": "LGBTQIA Studies", "url": "#" },
+        { "title": "Political Science", "url": "#" },
+        { "title": "Psychology", "url": "#" },
+        { "title": "Public Policy", "url": "#" }
+      ]
+    },
+    {
+      "id": "social-work",
+      "title": "Social Work",
+      "guides": [
+        { "title": "Education", "url": "#" },
+        { "title": "How do I find reviews?", "url": "#" },
+        { "title": "ICPSR", "url": "#" },
+        { "title": "Public Policy", "url": "#" },
+        { "title": "Religion", "url": "#" },
+        { "title": "Social Work", "url": "#" },
+        { "title": "Tests & Measures", "url": "#" },
+        { "title": "Women's Studies", "url": "#" }
+      ]
+    },
+    {
+      "id": "special-collections",
+      "title": "Special Collections",
+      "guides": [
+        { "title": "Special Collections Research Center", "url": "#" },
+        { "title": "Requesting Materials from SCRC", "url": "#" },
+        { "title": "Archives and Manuscripts by Subject", "url": "#" },
+        { "title": "Rare Books by Subject", "url": "#" },
+        { "title": "SCRC Digital Resources", "url": "#" },
+        { "title": "Special Collections Research Center COVID-19 Archive", "url": "#" }
+      ]
+    }
+  ],
+  "newGuides": [
+    { "title": "AI Research Tools in Academia", "url": "#" },
+    { "title": "Open Access Publishing Guide", "url": "#" },
+    { "title": "Data Visualization Resources", "url": "#" },
+    { "title": "Qualitative Research Methods", "url": "#" },
+    { "title": "Digital Humanities Tools", "url": "#" }
+  ],
+  "popularGuides": [
+    { "title": "Introduction to Academic Research", "url": "#" },
+    { "title": "Finding Peer-Reviewed Articles", "url": "#" },
+    { "title": "Citation Management Tools", "url": "#" },
+    { "title": "Evaluating Sources", "url": "#" },
+    { "title": "Using the Library Catalog", "url": "#" }
+  ],
+  "featuredGuides": [
+    { "title": "Special Collections Research Center", "url": "#" },
+    { "title": "Generative AI", "url": "#" },
+    { "title": "Business and Economics", "url": "#" },
+    { "title": "Evidence-Based Medicine", "url": "#" },
+    { "title": "Digital Scholarship", "url": "#" }
+  ]
+}
