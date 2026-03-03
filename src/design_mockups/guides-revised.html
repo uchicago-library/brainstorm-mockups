@@ -19,47 +19,8 @@ title: "Revised Guides"
     border-bottom: 1px solid var(--bs-border-color);
   }
 
-  .category-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    text-decoration: none;
-    color: inherit;
-    border: 2px solid #800000;
-    border-radius: 0.5rem;
-    background-color: #ffffff;
-    transition: all 0.3s ease;
-    min-height: 280px;
-  }
-
-  .category-button:hover {
-    background-color: #f8f9fa;
-    border-color: #800000;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(128, 0, 0, 0.15);
-  }
-
-  .category-button-icon {
-    font-size: 3rem;
-    color: #800000;
-    margin-bottom: 1rem;
-  }
-
-  .category-button-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    color: #000;
-  }
-
-  .category-button-description {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.5;
-    margin: 0;
+  .guides-header.sticky-top {
+    z-index: 999;
   }
 </style>
 
@@ -69,10 +30,18 @@ title: "Revised Guides"
   <div class="guides-header sticky-top py-2">
     <div class="container-md">
       <div class="row align-items-center g-2">
-        <div class="col-auto">
-          <h1 class="mb-0 fs-4 fw-semibold">Research Guides</h1>
+        <div class="col">
+          <h1 class="mb-0 fs-2 fw-semibold">Research Guides</h1>
         </div>
-        <div class="col col-md-5 ms-md-auto">
+        <div class="col-auto d-md-none">
+          <button class="btn btn-outline-secondary" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#guide-search-mobile"
+                  aria-expanded="false" aria-controls="guide-search-mobile"
+                  aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="col-md-5 ms-md-auto d-none d-md-block">
           <div class="input-group">
             <a href="#" class="btn btn-outline-secondary" aria-label="Guides home">
               <i class="fa-solid fa-house" aria-hidden="true"></i>
@@ -80,9 +49,20 @@ title: "Revised Guides"
             <input type="search" class="form-control" placeholder="Search library guides…" aria-label="Search library guides">
             <button class="btn btn-primary" type="button">
               <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-              <span class="ms-1 d-none d-sm-inline">Search</span>
+              <span class="ms-1">Search</span>
             </button>
           </div>
+        </div>
+      </div>
+      <div class="collapse d-md-none" id="guide-search-mobile">
+        <div class="input-group mt-2">
+          <a href="#" class="btn btn-outline-secondary" aria-label="Guides home">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+          </a>
+          <input type="search" class="form-control" placeholder="Search library guides…" aria-label="Search library guides">
+          <button class="btn btn-primary" type="button">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -97,34 +77,28 @@ title: "Revised Guides"
 
       <!-- Subject Guides -->
       <div class="col-md-6 col-lg-4">
-        <button class="category-button w-100 border-0" data-guide-tab="subject-guides-tab" type="button">
-          <div class="category-button-icon">
-            <i class="fa-solid fa-book" aria-hidden="true"></i>
-          </div>
-          <div class="category-button-title">Subject Guides</div>
-          <p class="category-button-description">Choose from a broad list of academic disciplines for research. A great place to start!</p>
+        <button class="btn btn-outline-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="subject-guides-tab" type="button">
+          <i class="fa-solid fa-book fs-2 mb-3" aria-hidden="true"></i>
+          <span class="fw-semibold fs-5 d-block mb-2">Subject Guides</span>
+          <span class="small d-block">Choose from a broad list of academic disciplines for research. A great place to start!</span>
         </button>
       </div>
 
       <!-- Popular Guides -->
       <div class="col-md-6 col-lg-4">
-        <button class="category-button w-100 border-0" data-guide-tab="popular-guides-tab" type="button">
-          <div class="category-button-icon">
-            <i class="fa-solid fa-star" aria-hidden="true"></i>
-          </div>
-          <div class="category-button-title">Popular Guides</div>
-          <p class="category-button-description">Browse our most visited, newest, and featured guides.</p>
+        <button class="btn btn-outline-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="popular-guides-tab" type="button">
+          <i class="fa-solid fa-star fs-2 mb-3" aria-hidden="true"></i>
+          <span class="fw-semibold fs-5 d-block mb-2">Popular Guides</span>
+          <span class="small d-block">Browse our most visited, newest, and featured guides.</span>
         </button>
       </div>
 
       <!-- Help Guides -->
       <div class="col-md-6 col-lg-4">
-        <button class="category-button w-100 border-0" data-guide-tab="help-guides-tab" type="button">
-          <div class="category-button-icon">
-            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
-          </div>
-          <div class="category-button-title">Help Guides</div>
-          <p class="category-button-description">Explore resources on a variety of tools and topics.</p>
+        <button class="btn btn-outline-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="help-guides-tab" type="button">
+          <i class="fa-solid fa-lightbulb fs-2 mb-3" aria-hidden="true"></i>
+          <span class="fw-semibold fs-5 d-block mb-2">Help Guides</span>
+          <span class="small d-block">Explore resources on a variety of tools and topics.</span>
         </button>
       </div>
 
@@ -169,9 +143,9 @@ title: "Revised Guides"
                 </h2>
                 <div id="collapse-{{ category.id }}" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
                       {% for guide in category.guides %}
-                      <li class="py-1"><a href="{{ guide.url }}">{{ guide.title }}</a></li>
+                      <li><a href="{{ guide.url }}">{{ guide.title }}</a></li>
                       {% endfor %}
                     </ul>
                   </div>

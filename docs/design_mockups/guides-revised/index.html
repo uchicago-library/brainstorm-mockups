@@ -457,47 +457,8 @@
     border-bottom: 1px solid var(--bs-border-color);
   }
 
-  .category-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    text-decoration: none;
-    color: inherit;
-    border: 2px solid #800000;
-    border-radius: 0.5rem;
-    background-color: #ffffff;
-    transition: all 0.3s ease;
-    min-height: 280px;
-  }
-
-  .category-button:hover {
-    background-color: #f8f9fa;
-    border-color: #800000;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(128, 0, 0, 0.15);
-  }
-
-  .category-button-icon {
-    font-size: 3rem;
-    color: #800000;
-    margin-bottom: 1rem;
-  }
-
-  .category-button-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    color: #000;
-  }
-
-  .category-button-description {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.5;
-    margin: 0;
+  .guides-header.sticky-top {
+    z-index: 999;
   }
 </style>
 
@@ -507,10 +468,18 @@
   <div class="guides-header sticky-top py-2">
     <div class="container-md">
       <div class="row align-items-center g-2">
-        <div class="col-auto">
-          <h1 class="mb-0 fs-4 fw-semibold">Research Guides</h1>
+        <div class="col">
+          <h1 class="mb-0 fs-2 fw-semibold">Research Guides</h1>
         </div>
-        <div class="col col-md-5 ms-md-auto">
+        <div class="col-auto d-md-none">
+          <button class="btn btn-outline-secondary" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#guide-search-mobile"
+                  aria-expanded="false" aria-controls="guide-search-mobile"
+                  aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="col-md-5 ms-md-auto d-none d-md-block">
           <div class="input-group">
             <a href="#" class="btn btn-outline-secondary" aria-label="Guides home">
               <i class="fa-solid fa-house" aria-hidden="true"></i>
@@ -518,9 +487,20 @@
             <input type="search" class="form-control" placeholder="Search library guides…" aria-label="Search library guides">
             <button class="btn btn-primary" type="button">
               <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-              <span class="ms-1 d-none d-sm-inline">Search</span>
+              <span class="ms-1">Search</span>
             </button>
           </div>
+        </div>
+      </div>
+      <div class="collapse d-md-none" id="guide-search-mobile">
+        <div class="input-group mt-2">
+          <a href="#" class="btn btn-outline-secondary" aria-label="Guides home">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+          </a>
+          <input type="search" class="form-control" placeholder="Search library guides…" aria-label="Search library guides">
+          <button class="btn btn-primary" type="button">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -535,34 +515,28 @@
 
       <!-- Subject Guides -->
       <div class="col-md-6 col-lg-4">
-        <button class="category-button w-100 border-0" data-guide-tab="subject-guides-tab" type="button">
-          <div class="category-button-icon">
-            <i class="fa-solid fa-book" aria-hidden="true"></i>
-          </div>
-          <div class="category-button-title">Subject Guides</div>
-          <p class="category-button-description">Choose from a broad list of academic disciplines for research. A great place to start!</p>
+        <button class="btn btn-outline-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="subject-guides-tab" type="button">
+          <i class="fa-solid fa-book fs-2 mb-3" aria-hidden="true"></i>
+          <span class="fw-semibold fs-5 d-block mb-2">Subject Guides</span>
+          <span class="small d-block">Choose from a broad list of academic disciplines for research. A great place to start!</span>
         </button>
       </div>
 
       <!-- Popular Guides -->
       <div class="col-md-6 col-lg-4">
-        <button class="category-button w-100 border-0" data-guide-tab="popular-guides-tab" type="button">
-          <div class="category-button-icon">
-            <i class="fa-solid fa-star" aria-hidden="true"></i>
-          </div>
-          <div class="category-button-title">Popular Guides</div>
-          <p class="category-button-description">Browse our most visited, newest, and featured guides.</p>
+        <button class="btn btn-outline-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="popular-guides-tab" type="button">
+          <i class="fa-solid fa-star fs-2 mb-3" aria-hidden="true"></i>
+          <span class="fw-semibold fs-5 d-block mb-2">Popular Guides</span>
+          <span class="small d-block">Browse our most visited, newest, and featured guides.</span>
         </button>
       </div>
 
       <!-- Help Guides -->
       <div class="col-md-6 col-lg-4">
-        <button class="category-button w-100 border-0" data-guide-tab="help-guides-tab" type="button">
-          <div class="category-button-icon">
-            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
-          </div>
-          <div class="category-button-title">Help Guides</div>
-          <p class="category-button-description">Explore resources on a variety of tools and topics.</p>
+        <button class="btn btn-outline-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="help-guides-tab" type="button">
+          <i class="fa-solid fa-lightbulb fs-2 mb-3" aria-hidden="true"></i>
+          <span class="fw-semibold fs-5 d-block mb-2">Help Guides</span>
+          <span class="small d-block">Explore resources on a variety of tools and topics.</span>
         </button>
       </div>
 
@@ -607,27 +581,27 @@
                 </h2>
                 <div id="collapse-area-cultural" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
                       
-                      <li class="py-1"><a href="#">African Studies</a></li>
+                      <li><a href="#">African Studies</a></li>
                       
-                      <li class="py-1"><a href="#">Chinese Studies</a></li>
+                      <li><a href="#">Chinese Studies</a></li>
                       
-                      <li class="py-1"><a href="#">Japanese Studies</a></li>
+                      <li><a href="#">Japanese Studies</a></li>
                       
-                      <li class="py-1"><a href="#">Jewish Studies</a></li>
+                      <li><a href="#">Jewish Studies</a></li>
                       
-                      <li class="py-1"><a href="#">Korean Studies</a></li>
+                      <li><a href="#">Korean Studies</a></li>
                       
-                      <li class="py-1"><a href="#">Latin American Studies</a></li>
+                      <li><a href="#">Latin American Studies</a></li>
                       
-                      <li class="py-1"><a href="#">Medieval &amp; Byzantine Studies</a></li>
+                      <li><a href="#">Medieval &amp; Byzantine Studies</a></li>
                       
-                      <li class="py-1"><a href="#">Middle East</a></li>
+                      <li><a href="#">Middle East</a></li>
                       
-                      <li class="py-1"><a href="#">Slavic / Eastern Europe / Eurasia</a></li>
+                      <li><a href="#">Slavic / Eastern Europe / Eurasia</a></li>
                       
-                      <li class="py-1"><a href="#">Southern Asia</a></li>
+                      <li><a href="#">Southern Asia</a></li>
                       
                     </ul>
                   </div>
@@ -644,13 +618,13 @@
                 </h2>
                 <div id="collapse-ai" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
                       
-                      <li class="py-1"><a href="#">Generative AI</a></li>
+                      <li><a href="#">Generative AI</a></li>
                       
-                      <li class="py-1"><a href="#">Generative AI in Legal Research, Education, and Practice</a></li>
+                      <li><a href="#">Generative AI in Legal Research, Education, and Practice</a></li>
                       
-                      <li class="py-1"><a href="#">AI in Medicine</a></li>
+                      <li><a href="#">AI in Medicine</a></li>
                       
                     </ul>
                   </div>
@@ -667,23 +641,23 @@
                 </h2>
                 <div id="collapse-business" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
                       
-                      <li class="py-1"><a href="#">Annual Reports and Corporate Filings</a></li>
+                      <li><a href="#">Annual Reports and Corporate Filings</a></li>
                       
-                      <li class="py-1"><a href="#">Business and Economics</a></li>
+                      <li><a href="#">Business and Economics</a></li>
                       
-                      <li class="py-1"><a href="#">Business Plans</a></li>
+                      <li><a href="#">Business Plans</a></li>
                       
-                      <li class="py-1"><a href="#">Case Studies</a></li>
+                      <li><a href="#">Case Studies</a></li>
                       
-                      <li class="py-1"><a href="#">Citation Management</a></li>
+                      <li><a href="#">Citation Management</a></li>
                       
-                      <li class="py-1"><a href="#">Company Information</a></li>
+                      <li><a href="#">Company Information</a></li>
                       
-                      <li class="py-1"><a href="#">Conducting Industry Research</a></li>
+                      <li><a href="#">Conducting Industry Research</a></li>
                       
-                      <li class="py-1"><a href="#">Country Information</a></li>
+                      <li><a href="#">Country Information</a></li>
                       
                     </ul>
                   </div>
@@ -700,21 +674,21 @@
                 </h2>
                 <div id="collapse-digital-scholarship" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
                       
-                      <li class="py-1"><a href="#">Digital Scholarship</a></li>
+                      <li><a href="#">Digital Scholarship</a></li>
                       
-                      <li class="py-1"><a href="#">Author and Research Identifiers</a></li>
+                      <li><a href="#">Author and Research Identifiers</a></li>
                       
-                      <li class="py-1"><a href="#">Data Management</a></li>
+                      <li><a href="#">Data Management</a></li>
                       
-                      <li class="py-1"><a href="#">Data Repositories</a></li>
+                      <li><a href="#">Data Repositories</a></li>
                       
-                      <li class="py-1"><a href="#">Digital Exhibits with Omeka</a></li>
+                      <li><a href="#">Digital Exhibits with Omeka</a></li>
                       
-                      <li class="py-1"><a href="#">Open Access</a></li>
+                      <li><a href="#">Open Access</a></li>
                       
-                      <li class="py-1"><a href="#">Text &amp; Data Mining</a></li>
+                      <li><a href="#">Text &amp; Data Mining</a></li>
                       
                     </ul>
                   </div>
@@ -731,27 +705,27 @@
                 </h2>
                 <div id="collapse-humanities" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
                       
-                      <li class="py-1"><a href="#">Ancient Near East</a></li>
+                      <li><a href="#">Ancient Near East</a></li>
                       
-                      <li class="py-1"><a href="#">Art History &amp; Visual Arts</a></li>
+                      <li><a href="#">Art History &amp; Visual Arts</a></li>
                       
-                      <li class="py-1"><a href="#">Cinema &amp; Media Studies</a></li>
+                      <li><a href="#">Cinema &amp; Media Studies</a></li>
                       
-                      <li class="py-1"><a href="#">Classics</a></li>
+                      <li><a href="#">Classics</a></li>
                       
-                      <li class="py-1"><a href="#">Humanities, General</a></li>
+                      <li><a href="#">Humanities, General</a></li>
                       
-                      <li class="py-1"><a href="#">Linguistics</a></li>
+                      <li><a href="#">Linguistics</a></li>
                       
-                      <li class="py-1"><a href="#">Music</a></li>
+                      <li><a href="#">Music</a></li>
                       
-                      <li class="py-1"><a href="#">Philosophy</a></li>
+                      <li><a href="#">Philosophy</a></li>
                       
-                      <li class="py-1"><a href="#">Religion</a></li>
+                      <li><a href="#">Religion</a></li>
                       
-                      <li class="py-1"><a href="#">Theater</a></li>
+                      <li><a href="#">Theater</a></li>
                       
                     </ul>
                   </div>
@@ -768,29 +742,29 @@
                 </h2>
                 <div id="collapse-law" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
                       
-                      <li class="py-1"><a href="#">D&#39;Angelo Law Library Guides</a></li>
+                      <li><a href="#">D&#39;Angelo Law Library Guides</a></li>
                       
-                      <li class="py-1"><a href="#">U.S. Legal Research for Non-Lawyers</a></li>
+                      <li><a href="#">U.S. Legal Research for Non-Lawyers</a></li>
                       
-                      <li class="py-1"><a href="#">Administrative Law</a></li>
+                      <li><a href="#">Administrative Law</a></li>
                       
-                      <li class="py-1"><a href="#">Advanced Searching on Bloomberg Law, Lexis, and Westlaw</a></li>
+                      <li><a href="#">Advanced Searching on Bloomberg Law, Lexis, and Westlaw</a></li>
                       
-                      <li class="py-1"><a href="#">Antitrust Law</a></li>
+                      <li><a href="#">Antitrust Law</a></li>
                       
-                      <li class="py-1"><a href="#">Citation Management for Law Students</a></li>
+                      <li><a href="#">Citation Management for Law Students</a></li>
                       
-                      <li class="py-1"><a href="#">Consumer Protection Law</a></li>
+                      <li><a href="#">Consumer Protection Law</a></li>
                       
-                      <li class="py-1"><a href="#">Contract Drafting</a></li>
+                      <li><a href="#">Contract Drafting</a></li>
                       
-                      <li class="py-1"><a href="#">Earl B. Dickerson Research Guide</a></li>
+                      <li><a href="#">Earl B. Dickerson Research Guide</a></li>
                       
-                      <li class="py-1"><a href="#">Election Law</a></li>
+                      <li><a href="#">Election Law</a></li>
                       
-                      <li class="py-1"><a href="#">Environmental Law</a></li>
+                      <li><a href="#">Environmental Law</a></li>
                       
                     </ul>
                   </div>
@@ -807,25 +781,25 @@
                 </h2>
                 <div id="collapse-literature" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
                       
-                      <li class="py-1"><a href="#">Creative Writing</a></li>
+                      <li><a href="#">Creative Writing</a></li>
                       
-                      <li class="py-1"><a href="#">English Literature</a></li>
+                      <li><a href="#">English Literature</a></li>
                       
-                      <li class="py-1"><a href="#">French Literature</a></li>
+                      <li><a href="#">French Literature</a></li>
                       
-                      <li class="py-1"><a href="#">German Literature</a></li>
+                      <li><a href="#">German Literature</a></li>
                       
-                      <li class="py-1"><a href="#">Italian Literature</a></li>
+                      <li><a href="#">Italian Literature</a></li>
                       
-                      <li class="py-1"><a href="#">Scandinavian Literatures</a></li>
+                      <li><a href="#">Scandinavian Literatures</a></li>
                       
-                      <li class="py-1"><a href="#">Slavic &amp; East European Literature</a></li>
+                      <li><a href="#">Slavic &amp; East European Literature</a></li>
                       
-                      <li class="py-1"><a href="#">Spanish, Portuguese &amp; Catalan Literatures</a></li>
+                      <li><a href="#">Spanish, Portuguese &amp; Catalan Literatures</a></li>
                       
-                      <li class="py-1"><a href="#">Theater</a></li>
+                      <li><a href="#">Theater</a></li>
                       
                     </ul>
                   </div>
@@ -842,27 +816,27 @@
                 </h2>
                 <div id="collapse-medicine" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
                       
-                      <li class="py-1"><a href="#">History of Medicine</a></li>
+                      <li><a href="#">History of Medicine</a></li>
                       
-                      <li class="py-1"><a href="#">Medicine</a></li>
+                      <li><a href="#">Medicine</a></li>
                       
-                      <li class="py-1"><a href="#">Nursing</a></li>
+                      <li><a href="#">Nursing</a></li>
                       
-                      <li class="py-1"><a href="#">Pediatrics</a></li>
+                      <li><a href="#">Pediatrics</a></li>
                       
-                      <li class="py-1"><a href="#">Biological Sciences - Molecular &amp; Cell Biology</a></li>
+                      <li><a href="#">Biological Sciences - Molecular &amp; Cell Biology</a></li>
                       
-                      <li class="py-1"><a href="#">Biological Sciences - Organismal Biology</a></li>
+                      <li><a href="#">Biological Sciences - Organismal Biology</a></li>
                       
-                      <li class="py-1"><a href="#">Biomedical Informatics</a></li>
+                      <li><a href="#">Biomedical Informatics</a></li>
                       
-                      <li class="py-1"><a href="#">COVID-19</a></li>
+                      <li><a href="#">COVID-19</a></li>
                       
-                      <li class="py-1"><a href="#">Evidence-Based Medicine</a></li>
+                      <li><a href="#">Evidence-Based Medicine</a></li>
                       
-                      <li class="py-1"><a href="#">Medical Writing &amp; Editing</a></li>
+                      <li><a href="#">Medical Writing &amp; Editing</a></li>
                       
                     </ul>
                   </div>
@@ -879,19 +853,19 @@
                 </h2>
                 <div id="collapse-sciences-biological" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
                       
-                      <li class="py-1"><a href="#">Biomedical Informatics</a></li>
+                      <li><a href="#">Biomedical Informatics</a></li>
                       
-                      <li class="py-1"><a href="#">Environmental Science</a></li>
+                      <li><a href="#">Environmental Science</a></li>
                       
-                      <li class="py-1"><a href="#">History of Medicine</a></li>
+                      <li><a href="#">History of Medicine</a></li>
                       
-                      <li class="py-1"><a href="#">History of Science</a></li>
+                      <li><a href="#">History of Science</a></li>
                       
-                      <li class="py-1"><a href="#">Molecular &amp; Cell Biology</a></li>
+                      <li><a href="#">Molecular &amp; Cell Biology</a></li>
                       
-                      <li class="py-1"><a href="#">Organismal Biology</a></li>
+                      <li><a href="#">Organismal Biology</a></li>
                       
                     </ul>
                   </div>
@@ -908,29 +882,29 @@
                 </h2>
                 <div id="collapse-sciences-physical" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
                       
-                      <li class="py-1"><a href="#">Astronomy &amp; Astrophysics</a></li>
+                      <li><a href="#">Astronomy &amp; Astrophysics</a></li>
                       
-                      <li class="py-1"><a href="#">Chemistry</a></li>
+                      <li><a href="#">Chemistry</a></li>
                       
-                      <li class="py-1"><a href="#">Computer Science</a></li>
+                      <li><a href="#">Computer Science</a></li>
                       
-                      <li class="py-1"><a href="#">Financial Mathematics</a></li>
+                      <li><a href="#">Financial Mathematics</a></li>
                       
-                      <li class="py-1"><a href="#">Geophysical Sciences</a></li>
+                      <li><a href="#">Geophysical Sciences</a></li>
                       
-                      <li class="py-1"><a href="#">History of Science</a></li>
+                      <li><a href="#">History of Science</a></li>
                       
-                      <li class="py-1"><a href="#">Mathematics</a></li>
+                      <li><a href="#">Mathematics</a></li>
                       
-                      <li class="py-1"><a href="#">Molecular Engineering</a></li>
+                      <li><a href="#">Molecular Engineering</a></li>
                       
-                      <li class="py-1"><a href="#">Physics</a></li>
+                      <li><a href="#">Physics</a></li>
                       
-                      <li class="py-1"><a href="#">Statistics</a></li>
+                      <li><a href="#">Statistics</a></li>
                       
-                      <li class="py-1"><a href="#">Weather &amp; Climatology</a></li>
+                      <li><a href="#">Weather &amp; Climatology</a></li>
                       
                     </ul>
                   </div>
@@ -947,33 +921,33 @@
                 </h2>
                 <div id="collapse-social-sciences" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
                       
-                      <li class="py-1"><a href="#">African-American Studies</a></li>
+                      <li><a href="#">African-American Studies</a></li>
                       
-                      <li class="py-1"><a href="#">Anthropology</a></li>
+                      <li><a href="#">Anthropology</a></li>
                       
-                      <li class="py-1"><a href="#">Chicago Studies</a></li>
+                      <li><a href="#">Chicago Studies</a></li>
                       
-                      <li class="py-1"><a href="#">Computational Social Science</a></li>
+                      <li><a href="#">Computational Social Science</a></li>
                       
-                      <li class="py-1"><a href="#">Economics</a></li>
+                      <li><a href="#">Economics</a></li>
                       
-                      <li class="py-1"><a href="#">Education</a></li>
+                      <li><a href="#">Education</a></li>
                       
-                      <li class="py-1"><a href="#">Geography</a></li>
+                      <li><a href="#">Geography</a></li>
                       
-                      <li class="py-1"><a href="#">History</a></li>
+                      <li><a href="#">History</a></li>
                       
-                      <li class="py-1"><a href="#">International Relations</a></li>
+                      <li><a href="#">International Relations</a></li>
                       
-                      <li class="py-1"><a href="#">LGBTQIA Studies</a></li>
+                      <li><a href="#">LGBTQIA Studies</a></li>
                       
-                      <li class="py-1"><a href="#">Political Science</a></li>
+                      <li><a href="#">Political Science</a></li>
                       
-                      <li class="py-1"><a href="#">Psychology</a></li>
+                      <li><a href="#">Psychology</a></li>
                       
-                      <li class="py-1"><a href="#">Public Policy</a></li>
+                      <li><a href="#">Public Policy</a></li>
                       
                     </ul>
                   </div>
@@ -990,23 +964,23 @@
                 </h2>
                 <div id="collapse-social-work" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
                       
-                      <li class="py-1"><a href="#">Education</a></li>
+                      <li><a href="#">Education</a></li>
                       
-                      <li class="py-1"><a href="#">How do I find reviews?</a></li>
+                      <li><a href="#">How do I find reviews?</a></li>
                       
-                      <li class="py-1"><a href="#">ICPSR</a></li>
+                      <li><a href="#">ICPSR</a></li>
                       
-                      <li class="py-1"><a href="#">Public Policy</a></li>
+                      <li><a href="#">Public Policy</a></li>
                       
-                      <li class="py-1"><a href="#">Religion</a></li>
+                      <li><a href="#">Religion</a></li>
                       
-                      <li class="py-1"><a href="#">Social Work</a></li>
+                      <li><a href="#">Social Work</a></li>
                       
-                      <li class="py-1"><a href="#">Tests &amp; Measures</a></li>
+                      <li><a href="#">Tests &amp; Measures</a></li>
                       
-                      <li class="py-1"><a href="#">Women&#39;s Studies</a></li>
+                      <li><a href="#">Women&#39;s Studies</a></li>
                       
                     </ul>
                   </div>
@@ -1023,19 +997,19 @@
                 </h2>
                 <div id="collapse-special-collections" class="accordion-collapse collapse">
                   <div class="accordion-body">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 vstack gap-1">
                       
-                      <li class="py-1"><a href="#">Special Collections Research Center</a></li>
+                      <li><a href="#">Special Collections Research Center</a></li>
                       
-                      <li class="py-1"><a href="#">Requesting Materials from SCRC</a></li>
+                      <li><a href="#">Requesting Materials from SCRC</a></li>
                       
-                      <li class="py-1"><a href="#">Archives and Manuscripts by Subject</a></li>
+                      <li><a href="#">Archives and Manuscripts by Subject</a></li>
                       
-                      <li class="py-1"><a href="#">Rare Books by Subject</a></li>
+                      <li><a href="#">Rare Books by Subject</a></li>
                       
-                      <li class="py-1"><a href="#">SCRC Digital Resources</a></li>
+                      <li><a href="#">SCRC Digital Resources</a></li>
                       
-                      <li class="py-1"><a href="#">Special Collections Research Center COVID-19 Archive</a></li>
+                      <li><a href="#">Special Collections Research Center COVID-19 Archive</a></li>
                       
                     </ul>
                   </div>
