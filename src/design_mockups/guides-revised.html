@@ -29,12 +29,12 @@ title: "Revised Guides"
   <!-- Guides Header -->
   <div class="guides-header sticky-top py-2">
     <div class="container-md">
-      <div class="row align-items-center g-2">
+      <div class="row align-items-end g-2">
         <div class="col">
           <h1 class="mb-0 fs-2 fw-semibold">Research Guides</h1>
         </div>
         <div class="col-auto d-md-none">
-          <button class="btn btn-outline-secondary" type="button"
+          <button class="btn btn-outline-dark" type="button"
                   data-bs-toggle="collapse" data-bs-target="#guide-search-mobile"
                   aria-expanded="false" aria-controls="guide-search-mobile"
                   aria-label="Search">
@@ -43,7 +43,7 @@ title: "Revised Guides"
         </div>
         <div class="col-md-5 ms-md-auto d-none d-md-block">
           <div class="input-group">
-            <a href="#" class="btn btn-outline-secondary" aria-label="Guides home">
+            <a href="#" class="btn btn-outline-dark" aria-label="Guides home">
               <i class="fa-solid fa-house" aria-hidden="true"></i>
             </a>
             <input type="search" class="form-control" placeholder="Search library guides…" aria-label="Search library guides">
@@ -56,7 +56,7 @@ title: "Revised Guides"
       </div>
       <div class="collapse d-md-none" id="guide-search-mobile">
         <div class="input-group mt-2">
-          <a href="#" class="btn btn-outline-secondary" aria-label="Guides home">
+          <a href="#" class="btn btn-outline-dark" aria-label="Guides home">
             <i class="fa-solid fa-house" aria-hidden="true"></i>
           </a>
           <input type="search" class="form-control" placeholder="Search library guides…" aria-label="Search library guides">
@@ -77,27 +77,33 @@ title: "Revised Guides"
 
       <!-- Subject Guides -->
       <div class="col-md-6 col-lg-4">
-        <button class="btn btn-outline-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="subject-guides-tab" type="button">
-          <i class="fa-solid fa-book fs-2 mb-3" aria-hidden="true"></i>
-          <span class="fw-semibold fs-5 d-block mb-2">Subject Guides</span>
+        <button class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="subject-guides-tab" type="button">
+          <div class="d-flex align-items-center mb-2">
+            <i class="fa-solid fa-book fs-2 me-2" aria-hidden="true"></i>
+            <span class="fw-semibold fs-5 d-block">Subject Guides</span>
+          </div>
           <span class="small d-block">Choose from a broad list of academic disciplines for research. A great place to start!</span>
         </button>
       </div>
 
       <!-- Popular Guides -->
       <div class="col-md-6 col-lg-4">
-        <button class="btn btn-outline-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="popular-guides-tab" type="button">
-          <i class="fa-solid fa-star fs-2 mb-3" aria-hidden="true"></i>
-          <span class="fw-semibold fs-5 d-block mb-2">Popular Guides</span>
+        <button class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="popular-guides-tab" type="button">
+          <div class="d-flex align-items-center mb-2">
+            <i class="fa-solid fa-star fs-2 me-2" aria-hidden="true"></i>
+            <span class="fw-semibold fs-5 d-block">Popular Guides</span>
+          </div>
           <span class="small d-block">Browse our most visited, newest, and featured guides.</span>
         </button>
       </div>
 
       <!-- Help Guides -->
       <div class="col-md-6 col-lg-4">
-        <button class="btn btn-outline-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="help-guides-tab" type="button">
-          <i class="fa-solid fa-lightbulb fs-2 mb-3" aria-hidden="true"></i>
-          <span class="fw-semibold fs-5 d-block mb-2">Help Guides</span>
+        <button class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-center justify-content-center py-4 border-2" data-guide-tab="help-guides-tab" type="button">
+          <div class="d-flex align-items-center mb-2">
+            <i class="fa-solid fa-lightbulb fs-2 me-2" aria-hidden="true"></i>
+            <span class="fw-semibold fs-5 d-block">Help Guides</span>
+          </div>
           <span class="small d-block">Explore resources on a variety of tools and topics.</span>
         </button>
       </div>
@@ -111,6 +117,9 @@ title: "Revised Guides"
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="popular-guides-tab" data-bs-toggle="tab" data-bs-target="#popular-guides" type="button" role="tab" aria-controls="popular-guides" aria-selected="false">Popular Guides</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="course-guides-tab" data-bs-toggle="tab" data-bs-target="#course-guides" type="button" role="tab" aria-controls="course-guides" aria-selected="false">Course Guides</button>
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="help-guides-tab" data-bs-toggle="tab" data-bs-target="#help-guides" type="button" role="tab" aria-controls="help-guides" aria-selected="false">Help Guides</button>
@@ -190,6 +199,11 @@ title: "Revised Guides"
           </div>
 
         </div>
+      </div>
+
+      <!-- Course Guides Tab -->
+      <div class="tab-pane fade" id="course-guides" role="tabpanel" aria-labelledby="course-guides-tab" tabindex="0">
+        <p>Course Guides content coming soon.</p>
       </div>
 
       <!-- Help Guides Tab -->
