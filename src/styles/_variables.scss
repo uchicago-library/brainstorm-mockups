@@ -84,6 +84,9 @@ $font-family-sans-serif: "UChicago Sans Serif", -apple-system, BlinkMacSystemFon
 $body-bg: #ffffff;
 $body-color: $dark;
 
+// Focus Ring
+$focus-ring-color: rgba($info, 0.80);
+
 
 // Breadcrumb
 $breadcrumb-font-size: 0.75rem;
@@ -98,4 +101,4 @@ $accordion-button-bg: $body-bg;
 $accordion-button-active-bg: var(--bs-info-bg-subtle);
 $accordion-button-color: $body-color;
 $accordion-button-active-color: $body-color;
-$accordion-button-focus-box-shadow: 0 0 0 0.25rem rgba($primary, 0.25);
+$accordion-button-focus-box-shadow: 0 0 0 0.25rem rgba($info, 0.25);

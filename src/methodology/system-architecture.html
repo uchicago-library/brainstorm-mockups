@@ -185,6 +185,18 @@ title: "System Architecture"
           </div>
         </dl>
 
+        
+        <h3>ID Naming & Usage</h3>
+        <p>Use IDs to identify unique document-level structure and stable behavior hooks; use BEM classes for reusable styling and component internals.</p>
+        <ul>
+          <li><strong>Use IDs for unique landmarks:</strong> e.g., <code>header</code>, <code>footer</code>, <code>main-content</code>.</li>
+          <li><strong>Use IDs for one-to-one relationships:</strong> e.g., ARIA references like <code>aria-labelledby</code> and label/control pairing.</li>
+          <li><strong>Use IDs for stable JS/test hooks only when unique:</strong> prefer data attributes for repeated instances.</li>
+          <li><strong>Use BEM classes for appearance and structure:</strong> e.g., <code>.card</code>, <code>.card__header</code>, <code>.card--featured</code>.</li>
+          <li><strong>Do not replace BEM with IDs on reusable components:</strong> IDs must be unique per page and do not scale across multiple instances.</li>
+          <li><strong>Name IDs in kebab-case and keep them durable:</strong> avoid renaming shared IDs unless there is a coordinated migration.</li>
+        </ul>
+
       </section>
 
       <!-- SECTION 2: FILE ORGANIZATION -->
