@@ -20,6 +20,10 @@ npm-debug.log*
 .env
 .env.local
 
+# Build output
+_site/
+docs/
+
 # Sass cache
 .sass-cache/
 *.css.map

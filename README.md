@@ -34,7 +34,9 @@ Open `http://localhost:8080` in your browser.
 npm run prod
 ```
 
-The `docs/` folder is ready to deploy to GitHub Pages.
+The build output is generated in `_site/`.
+
+GitHub Pages deployment is handled by GitHub Actions via `.github/workflows/deploy-pages.yml`.
 
 **For detailed setup instructions, see [Methodology → Setup](./src/methodology/setup.html).**
 
@@ -83,7 +85,7 @@ When multi-platform support is needed:
 
 3. **Update build script** to generate multiple CSS files:
    ```json
-   "build:sass": "sass src/styles/main.scss:docs/styles/main.css src/styles/libguides.scss:docs/styles/libguides.css src/styles/minimal.scss:docs/styles/minimal.css"
+   "build:sass": "sass src/styles/main.scss:_site/styles/main.css src/styles/libguides.scss:_site/styles/libguides.css src/styles/minimal.scss:_site/styles/minimal.css"
    ```
 
 ### Future JavaScript Consideration

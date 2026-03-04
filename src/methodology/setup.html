@@ -64,7 +64,7 @@ cd brainstorm-mockups</code></pre>
         <div class="mb-4">
           <h3>4. Build for Production</h3>
           <pre><code>npm run prod</code></pre>
-          <p>This creates an optimized production build in the <code>docs/</code> directory with:</p>
+          <p>This creates an optimized production build in the <code>_site/</code> directory with:</p>
           <ul>
             <li>Compiled and minified CSS</li>
             <li>Static HTML files</li>
@@ -155,15 +155,15 @@ cd brainstorm-mockups</code></pre>
         </ul>
 
         <h3>Production</h3>
-        <p>Open <code>docs/index.html</code> in your browser or deploy the <code>docs/</code> folder to a web server.</p>
+        <p>Open <code>_site/index.html</code> in your browser.</p>
       </section>
 
       <section class="mb-5">
         <h2>Deployment to GitHub Pages</h2>
         <ol>
-          <li>Build the site: <code>npm run prod</code></li>
-          <li>The <code>docs/</code> folder contains the deployable site</li>
-          <li>Configure GitHub Pages to serve from the <code>docs/</code> folder (or use a deployment action)</li>
+          <li>Push changes to <code>main</code> (or run the workflow manually)</li>
+          <li>GitHub Actions builds and deploys the generated <code>_site/</code> artifact</li>
+          <li>Set GitHub Pages source to <code>GitHub Actions</code> in repository settings</li>
         </ol>
       </section>
 
