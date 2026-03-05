@@ -8,6 +8,12 @@ pre {
     padding: $spacer * 0.5;
 }
 
+code {
+    background-color: $ucl-greystone-lighter;
+    border-radius: 0.2rem;
+    padding: 0.1em 0.3em;
+}
+
 // Heading styles
 // Consistent typography across all heading levels with proper hierarchy and spacing
 

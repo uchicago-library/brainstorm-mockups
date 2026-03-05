@@ -1,6 +1,10 @@
 // Global element overrides
 // Use this file for non-typography element overrides that can't be controlled via Bootstrap variables
 
+:root {
+    --ucl-info-bg-extra-subtle: #{$info-bg-extra-subtle};
+}
+
 :focus-visible {
     outline: 0 !important;
     box-shadow: var(--bs-focus-ring-x, 0) var(--bs-focus-ring-y, 0) var(--bs-focus-ring-blur, 0) var(--bs-focus-ring-width) var(--bs-focus-ring-color) !important;

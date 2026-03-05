@@ -1,0 +1,119 @@
+---
+title: "Color Usage Guidelines"
+description: "Short, practical guidance for applying color across pages and components."
+---
+
+{% include "meta/document-start.html" %}
+{% include "header.html" %}
+
+<style>
+  .color-ratio-visual {
+    border: 1px solid var(--bs-border-color);
+    overflow: hidden;
+  }
+
+  .color-ratio-segment {
+    min-height: 3rem;
+  }
+
+  .color-ratio-60 {
+    flex: 0 0 60%;
+  }
+
+  .color-ratio-30 {
+    flex: 0 0 30%;
+  }
+
+  .color-ratio-10 {
+    flex: 0 0 10%;
+  }
+</style>
+
+<nav aria-label="breadcrumb" class="container-md">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ '/design_system/' | url }}">Design System</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+  </ol>
+</nav>
+
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      <h1>{{ title }}</h1>
+      <p class="lead">Use color with restraint to build clear hierarchy, strong readability, and a modern, sober interface.</p>
+
+      <section class="mt-5">
+        <h2>60-30-10 Rule</h2>
+        <p><strong>60%</strong> neutral foundation: use light neutrals for page or component backgrounds to keep content readable and reduce visual noise.</p>
+        <p><strong>30%</strong> structural support: use a darker neutral for surfaces, dividers, and secondary UI regions that define layout.</p>
+        <p><strong>10%</strong> emphasis color: use <code>primary</code> only for call-to-action elements, and use the <code>lake</code> family for active states, links, and inline code.</p>
+
+        <div class="mt-3">
+          <p>Visual ratio example:</p>
+          <div class="d-flex rounded color-ratio-visual" aria-label="60-30-10 color ratio visual">
+            <div class="color-ratio-segment color-ratio-60 bg-light d-flex align-items-center justify-content-center">
+              <span>60% Base</span>
+            </div>
+            <div class="color-ratio-segment color-ratio-30 bg-secondary text-white d-flex align-items-center justify-content-center">
+              <span>30% Structure</span>
+            </div>
+            <div class="color-ratio-segment color-ratio-10 bg-info text-white d-flex align-items-center justify-content-center">
+              <span>10% Emphasis</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-5">
+        <h2>Page-Level Application</h2>
+        <p>Start with neutral backgrounds and text contrast first, then add one emphasis color only where users need to act or orient themselves.</p>
+        <p>Keep emphasis usage consistent across the page: CTA buttons in <code>primary</code>, while links and selected states stay in the <code>lake</code> family.</p>
+      </section>
+
+      <section class="mt-5">
+        <h2>Component-Level Application</h2>
+        <p>Most components should remain neutral by default and only use color for interaction or status moments.</p>
+        <p>Avoid placing multiple accent families in the same component unless they represent clear semantic states such as success or warning.</p>
+      </section>
+
+      <section class="mt-5">
+        <h2>Best Practices</h2>
+        <ul>
+          <li>Prioritize contrast and readability first; color should support content, not compete with it.</li>
+          <li>Use one dominant accent family per screen to keep the UI calm and coherent.</li>
+          <li>Reserve highly saturated colors for important actions and feedback.</li>
+          <li>Do not rely on color alone to convey meaning; pair color with text labels or icons.</li>
+          <li>Test color combinations in context on desktop and mobile breakpoints.</li>
+        </ul>
+      </section>
+
+      <section class="mt-5">
+        <h2>CSS Classes (Quick Reference)</h2>
+        <p>Use semantic utility classes tied to the design tokens:</p>
+        <ul>
+          <li><code>.btn-primary</code> and <code>.bg-primary</code> for call-to-action emphasis only.</li>
+          <li><code>.text-info</code>, <code>.link-info</code>, and <code>.bg-info</code> for active states and interactive emphasis.</li>
+          <li><code>.bg-secondary</code>, <code>.text-secondary</code>, <code>.border-secondary</code> for supporting neutral structure.</li>
+          <li><code>.bg-light</code> and <code>.text-dark</code> for baseline readability and page foundation.</li>
+          <li><code>.text-muted</code> for low-emphasis metadata and helper text.</li>
+          <li><code>.bg-success</code>, <code>.bg-warning</code>, <code>.bg-danger</code>, <code>.bg-info</code> only for semantic states.</li>
+        </ul>
+        <p>For all approved color families and token values, see <a href="{{ '/design_system/design-tokens-colors/' | url }}">Design Tokens - Colors</a>.</p>
+      </section>
+
+      <section class="mt-5">
+        <h2>Token Reference</h2>
+        <p>Use the same role across Sass, CSS variables, and utility classes:</p>
+        <ul>
+          <li><strong>CTA:</strong> <code>$primary</code> | <code>--bs-primary</code> | <code>.btn-primary</code>, <code>.bg-primary</code></li>
+          <li><strong>Active/Interactive:</strong> <code>$info</code>, <code>$link-color</code> | <code>--bs-info</code>, <code>--bs-link-color-rgb</code> | <code>.btn-info</code>, <code>.text-info</code>, <code>.link-info</code></li>
+          <li><strong>Extra-subtle Active Surface:</strong> <code>$info-bg-extra-subtle</code> | <code>--ucl-info-bg-extra-subtle</code> | <code>.accordion-button</code> active state token</li>
+          <li><strong>Structure:</strong> <code>$secondary</code>, <code>$light</code>, <code>$dark</code> | <code>--bs-secondary</code>, <code>--bs-light</code>, <code>--bs-dark</code> | <code>.bg-secondary</code>, <code>.bg-light</code>, <code>.text-dark</code></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}
