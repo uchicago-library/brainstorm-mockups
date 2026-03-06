@@ -1,5 +1,9 @@
 // Global element overrides
 // Use this file for non-typography element overrides that can't be controlled via Bootstrap variables
+// Token exposure pattern:
+// :root {
+//   --ucl-token-name: #{$sass-token-name};
+// }
 
 :root {
     --ucl-info-bg-extra-subtle: #{$info-bg-extra-subtle};

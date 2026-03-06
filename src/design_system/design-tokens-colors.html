@@ -39,11 +39,11 @@ description: "The complete color palette for the University of Chicago Library d
           <div class="col-sm-6 col-md-4">
             <div class="p-4 text-white rounded" style="background-color: #800000;">
               <strong>Primary</strong><br>
+              <code>$ucl-maroon</code><br>
               <code>$primary</code><br>
               <code>--bs-primary</code><br>
-              <code>.btn-primary</code><br>
+              <code>.bg-primary</code><br>
               <code>#800000</code><br>
-              <small class="text-white-50">→ $ucl-maroon</small>
             </div>
           </div>
           <div class="col-sm-6 col-md-4">
@@ -59,98 +59,90 @@ description: "The complete color palette for the University of Chicago Library d
           <div class="col-sm-6 col-md-4">
             <div class="p-4 text-white rounded" style="background-color: #789D4A;">
               <strong>Success</strong><br>
+              <code>$ucl-ivy</code><br>
               <code>$success</code><br>
               <code>--bs-success</code><br>
               <code>.bg-success</code><br>
               <code>#789D4A</code><br>
-              <small class="text-white-50">→ $ucl-ivy</small>
             </div>
           </div>
           <div class="col-sm-6 col-md-4">
             <div class="p-4 text-white rounded" style="background-color: #007396;">
               <strong>Info</strong><br>
+              <code>$ucl-lake</code><br>
               <code>$info</code><br>
               <code>--bs-info</code><br>
-              <code>.btn-info</code> / <code>.link-info</code><br>
+              <code>.bg-info</code><br>
               <code>#007396</code><br>
-              <small class="text-white-50">→ $ucl-lake</small>
             </div>
           </div>
           <div class="col-sm-6 col-md-4">
             <div class="p-4 text-white rounded" style="background-color: #EAAA00;">
               <strong>Warning</strong><br>
+              <code>$ucl-goldenrod</code><br>
               <code>$warning</code><br>
               <code>--bs-warning</code><br>
               <code>.bg-warning</code><br>
               <code>#EAAA00</code><br>
-              <small class="text-white-50">→ $ucl-goldenrod</small>
             </div>
           </div>
           <div class="col-sm-6 col-md-4">
             <div class="p-4 text-white rounded" style="background-color: #dc3545;">
               <strong>Danger</strong><br>
+              <code>Bootstrap default</code><br>
               <code>$danger</code><br>
               <code>--bs-danger</code><br>
               <code>.bg-danger</code><br>
               <code>#dc3545</code><br>
-              <small class="text-white-50">Bootstrap default</small>
             </div>
           </div>
           <div class="col-sm-6 col-md-4">
-            <div class="p-4 rounded border" style="background-color: #f5f6f8;">
+            <div class="p-4 rounded border" style="background-color: #e8ebef;">
               <strong>Light</strong><br>
+              <code>$ucl-greystone-light</code><br>
               <code>$light</code><br>
               <code>--bs-light</code><br>
               <code>.bg-light</code><br>
-              <code>#f5f6f8</code><br>
-              <small>→ $ucl-greystone-light</small>
+              <code>#e8ebef</code><br>
             </div>
           </div>
           <div class="col-sm-6 col-md-4">
-            <div class="p-4 text-white rounded" style="background-color: #000000;">
+            <div class="p-4 text-white rounded" style="background-color: #2f3640;">
               <strong>Dark</strong><br>
+              <code>$ucl-greystone-darkest</code><br>
               <code>$dark</code><br>
               <code>--bs-dark</code><br>
-              <code>.text-dark</code><br>
-              <code>#000000</code>
+              <code>.bg-dark</code><br>
+              <code>#2f3640</code>
             </div>
           </div>
         </div>
 
         <h3 class="mb-3">Using Semantic Colors</h3>
-        <p class="text-muted">Use Sass variables in SCSS, CSS custom properties in component CSS, and utility classes in markup.</p>
-        <div class="table-responsive mb-4">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Role</th>
-                <th>Sass Variables</th>
-                <th>CSS Variables</th>
-                <th>Common CSS Classes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>CTA</td>
-                <td><code>$primary</code></td>
-                <td><code>--bs-primary</code>, <code>--bs-primary-rgb</code></td>
-                <td><code>.btn-primary</code>, <code>.bg-primary</code>, <code>.text-primary</code></td>
-              </tr>
-              <tr>
-                <td>Active/Interactive</td>
-                <td><code>$info</code>, <code>$link-color</code></td>
-                <td><code>--bs-info</code>, <code>--bs-info-rgb</code>, <code>--bs-link-color-rgb</code></td>
-                <td><code>.btn-info</code>, <code>.bg-info</code>, <code>.text-info</code>, <code>.link-info</code></td>
-              </tr>
-              <tr>
-                <td>Structure</td>
-                <td><code>$secondary</code>, <code>$light</code>, <code>$dark</code></td>
-                <td><code>--bs-secondary</code>, <code>--bs-light</code>, <code>--bs-dark</code></td>
-                <td><code>.bg-secondary</code>, <code>.bg-light</code>, <code>.text-dark</code>, <code>.border-secondary</code></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <p class="text-muted">Example of available semantic color classes based on `info`:</p>
+
+        <h4>Property Classes</h4>
+        <ul class="mb-4">
+          <li><code>.bg-info</code></li>
+          <li><code>.bg-info-subtle</code></li>
+          <li><code>.border-info</code></li>
+          <li><code>.border-info-subtle</code></li>
+          <li><code>.focus-ring-info</code></li>
+          <li><code>.link-info</code></li>
+          <li><code>.link-underline-info</code></li>
+          <li><code>.text-bg-info</code></li>
+          <li><code>.text-info</code></li>
+          <li><code>.text-info-emphasis</code></li>
+        </ul>
+
+        <h4>Component Classes</h4>
+        <ul class="mb-4">
+          <li><code>.alert-info</code></li>
+          <li><code>.btn-info</code></li>
+          <li><code>.btn-outline-info</code></li>
+          <li><code>.list-group-item-info</code></li>
+          <li><code>.table-info</code></li>
+        </ul>
 
         <hr class="my-5">
       </section>
@@ -158,6 +150,8 @@ description: "The complete color palette for the University of Chicago Library d
       <!-- Brand Color Families -->
       <section>
         <h2 class="mb-4">Brand Color Families</h2>
+        <p>The following colors are established by the <a href="https://creative.uchicago.edu/brand-resources/">UChicago Brand Guidelines</a>. Except for the Grestone Family which has been tinted into cooler shades of grey for color balance, and have a few shades added.</p>
+        <p class="text-muted">These family values are Sass tokens by default and can be exposed as CSS variables when runtime usage is needed (see `src\styles\base\_global.scss`). To expose them as utility classes, extend Bootstrap's utility map.</p>
 
         <!-- Maroon -->
         <div class="mb-4">
@@ -176,7 +170,7 @@ description: "The complete color palette for the University of Chicago Library d
         <!-- Greystone Family -->
         <div class="mb-4">
           <h3 class="mb-3">Greystone Family</h3>
-          <p class="text-muted small mb-3">Neutral color hierarchy for text, backgrounds, and borders.</p>
+          <p class="text-muted small mb-3">Neutral color hierarchy for text, backgrounds, and borders. With a slight cool tint for color balance.</p>
           <div class="row g-3 mb-4">
             <div class="col-sm-6 col-md-3">
               <div class="p-4 rounded border" style="background-color: #f9fafc;">
@@ -185,9 +179,9 @@ description: "The complete color palette for the University of Chicago Library d
               </div>
             </div>
             <div class="col-sm-6 col-md-3">
-              <div class="p-4 rounded border" style="background-color: #f5f6f8;">
+              <div class="p-4 rounded border" style="background-color: #e8ebef;">
                 <strong>Light</strong><br>
-                <code>#f5f6f8</code>
+                <code>#e8ebef</code>
               </div>
             </div>
             <div class="col-sm-6 col-md-3">
