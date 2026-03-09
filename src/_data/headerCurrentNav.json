@@ -1,0 +1,426 @@
+{
+    "dropdowns": [
+        {
+            "label": "Search",
+            "id": "searchDropdown",
+            "groups": [
+                {
+                    "title": "Catalogs",
+                    "links": [
+                        {
+                            "text": "Library Catalog",
+                            "href": "#"
+                        },
+                        {
+                            "text": "BorrowDirect",
+                            "href": "#"
+                        },
+                        {
+                            "text": "WorldCat",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Other Catalogs",
+                            "href": "#"
+                        }
+                    ]
+                },
+                {
+                    "title": "Other Search Tools",
+                    "links": [
+                        {
+                            "text": "Articles Plus",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Database Finder",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Database Trials",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Ejournals",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Knowledge@UChicago",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Proxy & Off-Campus Access",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Website Search",
+                            "href": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Borrow & Request",
+            "id": "borrowDropdown",
+            "groups": [
+                {
+                    "title": "Borrow",
+                    "links": [
+                        {
+                            "text": "Due Dates & Loan Periods",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Renewing & Returning Items",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Fines & Lost Items",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Course Reserves",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Checkout UChicago",
+                            "href": "#"
+                        },
+                        {
+                            "text": "My Library Account",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Who Can Borrow",
+                            "href": "#"
+                        }
+                    ]
+                },
+                {
+                    "title": "Request",
+                    "links": [
+                        {
+                            "text": "Interlibrary Loan",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Paging & Pickup",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Scan & Deliver",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Suggest a Purchase",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Digitization Services",
+                            "href": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Research & Teaching",
+            "id": "researchDropdown",
+            "groups": [
+                {
+                    "title": "Research Help & Tools",
+                    "links": [
+                        {
+                            "text": "Ask a Librarian",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Subject Specialists",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Citation Management",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Help Guides",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Subject Guides",
+                            "href": "#"
+                        }
+                    ]
+                },
+                {
+                    "title": "Programs",
+                    "links": [
+                        {
+                            "text": "Kim-Park Program for the Study of the Book",
+                            "href": "#"
+                        }
+                    ]
+                },
+                {
+                    "title": "Teaching Support",
+                    "links": [
+                        {
+                            "text": "Course Reserves Setup",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Instruction for Courses",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Teaching & Learning Services",
+                            "href": "#"
+                        }
+                    ]
+                },
+                {
+                    "title": "Digital Scholarship",
+                    "links": [
+                        {
+                            "text": "Center for Digital Scholarship",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Dissertation Office",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Knowledge@UChicago",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Copyright Info",
+                            "href": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Collections & Exhibits",
+            "id": "collectionsDropdown",
+            "groups": [
+                {
+                    "title": "Collections",
+                    "links": [
+                        {
+                            "text": "Notable Collections",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Digital Collections",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Collecting Areas by Subject",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Other Local Collections",
+                            "href": "#"
+                        }
+                    ]
+                },
+                {
+                    "title": "Exhibits",
+                    "links": [
+                        {
+                            "text": "All Exhibits",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Web Exhibits",
+                            "href": "#"
+                        }
+                    ]
+                },
+                {
+                    "title": "Research Centers",
+                    "links": [
+                        {
+                            "text": "East Asian Collection",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Map Collection",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Southern Asia Collection",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Special Collections",
+                            "href": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Visit & Study",
+            "id": "visitDropdown",
+            "groups": [
+                {
+                    "title": "Visiting the Library",
+                    "links": [
+                        {
+                            "text": "Visitor Information",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Visiting Special Collections",
+                            "href": "#"
+                        }
+                    ]
+                },
+                {
+                    "title": "Using Our Spaces",
+                    "links": [
+                        {
+                            "text": "Book a Room",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Places to Study",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Copy, Print & Scan",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Computers & Wireless",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Lockers",
+                            "href": "#"
+                        },
+                        {
+                            "text": "TechBar",
+                            "href": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "Libraries",
+            "id": "librariesDropdown",
+            "groups": [
+                {
+                    "title": "Our Locations",
+                    "links": [
+                        {
+                            "text": "Crerar",
+                            "href": "#"
+                        },
+                        {
+                            "text": "D'Angelo Law",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Eckhart",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Mansueto",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Regenstein",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Social Work",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Special Collections",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Hours",
+                            "href": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "About",
+            "id": "aboutDropdown",
+            "groups": [
+                {
+                    "title": "The Library",
+                    "links": [
+                        {
+                            "text": "About the Library",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Mission & Strategic Plan",
+                            "href": "#"
+                        },
+                        {
+                            "text": "DEI Vision Statement",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Departments & Staff",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Employment",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Library Policies",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Library Boards & Committees",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Support the Library",
+                            "href": "#"
+                        }
+                    ]
+                },
+                {
+                    "title": "News & Events",
+                    "links": [
+                        {
+                            "text": "News",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Workshops & Events",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Conferences",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Libra Newsletter",
+                            "href": "#"
+                        },
+                        {
+                            "text": "Social Media Directory",
+                            "href": "#"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

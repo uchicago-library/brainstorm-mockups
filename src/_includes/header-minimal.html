@@ -1,0 +1,64 @@
+<!-- The latest updated header but in a compact format. All links are always collapsed. -->
+<header id="header" role="banner">
+	<nav id="global-navbar" class="navbar navbar-dark global-navbar p-0" aria-label="Main navigation">
+		<div class="container-md">
+			<a class="navbar-brand m-0" href="{{ '/' | url }}" itemscope itemtype="http://schema.org/Organization">
+				<span class="visually-hidden" itemprop="name">The University of Chicago Library</span>
+				<img itemprop="logo" src="https://www.lib.uchicago.edu/web-resources/img/white-logo.png" alt="University of Chicago Library" height="35">
+			</a>
+
+			<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#global-navbar-minimal-collapse" aria-controls="global-navbar-minimal-collapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="global-navbar-minimal-collapse">
+				<ul class="navbar-nav" role="list">
+					{% for dropdown in globalNav.dropdowns %}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="" id="minimal-{{ dropdown.id }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								{{ dropdown.label }}
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="minimal-{{ dropdown.id }}">
+								{% set groupCount = dropdown.groups | length %}
+								<li class="dropdown-layout row row-cols-1 row-cols-lg-{% if groupCount > 6 %}6{% elif groupCount < 1 %}1{% else %}{{ groupCount }}{% endif %} g-0">
+									{% for group in dropdown.groups %}
+										<div class="dropdown-group col">
+											<p class="dropdown-group-title">{{ group.title }}</p>
+											{% for link in group.links %}
+												<a class="dropdown-item text-wrap" href="{{ link.href }}">{{ link.text }}</a>
+											{% endfor %}
+										</div>
+									{% endfor %}
+								</li>
+							</ul>
+						</li>
+					{% endfor %}
+
+					<li>
+						<p class="dropdown-group-title text-white-50 px-2 mt-2">Quick Links</p>
+						<ul class="navbar-nav flex-column mobile-shortcuts-list" role="list">
+							{% for link in globalNav.shortcutLinks %}
+								<li class="nav-item">
+									<a class="nav-link" href="{{ link.href }}">
+										<i class="{{ link.icon }} me-2" aria-hidden="true"></i>
+										{{ link.text }}
+									</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</li>
+				</ul>
+
+				<form class="global-navbar-search mt-3" role="search">
+					<label class="visually-hidden" for="minimal-navbar-search-input">Search the site</label>
+					<div class="global-navbar-search-field">
+						<input class="form-control form-control-sm" id="minimal-navbar-search-input" type="search" placeholder="Search" aria-label="Search the site">
+						<button class="global-navbar-search-button" type="submit" aria-label="Search">
+							<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</nav>
+</header>

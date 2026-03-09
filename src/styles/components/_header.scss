@@ -85,8 +85,8 @@ header[role="banner"] {
 
             @media (max-width: 767.98px) {
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                padding-left: 1rem;
-                padding-right: 1rem;
+                padding-left: $spacer;
+                padding-right: $spacer;
             }
         }
 
@@ -127,27 +127,38 @@ header[role="banner"] {
         margin: 0;
         padding: 0;
         width: 100%;
-    }
 
-    .dropdown-group {
-        display: block;
-        margin: 0;
-        padding: 0.75rem 0.5rem;
-    }
+        .dropdown-group {
+            display: block;
+            margin: 0;
+        }
 
-    .dropdown-group-title {
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        margin: 0;
-        padding: 0.25rem 1rem 0.5rem;
+        .dropdown-group-title {
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin: 0;
+            padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
 
-        @media (max-width: 767.98px) {
-            color: #ffffff;
-            padding-left: 1rem;
-            padding-right: 1rem;
+            @media (max-width: 767.98px) {
+                color: #ffffff;
+                padding-left: $spacer * .5;
+                padding-right: $spacer * .5;
+            }
+        }
+
+        .dropdown-item {
+            --bs-dropdown-link-color: #fff;
+            --bs-dropdown-link-hover-color: #fff;
+            --bs-dropdown-link-hover-bg: #{$global-navbar-item-hover};
+            transition: background-color 0.2s ease;
+
+            @media (max-width: 767.98px) {
+                padding-left: $spacer * .5;
+                padding-right: $spacer * .5;
+            }
         }
     }
 
@@ -155,25 +166,13 @@ header[role="banner"] {
         .nav-link {
             color: #fff;
             border-bottom: 0;
-            padding-left: 1rem;
-            padding-right: 1rem;
+            padding-left: $spacer * .5;
+            padding-right: $spacer * .5;
 
             &:hover,
             &:focus {
                 color: #fff;
             }
-        }
-    }
-
-    .dropdown-item {
-        --bs-dropdown-link-color: #fff;
-        --bs-dropdown-link-hover-color: #fff;
-        --bs-dropdown-link-hover-bg: #{$global-navbar-item-hover};
-        transition: background-color 0.2s ease;
-
-        @media (max-width: 767.98px) {
-            padding-left: 1rem;
-            padding-right: 1rem;
         }
     }
 
@@ -234,7 +233,7 @@ header[role="banner"] {
 
         @media (max-width: 767.98px) {
             width: 100%;
-            padding: 0 0 1rem;
+            padding: $spacer*.5 $spacer;
 
             .global-navbar-search-field {
                 display: flex;

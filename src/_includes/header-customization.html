@@ -1,0 +1,87 @@
+<!-- A header with the newest proposition of inf arq, and a "For you" dropdown selector. -->
+<header id="header" role="banner">
+	<div class="logo-bar bg-white">
+		<div class="container-md">
+			<div class="d-flex justify-content-between align-items-center py-2">
+				<a class="navbar-brand m-0" href="{{ '/' | url }}" itemscope itemtype="http://schema.org/Organization">
+					<span class="visually-hidden" itemprop="name">The University of Chicago Library</span>
+					<img itemprop="logo" src="https://www.lib.uchicago.edu/web-resources/img/color-logo.png" alt="University of Chicago Library">
+				</a>
+
+				<div class="dropdown d-none d-md-block">
+					<button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="forYouDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+						For you
+					</button>
+					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="forYouDropdown">
+						<li><a class="dropdown-item" href="#">Students</a></li>
+						<li><a class="dropdown-item" href="#">Faculty</a></li>
+						<li><a class="dropdown-item" href="#">Staff</a></li>
+						<li><a class="dropdown-item" href="#">External Researchers</a></li>
+						<li><a class="dropdown-item" href="#">Alumni</a></li>
+						<li><a class="dropdown-item" href="#">Community Members</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="#">Log in</a></li>
+					</ul>
+				</div>
+
+				<button class="navbar-toggler d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#global-navbar-customization-collapse" aria-controls="global-navbar-customization-collapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<nav id="global-navbar" class="navbar navbar-expand-md navbar-dark global-navbar p-0" aria-label="Main navigation">
+		<div class="container-md">
+			<div class="collapse navbar-collapse" id="global-navbar-customization-collapse">
+				<ul class="navbar-nav flex-grow-1" role="list">
+					{% for dropdown in globalNav.dropdowns %}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="" id="customization-{{ dropdown.id }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								{{ dropdown.label }}
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="customization-{{ dropdown.id }}">
+								{% set groupCount = dropdown.groups | length %}
+								<li class="dropdown-layout row row-cols-1 row-cols-md-2 row-cols-lg-{% if groupCount > 6 %}6{% elif groupCount < 1 %}1{% else %}{{ groupCount }}{% endif %} g-0">
+									{% for group in dropdown.groups %}
+										<div class="dropdown-group col">
+											<p class="dropdown-group-title">{{ group.title }}</p>
+											{% for link in group.links %}
+												<a class="dropdown-item text-wrap" href="{{ link.href }}">{{ link.text }}</a>
+											{% endfor %}
+										</div>
+									{% endfor %}
+								</li>
+							</ul>
+						</li>
+					{% endfor %}
+
+					<li class="nav-item dropdown d-md-none">
+                        <a class="nav-link dropdown-toggle" href="" id="customization-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            For you
+                        </a>
+						<ul class="dropdown-menu" aria-labelledby="customization-dropdown" role="list">
+							<li class="nav-item"><a class="nav-link" href="#">Students</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Faculty</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Staff</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">External Researchers</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Alumni</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Community Members</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Log in</a></li>
+						</ul>
+					</li>
+				</ul>
+
+				<form class="global-navbar-search ms-lg-auto" role="search">
+					<label class="visually-hidden" for="customization-navbar-search-input">Search the site</label>
+					<div class="global-navbar-search-field">
+						<input class="form-control form-control-sm" id="customization-navbar-search-input" type="search" placeholder="Search" aria-label="Search the site">
+						<button class="global-navbar-search-button" type="submit" aria-label="Search">
+							<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</nav>
+</header>
