@@ -35,11 +35,11 @@
               <a class="nav-link dropdown-toggle" href="" id="{{ dropdown.id }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ dropdown.label }}
               </a>
-              <ul class="dropdown-menu" aria-labelledby="{{ dropdown.id }}">
+              <ul class="dropdown-menu px-md-3 py-md-2" aria-labelledby="{{ dropdown.id }}">
                 {% set groupCount = dropdown.groups | length %}
-                <li class="dropdown-layout row row-cols-1 row-cols-lg-{% if groupCount > 6 %}6{% elif groupCount < 1 %}1{% else %}{{ groupCount }}{% endif %} g-0">
+                <li class="dropdown-layout row row-cols-1 row-cols-md-2 row-cols-lg-{% if groupCount > 6 %}6{% elif groupCount < 1 %}1{% else %}{{ groupCount }}{% endif %} gx-3 gy-0">
                   {% for group in dropdown.groups %}
-                    <div class="dropdown-group col">
+                    <div class="dropdown-group pb-2 col">
                       <p class="dropdown-group-title">{{ group.title }}</p>
                       {% for link in group.links %}
                         <a class="dropdown-item text-wrap" href="{{ link.href }}">{{ link.text }}</a>

@@ -111,7 +111,6 @@ header[role="banner"] {
             left: 0;
             right: 0;
             width: auto;
-            padding: 1rem 2rem;
             background-color: $global-navbar-bg-open;
         }
 
@@ -120,44 +119,42 @@ header[role="banner"] {
             padding: 0;
             box-shadow: none;
         }
-    }
 
-    .dropdown-layout {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-
-        .dropdown-group {
-            display: block;
+        .dropdown-layout {
+            list-style: none;
             margin: 0;
-        }
+            padding: 0;
+            width: 100%;
 
-        .dropdown-group-title {
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            margin: 0;
-            padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+            .dropdown-group-title {
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 0.6875rem;
+                text-transform: uppercase;
+                margin: 0;
+                padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x) 0.625rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+                line-height: 1.2;
 
-            @media (max-width: 767.98px) {
-                color: #ffffff;
-                padding-left: $spacer * .5;
-                padding-right: $spacer * .5;
+                @media (max-width: 767.98px) {
+                    color: rgba(255, 255, 255, 0.85);
+                    border-bottom-color: rgba(255, 255, 255, 0.25);
+                    padding-left: $spacer * .5;
+                    padding-right: $spacer * .5;
+                }
             }
-        }
 
-        .dropdown-item {
-            --bs-dropdown-link-color: #fff;
-            --bs-dropdown-link-hover-color: #fff;
-            --bs-dropdown-link-hover-bg: #{$global-navbar-item-hover};
-            transition: background-color 0.2s ease;
+            .dropdown-item {
+                --bs-dropdown-link-color: #fff;
+                --bs-dropdown-link-hover-color: #fff;
+                --bs-dropdown-link-hover-bg: #{$global-navbar-item-hover};
+                transition: background-color 0.2s ease;
 
-            @media (max-width: 767.98px) {
-                padding-left: $spacer * .5;
-                padding-right: $spacer * .5;
+                @media (max-width: 767.98px) {
+                    padding-left: $spacer * .5;
+                    padding-right: $spacer * .5;
+                }
             }
         }
     }
