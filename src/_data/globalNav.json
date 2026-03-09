@@ -219,6 +219,15 @@
                         {
                             "text": "BorrowDirect",
                             "href": ""
+                        }
+                    ]
+                },
+                {
+                    "title": "Search Tools",
+                    "links": [
+                        {
+                            "text": "Other Catalogs",
+                            "href": ""
                         },
                         {
                             "text": "WorldCat",
@@ -242,15 +251,6 @@
                         },
                         {
                             "text": "Node",
-                            "href": ""
-                        }
-                    ]
-                },
-                {
-                    "title": "Search Tools",
-                    "links": [
-                        {
-                            "text": "Other Catalogs",
                             "href": ""
                         },
                         {
