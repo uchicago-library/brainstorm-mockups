@@ -14,6 +14,12 @@ code {
     padding: 0.1em 0.3em;
 }
 
+.bg-dark code,
+.bg-primary code {
+    background: rgba(255, 255, 255, .3);
+    color: #92e6ff;
+}
+
 // Heading styles
 // Consistent typography across all heading levels with proper hierarchy and spacing
 
