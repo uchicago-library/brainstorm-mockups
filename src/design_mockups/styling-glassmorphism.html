@@ -1,0 +1,385 @@
+---
+title: "Homepage Styling Glassmorphism"
+description: "Homepage-style mockup with glassmorphism surfaces."
+---
+
+{% include "meta/document-start.html" %}
+{% include "header.html" %}
+
+<style>
+	.home-glass {
+		background:
+			radial-gradient(1200px 620px at 0% 0%, rgba(255, 186, 218, 0.52), transparent 62%),
+			radial-gradient(960px 540px at 100% 10%, rgba(173, 221, 255, 0.5), transparent 60%),
+			radial-gradient(980px 560px at 50% 100%, rgba(190, 245, 215, 0.44), transparent 58%),
+			linear-gradient(180deg, #fff3f9 0%, #eef6ff 54%, #edfff3 100%);
+		padding-top: 1.25rem;
+		padding-bottom: 3rem;
+	}
+
+	.home-glass .glass-surface {
+		background: linear-gradient(150deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.36));
+		border: 1px solid rgba(188, 214, 235, 0.72);
+		border-radius: 1rem;
+		backdrop-filter: blur(12px) saturate(102%);
+		-webkit-backdrop-filter: blur(12px) saturate(102%);
+		box-shadow:
+			0 14px 28px rgba(95, 91, 131, 0.1),
+			0 6px 18px rgba(95, 157, 197, 0.08),
+			inset 0 1px 0 rgba(255, 255, 255, 0.62);
+	}
+
+	.home-glass .section-block {
+		padding: 1.25rem;
+		margin-bottom: 1rem;
+	}
+
+	.home-glass .sidebar-card {
+		padding: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.home-glass .scope-pill {
+		border: 1px solid rgba(188, 214, 235, 0.78);
+		background: rgba(255, 255, 255, 0.7);
+		color: #2f3640;
+		font-size: 0.8125rem;
+		font-weight: 500;
+		padding: 0.4rem 0.7rem;
+		cursor: pointer;
+	}
+
+	.home-glass .scope-input:checked + .scope-pill {
+		background: rgba(0, 115, 150, 0.15);
+		border-color: rgba(0, 115, 150, 0.45);
+		color: #002e3c;
+	}
+
+	.home-glass .search-submit-icon {
+		width: 2.25rem;
+	}
+
+	.home-glass .highlight-card {
+		position: relative;
+		border-radius: 0.85rem;
+		overflow: hidden;
+		min-height: 260px;
+		display: flex;
+		align-items: end;
+	}
+
+	.home-glass .highlight-card::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: url("{{ '/assets/images/Media_Revolutions_banner.2e16d0ba.fill-1920x400.jpg' | url }}");
+		background-size: cover;
+		background-position: center;
+		opacity: 0.6;
+	}
+
+	.home-glass .highlight-card::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background:
+			radial-gradient(120% 90% at 15% 5%, rgba(120, 195, 255, 0.34), transparent 58%),
+			radial-gradient(90% 80% at 100% 15%, rgba(255, 132, 214, 0.3), transparent 62%),
+			linear-gradient(175deg, rgba(26, 35, 62, 0.42), rgba(20, 27, 45, 0.68) 55%, rgba(30, 18, 52, 0.72));
+		backdrop-filter: blur(1.5px) saturate(138%);
+		-webkit-backdrop-filter: blur(1.5px) saturate(138%);
+	}
+
+	.home-glass .highlight-content {
+		position: relative;
+		z-index: 1;
+		color: #ffffff;
+		padding: 1.25rem;
+		max-width: 36rem;
+	}
+
+	.home-glass .spotlight-block {
+		padding: 0;
+	}
+
+	.home-glass .highlight-kicker {
+		font-size: 0.75rem;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		opacity: 0.92;
+	}
+
+	.home-glass .highlight-title {
+		font-size: clamp(1.5rem, 2.5vw, 2rem);
+		font-weight: 700;
+		line-height: 1.15;
+		margin-top: 0.35rem;
+	}
+
+	.home-glass .event-card {
+		background: rgba(255, 255, 255, 0.62);
+		border: 1px solid rgba(188, 214, 235, 0.72);
+		border-radius: 0.75rem;
+		padding: 0.9rem;
+		height: 100%;
+	}
+
+	.home-glass .event-title {
+		font-size: 1rem;
+		font-weight: 600;
+		line-height: 1.3;
+	}
+
+	.home-glass .event-meta {
+		font-size: 0.875rem;
+		color: #495057;
+	}
+
+	.home-glass .news-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 0.9rem;
+	}
+
+	.home-glass .news-card {
+		background: rgba(255, 255, 255, 0.7);
+		border: 1px solid rgba(188, 214, 235, 0.72);
+		border-radius: 0.75rem;
+		overflow: hidden;
+	}
+
+	.home-glass .news-card-image {
+		height: 120px;
+		background-size: cover;
+		background-position: center;
+	}
+
+	.home-glass .news-image-science {
+		background-image: url("{{ '/assets/images/Woman-working-lab.2e16d0ba.fill-273x125.jpg' | url }}");
+	}
+
+	.home-glass .news-image-hours {
+		background-image: url("{{ '/assets/images/Mansueto_Library_2.cedec8fe.fill-273x125.jpg' | url }}");
+	}
+
+	.home-glass .news-image-exhibit {
+		background-image: url("{{ '/assets/images/Accelerator_building.2e16d0ba.fill-273x125.jpg' | url }}");
+	}
+
+	.home-glass .news-card-body {
+		padding: 0.85rem;
+	}
+
+	.home-glass .news-category {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: #5a6573;
+	}
+
+	.home-glass .news-title {
+		font-size: 1rem;
+		font-weight: 600;
+		line-height: 1.3;
+	}
+
+	.home-glass .news-excerpt {
+		font-size: 0.9rem;
+		color: #495057;
+	}
+
+	.resource-list {
+		list-style: none;
+		padding-left: 0;
+	}
+
+	.resource-list li + li {
+		margin-top: 0.5rem;
+	}
+
+	.meta-page-nav {
+		border: 2px dashed var(--bs-border-color);
+		background-color: var(--bs-tertiary-bg);
+	}
+
+	@media (max-width: 767.98px) {
+		.home-glass {
+			padding-top: 1rem;
+			padding-bottom: 2rem;
+		}
+
+		.home-glass .section-block,
+		.home-glass .sidebar-card {
+			padding: 1rem;
+		}
+	}
+</style>
+
+<div class="home-glass">
+	<nav aria-label="breadcrumb" class="container-md">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
+			<li class="breadcrumb-item"><a href="{{ '/design_mockups/' | url }}">Design Mockups</a></li>
+			<li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+		</ol>
+	</nav>
+
+	<main class="container-md py-4">
+		<div class="row g-4">
+			<div class="col-lg-8">
+				<section class="glass-surface section-block">
+					<h1 class="visually-hidden">The University of Chicago Library</h1>
+					<form>
+						<label for="globalSearch" class="visually-hidden">Global Search</label>
+						<div class="input-group input-group-sm mb-3">
+							<input id="globalSearch" type="search" class="form-control" placeholder="Search books, articles, guides, and more">
+							<button type="submit" class="btn btn-primary search-submit-icon" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+						</div>
+
+						<fieldset class="mt-3">
+							<legend class="visually-hidden">Search Across</legend>
+							<div class="d-flex flex-wrap gap-2">
+								<input class="btn-check scope-input" type="checkbox" id="scopeCatalog" checked>
+								<label class="badge rounded-pill scope-pill" for="scopeCatalog">Catalog</label>
+								<input class="btn-check scope-input" type="checkbox" id="scopeArticles">
+								<label class="badge rounded-pill scope-pill" for="scopeArticles">Articles</label>
+								<input class="btn-check scope-input" type="checkbox" id="scopeJournals">
+								<label class="badge rounded-pill scope-pill" for="scopeJournals">Journals</label>
+								<input class="btn-check scope-input" type="checkbox" id="scopeDatabases">
+								<label class="badge rounded-pill scope-pill" for="scopeDatabases">Databases</label>
+								<input class="btn-check scope-input" type="checkbox" id="scopeLibrary">
+								<label class="badge rounded-pill scope-pill" for="scopeLibrary">Library</label>
+								<input class="btn-check scope-input" type="checkbox" id="scopeGuides">
+								<label class="badge rounded-pill scope-pill" for="scopeGuides">Research Guides</label>
+								<input class="btn-check scope-input" type="checkbox" id="scopeSubjects">
+								<label class="badge rounded-pill scope-pill" for="scopeSubjects">Subjects</label>
+								<input class="btn-check scope-input" type="checkbox" id="scopeCollections">
+								<label class="badge rounded-pill scope-pill" for="scopeCollections">Collections</label>
+							</div>
+						</fieldset>
+
+						<div class="d-flex gap-2 mt-3">
+							<button type="button" class="btn btn-outline-secondary btn-sm"><i class="fa-solid fa-sliders me-1" aria-hidden="true"></i>Advanced</button>
+							<button type="button" class="btn btn-outline-info btn-sm"><i class="fa-solid fa-wand-magic-sparkles me-1" aria-hidden="true"></i>Generative</button>
+						</div>
+					</form>
+				</section>
+
+				<section class="section-block spotlight-block">
+					<h2 class="visually-hidden">Highlight</h2>
+					<article class="highlight-card" aria-label="Featured highlight">
+						<div class="highlight-content">
+							<div class="highlight-kicker">Exhibit Spotlight</div>
+							<div class="highlight-title">Mapping the Great Lakes, 1680-1930</div>
+							<p>Explore rare cartographic materials and curator commentary from one of the Library's featured exhibits.</p>
+							<p><a href="#" class="btn btn-sm btn-light">Explore Exhibit</a></p>
+						</div>
+					</article>
+				</section>
+
+				<section class="glass-surface section-block">
+					<h2>Events and Workshops</h2>
+					<div class="row g-3">
+						<div class="col-md-6">
+							<article class="event-card">
+								<div class="event-title">Exploring AI and Medical Imaging</div>
+								<div class="event-meta">Mar 26, 2026</div>
+								<div class="event-meta">12:00 pm - 1:30 pm</div>
+							</article>
+						</div>
+						<div class="col-md-6">
+							<article class="event-card">
+								<div class="event-title">Try it! Tuesday: Getting started with LaTex Using Overleaf Pro</div>
+								<div class="event-meta">Apr 7, 2026</div>
+								<div class="event-meta">1:00 pm - 3:00 pm</div>
+							</article>
+						</div>
+						<div class="col-md-6">
+							<article class="event-card">
+								<div class="event-title">Introduction to Zotero</div>
+								<div class="event-meta">Apr 9, 2026</div>
+								<div class="event-meta">12:00 pm - 1:00 pm</div>
+							</article>
+						</div>
+					</div>
+				</section>
+
+				<section class="glass-surface section-block">
+					<h2>News</h2>
+					<div class="news-grid">
+						<article class="news-card">
+							<div class="news-card-image news-image-science"></div>
+							<div class="news-card-body">
+								<div class="news-category">Science</div>
+								<div class="news-title">March 16 DeScience Writing Prize</div>
+								<p class="news-excerpt">The Library invites undergraduate students to submit to the 2026 John Crerar Foundation Science Writing Prize for College Students.</p>
+							</div>
+						</article>
+						<article class="news-card">
+							<div class="news-card-image news-image-hours"></div>
+							<div class="news-card-body">
+								<div class="news-category">Hours and Access</div>
+								<div class="news-title">Library Spring Interim 2026 hours, March 14 - 21</div>
+								<p class="news-excerpt">Starting Saturday, March 14, all libraries will have reduced hours for the spring interim.</p>
+							</div>
+						</article>
+						<article class="news-card">
+							<div class="news-card-image news-image-exhibit"></div>
+							<div class="news-card-body">
+								<div class="news-category">Exhibit News</div>
+								<div class="news-title">Students highlight the 130-year history of UChicago physicists and their books</div>
+								<p class="news-excerpt">The web exhibit Binding Energy explores the work of researchers from Enrico Fermi to the only woman on the Pile-1 team.</p>
+							</div>
+						</article>
+					</div>
+				</section>
+			</div>
+
+			<aside class="col-lg-4">
+				<section class="glass-surface sidebar-card">
+					<h2>Quicklinks</h2>
+					<ul class="list-unstyled">
+						<li><a href="#">Articles Plus</a></li>
+						<li><a href="#">JSTOR</a></li>
+						<li><a href="#">ProQuest Dissertations &amp; Theses</a></li>
+						<li><a href="#">PubMed</a></li>
+						<li><a href="#">Scopus</a></li>
+						<li><a href="#">Web of Science</a></li>
+						<li><a href="#">WorldCat</a></li>
+						<li><a href="#">Chicago Manual of Style</a></li>
+						<li><a href="#">Encyclopaedia Britannica Online</a></li>
+						<li><a href="#">Oxford English Dictionary</a></li>
+					</ul>
+				</section>
+
+				<section class="glass-surface sidebar-card">
+					<h2>Popular Resources</h2>
+					<ul class="resource-list">
+						<li><a href="#"><i class="fa-solid fa-comments me-2" aria-hidden="true"></i>Ask us Anything!</a></li>
+						<li><a href="#"><i class="fa-solid fa-door-open me-2" aria-hidden="true"></i>Book a room</a></li>
+						<li><a href="#"><i class="fa-solid fa-compass me-2" aria-hidden="true"></i>Where to start?</a></li>
+						<li><a href="#"><i class="fa-solid fa-book-open me-2" aria-hidden="true"></i>Guides</a></li>
+					</ul>
+				</section>
+
+				<section class="glass-surface sidebar-card">
+					<h2>Help and Contact</h2>
+					<p>Need research support or technical help? Reach out through chat, email, or an in-person consultation.</p>
+					<p><a href="#">Contact the Library</a></p>
+				</section>
+			</aside>
+		</div>
+	</main>
+</div>
+
+<section class="meta-page-nav container-md rounded-3 p-3 mt-5" aria-label="Mockup page navigation">
+	<h2>Mockup Page Navigation</h2>
+	<div class="small">Meta element: navigate between styling mockups.</div>
+	<div class="d-flex flex-wrap gap-2 mt-3">
+		<a href="{{ '/design_mockups/styling-glassmorphism/' | url }}" class="btn btn-secondary btn-sm" aria-current="page">Homepage Styling Glassmorphism</a>
+		<a href="{{ '/design_mockups/styling-minimalist/' | url }}" class="btn btn-outline-secondary btn-sm">Homepage Styling Minimalist</a>
+	</div>
+</section>
+
+{% include "footer.html" %}
+{% include "meta/document-end.html" %}
