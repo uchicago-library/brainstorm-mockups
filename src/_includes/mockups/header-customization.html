@@ -47,7 +47,7 @@
 										<div class="dropdown-group col">
 											<p class="dropdown-group-title">{{ group.title }}</p>
 											{% for link in group.links %}
-												<a class="dropdown-item text-wrap" href="{{ link.href }}">{{ link.text }}</a>
+												<a class="dropdown-item text-wrap" href="{{ link.href | url }}">{{ link.text }}</a>
 											{% endfor %}
 										</div>
 									{% endfor %}

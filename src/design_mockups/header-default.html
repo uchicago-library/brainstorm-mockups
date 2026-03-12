@@ -1,0 +1,33 @@
+---
+title: "Header Default"
+description: "Mockup page to validate the default shared header behavior."
+---
+
+{% include "meta/document-start.html" %}
+{% include "mockups/header-shortcuts-newnav.html" %}
+
+<nav aria-label="breadcrumb" class="container-md">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
+		<li class="breadcrumb-item"><a href="{{ '/design_mockups/' | url }}">Design Mockups</a></li>
+		<li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+	</ol>
+</nav>
+
+<main class="container-md py-4 mb-5">
+	<h1>{{ title }}</h1>
+	<p>{{ description }}</p>
+	<section class="card">
+		<div class="card-body">
+			<h2>Header Validation</h2>
+			<p>Use this page to validate default header behavior including dropdown open/close, mobile collapse, and top shortcut links.</p>
+			<p>The shared include used here is <code>src/_includes/header.html</code>.</p>
+		</div>
+	</section>
+
+	{% set current = 'default' %}
+	{% include "meta/header-mockups-page-nav.html" %}
+</main>
+
+{% include "footer.html" %}
+{% include "meta/document-end.html" %}

@@ -7,364 +7,416 @@ description: "Homepage-style mockup with minimalist surfaces."
 {% include "header.html" %}
 
 <style>
-  .home-minimal {
-    background: #f5f7fa;
-    padding-top: 1.25rem;
-    padding-bottom: 3rem;
-  }
+.home-minimal {
+background: #f5f7fa;
+padding-top: 1.25rem;
+padding-bottom: 3rem;
+}
 
-  .home-minimal .minimal-surface {
-    background: rgba(255, 255, 255, 0.88);
-    border: 1px solid #dde4ec;
-    border-radius: 0.75rem;
-  }
+.home-minimal .mockup-surface {
+background: rgba(255, 255, 255, 0.9);
+border: 1px solid #d8e0e8;
+border-radius: 0.75rem;
+}
 
-  .home-minimal .section-block {
-    padding: 1.25rem;
-    margin-bottom: 1rem;
-  }
+.home-minimal .mockup-section {
+padding: 1rem;
+margin-bottom: 1rem;
+}
 
-  .home-minimal .sidebar-card {
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
+.home-minimal .mockup-sidebar-card {
+padding: 0.85rem;
+margin-bottom: 1rem;
+}
 
-  .home-minimal .section-heading {
-    border-bottom: 1px solid #e6ebf1;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-  }
+.home-minimal h2 {
+font-size: 1.06rem;
+margin-top: 0;
+margin-bottom: 0.65rem;
+}
 
-  .home-minimal .scope-pill {
-    border: 1px solid #d4dde8;
-    background: #f8fafc;
-    color: #2f3640;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    padding: 0.4rem 0.7rem;
-    cursor: pointer;
-  }
+.home-minimal .mockup-search-section {
+border-color: #c8d7e6;
+box-shadow: 0 8px 20px rgba(44, 62, 80, 0.09);
+}
 
-  .home-minimal .scope-input:checked + .scope-pill {
-    background: #d8ebf3;
-    border-color: #8fb4c8;
-    color: #002e3c;
-  }
+.home-minimal .mockup-scope-pill {
+border: 1px solid #d4dde8;
+background: #f8fafc;
+color: #2f3640;
+font-size: 0.8125rem;
+font-weight: 500;
+padding: 0.4rem 0.7rem;
+cursor: pointer;
+}
 
-  .home-minimal .search-submit-icon {
-    width: 2.25rem;
-  }
+.home-minimal .mockup-scope-input:checked + .mockup-scope-pill {
+background: #d8ebf3;
+border-color: #8fb4c8;
+color: #002e3c;
+}
 
-  .home-minimal .search-section {
-    border-color: #c8d7e6;
-    box-shadow: 0 8px 20px rgba(44, 62, 80, 0.09);
-  }
+.home-minimal .mockup-search-submit,
+.home-minimal .mockup-search-option {
+width: 2.25rem;
+}
 
-  .home-minimal .highlight-card {
-    position: relative;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    min-height: 240px;
-    display: flex;
-    align-items: end;
-  }
+.home-minimal .mockup-search-option {
+background: #f8fafc;
+border-color: #d4dde8;
+color: #3f566d;
+}
 
-  .home-minimal .highlight-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("{{ '/assets/images/Media_Revolutions_banner.2e16d0ba.fill-1920x400.jpg' | url }}");
-    background-size: cover;
-    background-position: center;
-    opacity: 0.62;
-  }
+.home-minimal #globalSearchMinimal {
+border-color: #d4dde8;
+background: #ffffff;
+}
 
-  .home-minimal .highlight-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg, rgba(14, 20, 30, 0.36), rgba(14, 20, 30, 0.82));
-  }
+.home-minimal .highlight-card {
+position: relative;
+border-radius: 0.75rem;
+overflow: hidden;
+min-height: 240px;
+display: flex;
+align-items: end;
+}
 
-  .home-minimal .highlight-content {
-    position: relative;
-    z-index: 1;
-    color: #fff;
-    padding: 1.1rem;
-    max-width: 35rem;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
-  }
+.home-minimal .highlight-card::before {
+content: "";
+position: absolute;
+inset: 0;
+background-image: url("{{ '/assets/images/Media_Revolutions_banner.2e16d0ba.fill-1920x400.jpg' | url }}");
+background-size: cover;
+background-position: center;
+opacity: 0.62;
+}
 
-  .home-minimal .highlight-kicker {
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    opacity: 0.98;
-    font-weight: 600;
-  }
+.home-minimal .highlight-card::after {
+content: "";
+position: absolute;
+inset: 0;
+background: linear-gradient(180deg, rgba(14, 20, 30, 0.36), rgba(14, 20, 30, 0.82));
+}
 
-  .home-minimal .highlight-title {
-    font-size: clamp(1.4rem, 2.3vw, 1.9rem);
-    font-weight: 700;
-    line-height: 1.15;
-    margin-top: 0.35rem;
-  }
+.home-minimal .highlight-content {
+position: relative;
+z-index: 1;
+color: #fff;
+padding: 1.1rem;
+max-width: 35rem;
+text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
 
-  .home-minimal .spotlight-block {
-    padding: 0;
-  }
+.home-minimal .highlight-kicker {
+font-size: 0.75rem;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+opacity: 0.98;
+font-weight: 600;
+}
 
-  .home-minimal .event-card {
-    background: #fff;
-    border: 1px solid #dde4ec;
-    border-radius: 0.75rem;
-    padding: 0.9rem;
-    height: 100%;
-  }
+.home-minimal .highlight-title {
+font-size: clamp(1.4rem, 2.3vw, 1.9rem);
+font-weight: 700;
+line-height: 1.15;
+margin-top: 0.35rem;
+}
 
-  .home-minimal .event-title {
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.3;
-  }
+.home-minimal .mockup-spotlight-block {
+padding: 0;
+}
 
-  .home-minimal .event-meta {
-    font-size: 0.875rem;
-    color: #495057;
-  }
+.home-minimal .event-card {
+display: grid;
+grid-template-columns: auto 1fr;
+gap: 0.9rem;
+align-items: start;
+height: 100%;
+padding: 0.2rem;
+}
 
-  .home-minimal .news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 0.9rem;
-  }
+.home-minimal .event-card-content {
+min-width: 0;
+}
 
-  .home-minimal .news-card {
-    background: #fff;
-    border: 1px solid #dde4ec;
-    border-radius: 0.75rem;
-    overflow: hidden;
-  }
+.home-minimal .event-title {
+font-size: 1rem;
+font-weight: 600;
+line-height: 1.3;
+}
 
-  .home-minimal .news-card-image {
-    height: 120px;
-    background-size: cover;
-    background-position: center;
-  }
+.home-minimal .event-date {
+display: inline-flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 3.4rem;
+min-height: 4rem;
+margin-top: 0.05rem;
+border-radius: 0.8rem;
+border: 2px solid #8fb4c8;
+border-width: 3px 1px 1px;
+background: #eef6fb;
+color: #005a75;
+line-height: 1;
+flex-shrink: 0;
+}
 
-  .home-minimal .news-image-science {
-    background-image: url("{{ '/assets/images/Woman-working-lab.2e16d0ba.fill-273x125.jpg' | url }}");
-  }
+.home-minimal .event-date-month {
+font-size: 0.74rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.03em;
+}
 
-  .home-minimal .news-image-hours {
-    background-image: url("{{ '/assets/images/Mansueto_Library_2.cedec8fe.fill-273x125.jpg' | url }}");
-  }
+.home-minimal .event-date-day {
+font-size: 1.7rem;
+font-weight: 700;
+margin-top: 0.15rem;
+}
 
-  .home-minimal .news-image-exhibit {
-    background-image: url("{{ '/assets/images/Accelerator_building.2e16d0ba.fill-273x125.jpg' | url }}");
-  }
+.home-minimal .event-time {
+display: inline-flex;
+align-items: center;
+gap: 0.35rem;
+font-size: 0.875rem;
+color: #3f4b5a;
+}
 
-  .home-minimal .news-card-body {
-    padding: 0.85rem;
-  }
+.home-minimal .news-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 0.9rem;
+}
 
-  .home-minimal .news-category {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: #5a6573;
-  }
+.home-minimal .news-card {
+background: #fff;
+border: 1px solid #dde4ec;
+border-radius: 0.75rem;
+overflow: hidden;
+}
 
-  .home-minimal .news-title {
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.3;
-  }
+.home-minimal .news-card-image {
+height: 120px;
+background-size: cover;
+background-position: center;
+}
 
-  .home-minimal .news-excerpt {
-    font-size: 0.9rem;
-    color: #495057;
-  }
+.home-minimal .news-image-science {
+background-image: url("{{ '/assets/images/Woman-working-lab.2e16d0ba.fill-273x125.jpg' | url }}");
+}
 
-  .resource-list {
-    list-style: none;
-    padding-left: 0;
-  }
+.home-minimal .news-image-hours {
+background-image: url("{{ '/assets/images/Mansueto_Library_2.cedec8fe.fill-273x125.jpg' | url }}");
+}
 
-  .resource-list li + li {
-    margin-top: 0.5rem;
-  }
+.home-minimal .news-image-exhibit {
+background-image: url("{{ '/assets/images/Accelerator_building.2e16d0ba.fill-273x125.jpg' | url }}");
+}
 
-  @media (max-width: 767.98px) {
-    .home-minimal {
-      padding-top: 1rem;
-      padding-bottom: 2rem;
-    }
+.home-minimal .news-card-body {
+padding: 0.85rem;
+}
 
-    .home-minimal .section-block,
-    .home-minimal .sidebar-card {
-      padding: 1rem;
-    }
-  }
+.home-minimal .news-category {
+display: inline-block;
+font-size: 0.7rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.04em;
+padding: 0.2rem 0.45rem;
+border-radius: 999px;
+margin-bottom: 0.4rem;
+}
+
+.home-minimal .news-category-science {
+background: rgba(0, 115, 150, 0.14);
+color: #004d63;
+}
+
+.home-minimal .news-category-hours {
+background: rgba(120, 157, 74, 0.18);
+color: #25480c;
+}
+
+.home-minimal .news-category-exhibit {
+background: rgba(128, 0, 0, 0.16);
+color: #5d0000;
+}
+
+.home-minimal .news-title {
+font-size: 1rem;
+font-weight: 600;
+line-height: 1.3;
+}
+
+.home-minimal .news-excerpt {
+font-size: 0.9rem;
+color: #495057;
+}
+
+.home-minimal .quicklink-list {
+list-style: none;
+padding-left: 0;
+margin-bottom: 0;
+}
+
+.home-minimal .quicklink-list li + li {
+margin-top: 0.22rem;
+}
+
+.home-minimal .quicklink-list a {
+display: flex;
+align-items: center;
+gap: 0.42rem;
+padding: 0.26rem 0.4rem;
+border-radius: 0.65rem;
+text-decoration: none;
+font-size: 0.915rem;
+line-height: 1.25;
+}
+
+.home-minimal .quicklink-list a:hover,
+.home-minimal .quicklink-list a:focus-visible {
+background: #edf3f8;
+}
+
+.home-minimal .quicklink-type-icon {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 1.15rem;
+height: 1.15rem;
+border-radius: 999px;
+font-size: 0.62rem;
+background: #e4f0f6;
+color: #005670;
+flex-shrink: 0;
+}
+
+.home-minimal .resource-cards {
+display: grid;
+gap: 0.15rem;
+}
+
+.home-minimal .resource-card {
+display: grid;
+grid-template-columns: 2.5rem 1fr;
+gap: 0.5rem;
+align-items: center;
+padding: 0.45rem 0.3rem;
+border-radius: 0.6rem;
+background: transparent;
+border: 0;
+text-decoration: none;
+color: #182635;
+transition: background-color 180ms ease;
+}
+
+.home-minimal .resource-card:hover,
+.home-minimal .resource-card:focus-visible {
+background: #edf3f8;
+}
+
+.home-minimal .resource-visual {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 2.35rem;
+height: 2.35rem;
+border-radius: 999px;
+background: #edf4f8;
+border: 1px solid #c8d7e6;
+}
+
+.home-minimal .resource-visual i {
+font-size: 1.05rem;
+color: #103d5a;
+}
+
+.home-minimal .resource-title {
+display: block;
+font-size: 1rem;
+font-weight: 700;
+line-height: 1.2;
+}
+
+.home-minimal .resource-subtitle {
+display: block;
+margin-top: 0.08rem;
+font-size: 0.84rem;
+color: #364658;
+line-height: 1.3;
+}
+
+.home-minimal .mockup-main .mockup-order-1 {
+order: 1;
+}
+
+.home-minimal .mockup-side .mockup-order-2 {
+order: 2;
+}
+
+.home-minimal .mockup-side .mockup-order-3 {
+order: 3;
+}
+
+.home-minimal .mockup-main .mockup-order-4 {
+order: 4;
+}
+
+.home-minimal .mockup-main .mockup-order-5 {
+order: 5;
+}
+
+.home-minimal .mockup-main .mockup-order-6 {
+order: 6;
+}
+
+.home-minimal .mockup-side .mockup-order-7 {
+order: 7;
+}
+
+.meta-page-nav {
+border: 2px dashed var(--bs-border-color);
+background-color: var(--bs-tertiary-bg);
+}
+
+@media (max-width: 767.98px) {
+.home-minimal {
+padding-top: 1rem;
+padding-bottom: 2rem;
+}
+
+.home-minimal .mockup-section,
+.home-minimal .mockup-sidebar-card {
+padding: 1rem;
+}
+}
+
+@media (max-width: 991.98px) {
+.home-minimal .mockup-main,
+.home-minimal .mockup-side {
+display: contents;
+}
+}
 </style>
 
 <div class="home-minimal">
-  <nav aria-label="breadcrumb" class="container-md">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
-      <li class="breadcrumb-item"><a href="{{ '/design_mockups/' | url }}">Design Mockups</a></li>
-      <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
-    </ol>
-  </nav>
+<nav aria-label="breadcrumb" class="container-md">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
+<li class="breadcrumb-item"><a href="{{ '/design_mockups/' | url }}">Design Mockups</a></li>
+<li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+</ol>
+</nav>
 
-  <main class="container-md py-4">
-    <div class="row g-4">
-      <div class="col-lg-8">
-        <section class="minimal-surface section-block search-section">
-          <h1 class="visually-hidden">The University of Chicago Library</h1>
-          <form>
-            <label for="globalSearchMinimal" class="visually-hidden">Global Search</label>
-            <div class="input-group input-group-sm mb-3">
-              <input id="globalSearchMinimal" type="search" class="form-control" placeholder="Search books, articles, guides, and more">
-              <button type="submit" class="btn btn-primary search-submit-icon" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
-            </div>
-
-            <fieldset class="mt-3">
-              <legend class="visually-hidden">Search Across</legend>
-              <div class="d-flex flex-wrap gap-2">
-                <input class="btn-check scope-input" type="checkbox" id="scopeCatalogMinimal" checked>
-                <label class="badge rounded-pill scope-pill" for="scopeCatalogMinimal">Catalog</label>
-                <input class="btn-check scope-input" type="checkbox" id="scopeArticlesMinimal">
-                <label class="badge rounded-pill scope-pill" for="scopeArticlesMinimal">Articles</label>
-                <input class="btn-check scope-input" type="checkbox" id="scopeJournalsMinimal">
-                <label class="badge rounded-pill scope-pill" for="scopeJournalsMinimal">Journals</label>
-                <input class="btn-check scope-input" type="checkbox" id="scopeDatabasesMinimal">
-                <label class="badge rounded-pill scope-pill" for="scopeDatabasesMinimal">Databases</label>
-                <input class="btn-check scope-input" type="checkbox" id="scopeLibraryMinimal">
-                <label class="badge rounded-pill scope-pill" for="scopeLibraryMinimal">Library</label>
-                <input class="btn-check scope-input" type="checkbox" id="scopeGuidesMinimal">
-                <label class="badge rounded-pill scope-pill" for="scopeGuidesMinimal">Research Guides</label>
-                <input class="btn-check scope-input" type="checkbox" id="scopeSubjectsMinimal">
-                <label class="badge rounded-pill scope-pill" for="scopeSubjectsMinimal">Subjects</label>
-                <input class="btn-check scope-input" type="checkbox" id="scopeCollectionsMinimal">
-                <label class="badge rounded-pill scope-pill" for="scopeCollectionsMinimal">Collections</label>
-              </div>
-            </fieldset>
-
-            <div class="d-flex gap-2 mt-3">
-              <button type="button" class="btn btn-outline-secondary btn-sm"><i class="fa-solid fa-sliders me-1" aria-hidden="true"></i>Advanced</button>
-              <button type="button" class="btn btn-outline-info btn-sm"><i class="fa-solid fa-wand-magic-sparkles me-1" aria-hidden="true"></i>Generative</button>
-            </div>
-          </form>
-        </section>
-
-        <section class="section-block spotlight-block">
-          <h2 class="visually-hidden">Highlight</h2>
-          <article class="highlight-card" aria-label="Featured highlight">
-            <div class="highlight-content">
-              <div class="highlight-kicker">Exhibit Spotlight</div>
-              <div class="highlight-title">Mapping the Great Lakes, 1680-1930</div>
-              <p>The Protestant Reformation sparked the first modern media event, transforming print from a nascent technology into a revolutionary tool. But did it also give us fake news, conspiracy theories, and viral hate speech?</p>
-              <p><a href="#" class="btn btn-sm btn-light">Explore Exhibit</a></p>
-            </div>
-          </article>
-        </section>
-
-        <section class="minimal-surface section-block">
-          <div class="section-heading"><h2>Events and Workshops</h2></div>
-          <div class="row g-3">
-            <div class="col-md-6">
-              <article class="event-card">
-                <div class="event-title">Exploring AI and Medical Imaging</div>
-                <div class="event-meta">Mar 26, 2026</div>
-                <div class="event-meta">12:00 pm - 1:30 pm</div>
-              </article>
-            </div>
-            <div class="col-md-6">
-              <article class="event-card">
-                <div class="event-title">Try it! Tuesday: Getting started with LaTex Using Overleaf Pro</div>
-                <div class="event-meta">Apr 7, 2026</div>
-                <div class="event-meta">1:00 pm - 3:00 pm</div>
-              </article>
-            </div>
-            <div class="col-md-6">
-              <article class="event-card">
-                <div class="event-title">Introduction to Zotero</div>
-                <div class="event-meta">Apr 9, 2026</div>
-                <div class="event-meta">12:00 pm - 1:00 pm</div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="minimal-surface section-block">
-          <div class="section-heading"><h2>News</h2></div>
-          <div class="news-grid">
-            <article class="news-card">
-              <div class="news-card-image news-image-science"></div>
-              <div class="news-card-body">
-                <div class="news-category">Science</div>
-                <div class="news-title">March 16 DeScience Writing Prize</div>
-                <p class="news-excerpt">The Library invites undergraduate students to submit to the 2026 John Crerar Foundation Science Writing Prize for College Students.</p>
-              </div>
-            </article>
-            <article class="news-card">
-              <div class="news-card-image news-image-hours"></div>
-              <div class="news-card-body">
-                <div class="news-category">Hours and Access</div>
-                <div class="news-title">Library Spring Interim 2026 hours, March 14 - 21</div>
-                <p class="news-excerpt">Starting Saturday, March 14, all libraries will have reduced hours for the spring interim.</p>
-              </div>
-            </article>
-            <article class="news-card">
-              <div class="news-card-image news-image-exhibit"></div>
-              <div class="news-card-body">
-                <div class="news-category">Exhibit News</div>
-                <div class="news-title">Students highlight the 130-year history of UChicago physicists and their books</div>
-                <p class="news-excerpt">The web exhibit Binding Energy explores the work of researchers from Enrico Fermi to the only woman on the Pile-1 team.</p>
-              </div>
-            </article>
-          </div>
-        </section>
-      </div>
-
-      <aside class="col-lg-4">
-        <section class="minimal-surface sidebar-card">
-          <div class="section-heading"><h2>Quicklinks</h2></div>
-          <ul class="list-unstyled">
-            <li><a href="#">Articles Plus</a></li>
-            <li><a href="#">JSTOR</a></li>
-            <li><a href="#">ProQuest Dissertations &amp; Theses</a></li>
-            <li><a href="#">PubMed</a></li>
-            <li><a href="#">Scopus</a></li>
-            <li><a href="#">Web of Science</a></li>
-            <li><a href="#">WorldCat</a></li>
-            <li><a href="#">Chicago Manual of Style</a></li>
-            <li><a href="#">Encyclopaedia Britannica Online</a></li>
-            <li><a href="#">Oxford English Dictionary</a></li>
-          </ul>
-        </section>
-
-        <section class="minimal-surface sidebar-card">
-          <div class="section-heading"><h2>Popular Resources</h2></div>
-          <ul class="resource-list">
-            <li><a href="#"><i class="fa-solid fa-comments me-2" aria-hidden="true"></i>Ask us Anything!</a></li>
-            <li><a href="#"><i class="fa-solid fa-door-open me-2" aria-hidden="true"></i>Book a room</a></li>
-            <li><a href="#"><i class="fa-solid fa-compass me-2" aria-hidden="true"></i>Where to start?</a></li>
-            <li><a href="#"><i class="fa-solid fa-book-open me-2" aria-hidden="true"></i>Guides</a></li>
-          </ul>
-        </section>
-
-        <section class="minimal-surface sidebar-card">
-          <div class="section-heading"><h2>Help and Contact</h2></div>
-          <p>Need research support or technical help? Reach out through chat, email, or an in-person consultation.</p>
-          <p><a href="#">Contact the Library</a></p>
-        </section>
-      </aside>
-    </div>
-  </main>
+{% set mockupIdSuffix = 'Minimal' %}
+{% include "mockups/homepage-content.html" %}
 </div>
+
+{% set current = 'minimal' %}
+{% include "meta/styling-mockups-page-nav.html" %}
 
 {% include "footer.html" %}
 {% include "meta/document-end.html" %}

@@ -1,0 +1,67 @@
+---
+title: "Contacts Mockup"
+description: "Mockup page listing all Help and Contact options."
+permalink: "/design_mockups/contacts/"
+---
+
+{% include "meta/document-start.html" %}
+{% include "header.html" %}
+
+<nav aria-label="breadcrumb" class="container-md">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
+		<li class="breadcrumb-item"><a href="{{ '/design_mockups/' | url }}">Design Mockups</a></li>
+		<li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+	</ol>
+</nav>
+
+<main class="container-md py-4 mb-5">
+	<h1>Contacts</h1>
+	<p>{{ description }}</p>
+
+	<section class="row g-3 mt-1" aria-label="Help and Contact options">
+		<div class="col-md-6 col-lg-4">
+			<a href="#" class="card h-100 text-decoration-none">
+				<div class="card-body">
+					<h2>Website search</h2>
+					<p>Search the library site for services, departments, and policies.</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<a href="#" class="card h-100 text-decoration-none">
+				<div class="card-body">
+					<h2>Ask Us anything</h2>
+					<p>Get direct help from library staff for research and service questions.</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<a href="#" class="card h-100 text-decoration-none">
+				<div class="card-body">
+					<h2>Ask the LibBot</h2>
+					<p>Use the automated assistant for quick answers and guided links.</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<a href="#" class="card h-100 text-decoration-none">
+				<div class="card-body">
+					<h2>Send us an email</h2>
+					<p>Send detailed requests for follow-up and asynchronous support.</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<a href="#" class="card h-100 text-decoration-none">
+				<div class="card-body">
+					<h2>Guide for first time visitors</h2>
+					<p>Read practical guidance for getting started with spaces and services.</p>
+				</div>
+			</a>
+		</div>
+	</section>
+</main>
+
+{% include "footer.html" %}
+{% include "meta/document-end.html" %}

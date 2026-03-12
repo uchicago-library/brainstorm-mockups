@@ -7,629 +7,434 @@ description: "Homepage-style mockup with glassmorphism surfaces."
 {% include "header.html" %}
 
 <style>
-	.home-glass {
-		background:
-			radial-gradient(1200px 620px at 0% 0%, rgba(128, 0, 0, 0.2), transparent 62%),
-			radial-gradient(960px 540px at 100% 10%, rgba(0, 115, 150, 0.24), transparent 60%),
-			radial-gradient(980px 560px at 50% 100%, rgba(120, 157, 74, 0.24), transparent 58%),
-			linear-gradient(180deg, #fbf6f6 0%, #eef6f8 54%, #f1f7ed 100%);
-		padding-top: 1.25rem;
-		padding-bottom: 3rem;
-	}
+.home-glass {
+background:
+radial-gradient(1200px 620px at 0% 0%, rgba(128, 0, 0, 0.2), transparent 62%),
+radial-gradient(960px 540px at 100% 10%, rgba(0, 115, 150, 0.24), transparent 60%),
+radial-gradient(980px 560px at 50% 100%, rgba(120, 157, 74, 0.24), transparent 58%),
+linear-gradient(180deg, #fbf6f6 0%, #eef6f8 54%, #f1f7ed 100%);
+padding-top: 1.25rem;
+padding-bottom: 3rem;
+}
 
-	.home-glass .glass-surface {
-		background: linear-gradient(150deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.36));
-		border: 1px solid rgba(121, 161, 186, 0.5);
-		border-radius: 1rem;
-		backdrop-filter: blur(12px) saturate(102%);
-		-webkit-backdrop-filter: blur(12px) saturate(102%);
-		box-shadow:
-			0 14px 28px rgba(45, 37, 37, 0.08),
-			0 6px 18px rgba(0, 115, 150, 0.1),
-			inset 0 1px 0 rgba(255, 255, 255, 0.62);
-	}
+.home-glass .mockup-surface {
+background: linear-gradient(150deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.36));
+border: 1px solid rgba(121, 161, 186, 0.5);
+border-radius: 1rem;
+backdrop-filter: blur(12px) saturate(102%);
+-webkit-backdrop-filter: blur(12px) saturate(102%);
+box-shadow:
+0 14px 28px rgba(45, 37, 37, 0.08),
+0 6px 18px rgba(0, 115, 150, 0.1),
+inset 0 1px 0 rgba(255, 255, 255, 0.62);
+}
 
-	.home-glass .section-block {
-		padding: 1rem;
-		margin-bottom: 1rem;
-	}
+.home-glass .mockup-section {
+padding: 1rem;
+margin-bottom: 1rem;
+}
 
-	.home-glass .sidebar-card {
-		padding: 0.85rem;
-		margin-bottom: 1rem;
-	}
+.home-glass .mockup-sidebar-card {
+padding: 0.85rem;
+margin-bottom: 1rem;
+}
 
-	.home-glass h2 {
-		font-size: 1.06rem;
-		margin-top: 0;
-		margin-bottom: 0.65rem;
-	}
+.home-glass h2 {
+font-size: 1.06rem;
+margin-top: 0;
+margin-bottom: 0.65rem;
+}
 
-	.home-glass .scope-pill {
-		border: 1px solid rgba(188, 214, 235, 0.78);
-		background: rgba(255, 255, 255, 0.7);
-		color: #2f3640;
-		font-size: 0.8125rem;
-		font-weight: 500;
-		padding: 0.4rem 0.7rem;
-		cursor: pointer;
-	}
+.home-glass .mockup-scope-pill {
+border: 1px solid rgba(188, 214, 235, 0.78);
+background: rgba(255, 255, 255, 0.7);
+color: #2f3640;
+font-size: 0.8125rem;
+font-weight: 500;
+padding: 0.4rem 0.7rem;
+cursor: pointer;
+}
 
-	.home-glass .scope-input:checked + .scope-pill {
-		background: rgba(0, 115, 150, 0.15);
-		border-color: rgba(0, 115, 150, 0.45);
-		color: #002e3c;
-	}
+.home-glass .mockup-scope-input:checked + .mockup-scope-pill {
+background: rgba(0, 115, 150, 0.15);
+border-color: rgba(0, 115, 150, 0.45);
+color: #002e3c;
+}
 
-	.home-glass .search-submit-icon {
-		width: 2.25rem;
-	}
+.home-glass .mockup-search-submit {
+width: 2.25rem;
+}
 
-	.home-glass .search-option-icon {
-		width: 2.25rem;
-		background: rgba(255, 255, 255, 0.62);
-		border-color: rgba(0, 115, 150, 0.35);
-		color: #0f556f;
-	}
+.home-glass .mockup-search-option {
+width: 2.25rem;
+background: rgba(255, 255, 255, 0.62);
+border-color: rgba(0, 115, 150, 0.35);
+color: #0f556f;
+}
 
-	.home-glass .search-option-icon:hover,
-	.home-glass .search-option-icon:focus-visible {
-		background: rgba(255, 255, 255, 0.82);
-		color: #004e66;
-	}
+.home-glass .mockup-search-option:hover,
+.home-glass .mockup-search-option:focus-visible {
+background: rgba(255, 255, 255, 0.82);
+color: #004e66;
+}
 
-	.home-glass #globalSearch {
-		border-color: rgba(0, 115, 150, 0.35);
-		background: rgba(255, 255, 255, 0.72);
-	}
+.home-glass #globalSearchGlass {
+border-color: rgba(0, 115, 150, 0.35);
+background: rgba(255, 255, 255, 0.72);
+}
 
-	.home-glass .highlight-card {
-		position: relative;
-		border-radius: 0.85rem;
-		overflow: hidden;
-		min-height: 260px;
-		display: flex;
-		align-items: end;
-	}
+.home-glass .highlight-card {
+position: relative;
+border-radius: 0.85rem;
+overflow: hidden;
+min-height: 260px;
+display: flex;
+align-items: end;
+}
 
-	.home-glass .highlight-card::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		background-image: url("{{ '/assets/images/Media_Revolutions_banner.2e16d0ba.fill-1920x400.jpg' | url }}");
-		background-size: cover;
-		background-position: center;
-		opacity: 0.6;
-	}
+.home-glass .highlight-card::before {
+content: "";
+position: absolute;
+inset: 0;
+background-image: url("{{ '/assets/images/Media_Revolutions_banner.2e16d0ba.fill-1920x400.jpg' | url }}");
+background-size: cover;
+background-position: center;
+opacity: 0.6;
+}
 
-	.home-glass .highlight-card::after {
-		content: "";
-		position: absolute;
-		inset: 0;
-		background:
-			radial-gradient(120% 90% at 15% 5%, rgba(0, 115, 150, 0.34), transparent 58%),
-			radial-gradient(90% 80% at 100% 15%, rgba(120, 157, 74, 0.28), transparent 62%),
-			linear-gradient(175deg, rgba(22, 35, 40, 0.45), rgba(22, 35, 40, 0.68) 48%, rgba(58, 18, 18, 0.72));
-		backdrop-filter: blur(1.5px) saturate(138%);
-		-webkit-backdrop-filter: blur(1.5px) saturate(138%);
-	}
+.home-glass .highlight-card::after {
+content: "";
+position: absolute;
+inset: 0;
+background:
+radial-gradient(120% 90% at 15% 5%, rgba(0, 115, 150, 0.34), transparent 58%),
+radial-gradient(90% 80% at 100% 15%, rgba(120, 157, 74, 0.28), transparent 62%),
+linear-gradient(175deg, rgba(22, 35, 40, 0.45), rgba(22, 35, 40, 0.68) 48%, rgba(58, 18, 18, 0.72));
+backdrop-filter: blur(1.5px) saturate(138%);
+-webkit-backdrop-filter: blur(1.5px) saturate(138%);
+}
 
-	.home-glass .highlight-content {
-		position: relative;
-		z-index: 1;
-		color: #ffffff;
-		padding: 1.25rem;
-		max-width: 36rem;
-	}
+.home-glass .highlight-content {
+position: relative;
+z-index: 1;
+color: #ffffff;
+padding: 1.25rem;
+max-width: 36rem;
+}
 
-	.home-glass .spotlight-block {
-		padding: 0;
-	}
+.home-glass .mockup-spotlight-block {
+padding: 0;
+}
 
-	.home-glass .highlight-kicker {
-		font-size: 0.75rem;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-		opacity: 0.92;
-	}
+.home-glass .highlight-kicker {
+font-size: 0.75rem;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+opacity: 0.92;
+}
 
-	.home-glass .highlight-title {
-		font-size: clamp(1.5rem, 2.5vw, 2rem);
-		font-weight: 700;
-		line-height: 1.15;
-		margin-top: 0.35rem;
-	}
+.home-glass .highlight-title {
+font-size: clamp(1.5rem, 2.5vw, 2rem);
+font-weight: 700;
+line-height: 1.15;
+margin-top: 0.35rem;
+}
 
-	.home-glass .event-card {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		gap: 0.9rem;
-		align-items: start;
-		height: 100%;
-		padding: 0.15rem;
-	}
+.home-glass .event-card {
+display: grid;
+grid-template-columns: auto 1fr;
+gap: 0.9rem;
+align-items: start;
+height: 100%;
+padding: 0.15rem;
+}
 
-	.home-glass .event-card-content {
-		min-width: 0;
-	}
+.home-glass .event-card-content {
+min-width: 0;
+}
 
-	.home-glass .event-title {
-		font-size: 1rem;
-		font-weight: 600;
-		line-height: 1.3;
-	}
+.home-glass .event-title {
+font-size: 1rem;
+font-weight: 600;
+line-height: 1.3;
+}
 
-	.home-glass .event-meta {
-		font-size: 0.875rem;
-		color: #495057;
-	}
+.home-glass .event-date {
+display: inline-flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 3.75rem;
+min-height: 4.25rem;
+margin-top: 0.05rem;
+border-radius: 0.9rem;
+border: 2px solid rgba(0, 115, 150, 0.8);
+border-width: 3px 1px 1px;
+background: rgba(0, 115, 150, 0.06);
+color: #005a75;
+line-height: 1;
+flex-shrink: 0;
+}
 
-	.home-glass .event-date {
-		display: inline-flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		width: 3.75rem;
-		min-height: 4.25rem;
-		margin-top: 0.05rem;
-		border-radius: 0.9rem;
-		border: 2px solid rgba(0, 115, 150, 0.8);
-		border-width: 3px 1px 1px;
-		background: rgba(0, 115, 150, 0.06);
-		color: #005a75;
-		line-height: 1;
-		flex-shrink: 0;
-	}
+.home-glass .event-date-month {
+font-size: 0.78rem;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.03em;
+}
 
-	.home-glass .event-date-month {
-		font-size: 0.78rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.03em;
-	}
+.home-glass .event-date-day {
+font-size: 1.8rem;
+font-weight: 700;
+margin-top: 0.15rem;
+}
 
-	.home-glass .event-date-day {
-		font-size: 1.8rem;
-		font-weight: 700;
-		margin-top: 0.15rem;
-	}
+.home-glass .event-time {
+display: inline-flex;
+align-items: center;
+gap: 0.35rem;
+font-size: 0.875rem;
+color: #3f4b5a;
+}
 
-	.home-glass .event-time {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.35rem;
-		font-size: 0.875rem;
-		color: #3f4b5a;
-	}
+.home-glass .news-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 0.9rem;
+}
 
-	.home-glass .news-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-		gap: 0.9rem;
-	}
+.home-glass .news-card {
+background: rgba(255, 255, 255, 0.7);
+border: 1px solid rgba(188, 214, 235, 0.72);
+border-radius: 0.75rem;
+overflow: hidden;
+}
 
-	.home-glass .news-card {
-		background: rgba(255, 255, 255, 0.7);
-		border: 1px solid rgba(188, 214, 235, 0.72);
-		border-radius: 0.75rem;
-		overflow: hidden;
-	}
+.home-glass .news-card-image {
+height: 120px;
+background-size: cover;
+background-position: center;
+}
 
-	.home-glass .news-card-image {
-		height: 120px;
-		background-size: cover;
-		background-position: center;
-	}
+.home-glass .news-image-science {
+background-image: url("{{ '/assets/images/Woman-working-lab.2e16d0ba.fill-273x125.jpg' | url }}");
+}
 
-	.home-glass .news-image-science {
-		background-image: url("{{ '/assets/images/Woman-working-lab.2e16d0ba.fill-273x125.jpg' | url }}");
-	}
+.home-glass .news-image-hours {
+background-image: url("{{ '/assets/images/Mansueto_Library_2.cedec8fe.fill-273x125.jpg' | url }}");
+}
 
-	.home-glass .news-image-hours {
-		background-image: url("{{ '/assets/images/Mansueto_Library_2.cedec8fe.fill-273x125.jpg' | url }}");
-	}
+.home-glass .news-image-exhibit {
+background-image: url("{{ '/assets/images/Accelerator_building.2e16d0ba.fill-273x125.jpg' | url }}");
+}
 
-	.home-glass .news-image-exhibit {
-		background-image: url("{{ '/assets/images/Accelerator_building.2e16d0ba.fill-273x125.jpg' | url }}");
-	}
+.home-glass .news-card-body {
+padding: 0.85rem;
+}
 
-	.home-glass .news-card-body {
-		padding: 0.85rem;
-	}
+.home-glass .news-category {
+display: inline-block;
+font-size: 0.7rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.04em;
+padding: 0.2rem 0.45rem;
+border-radius: 999px;
+margin-bottom: 0.4rem;
+}
 
-	.home-glass .news-category {
-		display: inline-block;
-		font-size: 0.7rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-		padding: 0.2rem 0.45rem;
-		border-radius: 999px;
-		margin-bottom: 0.4rem;
-	}
+.home-glass .news-category-science {
+background: rgba(0, 115, 150, 0.2);
+color: #004d63;
+}
 
-	.home-glass .news-category-science {
-		background: rgba(0, 115, 150, 0.2);
-		color: #004d63;
-	}
+.home-glass .news-category-hours {
+background: rgba(120, 157, 74, 0.22);
+color: #25480c;
+}
 
-	.home-glass .news-category-hours {
-		background: rgba(120, 157, 74, 0.22);
-		color: #25480c;
-	}
+.home-glass .news-category-exhibit {
+background: rgba(128, 0, 0, 0.2);
+color: #5d0000;
+}
 
-	.home-glass .news-category-exhibit {
-		background: rgba(128, 0, 0, 0.2);
-		color: #5d0000;
-	}
+.home-glass .news-title {
+font-size: 1rem;
+font-weight: 600;
+line-height: 1.3;
+}
 
-	.home-glass .news-title {
-		font-size: 1rem;
-		font-weight: 600;
-		line-height: 1.3;
-	}
+.home-glass .news-excerpt {
+font-size: 0.9rem;
+color: #495057;
+}
 
-	.home-glass .news-excerpt {
-		font-size: 0.9rem;
-		color: #495057;
-	}
+.quicklink-list {
+list-style: none;
+padding-left: 0;
+margin-bottom: 0;
+}
 
-	.quicklink-list {
-		list-style: none;
-		padding-left: 0;
-		margin-bottom: 0;
-	}
+.quicklink-list li + li {
+margin-top: 0.22rem;
+}
 
-	.quicklink-list li + li {
-		margin-top: 0.22rem;
-	}
+.quicklink-list a {
+display: flex;
+align-items: center;
+gap: 0.42rem;
+padding: 0.26rem 0.4rem;
+border-radius: 0.65rem;
+text-decoration: none;
+color: #173042;
+font-size: 0.915rem;
+line-height: 1.25;
+transition: background-color 180ms ease, transform 180ms ease;
+}
 
-	.quicklink-list a {
-		display: flex;
-		align-items: center;
-		gap: 0.42rem;
-		padding: 0.26rem 0.4rem;
-		border-radius: 0.65rem;
-		text-decoration: none;
-		color: #173042;
-		font-size: 0.915rem;
-		line-height: 1.25;
-		transition: background-color 180ms ease, transform 180ms ease;
-	}
+.quicklink-list a:hover,
+.quicklink-list a:focus-visible {
+background: rgba(0, 115, 150, 0.12);
+transform: translateY(-1px);
+}
 
-	.quicklink-list a:hover,
-	.quicklink-list a:focus-visible {
-		background: rgba(0, 115, 150, 0.12);
-		transform: translateY(-1px);
-	}
+.quicklink-type-icon {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 1.15rem;
+height: 1.15rem;
+border-radius: 999px;
+font-size: 0.62rem;
+background: rgba(0, 115, 150, 0.16);
+color: #005670;
+flex-shrink: 0;
+}
 
-	.quicklink-type-icon {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 1.15rem;
-		height: 1.15rem;
-		border-radius: 999px;
-		font-size: 0.62rem;
-		background: rgba(0, 115, 150, 0.16);
-		color: #005670;
-		flex-shrink: 0;
-	}
+.resource-cards {
+display: grid;
+gap: 0.15rem;
+}
 
-	.resource-cards {
-		display: grid;
-		gap: 0.15rem;
-	}
+.resource-card {
+display: grid;
+grid-template-columns: 2.5rem 1fr;
+gap: 0.5rem;
+align-items: center;
+padding: 0.45rem 0.3rem;
+border-radius: 0.6rem;
+background: transparent;
+border: 0;
+text-decoration: none;
+color: #182635;
+transition: transform 180ms ease, background-color 180ms ease;
+}
 
-	.resource-card {
-		display: grid;
-		grid-template-columns: 2.5rem 1fr;
-		gap: 0.5rem;
-		align-items: center;
-		padding: 0.45rem 0.3rem;
-		border-radius: 0.6rem;
-		background: transparent;
-		border: 0;
-		text-decoration: none;
-		color: #182635;
-		transition: transform 180ms ease, background-color 180ms ease;
-	}
+.resource-card:hover,
+.resource-card:focus-visible {
+transform: translateY(-1px);
+background: rgba(255, 255, 255, 0.34);
+}
 
-	.resource-card:hover,
-	.resource-card:focus-visible {
-		transform: translateY(-1px);
-		background: rgba(255, 255, 255, 0.34);
-	}
+.resource-visual {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 2.35rem;
+height: 2.35rem;
+border-radius: 999px;
+background: linear-gradient(145deg, rgba(255, 255, 255, 0.75), rgba(120, 157, 74, 0.12));
+border: 1px solid rgba(0, 115, 150, 0.25);
+}
 
-	.resource-visual {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 2.35rem;
-		height: 2.35rem;
-		border-radius: 999px;
-		background: linear-gradient(145deg, rgba(255, 255, 255, 0.75), rgba(120, 157, 74, 0.12));
-		border: 1px solid rgba(0, 115, 150, 0.25);
-	}
+.resource-visual i {
+font-size: 1.05rem;
+color: #103d5a;
+}
 
-	.resource-visual i {
-		font-size: 1.05rem;
-		color: #103d5a;
-	}
+.resource-title {
+display: block;
+font-size: 1rem;
+font-weight: 700;
+line-height: 1.2;
+}
 
-	.resource-title {
-		display: block;
-		font-size: 1rem;
-		font-weight: 700;
-		line-height: 1.2;
-	}
+.resource-subtitle {
+display: block;
+margin-top: 0.08rem;
+font-size: 0.84rem;
+color: #364658;
+line-height: 1.3;
+}
 
-	.resource-subtitle {
-		display: block;
-		margin-top: 0.08rem;
-		font-size: 0.84rem;
-		color: #364658;
-		line-height: 1.3;
-	}
+.home-glass .mockup-main .mockup-order-1 {
+order: 1;
+}
 
-	.home-glass .home-main .mobile-order-1 {
-		order: 1;
-	}
+.home-glass .mockup-side .mockup-order-2 {
+order: 2;
+}
 
-	.home-glass .home-side .mobile-order-2 {
-		order: 2;
-	}
+.home-glass .mockup-side .mockup-order-3 {
+order: 3;
+}
 
-	.home-glass .home-side .mobile-order-3 {
-		order: 3;
-	}
+.home-glass .mockup-main .mockup-order-4 {
+order: 4;
+}
 
-	.home-glass .home-main .mobile-order-4 {
-		order: 4;
-	}
+.home-glass .mockup-main .mockup-order-5 {
+order: 5;
+}
 
-	.home-glass .home-main .mobile-order-5 {
-		order: 5;
-	}
+.home-glass .mockup-main .mockup-order-6 {
+order: 6;
+}
 
-	.home-glass .home-main .mobile-order-6 {
-		order: 6;
-	}
+.home-glass .mockup-side .mockup-order-7 {
+order: 7;
+}
 
-	.home-glass .home-side .mobile-order-7 {
-		order: 7;
-	}
+.meta-page-nav {
+border: 2px dashed var(--bs-border-color);
+background-color: var(--bs-tertiary-bg);
+}
 
-	.meta-page-nav {
-		border: 2px dashed var(--bs-border-color);
-		background-color: var(--bs-tertiary-bg);
-	}
+@media (max-width: 767.98px) {
+.home-glass {
+padding-top: 1rem;
+padding-bottom: 2rem;
+}
 
-	@media (max-width: 767.98px) {
-		.home-glass {
-			padding-top: 1rem;
-			padding-bottom: 2rem;
-		}
+.home-glass .mockup-section,
+.home-glass .mockup-sidebar-card {
+padding: 1rem;
+}
+}
 
-		.home-glass .section-block,
-		.home-glass .sidebar-card {
-			padding: 1rem;
-		}
-	}
-
-	@media (max-width: 991.98px) {
-		/* Flatten column wrappers so sections can be ordered without duplicated markup. */
-		.home-glass .home-main,
-		.home-glass .home-side {
-			display: contents;
-		}
-
-		.home-glass .home-layout > .section-block,
-		.home-glass .home-layout > .sidebar-card {
-			flex: 0 0 100%;
-			max-width: 100%;
-		}
-	}
+@media (max-width: 991.98px) {
+.home-glass .mockup-main,
+.home-glass .mockup-side {
+display: contents;
+}
+}
 </style>
 
 <div class="home-glass">
-	<nav aria-label="breadcrumb" class="container-md">
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
-			<li class="breadcrumb-item"><a href="{{ '/design_mockups/' | url }}">Design Mockups</a></li>
-			<li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
-		</ol>
-	</nav>
+<nav aria-label="breadcrumb" class="container-md">
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
+<li class="breadcrumb-item"><a href="{{ '/design_mockups/' | url }}">Design Mockups</a></li>
+<li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+</ol>
+</nav>
 
-	<main class="container-md py-4">
-		<div class="row g-4 home-layout">
-			<div class="col-lg-8 home-main">
-				<section class="glass-surface section-block mobile-order-1">
-					<h1 class="visually-hidden">The University of Chicago Library</h1>
-					<form>
-						<label for="globalSearch" class="visually-hidden">Global Search</label>
-						<div class="input-group input-group-sm mb-3">
-							<input id="globalSearch" type="search" class="form-control" placeholder="Search books, articles, guides, and more">
-							<button type="button" class="btn btn-outline-secondary search-option-icon" aria-label="Advanced search" title="Advanced search"><i class="fa-solid fa-sliders" aria-hidden="true"></i></button>
-							<button type="button" class="btn btn-outline-info search-option-icon" aria-label="Generative search" title="Generative search"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></button>
-							<button type="submit" class="btn btn-primary search-submit-icon" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
-						</div>
-
-						<fieldset class="mt-3">
-							<legend class="visually-hidden">Search Across</legend>
-							<div class="d-flex flex-wrap gap-2">
-								<input class="btn-check scope-input" type="checkbox" id="scopeCatalog" checked>
-								<label class="badge rounded-pill scope-pill" for="scopeCatalog">Catalog</label>
-								<input class="btn-check scope-input" type="checkbox" id="scopeArticles">
-								<label class="badge rounded-pill scope-pill" for="scopeArticles">Articles</label>
-								<input class="btn-check scope-input" type="checkbox" id="scopeJournals">
-								<label class="badge rounded-pill scope-pill" for="scopeJournals">Journals</label>
-								<input class="btn-check scope-input" type="checkbox" id="scopeDatabases">
-								<label class="badge rounded-pill scope-pill" for="scopeDatabases">Databases</label>
-								<input class="btn-check scope-input" type="checkbox" id="scopeLibrary">
-								<label class="badge rounded-pill scope-pill" for="scopeLibrary">Library</label>
-								<input class="btn-check scope-input" type="checkbox" id="scopeGuides">
-								<label class="badge rounded-pill scope-pill" for="scopeGuides">Research Guides</label>
-								<input class="btn-check scope-input" type="checkbox" id="scopeSubjects">
-								<label class="badge rounded-pill scope-pill" for="scopeSubjects">Subjects</label>
-								<input class="btn-check scope-input" type="checkbox" id="scopeCollections">
-								<label class="badge rounded-pill scope-pill" for="scopeCollections">Collections</label>
-							</div>
-						</fieldset>
-
-					</form>
-				</section>
-
-				<section class="section-block spotlight-block mobile-order-4">
-					<h2 class="visually-hidden">Highlight</h2>
-					<article class="highlight-card" aria-label="Featured highlight">
-						<div class="highlight-content">
-							<div class="highlight-kicker">Exhibit Spotlight</div>
-							<div class="highlight-title">Mapping the Great Lakes, 1680-1930</div>
-							<p>The Protestant Reformation sparked the first modern media event, transforming print from a nascent technology into a revolutionary tool. But did it also give us fake news, conspiracy theories, and viral hate speech?</p>
-							<p><a href="#" class="btn btn-sm btn-light">Explore Exhibit</a></p>
-						</div>
-					</article>
-				</section>
-
-				<section class="glass-surface section-block mobile-order-5">
-					<h2>Events and Workshops</h2>
-					<div class="row g-3">
-						<div class="col-md-6">
-							<article class="event-card">
-								<div class="event-date" aria-label="March 26"><span class="event-date-month">Mar</span><span class="event-date-day">26</span></div>
-								<div class="event-card-content">
-									<div class="event-title">Exploring AI and Medical Imaging</div>
-									<div class="event-time"><i class="fa-regular fa-clock" aria-hidden="true"></i>12:00 pm - 1:30 pm</div>
-								</div>
-							</article>
-						</div>
-						<div class="col-md-6">
-							<article class="event-card">
-								<div class="event-date" aria-label="April 7"><span class="event-date-month">Apr</span><span class="event-date-day">7</span></div>
-								<div class="event-card-content">
-									<div class="event-title">Try it! Tuesday: Getting started with LaTex Using Overleaf Pro</div>
-									<div class="event-time"><i class="fa-regular fa-clock" aria-hidden="true"></i>1:00 pm - 3:00 pm</div>
-								</div>
-							</article>
-						</div>
-						<div class="col-md-6">
-							<article class="event-card">
-								<div class="event-date" aria-label="April 9"><span class="event-date-month">Apr</span><span class="event-date-day">9</span></div>
-								<div class="event-card-content">
-									<div class="event-title">Introduction to Zotero</div>
-									<div class="event-time"><i class="fa-regular fa-clock" aria-hidden="true"></i>12:00 pm - 1:00 pm</div>
-								</div>
-							</article>
-						</div>
-					</div>
-				</section>
-
-				<section class="glass-surface section-block mobile-order-6">
-					<h2>News</h2>
-					<div class="news-grid">
-						<article class="news-card">
-							<div class="news-card-image news-image-science"></div>
-							<div class="news-card-body">
-								<div class="news-category news-category-science">Science</div>
-								<div class="news-title">March 16 DeScience Writing Prize</div>
-								<p class="news-excerpt">The Library invites undergraduate students to submit to the 2026 John Crerar Foundation Science Writing Prize for College Students.</p>
-							</div>
-						</article>
-						<article class="news-card">
-							<div class="news-card-image news-image-hours"></div>
-							<div class="news-card-body">
-								<div class="news-category news-category-hours">Hours and Access</div>
-								<div class="news-title">Library Spring Interim 2026 hours, March 14 - 21</div>
-								<p class="news-excerpt">Starting Saturday, March 14, all libraries will have reduced hours for the spring interim.</p>
-							</div>
-						</article>
-						<article class="news-card">
-							<div class="news-card-image news-image-exhibit"></div>
-							<div class="news-card-body">
-								<div class="news-category news-category-exhibit">Exhibit News</div>
-								<div class="news-title">Students highlight the 130-year history of UChicago physicists and their books</div>
-								<p class="news-excerpt">The web exhibit Binding Energy explores the work of researchers from Enrico Fermi to the only woman on the Pile-1 team.</p>
-							</div>
-						</article>
-					</div>
-				</section>
-			</div>
-
-			<aside class="col-lg-4 home-side">
-				<section class="glass-surface sidebar-card mobile-order-3">
-					<h2>Quicklinks</h2>
-					<ul class="quicklink-list">
-						<li><a href="#" title="Database"><span class="quicklink-type-icon" aria-hidden="true"><i class="fa-solid fa-database"></i></span>Articles Plus</a></li>
-						<li><a href="#" title="Database"><span class="quicklink-type-icon" aria-hidden="true"><i class="fa-solid fa-database"></i></span>JSTOR</a></li>
-						<li><a href="#" title="Database"><span class="quicklink-type-icon" aria-hidden="true"><i class="fa-solid fa-database"></i></span>ProQuest Dissertations &amp; Theses</a></li>
-						<li><a href="#" title="Database"><span class="quicklink-type-icon" aria-hidden="true"><i class="fa-solid fa-database"></i></span>PubMed</a></li>
-						<li><a href="#" title="Database"><span class="quicklink-type-icon" aria-hidden="true"><i class="fa-solid fa-database"></i></span>Scopus</a></li>
-						<li><a href="#" title="Database"><span class="quicklink-type-icon" aria-hidden="true"><i class="fa-solid fa-database"></i></span>Web of Science</a></li>
-						<li><a href="#" title="Catalog"><span class="quicklink-type-icon" aria-hidden="true"><i class="fa-solid fa-book"></i></span>WorldCat</a></li>
-						<li><a href="#" title="Citation"><span class="quicklink-type-icon" aria-hidden="true"><i class="fa-solid fa-quote-left"></i></span>Chicago Manual of Style</a></li>
-						<li><a href="#" title="Reference"><span class="quicklink-type-icon" aria-hidden="true"><i class="fa-solid fa-circle-info"></i></span>Encyclopaedia Britannica Online</a></li>
-						<li><a href="#" title="Reference"><span class="quicklink-type-icon" aria-hidden="true"><i class="fa-solid fa-circle-info"></i></span>Oxford English Dictionary</a></li>
-					</ul>
-				</section>
-
-				<section class="glass-surface sidebar-card mobile-order-2">
-					<h2>Popular Resources</h2>
-					<div class="resource-cards">
-						<a href="#" class="resource-card">
-							<span class="resource-visual" aria-hidden="true"><i class="fa-solid fa-comments"></i></span>
-							<span>
-								<span class="resource-title">Ask us Anything!</span>
-								<span class="resource-subtitle">Chat with library staff for quick support.</span>
-							</span>
-						</a>
-						<a href="#" class="resource-card">
-							<span class="resource-visual" aria-hidden="true"><i class="fa-solid fa-door-open"></i></span>
-							<span>
-								<span class="resource-title">Book a room</span>
-								<span class="resource-subtitle">Reserve a quiet study room in minutes.</span>
-							</span>
-						</a>
-						<a href="#" class="resource-card">
-							<span class="resource-visual" aria-hidden="true"><i class="fa-solid fa-compass"></i></span>
-							<span>
-								<span class="resource-title">Where to start?</span>
-								<span class="resource-subtitle">Guidance for researchers and first-time users.</span>
-							</span>
-						</a>
-						<a href="#" class="resource-card">
-							<span class="resource-visual" aria-hidden="true"><i class="fa-solid fa-book-open"></i></span>
-							<span>
-								<span class="resource-title">Guides</span>
-								<span class="resource-subtitle">Find tools and methods by subject area.</span>
-							</span>
-						</a>
-					</div>
-				</section>
-
-				<section class="glass-surface sidebar-card mobile-order-7">
-					<h2>Help and Contact</h2>
-					<ul class="list-unstyled mb-0">
-						<li><a href="#">Website search</a></li>
-						<li><a href="#">Ask Us anything</a></li>
-						<li><a href="#">Ask the LibBot</a></li>
-						<li><a href="#">Send us an email</a></li>
-						<li><a href="#">Guide for first time visitors</a></li>
-					</ul>
-				</section>
-			</aside>
-		</div>
-	</main>
+{% set mockupIdSuffix = 'Glass' %}
+{% include "mockups/homepage-content.html" %}
 </div>
 
-<section class="meta-page-nav container-md rounded-3 p-3 mt-5" aria-label="Mockup page navigation">
-	<h2>Mockup Page Navigation</h2>
-	<div class="small">Meta element: navigate between styling mockups.</div>
-	<div class="d-flex flex-wrap gap-2 mt-3">
-		<a href="{{ '/design_mockups/styling-glassmorphism/' | url }}" class="btn btn-secondary btn-sm" aria-current="page">Homepage Styling Glassmorphism</a>
-		<a href="{{ '/design_mockups/styling-minimalist/' | url }}" class="btn btn-outline-secondary btn-sm">Homepage Styling Minimalist</a>
-	</div>
-</section>
+{% set current = 'glass' %}
+{% include "meta/styling-mockups-page-nav.html" %}
 
 {% include "footer.html" %}
 {% include "meta/document-end.html" %}
