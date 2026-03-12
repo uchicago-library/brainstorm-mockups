@@ -11,7 +11,7 @@
 				<ul class="nav d-none d-md-flex justify-content-end" id="navbar-shortcuts" role="list">
 					{% for link in globalNav.shortcutLinks %}
 						<li class="nav-item">
-							<a class="nav-link" href="{{ link.href }}">
+							<a class="nav-link" href="{{ link.href | url }}">
 								<i class="{{ link.icon }}" aria-hidden="true"></i>
 								<span>{{ link.text }}</span>
 							</a>
@@ -32,7 +32,7 @@
 				<ul class="navbar-nav flex-grow-1" role="list">
 					{% for dropdown in headerCurrentNav.dropdowns %}
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="" id="current-new-{{ dropdown.id }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" href="#" id="current-new-{{ dropdown.id }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								{{ dropdown.label }}
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="current-new-{{ dropdown.id }}">
@@ -42,7 +42,7 @@
 										<div class="dropdown-group col">
 											<p class="dropdown-group-title">{{ group.title }}</p>
 											{% for link in group.links %}
-												<a class="dropdown-item text-wrap" href="{{ link.href }}">{{ link.text }}</a>
+												<a class="dropdown-item text-wrap" href="{{ link.href | url }}">{{ link.text }}</a>
 											{% endfor %}
 										</div>
 									{% endfor %}
@@ -56,7 +56,7 @@
 						<ul class="navbar-nav flex-column mobile-shortcuts-list" role="list">
 							{% for link in globalNav.shortcutLinks %}
 								<li class="nav-item">
-									<a class="nav-link" href="{{ link.href }}">
+									<a class="nav-link" href="{{ link.href | url }}">
 										<i class="{{ link.icon }} me-2" aria-hidden="true"></i>
 										{{ link.text }}
 									</a>

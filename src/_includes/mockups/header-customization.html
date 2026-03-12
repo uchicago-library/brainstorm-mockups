@@ -37,7 +37,7 @@
 				<ul class="navbar-nav flex-grow-1" role="list">
 					{% for dropdown in globalNav.dropdowns %}
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="" id="customization-{{ dropdown.id }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" href="#" id="customization-{{ dropdown.id }}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								{{ dropdown.label }}
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="customization-{{ dropdown.id }}">
@@ -57,7 +57,7 @@
 					{% endfor %}
 
 					<li class="nav-item dropdown d-md-none">
-                        <a class="nav-link dropdown-toggle" href="" id="customization-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	                        <a class="nav-link dropdown-toggle" href="#" id="customization-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             For you
                         </a>
 						<ul class="dropdown-menu" aria-labelledby="customization-dropdown" role="list">
