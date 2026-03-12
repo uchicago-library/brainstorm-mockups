@@ -1,0 +1,89 @@
+---
+title: "Ask Us Anything Mockup"
+description: "Mockup page for the library's primary Ask Us entry point."
+permalink: "/design_mockups/ask-us/"
+---
+
+{% include "meta/document-start.html" %}
+{% include "header.html" %}
+
+<nav aria-label="breadcrumb" class="container-md">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
+		<li class="breadcrumb-item"><a href="{{ '/design_mockups/' | url }}">Design Mockups</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Ask Us Anything</li>
+	</ol>
+</nav>
+
+<main class="container-md py-4 mb-5">
+	<h1>Ask Us Anything</h1>
+	<p>{{ description }}</p>
+
+	<section class="row g-3 mt-1" aria-label="Primary contact options">
+		<div class="col-md-6 col-lg-3">
+			<a href="#" class="card h-100 text-decoration-none">
+				<div class="card-body">
+					<h2>Chat with library staff</h2>
+					<p>Start with the main Ask Us service for help with research, access, and library services.</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-6 col-lg-3">
+			<a href="#" class="card h-100 text-decoration-none">
+				<div class="card-body">
+					<h2>Ask the LibBot</h2>
+					<p>Use the automated assistant for quick answers, routing, and common service questions.</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-6 col-lg-3">
+			<a href="#" class="card h-100 text-decoration-none">
+				<div class="card-body">
+					<h2>Send an email</h2>
+					<p>Use email when you need follow-up, attachments, or a response outside live service hours.</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-6 col-lg-3">
+			<a href="{{ '/design_mockups/contacts/' | url }}" class="card h-100 text-decoration-none">
+				<div class="card-body">
+					<h2>All contact options</h2>
+					<p>Browse the full set of help and contact paths, including website search and visitor guidance.</p>
+				</div>
+			</a>
+		</div>
+	</section>
+
+	<section class="row g-4 mt-4" aria-label="Common needs">
+		<div class="col-lg-7">
+			<section class="card h-100">
+				<div class="card-body">
+					<h2>What this page helps with</h2>
+					<ul class="mb-0">
+						<li>Research questions and finding sources</li>
+						<li>Borrowing, renewals, and access issues</li>
+						<li>Spaces, hours, and visiting the library</li>
+						<li>Using library tools, guides, and services</li>
+						<li>Getting routed to the right department or specialist</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+		<div class="col-lg-5">
+			<section class="card h-100">
+				<div class="card-body">
+					<h2>Before you ask</h2>
+					<p>Good supporting links for this hub could include:</p>
+					<ul class="mb-0">
+						<li><a href="#">Hours</a></li>
+						<li><a href="#">Website search</a></li>
+						<li><a href="#">Help guides</a></li>
+						<li><a href="#">Visitor information</a></li>
+					</ul>
+				</div>
+			</section>
+		</div>
+	</section>
+</main>
+
+{% include "footer.html" %}
