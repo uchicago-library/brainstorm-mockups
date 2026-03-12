@@ -1,0 +1,64 @@
+---
+title: "Contacts"
+---
+
+{% include "meta/document-start.html" %}
+{% include "header.html" %}
+
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ '/design_mockups/' | url }}">Mockups</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+  </ol>
+</nav>
+
+<main class="container-md py-4 mb-5">
+  <h1>{{ title }}</h1>
+  <p class="lead text-muted">Choose an option to get help, ask a question, or find information.</p>
+
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-4">
+      <a class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-start justify-content-center p-4 border-2" href="#">
+        <span class="fw-semibold fs-5 d-block mb-1">Website search</span>
+        <span class="small text-muted">Search the Library website for pages, services, and answers.</span>
+      </a>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <a class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-start justify-content-center p-4 border-2" href="#">
+        <span class="fw-semibold fs-5 d-block mb-1">Ask Us anything</span>
+        <span class="small text-muted">Get help from library staff—questions big or small.</span>
+      </a>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <a class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-start justify-content-center p-4 border-2" href="#">
+        <span class="fw-semibold fs-5 d-block mb-1">Ask the LibBot</span>
+        <span class="small text-muted">Chat with LibBot for quick answers and guidance.</span>
+      </a>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <a class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-start justify-content-center p-4 border-2" href="mailto:library@uchicago.edu">
+        <span class="fw-semibold fs-5 d-block mb-1">Send us an email</span>
+        <span class="small text-muted">Email us and we’ll follow up as soon as possible.</span>
+      </a>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <a class="btn btn-outline-dark w-100 h-100 d-flex flex-column align-items-start justify-content-center p-4 border-2" href="#">
+        <span class="fw-semibold fs-5 d-block mb-1">Guide for first time visitors</span>
+        <span class="small text-muted">Learn what to expect, how to get access, and where to start.</span>
+      </a>
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <p class="mb-0"><a href="{{ '/design_mockups/' | url }}">← Back to Mockups</a></p>
+</main>
+
+{% include "footer.html" %}
+{% include "meta/document-end.html" %}
