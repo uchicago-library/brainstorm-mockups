@@ -16,64 +16,43 @@ permalink: "/design_mockups/ask-us/"
 </nav>
 
 <main class="container-md py-4 mb-5">
-	<h1>Ask Us Anything</h1>
-	<p>{{ description }}</p>
-
-	<section class="row g-3 mt-1" aria-label="Primary contact options">
-		<div class="col-md-6 col-lg-3">
-			<a href="#" class="card h-100 text-decoration-none">
-				<div class="card-body">
-					<h2>Chat with library staff</h2>
-					<p>Start with the main Ask Us service for help with research, access, and library services.</p>
-				</div>
-			</a>
-		</div>
-		<div class="col-md-6 col-lg-3">
-			<a href="#" class="card h-100 text-decoration-none">
-				<div class="card-body">
-					<h2>Ask the LibBot</h2>
-					<p>Use the automated assistant for quick answers, routing, and common service questions.</p>
-				</div>
-			</a>
-		</div>
-		<div class="col-md-6 col-lg-3">
-			<a href="#" class="card h-100 text-decoration-none">
-				<div class="card-body">
-					<h2>Send an email</h2>
-					<p>Use email when you need follow-up, attachments, or a response outside live service hours.</p>
-				</div>
-			</a>
-		</div>
-		<div class="col-md-6 col-lg-3">
-			<a href="{{ '/design_mockups/contacts/' | url }}" class="card h-100 text-decoration-none">
-				<div class="card-body">
-					<h2>All contact options</h2>
-					<p>Browse the full set of help and contact paths, including website search and visitor guidance.</p>
-				</div>
-			</a>
-		</div>
-	</section>
-
-	<section class="row g-4 mt-4" aria-label="Common needs">
+	<div class="row g-4">
 		<div class="col-lg-7">
-			<section class="card h-100">
-				<div class="card-body">
-					<h2>What this page helps with</h2>
-					<ul class="mb-0">
-						<li>Research questions and finding sources</li>
-						<li>Borrowing, renewals, and access issues</li>
-						<li>Spaces, hours, and visiting the library</li>
-						<li>Using library tools, guides, and services</li>
-						<li>Getting routed to the right department or specialist</li>
-					</ul>
+			<h1>Ask Us Anything</h1>
+			<p>Fill in the form below and a library staff member will join the chat shortly.</p>
+
+			<form action="#" method="post" novalidate>
+				<div class="mb-3">
+					<label for="ask-name" class="form-label">Name</label>
+					<input type="text" class="form-control" id="ask-name" name="name" autocomplete="name" required>
 				</div>
-			</section>
+
+				<div class="mb-3">
+					<label for="ask-affiliation" class="form-label">Affiliation to UChicago</label>
+					<select class="form-select" id="ask-affiliation" name="affiliation" required>
+						<option value="" selected disabled>Select your affiliation…</option>
+						<option>Student</option>
+						<option>Faculty</option>
+						<option>Staff</option>
+						<option>Alumni</option>
+						<option>Community Member / Visitor</option>
+						<option>Other</option>
+					</select>
+				</div>
+
+				<div class="mb-4">
+					<label for="ask-question" class="form-label">Your question</label>
+					<textarea class="form-control" id="ask-question" name="question" rows="5" placeholder="Describe what you need help with…" required></textarea>
+				</div>
+
+				<button type="submit" class="btn btn-primary">Start chat</button>
+			</form>
 		</div>
+
 		<div class="col-lg-5">
-			<section class="card h-100">
+			<aside class="card" aria-label="Before you ask">
 				<div class="card-body">
 					<h2>Before you ask</h2>
-					<p>Good supporting links for this hub could include:</p>
 					<ul class="mb-0">
 						<li><a href="#">Hours</a></li>
 						<li><a href="#">Website search</a></li>
@@ -81,9 +60,19 @@ permalink: "/design_mockups/ask-us/"
 						<li><a href="#">Visitor information</a></li>
 					</ul>
 				</div>
-			</section>
+			</aside>
+			<aside class="card mt-3" aria-label="Other contact options">
+				<div class="card-body">
+					<h2>Other ways to reach us</h2>
+					<ul class="mb-0">
+						<li><a href="#">Ask the LibBot</a></li>
+						<li><a href="#">Send an email</a></li>
+						<li><a href="{{ '/design_mockups/contacts/' | url }}">All contact options</a></li>
+					</ul>
+				</div>
+			</aside>
 		</div>
-	</section>
+	</div>
 </main>
 
 {% include "footer.html" %}
