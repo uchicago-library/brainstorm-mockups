@@ -54,6 +54,62 @@ description: "Guidelines for using surfaces, borders, and shadows to group conte
             <strong>Shadow:</strong> Use <code>.shadow</code> only for elevated or floating surfaces like modals and dropdowns.
         </li>
         </ul>
+
+        
+        <h3>Spacing and Whitespace</h3>
+
+        <p>Whitespace defines relationships and hierarchy. Use the scale consistently — don't skip levels or mix padding and margin for the same purpose.</p>
+
+        <h4>Spacing Scale</h4>
+
+        <table class="table table-bordered">
+        <thead>
+            <tr>
+            <th>Level</th>
+            <th>Typical class</th>
+            <th>Use for</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>1</td>
+            <td><code>ms-1</code>, <code>me-1</code></td>
+            <td>Tight inline pairings — icon + label, badge + text</td>
+            </tr>
+            <tr>
+            <td>2</td>
+            <td><code>mb-2</code></td>
+            <td>Intra-component stacking — list items, stacked inputs, card body rhythm</td>
+            </tr>
+            <tr>
+            <td>3</td>
+            <td><code>p-3</code></td>
+            <td>Component padding — cards, panels, form sections</td>
+            </tr>
+            <tr>
+            <td>4</td>
+            <td><code>mb-4</code>, <code>g-4</code></td>
+            <td>Between components; default grid gap</td>
+            </tr>
+            <tr>
+            <td>5</td>
+            <td><code>py-5</code></td>
+            <td>Section breaks and page-level structure</td>
+            </tr>
+        </tbody>
+        </table>
+
+        <h4>Padding vs. Margin</h4>
+
+        <p>Use <code>p-</code> for internal space within a component. Use <code>m-</code> only to push a component away from its siblings — prefer layout containers and gap utilities over scattered margins.</p>
+
+        <h4>Asymmetric Spacing</h4>
+
+        <p>Horizontal padding and gap is typically one step larger than vertical to improve line readability and visual flow: <code>px-3 py-2</code>, <code>gx-3 gy-2</code>.</p>
+
+        <h4>Buttons</h4>
+
+        <p>Button padding is baked in by Bootstrap (<code>.btn</code> sits between levels 1 and 2 on the scale). Do not override it with spacing utilities — use <code>.btn-sm</code> or <code>.btn-lg</code> if a size variant is needed.</p>
       </section>
 
       <hr class="my-5">
