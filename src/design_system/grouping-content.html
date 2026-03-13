@@ -1,0 +1,100 @@
+---
+title: "Grouping Content"
+description: "Guidelines for using surfaces, borders, and shadows to group content in the design system."
+---
+
+{% include "meta/document-start.html" %}
+{% include "header.html" %}
+
+<nav aria-label="breadcrumb" class="container-md">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a> </li>
+    <li class="breadcrumb-item"><a href="{{ '/design_system/' | url }}">Design System</a> </li>
+    <li class="breadcrumb-item active" aria-current="page">{{ title }} </li>
+  </ol>
+</nav>
+
+<main class="container-md py-4 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      <h1>{{ title }}</h1>
+      <p>{{ description }}</p>
+
+      <section>
+        <h2>Guidelines</h2>
+        <ul>
+          <li>
+            <strong>Only one:</strong> Use one grouping method per visual level. Do not combine border + shadow + surface on the same element.
+        </li>
+          <li>
+            <strong>Document layout:</strong> Use headings, dividers, and whitespace to structure content. Do not use borders or backgrounds to group document-level content.
+        </li>
+          <li>
+            <strong>Sidebar:</strong> Use <code>.sidebar</code> or <code>.bg-light</code> to distinguish the sidebar and other secondary interfaces. Background alone differentiates these areas, with no border, rounded corners, or shadow.
+        </li>
+          <li>
+            <strong>Primary:</strong> Use <code>.panel-primary</code> or <code>.border.border-primary.rounded-3.p-3</code> for main components like the main search box on the homepage.
+        </li>
+          <li>
+            <strong>CTA:</strong> Use <code>.bg-primary</code> only for small primary components like CTA buttons. Most components will have this baked into their classes like <code>.btn.btn-primary</code>. Reserve <code>.bg-primary</code> for the single primary action in a view. Custom CTA components may instead use images as background that are darkened by a minimum of 30%, like homepage banners or linked image buttons.
+        </li>
+          <li>
+            <strong>UI components:</strong> Use <code>.card>.card-body</code> = <code>.border.rounded-2.p-2</code> or <code>.panel</code> = <code>.card.rounded-3.p-3</code> to define component boundaries in UI-driven layouts (cards, forms, panels) like dashboards. Thumbnails for images and links to pages with a featured image like news should use the <code>.card</code> component.
+        </li>
+          <li>
+            Avoid boxing or over-nesting multiple levels of borders close together, like cards directly inside a panel, or bordered accordions inside a boxed tab panel. Some components may disregard the border such as <code>.card.border-0</code> in these cases. Never more than 2 borders directly nested. Components that use a border include cards, panels, forms, and accordions.
+        </li>
+          <li>
+            Do not use dashed or dotted borders.
+        </li>
+          <li>
+            Borders should never be touching. There should always be spacing, such as padding or margin, to distance them.
+        </li>
+          <li>
+            <strong>Shadow:</strong> Use <code>.shadow</code> only for elevated or floating surfaces like modals and dropdowns.
+        </li>
+        </ul>
+      </section>
+
+      <hr class="my-5">
+
+      <section>
+        <h2>Visual Examples</h2>
+        <p>These examples show typical grouping decisions in context.</p>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <aside class="bg-light p-3" aria-label="Sidebar example">
+              <h3>Sidebar Surface</h3>
+              <p>Secondary content can be separated with <code>.bg-light</code> only.</p>
+            </aside>
+          </div>
+          <div class="col-md-6">
+            <div class="border border-primary rounded-3 p-3">
+              <h3>Primary Group</h3>
+              <p>Main interactive blocks can use a primary border treatment.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <article class="card h-100">
+              <div class="card-body">
+                <h3>UI Component Card</h3>
+                <p>Cards are the default grouping unit for repeatable content blocks.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6">
+            <div class="card shadow">
+              <div class="card-body">
+                <h3>Floating Surface</h3>
+                <p>Use <code>.shadow</code> only when the component behaves like an elevated layer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}

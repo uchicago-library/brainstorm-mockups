@@ -1,0 +1,10 @@
+.panel {
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius-lg);
+    padding: var(--bs-spacer);
+    background-color: var(--bs-body-bg);
+}
+
+.panel-primary {
+    border-color: var(--bs-primary);
+}

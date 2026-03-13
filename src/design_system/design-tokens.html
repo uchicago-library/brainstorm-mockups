@@ -142,37 +142,39 @@ description: "The foundational design decisions that make up the University of C
         <hr class="my-5">
       </section>
 
-      <!-- Boxed content -->
+      <!-- Grouping Content -->
       <section>
-        <h2>Boxed content</h2>
-        
-        <p>Use borders, backgrounds, and shadows to establish visual hierarchy and component boundaries:</p>
-        <ul class="mb-4">
-          <li><code>.border</code> – Use borders to define component boundaries in UI-driven layouts (cards, forms, sidebars). Content-focused pages rely on whitespace and typography instead.</li>
-          <li><code>.rounded-2</code> – Apply to interactive containers (clickable cards, buttons) and floating elements (modals, dropdowns) for a modern, approachable feel.</li>
-          <li><code>.rounded-pill</code> – Use for prominent call-to-action elements that need maximum visual emphasis.</li>
-          <li><code>.shadow</code> – Apply to floating elements (modals, dropdowns) or interactive cards on hover to establish elevation hierarchy.</li>
-        </ul>
+        <h2>Grouping Content</h2>
 
-        <h3 class="mt-5 mb-3">Utilities</h3>
+        <p>See <a href="{{ '/design_system/grouping-content/' | url }}">Grouping Content</a>.</p>
 
         <div class="row g-3 mb-4">
           <div class="col-md-4">
+            <div class="p-3 border rounded-2">
+              <code>.card>.card-body</code> or
+              <code>.border.rounded-2</code>
+              Standard grouped content
+            </div>
+          </div>
+          <div class="col-md-4">
+            <code>.btn.btn-primary</code>
+            <button class="btn btn-primary">
+              Click Me! (CTA)
+            </button>
+          </div>
+          <div class="col-md-4">
             <div class="p-3 bg-light">
+              <code>.sidebar</code> or 
               <code>.bg-light</code>
               Static secondary content
             </div>
           </div>
           <div class="col-md-4">
-            <div class="p-3 border rounded-2 shadow">
-              <code>.border.rounded-2.shadow</code>
-              Interactive floating content
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="px-4 py-3 bg-primary text-white fw-bold rounded-5">
-              <code>.bg-primary.text-white.fw-bold.rounded-5</code>
-              Call to action content
+            <div class="p-3 card shadow">
+              <div class="card-body p-0">
+                <code>.card.shadow>.card-body</code>
+                Elevated floating surface
+              </div>
             </div>
           </div>
         </div>
@@ -195,32 +197,6 @@ description: "The foundational design decisions that make up the University of C
           <h3>Easing Functions</h3>
           <p><code>ease</code> - Default (cubic-bezier(0.25, 0.46, 0.45, 0.94))</p>
           <p><code>ease-in-out</code> - Smooth acceleration and deceleration</p>
-        </div>
-
-        <div class="mb-4">
-          <h3>Interactive Examples</h3>
-          <div class="row g-3">
-            <div class="col-md-4">
-              <button class="btn btn-primary w-100">
-                Hover me
-              </button>
-              <small class="text-muted d-block mt-2">Built-in button transitions</small>
-            </div>
-            <div class="col-md-4">
-              <a href="#" class="d-block p-3 text-primary text-decoration-none">
-                Link hover effect
-              </a>
-              <small class="text-muted">Built-in link transitions</small>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-body">
-                  Hover for shadow
-                </div>
-              </div>
-              <small class="text-muted d-block mt-2">Card with hover effect</small>
-            </div>
-          </div>
         </div>
 
       </section>

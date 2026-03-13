@@ -1,0 +1,26 @@
+---
+title: "Homepage Styling Minimalist"
+description: "Homepage-style mockup with minimalist surfaces."
+---
+
+{% include "meta/document-start.html" %}
+{% include "header.html" %}
+
+<div class="home-minimal">
+    <nav aria-label="breadcrumb" class="container-md">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ '/design_mockups/' | url }}">Design Mockups</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+        </ol>
+    </nav>
+
+    {% set mockupIdSuffix = 'Base' %}
+    {% include "mockups/homepage-content.html" %}
+</div>
+
+
+{% set current = 'base' %}
+{% include "meta/styling-mockups-page-nav.html" %}
+
+{% include "footer.html" %}
