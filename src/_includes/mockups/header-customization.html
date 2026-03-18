@@ -8,20 +8,37 @@
 					<img itemprop="logo" src="https://www.lib.uchicago.edu/web-resources/img/color-logo.png" alt="University of Chicago Library">
 				</a>
 
-				<div class="dropdown d-none d-md-block">
-					<button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="forYouDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-						For you
-					</button>
-					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="forYouDropdown">
-						<li><a class="dropdown-item" href="#">Students</a></li>
-						<li><a class="dropdown-item" href="#">Faculty</a></li>
-						<li><a class="dropdown-item" href="#">Staff</a></li>
-						<li><a class="dropdown-item" href="#">External Researchers</a></li>
-						<li><a class="dropdown-item" href="#">Alumni</a></li>
-						<li><a class="dropdown-item" href="#">Community Members</a></li>
-						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#">Log in</a></li>
+				<div class="d-none d-md-flex align-items-center gap-2">
+					<ul class="nav" id="customization-navbar-shortcuts" role="list">
+						{% for link in globalNav.shortcutLinks %}
+							<li class="nav-item">
+								<a class="nav-link link-primary" href="{{ link.href | url }}" title="{{ link.text }}">
+									<i class="{{ link.icon }}" aria-hidden="true"></i>
+									{% if link.text == "Hours" %}
+										<span class="3">Open now</span>
+									{% else %}
+										<span class="visually-hidden">{{ link.text }}</span>
+									{% endif %}
+								</a>
+							</li>
+						{% endfor %}
 					</ul>
+
+					<div class="dropdown">
+						<button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" id="forYouDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+							For you
+						</button>
+						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="forYouDropdown">
+							<li><a class="dropdown-item" href="#">Students</a></li>
+							<li><a class="dropdown-item" href="#">Faculty</a></li>
+							<li><a class="dropdown-item" href="#">Staff</a></li>
+							<li><a class="dropdown-item" href="#">External Researchers</a></li>
+							<li><a class="dropdown-item" href="#">Alumni</a></li>
+							<li><a class="dropdown-item" href="#">Community Members</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="#">Log in</a></li>
+						</ul>
+					</div>
 				</div>
 
 				<button class="navbar-toggler d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#global-navbar-customization-collapse" aria-controls="global-navbar-customization-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,6 +85,20 @@
 							<li class="nav-item"><a class="nav-link" href="#">Alumni</a></li>
 							<li class="nav-item"><a class="nav-link" href="#">Community Members</a></li>
 							<li class="nav-item"><a class="nav-link" href="#">Log in</a></li>
+						</ul>
+					</li>
+
+					<li class="d-md-none">
+						<p class="dropdown-group-title text-white-50 px-2 mt-2">Quick Links</p>
+						<ul class="navbar-nav flex-column mobile-shortcuts-list" role="list">
+							{% for link in globalNav.shortcutLinks %}
+								<li class="nav-item">
+									<a class="nav-link" href="{{ link.href | url }}">
+										<i class="{{ link.icon }} me-2" aria-hidden="true"></i>
+										{{ link.text }}
+									</a>
+								</li>
+							{% endfor %}
 						</ul>
 					</li>
 				</ul>
