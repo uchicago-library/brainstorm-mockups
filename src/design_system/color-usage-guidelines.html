@@ -29,13 +29,7 @@ description: "Short, practical guidance for applying color across pages and comp
   }
 </style>
 
-<nav aria-label="breadcrumb" class="container-md">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
-    <li class="breadcrumb-item"><a href="{{ '/design_system/' | url }}">Design System</a></li>
-    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
-  </ol>
-</nav>
+{% include "breadcrumb.html" %}
 
 <main class="container-md py-5 mb-5">
   <div class="row">

@@ -1,0 +1,30 @@
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="container-md">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
+    {%- if breadcrumbItems %}
+      {%- for item in breadcrumbItems %}
+    <li class="breadcrumb-item"><a href="{{ item.url | url }}">{{ item.label }}</a></li>
+      {%- endfor %}
+    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+    {%- elif breadcrumbParent %}
+      {%- if page.url == breadcrumbUrl %}
+    <li class="breadcrumb-item active" aria-current="page">{{ breadcrumbParent }}</li>
+      {%- else %}
+    <li class="breadcrumb-item"><a href="{{ breadcrumbUrl | url }}">{{ breadcrumbParent }}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+      {%- endif %}
+    {%- else %}
+    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+    {%- endif %}
+  </ol>
+</nav>
+
+<!--
+<nav aria-label="breadcrumb" class="container-md">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/page">Page</a></li>
+  </ol>
+</nav>
+-->

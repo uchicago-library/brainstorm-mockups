@@ -5,14 +5,7 @@ title: "Header Customization"
 {% include "meta/document-start.html" %}
 {% include "mockups/header-customization.html" %}
 
-<!-- Breadcrumbs -->
-<nav aria-label="breadcrumb" class="container-md">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
-    <li class="breadcrumb-item"><a href="{{ '/design_mockups/' | url }}">Mockups</a></li>
-    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
-  </ol>
-</nav>
+{% include "breadcrumb.html" %}
 
 <main class="container-md py-4 mb-5">
   <h1>Header Customization</h1>
