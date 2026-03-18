@@ -13,3 +13,42 @@
         }
     }
 }
+
+.breadcrumb-section-toggle {
+    line-height: 1;
+    color: var(--bs-breadcrumb-divider-color);
+
+    &:hover,
+    &:focus {
+        color: darken($info, 15%);
+    }
+
+    &::after {
+        margin-left: 0;
+    }
+}
+
+.breadcrumb-section-dropdown {
+    .dropdown-menu {
+        min-width: auto;
+        font-size: inherit;
+        border-color: var(--bs-border-color);
+
+        &.show {
+            inset: 20px auto auto -10px !important;
+            transform: none !important;
+        }
+    }
+
+    .dropdown-item {
+        color: var(--bs-breadcrumb-divider-color);
+        padding: 0.1rem 0.5rem;
+
+        &:hover,
+        &:focus {
+            color: darken($info, 15%);
+            background-color: transparent;
+            text-decoration: underline;
+        }
+    }
+}

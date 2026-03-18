@@ -8,10 +8,43 @@
       {%- endfor %}
     <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
     {%- elif breadcrumbParent %}
+      {%- set sections = [
+        { label: "Design System", url: "/design_system/" },
+        { label: "Mockups", url: "/design_mockups/" },
+        { label: "Project Methodology", url: "/methodology/" }
+      ] %}
       {%- if page.url == breadcrumbUrl %}
-    <li class="breadcrumb-item active" aria-current="page">{{ breadcrumbParent }}</li>
+    <li class="breadcrumb-item active" aria-current="page">
+      <span class="breadcrumb-section-dropdown dropdown">
+        {{ breadcrumbParent }}
+        <button class="btn btn-link breadcrumb-section-toggle dropdown-toggle dropdown-toggle-split p-0 ms-1 border-0" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch section">
+          <span class="visually-hidden">Switch section</span>
+        </button>
+        <ul class="dropdown-menu">
+          {%- for section in sections %}
+            {%- if section.url != breadcrumbUrl %}
+          <li><a class="dropdown-item" href="{{ section.url | url }}">{{ section.label }}</a></li>
+            {%- endif %}
+          {%- endfor %}
+        </ul>
+      </span>
+    </li>
       {%- else %}
-    <li class="breadcrumb-item"><a href="{{ breadcrumbUrl | url }}">{{ breadcrumbParent }}</a></li>
+    <li class="breadcrumb-item">
+      <span class="breadcrumb-section-dropdown dropdown">
+        <a href="{{ breadcrumbUrl | url }}">{{ breadcrumbParent }}</a>
+        <button class="btn btn-link breadcrumb-section-toggle dropdown-toggle dropdown-toggle-split p-0 ms-1 border-0" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch section">
+          <span class="visually-hidden">Switch section</span>
+        </button>
+        <ul class="dropdown-menu">
+          {%- for section in sections %}
+            {%- if section.url != breadcrumbUrl %}
+          <li><a class="dropdown-item" href="{{ section.url | url }}">{{ section.label }}</a></li>
+            {%- endif %}
+          {%- endfor %}
+        </ul>
+      </span>
+    </li>
     <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
       {%- endif %}
     {%- else %}
@@ -19,12 +52,3 @@
     {%- endif %}
   </ol>
 </nav>
-
-<!--
-<nav aria-label="breadcrumb" class="container-md">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item"><a href="/page">Page</a></li>
-  </ol>
-</nav>
--->
