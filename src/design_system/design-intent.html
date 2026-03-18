@@ -1,0 +1,119 @@
+---
+title: "Design Intent"
+description: "Value-pair scales that guide design decisions, useful for discussion and alignment."
+---
+
+{% include "meta/document-start.html" %}
+{% include "header.html" %}
+
+<style>
+  .intent-scale {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .intent-scale-label {
+    flex: 0 0 auto;
+    min-width: 8rem;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .intent-scale-label-start {
+    text-align: end;
+  }
+
+  .intent-scale-label-end {
+    text-align: start;
+  }
+
+  .intent-scale input[type="range"] {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .intent-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    min-width: 2.5rem;
+    text-align: center;
+  }
+
+  .intent-also {
+    font-style: italic;
+    color: var(--bs-secondary-color);
+  }
+</style>
+
+{% include "breadcrumb.html" %}
+
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+
+      <h1 class="display-4 mb-4">Design Intent</h1>
+
+      <p class="lead">These value pairs help guide design decisions. They are more useful for discussion than to mathematically extrapolate into design choices. Each axis can shift by workflow or audience.</p>
+
+      <section class="mb-5">
+        <h2>Rich ↔ Streamlined</h2>
+        <p class="intent-also">also: dense ↔ airy</p>
+
+        <div class="intent-scale mb-3">
+          <span class="intent-scale-label intent-scale-label-start">Rich</span>
+          <input type="range" class="form-range" min="1" max="10" step="1" value="9" id="scale-rich-streamlined">
+          <span class="intent-scale-label intent-scale-label-end">Streamlined</span>
+          <span class="intent-value" id="value-rich-streamlined">9</span>
+        </div>
+
+        <p>A <strong>streamlined</strong> design has fewer elements per screen, more generous spacing, progressive disclosure (filters behind toggles, secondary nav collapsed, options under a dropdown), and greater navigation depth.</p>
+        <p>A <strong>rich</strong> design surfaces more content and metadata upfront, uses harder visual groupings (higher contrast borders, panels), and keeps secondary content visible.</p>
+        <p>This axis will shift by workflow. Dashboard and research guide home pages will lean rich — they serve frequent, task-focused users. The homepage and audience help pages will lean streamlined.</p>
+      </section>
+
+      <section class="mb-5">
+        <h2>Traditional ↔ Contemporary</h2>
+        <p class="intent-also">also: calm ↔ dynamic, safe ↔ bold</p>
+
+        <div class="intent-scale mb-3">
+          <span class="intent-scale-label intent-scale-label-start">Traditional</span>
+          <input type="range" class="form-range" min="1" max="10" step="1" value="6" id="scale-traditional-contemporary">
+          <span class="intent-scale-label intent-scale-label-end">Contemporary</span>
+          <span class="intent-value" id="value-traditional-contemporary">6</span>
+        </div>
+
+        <p>A <strong>traditional</strong> design favors descriptive text over implicit UI: labeled metadata, descriptive button text, links over icon-only controls. Uses serif headings, less rounded corners (<code>rounded-1</code>, <code>rounded-2</code>), minimal hover animation, and less saturated color. Flatter designs with less shadows and gradients.</p>
+        <p>A <strong>contemporary</strong> design uses progressive disclosure, implicit controls, sans-serif headings, rounder corners (<code>rounded-3</code> on panels), subtle hover transitions, and more saturated color. They tend on dynamic styles like transparencies and blurred background effects, or gradients, or mesh gradient backgrounds, or stacked borders, even several of these (ex: glassmorphism).</p>
+      </section>
+
+      <section class="mb-5">
+        <h2>Institutional ↔ Approachable</h2>
+        <p class="intent-also">also: serious ↔ playful, formal ↔ casual, quiet ↔ expressive</p>
+
+        <div class="intent-scale mb-3">
+          <span class="intent-scale-label intent-scale-label-start">Institutional</span>
+          <input type="range" class="form-range" min="1" max="10" step="1" value="8" id="scale-institutional-approachable">
+          <span class="intent-scale-label intent-scale-label-end">Approachable</span>
+          <span class="intent-value" id="value-institutional-approachable">8</span>
+        </div>
+
+        <p>Primarily expressed through copy and microcopy: reading level, tone, action label phrasing, empty state messaging.</p>
+        <p>More <strong>approachable</strong> means icons alongside labels, illustrations in empty states and onboarding, and more prominent CTAs.</p>
+        <p>More <strong>institutional</strong> means text-first, minimal decoration, and restrained use of primary color.</p>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<script>
+  document.querySelectorAll('input[type="range"]').forEach(function(range) {
+    var output = document.getElementById('value-' + range.id.replace('scale-', ''));
+    range.addEventListener('input', function() {
+      output.textContent = this.value;
+    });
+  });
+</script>
+
+{% include "footer.html" %}

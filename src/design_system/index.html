@@ -13,18 +13,43 @@ title: "Design System"
       
       <h1 class="display-4 mb-4">Design System</h1>
       
-      <p class="lead">The University of Chicago Library Design System includes design principles, visual guidelines, components, and patterns.</p>
+      <p class="lead">The layers of our design system, where one informs the next.</p>
 
       <section class="mb-5">
+        <h2>Foundation</h2>
+        <p>What guides our design decisions.</p>
+
+        <h3>Priorities</h3>
+        <ul>
+          <li>Our most important users are from our academia, but the website needs to be usable by non-experts, new students, potential donors, and community members (neighborhood residents, high school teachers and students, etc).</li>
+          <li>We would like to provide customization where possible.</li>
+          <li>Ensure that Library sites are accessible and follow practices of universal design.</li>
+        </ul>
+
         <div class="row g-4">
           <div class="col-md-6">
             <div class="card h-100">
               <div class="card-body">
-                <h3 class="card-title"><a href="{{ '/design_system/typography/' | url }}">Typography</a></h3>
-                <p class="card-text">Font families, sizes, weights, and line heights used throughout the design system. Includes <a href="{{ '/design_system/typography-history/' | url }}">a narrative example</a>.</p>
+                <h3 class="card-title"><a href="{{ '/design_system/design-intent/' | url }}">Design Intent</a></h3>
+                <p class="card-text">Value-pair scales that guide design decisions, useful for discussion and alignment.</p>
               </div>
             </div>
           </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title"><a href="{{ '/design_system/observations/' | url }}">Observations</a></h3>
+                <p class="card-text">User research findings organized by theme that directly inform our design priorities.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>Guidelines</h2>
+        <p>How we apply our principles.</p>
+        <div class="row g-4">
           <div class="col-md-6">
             <div class="card h-100">
               <div class="card-body">
@@ -44,7 +69,22 @@ title: "Design System"
           <div class="col-md-6">
             <div class="card h-100">
               <div class="card-body">
-                <h3 class="card-title"><a href="{{ '/design_system/design-tokens/' | url }}">Design Tokens</a></h3>
+                <h3 class="card-title">Copywrite Guidelines</h3>
+                <p class="card-text">Coming soon.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>Implementation</h2>
+        <p>The building blocks.</p>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title"><a href="{{ '/design_system/design-tokens/' | url }}">Tokens</a></h3>
                 <p class="card-text">SCSS and CSS variables including typography, spacing, borders, shadows, and transitions. See also the <a href="{{ '/design_system/design-tokens-colors/' | url }}">complete color palette</a>.</p>
               </div>
             </div>
@@ -60,20 +100,18 @@ title: "Design System"
           <div class="col-md-6">
             <div class="card h-100">
               <div class="card-body">
-                <h3 class="card-title"><a href="{{ '/design_system/layouts/' | url }}">Layouts</a></h3>
-                <p class="card-text">Common page layout patterns for structuring content.</p>
+                <h3 class="card-title">Templates</h3>
+                <p class="card-text"><a href="{{ '/design_system/layouts/' | url }}">Page Layouts</a> and common page layout patterns for structuring content.</p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="mb-5">
-        <h2>How is this implemented?</h2>
-        <div class="card h-100">
-          <div class="card-body">
-            <h3 class="card-title"><a href="{{ '/methodology/system-architecture/' | url }}">System Architecture</a></h3>
-            <p class="card-text">Complete reference for the design system's structure, design tokens, naming conventions, code standards, and development workflow.</p>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title"><a href="{{ '/design_system/typography/' | url }}">Typography</a></h3>
+                <p class="card-text">Font families, sizes, weights, and line heights used throughout the design system. Includes <a href="{{ '/design_system/typography-history/' | url }}">a narrative example</a>.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
