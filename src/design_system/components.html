@@ -23,7 +23,7 @@ description: "Reusable UI components and patterns for the design system."
     <div class="col-lg-10 mx-auto">
 
       <!-- Buttons Section -->
-      <section>
+      <section id="section-buttons">
       <h2>Buttons</h2>
 
       <p>Bootstrap's button classes cover variant, hierarchy, and size. Each choice should be deliberate — buttons communicate affordance and priority at a glance.</p>
@@ -163,11 +163,8 @@ description: "Reusable UI components and patterns for the design system."
 
 
       <!-- Forms Section -->
-      <section>
+      <section id="section-forms">
         <h2>Forms</h2>
-
-        <div class="row mb-4">
-          <div class="col-md-6">
             <h3>Text Input</h3>
             <div class="mb-3">
               <label for="textInput" class="form-label">Text Input</label>
@@ -205,20 +202,20 @@ description: "Reusable UI components and patterns for the design system."
           </div>
         </div>
 
-        <hr class="my-5">
+        <hr class="my-5 border-0">
       </section>
 
       <!-- Cards Section -->
-      <section>
+      <section id="section-cards">
         <h2>Cards</h2>
 
-        <div class="row g-3 mb-4">
+        <div class="row g-3 mb-4" data-ga-category="Main" data-ga-subcategory="Card">
           <div class="col-md-4">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Card Title</h5>
                 <p class="card-text">This is a basic card with a title, text, and footer.</p>
-                <a href="#" class="btn btn-primary btn-sm">Learn More</a>
+                <a href="#" class="btn btn-primary btn-sm" data-ga-label="Learn More">Learn More</a>
               </div>
             </div>
           </div>
@@ -243,15 +240,15 @@ description: "Reusable UI components and patterns for the design system."
           </div>
         </div>
 
-        <hr class="my-5">
+        <hr class="my-5 border-0">
       </section>
 
       <!-- Accordions Section -->
-      <section>
+      <section id="section-accordions">
         <h2>Accordions</h2>
         <p><strong>Note:</strong> When accordion labels act as section titles, use an appropriate heading level for each <code>.accordion-header</code> to preserve document structure.</p>
 
-        <div class="accordion mb-4" id="accordionDemo">
+        <div class="accordion mb-4" id="accordionDemo" data-ga-category="Main">
           <div class="accordion-item mb-0">
             <h3 class="accordion-header">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
@@ -295,7 +292,7 @@ description: "Reusable UI components and patterns for the design system."
         <h3>Two-Column Accordion Layout</h3>
         <p>For larger collections of accordion items, use <code>.accordion-two-column</code> to create a responsive two-column layout at the <code>md</code> breakpoint. Wrap items in a <code>.row</code>, then wrap each <code>.accordion-item</code> inside a <code>.col-md-6</code> div. Bootstrap's gutter provides horizontal gap (default 1.5rem), and custom <code>row-gap: 0.5rem</code> provides vertical gap.</p>
 
-        <div class="accordion accordion-two-column" id="accordionTwoColDemo">
+        <div class="accordion accordion-two-column" id="accordionTwoColDemo" data-ga-category="Main">
           <div class="row">
             
             <div class="col-md-6">
@@ -361,11 +358,11 @@ description: "Reusable UI components and patterns for the design system."
           </div>
         </div>
 
-        <hr class="my-5">
+        <hr class="my-5 border-0">
       </section>
 
       <!-- Lists Section -->
-      <section>
+      <section id="section-lists">
         <h2>Lists</h2>
 
         <div class="row">
@@ -378,24 +375,24 @@ description: "Reusable UI components and patterns for the design system."
             </ul>
           </div>
 
-          <div class="col-md-6 mb-4">
+          <div class="col-md-6 mb-4" data-ga-category="Main" data-ga-subcategory="List">
             <h3>List Group with Links</h3>
             <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action">Link Item 1</a>
-              <a href="#" class="list-group-item list-group-item-action active">Link Item 2 (Active)</a>
-              <a href="#" class="list-group-item list-group-item-action">Link Item 3</a>
+              <a href="#" class="list-group-item list-group-item-action" data-ga-position="1">Link Item 1</a>
+              <a href="#" class="list-group-item list-group-item-action active" data-ga-position="2">Link Item 2 (Active)</a>
+              <a href="#" class="list-group-item list-group-item-action" data-ga-position="3">Link Item 3</a>
             </div>
           </div>
         </div>
 
-        <hr class="my-5">
+        <hr class="my-5 border-0">
       </section>
 
       <!-- Tables Section -->
-      <section>
+      <section id="section-tables">
         <h2>Tables</h2>
 
-        <div class="table-responsive mb-4">
+        <div class="table-responsive mb-4" data-ga-category="Main" data-ga-subcategory="Table">
           <table class="table table-hover">
             <thead>
               <tr>
@@ -424,11 +421,11 @@ description: "Reusable UI components and patterns for the design system."
           </table>
         </div>
 
-        <hr class="my-5">
+        <hr class="my-5 border-0">
       </section>
 
       <!-- Icons Section -->
-      <section>
+      <section id="section-icons">
         <h2>Icons (FontAwesome)</h2>
 
         <div class="mb-4">
@@ -448,11 +445,11 @@ description: "Reusable UI components and patterns for the design system."
           <i class="fa-solid fa-book fa-2x text-info"></i>
         </div>
 
-        <hr class="my-5">
+        <hr class="my-5 border-0">
       </section>
 
       <!-- Badges & Pills Section -->
-      <section>
+      <section id="section-badges">
         <h2>Badges & Pills</h2>
 
         <div class="mb-4">
@@ -472,23 +469,23 @@ description: "Reusable UI components and patterns for the design system."
           <span class="badge rounded-pill bg-success">Success Pill</span>
         </div>
 
-        <hr class="my-5">
+        <hr class="my-5 border-0">
       </section>
 
       <!-- Pagination Section -->
-      <section>
+      <section id="section-pagination">
         <h2>Pagination</h2>
 
-        <nav>
+        <nav aria-label="Pagination" data-ga-category="Main" data-ga-subcategory="Pagination">
           <ul class="pagination">
             <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">Previous</a>
+              <a class="page-link" href="#" tabindex="-1" data-ga-label="Previous">Previous</a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#" data-ga-position="1">1</a></li>
+            <li class="page-item active"><a class="page-link" href="#" data-ga-position="2">2</a></li>
+            <li class="page-item"><a class="page-link" href="#" data-ga-position="3">3</a></li>
             <li class="page-item">
-              <a class="page-link" href="#">Next</a>
+              <a class="page-link" href="#" data-ga-label="Next">Next</a>
             </li>
           </ul>
         </nav>
@@ -497,5 +494,67 @@ description: "Reusable UI components and patterns for the design system."
     </div>
   </div>
 </main>
+
+<template class="ds-annotations-template">
+  <!-- Buttons -->
+  <div data-target="#section-buttons" data-category="a11y" data-title="Button semantics">
+    When an <code>&lt;a&gt;</code> element is styled as a button but triggers in-page behavior rather than navigation, add <code>role="button"</code> so assistive technologies announce the correct purpose.
+  </div>
+  <div data-target="#section-buttons" data-category="behavior" data-title="One primary per view">
+    Only one <code>.btn-primary</code> should appear per view. Additional actions use <code>.btn-default</code> to maintain clear visual hierarchy.
+  </div>
+
+  <!-- Forms -->
+  <div data-target="#section-forms" data-category="a11y" data-title="Label association">
+    Every form control requires an associated <code>&lt;label&gt;</code> via matching <code>for</code>/<code>id</code> attributes. Placeholder text is not a substitute for a label.
+  </div>
+
+  <!-- Cards -->
+  <div data-target="#section-cards" data-category="tracking" data-title="Card event tracking">
+    The wrapping container sets <code>data-ga-category</code> and <code>data-ga-subcategory</code>. The CTA link adds <code>data-ga-label</code> to identify the action. The event name (<em>click</em>) is determined automatically by the tracking script.
+  </div>
+
+  <!-- Accordions -->
+  <div data-target="#section-accordions" data-category="a11y" data-title="Heading hierarchy">
+    When accordion labels act as section titles, wrap them in an appropriate heading level (e.g. <code>&lt;h3&gt;</code>) inside <code>.accordion-header</code> to preserve document structure.
+  </div>
+  <div data-target="#section-accordions" data-category="tracking" data-title="Accordion event tracking">
+    The tracking script detects accordion buttons automatically via selector matching and fires a <em>tab</em> event. No <code>data-ga-action</code> attribute is needed — event type is inferred from the element's role.
+  </div>
+  <div data-target="#section-accordions" data-category="responsive" data-title="Two-column breakpoint">
+    <code>.accordion-two-column</code> uses <code>.col-md-6</code> to arrange items in two columns at the <code>md</code> breakpoint. Below that, items stack into a single column.
+  </div>
+
+  <!-- Lists -->
+  <div data-target="#section-lists" data-category="tracking" data-title="List position tracking">
+    <code>data-ga-position</code> records each item's numeric index. This reveals whether users click top results or scroll further down. The label is derived automatically from the link text.
+  </div>
+  <div data-target="#section-lists" data-category="a11y" data-title="Active state semantics">
+    The <code>.active</code> class is visual only. Add <code>aria-current="true"</code> to the active item so assistive technologies convey its state.
+  </div>
+
+  <!-- Tables -->
+  <div data-target="#section-tables" data-category="responsive" data-title="Responsive table wrapper">
+    <code>.table-responsive</code> adds horizontal scrolling on narrow viewports, preventing the table from overflowing the layout.
+  </div>
+
+  <!-- Icons -->
+  <div data-target="#section-icons" data-category="a11y" data-title="Decorative icons">
+    Decorative icons must include <code>aria-hidden="true"</code> so screen readers skip them. Icons that convey meaning need an accessible text alternative (e.g. <code>&lt;span class="visually-hidden"&gt;</code>).
+  </div>
+
+  <!-- Badges -->
+  <div data-target="#section-badges" data-category="a11y" data-title="Color is not sufficient">
+    Badge colors convey meaning visually but are not accessible alone. Ensure surrounding context or text provides the same information for users who cannot perceive color.
+  </div>
+
+  <!-- Pagination -->
+  <div data-target="#section-pagination" data-category="tracking" data-title="Pagination tracking">
+    Navigation links use <code>data-ga-label</code> for Previous/Next and <code>data-ga-position</code> for numbered pages. The tracking script fires a <em>click</em> event automatically.
+  </div>
+  <div data-target="#section-pagination" data-category="a11y" data-title="Pagination landmark">
+    The <code>&lt;nav&gt;</code> element with <code>aria-label="Pagination"</code> creates a navigational landmark, helping screen-reader users locate and identify the pagination controls.
+  </div>
+</template>
 
 {% include "footer.html" %}

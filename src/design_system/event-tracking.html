@@ -1,0 +1,165 @@
+---
+title: "Event Tracking"
+description: "Custom event labeling schema for GA4 analytics using data attributes."
+---
+
+{% include "meta/document-start.html" %}
+{% include "header.html" %}
+
+{% include "breadcrumb.html" %}
+
+<main class="container-md py-4 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+
+      <h1 class="display-3 mb-2">{{ title }}</h1>
+      <p class="lead text-muted">{{ description }}</p>
+
+      <section>
+        <h2>Overview</h2>
+        <p>A centralized <a href="https://www.lib.uchicago.edu/static/base/js/jquery.track-everything.js">JavaScript</a> reads <code>data-ga-*</code> attributes from the DOM and sends structured events to Google Analytics 4. The DOM is the source of truth — templates set the attributes, and the script reads them at interaction time.</p>
+        <p>Visual documentation of how key screens are tracked is available in <a href="https://www.figma.com/design/I546YaJgcD4JR1agVR2rxD/Custom-events-documentation?node-id=0-1&t=Y11QGiBVbdz5x0ze-1">this Figma file</a>. The canonical reference is the <a href="https://github.com/uchicago-library/library_website/wiki/Custom-Event-labeling">wiki page</a>.</p>
+      </section>
+
+      <hr class="my-5">
+
+      <section>
+        <h2>HTML Attributes</h2>
+        <p>These <code>data-ga-*</code> attributes are set directly in HTML templates. Values can be defined on the interactive element itself or inherited from a parent container.</p>
+
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Scope</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>data-ga-category</code></td>
+                <td>Parent or element</td>
+                <td>The page region. Can be set on a parent container and inherited by all links inside.</td>
+              </tr>
+              <tr>
+                <td><code>data-ga-subcategory</code></td>
+                <td>Parent or element</td>
+                <td>The content block or component name. Also inheritable from a parent.</td>
+              </tr>
+              <tr>
+                <td><code>data-ga-label</code></td>
+                <td>Element</td>
+                <td>The specific link text or role. Set on the interactive element.</td>
+              </tr>
+              <tr>
+                <td><code>data-ga-position</code></td>
+                <td>Element</td>
+                <td>The item's index in a list or table. Useful for tracking click depth.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr class="my-5">
+
+      <section>
+        <h2>Event Schema</h2>
+        <p>Adopted September 2025. Each tracked interaction produces an event with these fields.</p>
+
+        <h3>Action (<code>name</code>)</h3>
+        <ul>
+          <li><code>click</code> — most interactive elements (links, buttons)</li>
+          <li><code>tab</code> — elements with <code>role="tab"</code>, accordion toggles, and navbar dropdowns</li>
+          <li><code>dropdown</code> — elements with <code>data-toggle="dropdown"</code></li>
+        </ul>
+        <p>The event name is determined automatically by the tracking script based on CSS selector matching — there is no HTML attribute for it. Accordion buttons and tabs are detected by their Bootstrap selectors and fire as <code>tab</code>; dropdown toggles fire as <code>dropdown</code>; everything else fires as <code>click</code>.</p>
+
+        <h3>Category (<code>event_category</code>)</h3>
+        <p>The broad page region the interaction belongs to.</p>
+        <ul>
+          <li><strong>Navigation</strong> — header, breadcrumbs</li>
+          <li><strong>Main</strong> — primary content area</li>
+          <li><strong>Sidebar</strong> — left or right sidebar</li>
+          <li><strong>Footer</strong></li>
+          <li><strong>Floating</strong> — alert banners, feedback button</li>
+          <li><strong>Main Search Widget</strong> — the homepage search (has its own category)</li>
+          <li><strong>Global Navbar</strong> — the global navigation bar (has its own category)</li>
+        </ul>
+
+        <h3>Subcategory (<code>event_subcategory</code>)</h3>
+        <p>A recognizable content block or component within the category. Typically a conceptual term: List, Widget, Table, Form, Toolbar, Pagination.</p>
+        <p>When not explicitly set, the script falls back to:</p>
+        <ol>
+          <li>The <code>aria-labelledby</code> value of the nearest labeled region</li>
+          <li>The <code>id</code> of the closest ancestor with an <code>id</code></li>
+        </ol>
+
+        <h3>Label (<code>event_label</code>)</h3>
+        <p>Identifies the specific element that was clicked. Resolution order:</p>
+        <ol>
+          <li><code>aria-label</code></li>
+          <li><code>textContent</code></li>
+          <li><code>title</code></li>
+          <li><code>alt</code> (for images)</li>
+          <li><code>"Unknown"</code></li>
+        </ol>
+        <p>For highly dynamic content (search results, catalog records), the role of the link is preferred over the dynamic text. Domain-specific overrides exist for VuFind (Title, Author, Holding, Save Record) and LibGuides (Guide Name, Guide Author, Guide Subject).</p>
+
+        <h3>Position (<code>click_position</code>)</h3>
+        <p>The index of the clicked item within a list. Tracked for search results, news listings, and tabular data. Can be based on <code>&lt;li&gt;</code> index, a <code>&lt;div&gt;</code> container index, or a table row.</p>
+
+        <h3>Indecision count (<code>event_indecision_count</code>)</h3>
+        <p>Counts how many times a user clicks on tabs or dropdowns before making a final selection. Helps identify confusing navigation patterns.</p>
+
+        <h3>Options (<code>event_option</code>)</h3>
+        <p>Records checkbox or radio button state when paired with a primary action (e.g., the search type selector in the homepage search widget). Only applied to the main search widget.</p>
+      </section>
+
+      <hr class="my-5">
+
+      <section>
+        <h2>Attribute Inheritance</h2>
+        <p><code>data-ga-category</code> and <code>data-ga-subcategory</code> can be set on any ancestor element. All interactive elements inside inherit those values unless they define their own. This avoids repetitive markup.</p>
+        <p>For example, setting <code>data-ga-category="Main"</code> and <code>data-ga-subcategory="Card"</code> on a <code>.row</code> container means every <code>&lt;a&gt;</code> inside the cards inherits both values. Each link only needs its own <code>data-ga-label</code> to identify the specific action.</p>
+      </section>
+
+      <hr class="my-5">
+
+      <section>
+        <h2>Fallback Behavior</h2>
+        <p>When <code>data-ga-*</code> attributes are not present in the HTML, the tracking script deduces values from DOM context. Explicitly setting the attributes in templates is preferred — it makes tracking deterministic and avoids fragile CSS-class-based heuristics.</p>
+        <p>The script also has a function that pre-populates HTML with attributes at runtime when template changes are impractical or when context is too ambiguous for automatic deduction.</p>
+      </section>
+
+      <hr class="my-5">
+
+      <section>
+        <h2>Websites Using This System</h2>
+        <ul>
+          <li><a href="https://www.lib.uchicago.edu">lib.uchicago.edu</a> — Library Website</li>
+          <li><a href="https://catalog.lib.uchicago.edu">catalog.lib.uchicago.edu</a> — Catalog</li>
+          <li><a href="https://guides.lib.uchicago.edu">guides.lib.uchicago.edu</a> — LibGuides</li>
+          <li><a href="https://rooms.lib.uchicago.edu">rooms.lib.uchicago.edu</a> — Rooms</li>
+          <li><a href="https://sfx.lib.uchicago.edu/sfx_local">sfx.lib.uchicago.edu</a> — FindIt!</li>
+        </ul>
+      </section>
+
+      <hr class="my-5">
+
+      <section>
+        <h2>Special Cases</h2>
+        <ul>
+          <li><strong>Main Search Widget</strong> — has its own category, not "Main". Tracks <code>event_option</code> for radio/checkbox state.</li>
+          <li><strong>Global Navbar</strong> — has its own category, not "Navigation".</li>
+          <li><strong>Left Sidebar</strong> — on LibGuides, the sidebar contains both navigation and "secondary content" blocks, so the subcategory differentiates them.</li>
+          <li><strong>Pagination</strong> — category: Main, subcategory: Pagination.</li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}

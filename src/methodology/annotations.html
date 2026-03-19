@@ -1,0 +1,163 @@
+---
+title: "Annotations on This Project"
+---
+
+{% include "meta/document-start.html" %}
+{% include "header.html" %}
+
+{% include "breadcrumb.html" %}
+
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      
+      <h1 class="display-4 mb-4">{{ title }}</h1>
+      
+      <p class="lead">Annotations are a documentation-only overlay used on design system pages to surface accessibility concerns, behavioral rules, event tracking details, and responsive considerations directly alongside live component demos.</p>
+
+      <hr class="my-5">
+
+      <section>
+        <h2>Purpose</h2>
+        <p>Component demos should remain clean, copy-pasteable HTML. But many components carry implicit requirements — heading hierarchy for accordions, <code>aria-label</code> on pagination, event tracking attributes — that are easy to forget when reusing the markup.</p>
+        <p>Annotations make those requirements visible without polluting the component source. They are part of the mockups site, not part of the final design system that will be deployed to production.</p>
+      </section>
+
+      <hr class="my-5">
+
+      <section>
+        <h2>Categories</h2>
+        <p>Each annotation belongs to one of four categories, identified by color and icon:</p>
+
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Icon</th>
+                <th>Color</th>
+                <th>Use for</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Accessibility</td>
+                <td><i class="fa-solid fa-universal-access" aria-hidden="true"></i></td>
+                <td><span style="color: #0aa2c0; font-weight: 600;">#0aa2c0</span></td>
+                <td>ARIA attributes, heading hierarchy, label association, color contrast, screen reader concerns</td>
+              </tr>
+              <tr>
+                <td>Behavior</td>
+                <td><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i></td>
+                <td><span style="color: #6f42c1; font-weight: 600;">#6f42c1</span></td>
+                <td>UI rules, interaction constraints (e.g. "one primary button per view"), state management</td>
+              </tr>
+              <tr>
+                <td>Tracking</td>
+                <td><i class="fa-solid fa-chart-simple" aria-hidden="true"></i></td>
+                <td><span style="color: #e8590c; font-weight: 600;">#e8590c</span></td>
+                <td>GA4 event tracking attributes, event type inference, position tracking</td>
+              </tr>
+              <tr>
+                <td>Responsive</td>
+                <td><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i></td>
+                <td><span style="color: #2f9e44; font-weight: 600;">#2f9e44</span></td>
+                <td>Breakpoint behavior, scrollable wrappers, stacking order on mobile</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <hr class="my-5">
+
+      <section>
+        <h2>How It Works</h2>
+
+        <h3>Architecture</h3>
+        <p>The annotation system has three parts:</p>
+        <ol>
+          <li><strong>SCSS</strong> — <code>_annotations.scss</code> defines styles for marker badges, dashed outlines on annotated elements, the floating toggle button, and hidden state.</li>
+          <li><strong>JavaScript</strong> — <code>annotations-init.html</code> (included in every page via <code>document-end.html</code>) reads annotation definitions, creates markers dynamically, and initializes Bootstrap popovers.</li>
+          <li><strong>Per-page template</strong> — Each page that needs annotations includes a <code>&lt;template class="ds-annotations-template"&gt;</code> block before the footer. This is where annotation content is authored.</li>
+        </ol>
+
+        <h3>Separation of concerns</h3>
+        <p>Annotation definitions live in a <code>&lt;template&gt;</code> element, which the browser does not render. The JavaScript reads the template's children at page load, groups them by target selector, and injects marker badges into the DOM. This means component demo HTML stays clean — no annotation markup mixed in.</p>
+        <p>The toggle button and its state are managed globally so pages without annotations simply show no UI.</p>
+      </section>
+
+      <hr class="my-5">
+
+      <section>
+        <h2>Adding Annotations to a Page</h2>
+
+        <h3>1. Add section IDs</h3>
+        <p>Each annotated element needs a CSS selector the script can find. The simplest approach is adding an <code>id</code> to the <code>&lt;section&gt;</code> wrapping each component demo.</p>
+
+        <h3>2. Add the template block</h3>
+        <p>Before the footer include, add a <code>&lt;template class="ds-annotations-template"&gt;</code> element containing one <code>&lt;div&gt;</code> per annotation:</p>
+
+        <pre><code>&lt;template class="ds-annotations-template"&gt;
+  &lt;div data-target="#section-buttons"
+       data-category="a11y"
+       data-title="Button semantics"&gt;
+    When an &lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt; is styled as a button
+    but triggers in-page behavior, add
+    &lt;code&gt;role="button"&lt;/code&gt;.
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
+
+        <h3>Attributes</h3>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Required</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>data-target</code></td>
+                <td>Yes</td>
+                <td>A CSS selector for the element to annotate (e.g. <code>#section-buttons</code>, <code>#accordionDemo</code>).</td>
+              </tr>
+              <tr>
+                <td><code>data-category</code></td>
+                <td>Yes</td>
+                <td>One of <code>a11y</code>, <code>behavior</code>, <code>tracking</code>, <code>responsive</code>.</td>
+              </tr>
+              <tr>
+                <td><code>data-title</code></td>
+                <td>No</td>
+                <td>Popover heading text. Defaults to the category name if omitted.</td>
+              </tr>
+              <tr>
+                <td>innerHTML</td>
+                <td>Yes</td>
+                <td>The popover body content. HTML is supported.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>3. Multiple annotations per target</h3>
+        <p>Multiple <code>&lt;div&gt;</code> elements can share the same <code>data-target</code>. They will be grouped into a single marker cluster at the top-right of the target element. The dashed outline color is determined by the first annotation's category.</p>
+        <p>Multiple <code>&lt;template class="ds-annotations-template"&gt;</code> elements can coexist on the same page (e.g. from different partials). The script collects annotations from all of them.</p>
+      </section>
+
+      <hr class="my-5">
+
+      <section>
+        <h2>Toggle & Persistence</h2>
+        <p>A floating button at the bottom-right corner of every page lets users show or hide annotations. The preference is saved in <code>localStorage</code> so it persists across page loads and sessions.</p>
+        <p>Pages without a <code>&lt;template class="ds-annotations-template"&gt;</code> block will not display the toggle button or any annotation UI — the script exits early.</p>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}
