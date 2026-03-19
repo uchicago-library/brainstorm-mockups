@@ -79,7 +79,7 @@ title: "Annotations on This Project"
         <ol>
           <li><strong>SCSS</strong> — <code>_annotations.scss</code> defines styles for marker badges, dashed outlines on annotated elements, the floating toggle button, and hidden state.</li>
           <li><strong>JavaScript</strong> — <code>annotations-init.html</code> (included in every page via <code>document-end.html</code>) reads annotation definitions, creates markers dynamically, and initializes Bootstrap popovers.</li>
-          <li><strong>Per-page template</strong> — Each page that needs annotations includes a <code>&lt;template class="ds-annotations-template"&gt;</code> block before the footer. This is where annotation content is authored.</li>
+          <li><strong>Per-page template</strong> — Each page that needs annotations includes a <code>&lt;template class="ds-annotations-template"&gt;</code> at the end. HTML partials like components, can also include their own annotations. This is where annotation content is authored.</li>
         </ol>
 
         <h3>Separation of concerns</h3>
