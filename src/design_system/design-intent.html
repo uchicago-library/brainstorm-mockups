@@ -7,42 +7,13 @@ description: "Value-pair scales that guide design decisions, useful for discussi
 {% include "header.html" %}
 
 <style>
-  .intent-scale {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .intent-scale-label {
-    flex: 0 0 auto;
-    min-width: 8rem;
-    text-align: center;
-    font-weight: 600;
-  }
-
-  .intent-scale-label-start {
-    text-align: end;
-  }
-
-  .intent-scale-label-end {
-    text-align: start;
-  }
-
-  .intent-scale input[type="range"] {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .intent-value {
-    font-size: 1.5rem;
-    font-weight: 700;
-    min-width: 2.5rem;
-    text-align: center;
-  }
-
-  .intent-also {
-    font-style: italic;
-    color: var(--bs-secondary-color);
+  @media (min-width: 576px) {
+    .intent-label {
+      min-width: 8rem;
+    }
+    .intent-label:first-child {
+      text-align: end;
+    }
   }
 </style>
 
@@ -56,62 +27,90 @@ description: "Value-pair scales that guide design decisions, useful for discussi
 
       <p class="lead">These value pairs help guide design decisions. They are more useful for discussion than to mathematically extrapolate into design choices. Each axis can shift by workflow or audience.</p>
 
-      <section class="mb-5">
-        <h2>Rich ↔ Streamlined</h2>
-        <p class="intent-also">also: dense ↔ airy</p>
+      <datalist id="ticks-10">
+        <option value="1"></option>
+        <option value="2"></option>
+        <option value="3"></option>
+        <option value="4"></option>
+        <option value="5"></option>
+        <option value="6"></option>
+        <option value="7"></option>
+        <option value="8"></option>
+        <option value="9"></option>
+        <option value="10"></option>
+      </datalist>
 
-        <div class="intent-scale mb-3">
-          <span class="intent-scale-label intent-scale-label-start">Rich</span>
-          <input type="range" class="form-range" min="1" max="10" step="1" value="9" id="scale-rich-streamlined">
-          <span class="intent-scale-label intent-scale-label-end">Streamlined</span>
-          <span class="intent-value" id="value-rich-streamlined">9</span>
+      <div class="accordion accordion-flush" id="designIntentAccordion">
+
+        <div class="accordion-item">
+          <h2 class="accordion-header visually-hidden" id="heading-rich-streamlined">Rich ↔ Streamlined</h2>
+            <div class="d-flex">
+                <div class="d-flex flex-wrap flex-sm-nowrap align-items-center flex-grow-1 gap-2 gap-sm-3">
+                    <span class="fw-semibold text-nowrap intent-label">Rich</span>
+                    <span class="fw-semibold text-nowrap intent-label ms-auto ms-sm-0 order-1 order-sm-2">Streamlined</span>
+                    <input type="range" class="form-range flex-sm-grow-1 mb-0 w-100 order-2 order-sm-1" min="1" max="10" step="1" value="9" list="ticks-10">
+                </div>
+                <div class="accordion-button collapsed w-auto" role="button" data-bs-toggle="collapse" data-bs-target="#collapse-rich-streamlined" aria-expanded="false" aria-controls="collapse-rich-streamlined"></div>
+            </div>
+          <div id="collapse-rich-streamlined" class="accordion-collapse collapse" data-bs-parent="#designIntentAccordion">
+            <div class="accordion-body">
+              <p class="fst-italic text-body-secondary">also: dense ↔ airy</p>
+              <p>A <strong>streamlined</strong> design has fewer elements per screen, more generous spacing, progressive disclosure (filters behind toggles, secondary nav collapsed, options under a dropdown), and greater navigation depth.</p>
+              <p>A <strong>rich</strong> design surfaces more content and metadata upfront, uses harder visual groupings (higher contrast borders, panels), and keeps secondary content visible.</p>
+              <p>This axis will shift by workflow. Dashboard and research guide home pages will lean rich — they serve frequent, task-focused users. The homepage and audience help pages will lean streamlined.</p>
+            </div>
+          </div>
         </div>
 
-        <p>A <strong>streamlined</strong> design has fewer elements per screen, more generous spacing, progressive disclosure (filters behind toggles, secondary nav collapsed, options under a dropdown), and greater navigation depth.</p>
-        <p>A <strong>rich</strong> design surfaces more content and metadata upfront, uses harder visual groupings (higher contrast borders, panels), and keeps secondary content visible.</p>
-        <p>This axis will shift by workflow. Dashboard and research guide home pages will lean rich — they serve frequent, task-focused users. The homepage and audience help pages will lean streamlined.</p>
-      </section>
-
-      <section class="mb-5">
-        <h2>Traditional ↔ Contemporary</h2>
-        <p class="intent-also">also: calm ↔ dynamic, safe ↔ bold</p>
-
-        <div class="intent-scale mb-3">
-          <span class="intent-scale-label intent-scale-label-start">Traditional</span>
-          <input type="range" class="form-range" min="1" max="10" step="1" value="6" id="scale-traditional-contemporary">
-          <span class="intent-scale-label intent-scale-label-end">Contemporary</span>
-          <span class="intent-value" id="value-traditional-contemporary">6</span>
+        <div class="accordion-item">
+          <h2 class="accordion-header visually-hidden" id="heading-traditional-contemporary">Traditional ↔ Contemporary</h2>
+          <div class="d-flex">
+                <div class="d-flex flex-wrap flex-sm-nowrap align-items-center flex-grow-1 gap-2 gap-sm-3">
+                    <span class="fw-semibold text-nowrap intent-label">Traditional</span>
+                    <span class="fw-semibold text-nowrap intent-label ms-auto ms-sm-0 order-1 order-sm-2">Contemporary</span>
+                    <input type="range" class="form-range flex-sm-grow-1 mb-0 w-100 order-2 order-sm-1" min="1" max="10" step="1" value="6" list="ticks-10">
+                </div>
+                <div class="accordion-button collapsed w-auto" role="button" data-bs-toggle="collapse" data-bs-target="#collapse-traditional-contemporary" aria-expanded="false" aria-controls="collapse-traditional-contemporary"></div>
+            </div>
+          <div id="collapse-traditional-contemporary" class="accordion-collapse collapse" data-bs-parent="#designIntentAccordion">
+            <div class="accordion-body">
+              <p class="fst-italic text-body-secondary">also: calm ↔ dynamic, safe ↔ bold</p>
+              <p>A <strong>traditional</strong> design favors descriptive text over implicit UI: labeled metadata, descriptive button text, links over icon-only controls. Uses serif headings, less rounded corners (<code>rounded-1</code>, <code>rounded-2</code>), minimal hover animation, and less saturated color. Flatter designs with less shadows and gradients.</p>
+              <p>A <strong>contemporary</strong> design uses progressive disclosure, implicit controls, sans-serif headings, rounder corners (<code>rounded-3</code> on panels), subtle hover transitions, and more saturated color. They tend on dynamic styles like transparencies and blurred background effects, or gradients, or mesh gradient backgrounds, or stacked borders, even several of these (ex: glassmorphism).</p>
+            </div>
+          </div>
         </div>
 
-        <p>A <strong>traditional</strong> design favors descriptive text over implicit UI: labeled metadata, descriptive button text, links over icon-only controls. Uses serif headings, less rounded corners (<code>rounded-1</code>, <code>rounded-2</code>), minimal hover animation, and less saturated color. Flatter designs with less shadows and gradients.</p>
-        <p>A <strong>contemporary</strong> design uses progressive disclosure, implicit controls, sans-serif headings, rounder corners (<code>rounded-3</code> on panels), subtle hover transitions, and more saturated color. They tend on dynamic styles like transparencies and blurred background effects, or gradients, or mesh gradient backgrounds, or stacked borders, even several of these (ex: glassmorphism).</p>
-      </section>
-
-      <section class="mb-5">
-        <h2>Institutional ↔ Approachable</h2>
-        <p class="intent-also">also: serious ↔ playful, formal ↔ casual, quiet ↔ expressive</p>
-
-        <div class="intent-scale mb-3">
-          <span class="intent-scale-label intent-scale-label-start">Institutional</span>
-          <input type="range" class="form-range" min="1" max="10" step="1" value="8" id="scale-institutional-approachable">
-          <span class="intent-scale-label intent-scale-label-end">Approachable</span>
-          <span class="intent-value" id="value-institutional-approachable">8</span>
+        <div class="accordion-item">
+          <h2 class="accordion-header visually-hidden" id="heading-institutional-approachable">Institutional ↔ Approachable</h2>
+          <div class="d-flex">
+                <div class="d-flex flex-wrap flex-sm-nowrap align-items-center flex-grow-1 gap-2 gap-sm-3">
+                    <span class="fw-semibold text-nowrap intent-label">Institutional</span>
+                    <span class="fw-semibold text-nowrap intent-label ms-auto ms-sm-0 order-1 order-sm-2">Approachable</span>
+                    <input type="range" class="form-range flex-sm-grow-1 mb-0 w-100 order-2 order-sm-1" min="1" max="10" step="1" value="8" list="ticks-10">
+                </div>
+                <div class="accordion-button collapsed w-auto" role="button" data-bs-toggle="collapse" data-bs-target="#collapse-institutional-approachable" aria-expanded="false" aria-controls="collapse-institutional-approachable"></div>
+            </div>
+          <div id="collapse-institutional-approachable" class="accordion-collapse collapse" data-bs-parent="#designIntentAccordion">
+            <div class="accordion-body">
+              <p class="fst-italic text-body-secondary">also: serious ↔ playful, formal ↔ casual, quiet ↔ expressive</p>
+              <p>Primarily expressed through copy and microcopy: reading level, tone, action label phrasing, empty state messaging.</p>
+              <p>More <strong>approachable</strong> means icons alongside labels, illustrations in empty states and onboarding, and more prominent CTAs.</p>
+              <p>More <strong>institutional</strong> means text-first, minimal decoration, and restrained use of primary color.</p>
+            </div>
+          </div>
         </div>
 
-        <p>Primarily expressed through copy and microcopy: reading level, tone, action label phrasing, empty state messaging.</p>
-        <p>More <strong>approachable</strong> means icons alongside labels, illustrations in empty states and onboarding, and more prominent CTAs.</p>
-        <p>More <strong>institutional</strong> means text-first, minimal decoration, and restrained use of primary color.</p>
-      </section>
+      </div>
 
     </div>
   </div>
 </main>
 
 <script>
-  document.querySelectorAll('input[type="range"]').forEach(function(range) {
-    var output = document.getElementById('value-' + range.id.replace('scale-', ''));
-    range.addEventListener('input', function() {
-      output.textContent = this.value;
+  document.querySelectorAll('.accordion-item input[type="range"]').forEach(function(range) {
+    ['pointerdown', 'click'].forEach(function(type) {
+      range.addEventListener(type, function(e) { e.stopPropagation(); });
     });
   });
 </script>
