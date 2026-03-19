@@ -13,4 +13,7 @@ applyTo: '**'
 - HTML page files (not components) are documental and don't need extra styling to be engaging. Focus on clean, semantic markup and basic Bootstrap styling. Do not apply heading classes (e.g., `h1`, `h2`). Do not apply mb-* classes on <p> tags.
 - Always use the highest dimension variables possible (BS classes and custom components). Avoid creating new ones unless necessary. Avoid using utilities when there are appropriate classes. Avoid inline styles. Use a <style></style> tag on `src/design_mockups/` pages or when a page specific style is needed for demonstration purposes.
 - Ask for clarifications if any instruction is unclear, conflicting, or appears to be a bad idea.
-- This is a self-documented design system website that uses it's own design system. Keep in mind `src/methodology` when writing content. 
+- This is a self-documented design system website that uses it's own design system. Keep in mind `src/methodology` when writing content.
+- When adding sizing constraints (min-width, fixed widths, etc.), always verify behavior at all breakpoints — especially mobile.
+- When nesting interactive elements inside other interactive elements, account for event propagation conflicts upfront.
+- Before relying on native HTML features, verify that Bootstrap class overrides don't suppress them (e.g., `appearance: none` disabling `<datalist>` ticks, or `width: 100%` overriding flex shrink).
