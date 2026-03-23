@@ -3,7 +3,8 @@
         type="button"
         aria-pressed="true"
         aria-label="Toggle annotations"
-        id="dsNotesToggle">
+        id="dsNotesToggle"
+        hidden>
   <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
   <span>Annotations</span>
 </button>
@@ -25,8 +26,12 @@
 
     var STORAGE_KEY = 'ds-annotations-visible';
 
+    var toggleBtn = document.getElementById('dsNotesToggle');
     var templates = document.querySelectorAll('.ds-annotations-template');
-    if (!templates.length) return;
+    if (!templates.length) {
+      if (toggleBtn) toggleBtn.remove();
+      return;
+    }
 
     // Restore saved preference (default: visible)
     var saved = localStorage.getItem(STORAGE_KEY);
@@ -91,8 +96,8 @@
       new bootstrap.Popover(el, { trigger: 'click', html: true, placement: 'top' });
     });
 
-    // Apply saved state before user interaction
-    var toggleBtn = document.getElementById('dsNotesToggle');
+    // Show toggle and apply saved state
+    if (toggleBtn) toggleBtn.removeAttribute('hidden');
     if (!visible) {
       document.body.classList.add('ds-notes-hidden');
       if (toggleBtn) toggleBtn.setAttribute('aria-pressed', 'false');
