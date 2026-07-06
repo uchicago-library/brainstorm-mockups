@@ -102,6 +102,3 @@ as of 2026-feb-11
 | Bootstrap        | 5.3.2+    | CSS framework (SCSS)             |
 | Sass             | 1.69.5+   | SCSS compilation                 |
 | FontAwesome      | CDN       | Icons (via CDN or self-hosted)   |
-
-## 📄 License
-MIT License. See [LICENSE](LICENSE) for details.
