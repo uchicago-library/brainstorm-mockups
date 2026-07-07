@@ -1,0 +1,1196 @@
+---
+title: "Database Finder — fixed"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | UCL DS Exploration</title>
+    <link rel="icon"
+          type="image/x-icon"
+          href="https://www.lib.uchicago.edu/web-resources/img/favicon-m.ico">
+    <!--  %%% LIBGUIDES STUFF  -->
+    <link rel="stylesheet"
+          href="https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691" />
+    <link rel="stylesheet"
+          href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet"
+          href="https://static-assets-us.libguides.com/web/css3.27.3/lg-public-bs5.min.css" />
+    <script type="text/javascript"
+            src="https://static-assets-us.libguides.com/web/jquery/js/jquery-3.7.0.min.js"></script>
+    <!-- js_include_fallback_lg.twig -->
+    <script src="//code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script>jQuery.ui || document.write('<script src="https://static-assets-us.libguides.com/web/jquery/js/jquery-ui.min.js?2691">\x3C/script>');</script>
+    <!-- !js_include_fallback_lg.twig -->
+    <script type="text/javascript"
+            src="https://static-assets-us.libguides.com/web/js3.27.3/lg-public-bs5.min.js"></script>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" />
+    <script src="https://static-assets-us.libguides.com/web/select2/current/js/select2.min.js"></script>
+    <script src="https://static-assets-us.libguides.com/web/js3.27.3/springshare.select2.min.js"></script>
+    <link rel="stylesheet"
+          href="https://static-assets-us.libguides.com/web/select2/current/css/select2.min.css" />
+    <script src="https://static-assets-us.libguides.com/web/js/sa.min.js?3116"></script> {# Probably not needed #}
+    <script>
+    jQuery('.az-toggle').click(function () {
+        var item = jQuery(this);
+        if (item.hasClass('collapsed')) {
+            item.text('Show More Filters');
+        } else {
+            item.text('Show Fewer Filters');
+        }
+    });
+    </script>
+    <!-- %%% Custom stuff -->
+    <link rel="stylesheet"
+          href="https://uchicago-brand-fonts.s3.us-east-2.amazonaws.com/UChicagoSansSerif.css">
+    <link href="https://uchicago-library.github.io/brainstorm-mockups/styles/main-libapps.css"
+          rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://guides.lib.uchicago.edu/lookfeel.css">
+    {# <link rel="stylesheet" href="/brainstorm-mockups/styles/main.css"> #}
+  </head>
+  <body>
+    {% include "header.html" %}
+    <div id="s-lib-public-header"
+         class="s-lib-header container s-lib-side-borders">
+      <nav id=s-lib-bc aria-label=breadcrumb>
+        <ol id=s-lib-bc-list class=breadcrumb>
+          <li id=s-lib-bc-customer class=breadcrumb-item><a href=http://www.lib.uchicago.edu />Library Home</a></li>
+          <li id=s-lib-bc-site class=breadcrumb-item><a href=https://guides.lib.uchicago.edu />Library Guides</a></li>
+          <li id=s-lib-bc-page class="active breadcrumb-item">Database Finder</li>
+        </ol>
+      </nav>
+      <h1 id=s-lib-public-header-title>Database Finder</h1>
+      <div id=s-lib-public-header-desc style=white-space:normal>
+        <p>Find the best library databases for your research.</p>
+      </div>
+    </div>
+    <div id="s-lib-public-main"
+         class="s-lib-main container s-lib-side-borders"
+         tabindex="-1">
+      <div id=s-lib-public-main-searchbar>
+        <section class="d-none d-lg-block">
+          <div id=s-lg-az-search-bar class=row>
+            <div id=az-search-col-1 class="col-lg-12 center">
+              <nav class="navbar navbar-expand-lg navbar-default"
+                   aria-label="Search filters">
+                <div class=container-fluid>
+                  <div class=navbar-header>
+                    <button type="button"
+                            class="navbar-toggler navbar-toggle collapsed sf-hidden"
+                            data-toggle="collapse"
+                            data-target
+                            s-lg-az-nav-1
+                            data-bs-toggle="collapse"
+                            data-bs-target
+                            s-lg-az-nav-1></button>
+                  </div>
+                  <div class="collapse navbar-collapse" id=s-lg-az-nav-1>
+                    <div id=s-lg-az-filters>
+                      <section>
+                        <form role=search id=az-search-form>
+                          <div id=s-lg-az-filter-cols class=row>
+                            <div class=col-md-12>
+                              <div class=row>
+                                <div id=col-search class="col ps-3 d-flex align-items-start">
+                                  <div class="d-flex justify-content-start">
+                                    <img src="data:," role="presentation" alt="" style="display:none;">
+                                    <input type="text"
+                                           class="s-lg-az-search form-control"
+                                           maxlength="260"
+                                           placeholder="Database Title / Keyword"
+                                           aria-label="Search database by title or keyword"
+                                           value>
+                                  </div>
+                                </div>
+                                <div class="col-subjects col ps-3">
+                                  <div class="d-flex justify-content-start align-items-baseline">
+                                    <img src=data:, role=presentation alt style=display:none>
+                                    <select data-placeholder="Subjects"
+                                            name="s-lg-sel-subjects"
+                                            aria-label="Database Subject Filter"
+                                            multiple
+                                            class="s-lg-sel-subjects form-control form-control-select2-multi select2-hidden-accessible"
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            data-select2-id="select2-data-1924-ba30">
+                                      <option value=66496>African Studies</option>
+                                      <option value=66497>African-American Studies</option>
+                                      <option value=66498>Ancient Near East</option>
+                                      <option value=66540>Anthropology</option>
+                                      <option value=55999>Area &amp; Cultural Studies</option>
+                                    </select>
+                                    <span class="select2 select2-container select2-container--bootstrap5"
+                                          dir="ltr"
+                                          data-select2-id="select2-data-1925-a9we"
+                                          style="width"
+                                          :110.766px>
+                                      <span class=selection>
+                                        <span class="select2-selection select2-selection--multiple"
+                                              role="combobox"
+                                              aria-haspopup="true"
+                                              aria-expanded="false"
+                                              aria-disabled="false"
+                                              aria-label="Database Subject Filter">
+                                          <ul class="select2-selection__rendered"
+                                              id="select2-s-lg-sel-subjects-gf-container"
+                                              role="presentation">
+                                          </ul>
+                                          <span class="select2-search select2-search--inline">
+                                            <textarea class="select2-search__field"
+                                                      type="search"
+                                                      tabindex="0"
+                                                      autocorrect="off"
+                                                      autocapitalize="none"
+                                                      spellcheck="false"
+                                                      role="searchbox"
+                                                      aria-autocomplete="list"
+                                                      autocomplete="off"
+                                                      aria-label="Database Subject Filter"
+                                                      aria-describedby="select2-s-lg-sel-subjects-gf-container"
+                                                      placeholder="Subjects"
+                                                      style="width"
+                                                      :100></textarea>
+                                          </span>
+                                        </span>
+                                      </span>
+                                      <span class=dropdown-wrapper aria-hidden=true></span>
+                                    </span>
+                                    <i class="fa fa-angle-down me-2 fs-4" aria-hidden=true></i>
+                                  </div>
+                                </div>
+                                <div class="col-types col ps-3">
+                                  <div class="d-flex justify-content-start align-items-baseline">
+                                    <img src=data:, role=presentation alt style=display:none>
+                                    <select data-placeholder="Types"
+                                            name="s-lg-sel-az-types"
+                                            aria-label="Database Types Filter"
+                                            class="s-lg-sel-az-types form-control form-control-select2-multi select2-hidden-accessible"
+                                            multiple
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            data-select2-id="select2-data-1926-y7ay">
+                                      <option value=22103>Almanacs, Fact Books, &amp; Country Profiles</option>
+                                      <option value=22104>Archives &amp; Manuscripts</option>
+                                      <option value=26517>Articles &amp; Indexes</option>
+                                      <option value=26503>Auction Catalogs</option>
+                                      <option value=26502>Audio</option>
+                                    </select>
+                                    <span class="select2 select2-container select2-container--bootstrap5"
+                                          dir="ltr"
+                                          data-select2-id="select2-data-1927-c0k4"
+                                          style="width"
+                                          :110.766px>
+                                      <span class=selection>
+                                        <span class="select2-selection select2-selection--multiple"
+                                              role="combobox"
+                                              aria-haspopup="true"
+                                              aria-expanded="false"
+                                              aria-disabled="false"
+                                              aria-label="Database Types Filter">
+                                          <ul class="select2-selection__rendered"
+                                              id="select2-s-lg-sel-az-types-nj-container"
+                                              role="presentation">
+                                          </ul>
+                                          <span class="select2-search select2-search--inline">
+                                            <textarea class="select2-search__field"
+                                                      type="search"
+                                                      tabindex="0"
+                                                      autocorrect="off"
+                                                      autocapitalize="none"
+                                                      spellcheck="false"
+                                                      role="searchbox"
+                                                      aria-autocomplete="list"
+                                                      autocomplete="off"
+                                                      aria-label="Database Types Filter"
+                                                      aria-describedby="select2-s-lg-sel-az-types-nj-container"
+                                                      placeholder="Types"
+                                                      style="width"
+                                                      :100></textarea>
+                                          </span>
+                                        </span>
+                                      </span>
+                                      <span class=dropdown-wrapper aria-hidden=true></span>
+                                    </span>
+                                    <i class="fa fa-angle-down me-2 fs-4" aria-hidden=true></i>
+                                  </div>
+                                </div>
+                                <div class="col-vendors col ps-3">
+                                  <div class="d-flex justify-content-start align-items-baseline">
+                                    <img src=data:, role=presentation alt style=display:none>
+                                    <select data-placeholder="Vendors"
+                                            name="s-lg-sel-az-vendors"
+                                            aria-label="Database Vendors Filter"
+                                            class="s-lg-sel-az-vendors form-control form-control-select2-multi select2-hidden-accessible"
+                                            multiple
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            data-select2-id="select2-data-1928-oall">
+                                      <option value=157361>A-R Editions</option>
+                                      <option value=157178>ABC-CLIO</option>
+                                      <option value=84960>ABES</option>
+                                      <option value=157187>Academia Sinica</option>
+                                      <option value=84893>Academy of Korean Studies</option>
+                                    </select>
+                                    <span class="select2 select2-container select2-container--bootstrap5"
+                                          dir="ltr"
+                                          data-select2-id="select2-data-1929-4hlq"
+                                          style="width"
+                                          :110.766px>
+                                      <span class=selection>
+                                        <span class="select2-selection select2-selection--multiple"
+                                              role="combobox"
+                                              aria-haspopup="true"
+                                              aria-expanded="false"
+                                              aria-disabled="false"
+                                              aria-label="Database Vendors Filter">
+                                          <ul class="select2-selection__rendered"
+                                              id="select2-s-lg-sel-az-vendors-d5-container"
+                                              role="presentation">
+                                          </ul>
+                                          <span class="select2-search select2-search--inline">
+                                            <textarea class="select2-search__field"
+                                                      type="search"
+                                                      tabindex="0"
+                                                      autocorrect="off"
+                                                      autocapitalize="none"
+                                                      spellcheck="false"
+                                                      role="searchbox"
+                                                      aria-autocomplete="list"
+                                                      autocomplete="off"
+                                                      aria-label="Database Vendors Filter"
+                                                      aria-describedby="select2-s-lg-sel-az-vendors-d5-container"
+                                                      placeholder="Vendors"
+                                                      style="width"
+                                                      :100></textarea>
+                                          </span>
+                                        </span>
+                                      </span>
+                                      <span class=dropdown-wrapper aria-hidden=true></span>
+                                    </span>
+                                    <i class="fa fa-angle-down me-2 fs-4" aria-hidden=true></i>
+                                  </div>
+                                </div>
+                                <div class="col-access-modes col ps-3">
+                                  <div class="d-flex justify-content-start align-items-baseline">
+                                    <img src=data:, role=presentation alt style=display:none>
+                                    <select data-placeholder="Access Modes"
+                                            name="s-lg-sel-az-access-modes"
+                                            aria-label="Database Access Modes Filter"
+                                            multiple
+                                            class="s-lg-sel-az-access-modes form-control form-control-select2-multi select2-hidden-accessible"
+                                            tabindex="-1"
+                                            aria-hidden="true"
+                                            data-select2-id="select2-data-1930-v1lv">
+                                      <option value=3668>Registration Required</option>
+                                    </select>
+                                    <span class="select2 select2-container select2-container--bootstrap5"
+                                          dir="ltr"
+                                          data-select2-id="select2-data-1931-bfmh"
+                                          style="width"
+                                          :111.406px>
+                                      <span class=selection>
+                                        <span class="select2-selection select2-selection--multiple"
+                                              role="combobox"
+                                              aria-haspopup="true"
+                                              aria-expanded="false"
+                                              aria-disabled="false"
+                                              aria-label="Database Access Modes Filter">
+                                          <ul class="select2-selection__rendered"
+                                              id="select2-s-lg-sel-az-access-modes-p9-container"
+                                              role="presentation">
+                                          </ul>
+                                          <span class="select2-search select2-search--inline">
+                                            <textarea class="select2-search__field"
+                                                      type="search"
+                                                      tabindex="0"
+                                                      autocorrect="off"
+                                                      autocapitalize="none"
+                                                      spellcheck="false"
+                                                      role="searchbox"
+                                                      aria-autocomplete="list"
+                                                      autocomplete="off"
+                                                      aria-label="Database Access Modes Filter"
+                                                      aria-describedby="select2-s-lg-sel-az-access-modes-p9-container"
+                                                      placeholder="Access Modes"
+                                                      style="width"
+                                                      :100></textarea>
+                                          </span>
+                                        </span>
+                                      </span>
+                                      <span class=dropdown-wrapper aria-hidden=true></span>
+                                    </span>
+                                    <i class="fa fa-angle-down me-2 fs-4" aria-hidden=true></i>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3 pt-3 ps-0 form-group">
+                              <div class="flex-grow-1d-flex flex-row justify-content-start">
+                                <button class="btn btn-default s-lg-az-reset" type=button style=display:none>Clear Filters</button>
+                                <button class="btn btn-primary flex-grow-1"
+                                        style="max-width"
+                                        :75
+                                        type="submit"
+                                        aria-label="Submit for Search Results">Search</button>
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-md-9 pt-3 ps-0 mt-3 d-flex justify-content-end">
+                              <a href="https://guides.lib.uchicago.edu/az/databases/recommended?preview=0e4fa6e1d56a8e4de1ddb14ef0a01b53"
+                                 class="mx-1 fw-semibold recommended-list">
+                                Not sure where to start? Check our Recommended Databases
+                              </a>
+                            </div>
+                          </div>
+                        </form>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </section>
+        <section class="d-block d-lg-none sf-hidden">
+        </section>
+        <div class="modal fade sf-hidden"
+             id="az-mobile-filter-edit-modal"
+             tabindex="-1"
+             aria-hidden="true">
+          <div class="modal-dialog sf-hidden">
+            <div class="modal-content sf-hidden">
+              <div class="modal-body sf-hidden"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section>
+        <div id=s-lg-az-cols class=row>
+          <div id=col1 class="col-lg-8 center">
+            <div id=s-lg-az-search-reset class=pad-right-sm>
+              <h2 id="s-lg-az-result-count"
+                  aria-live="polite"
+                  class="bold s-lib-text-lg pad-right-med">
+                <span class="d-lg-inline me-1">2311 Databases</span>
+              </h2>
+              <button id="s-lg-az-reset"
+                      class="btn btn-default btn-sm"
+                      type="button"
+                      style="display"
+                      :none>Clear Filters / Browse All</button>
+            </div>
+            <div id=s-lg-az-index class=pad-right-sm>
+              <div class="btn-group"
+                   role="group"
+                   aria-label="Alpha-list to filter by first letter of database name">
+                <button type="button"
+                        class="s-lg-az-header s-lg-az-first btn btn-link bold active-alpha"
+                        id="s-lg-az-first-all">All</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-a"
+                        aria-label="Filter Results A">A</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-b"
+                        aria-label="Filter Results B">B</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-c"
+                        aria-label="Filter Results C">C</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-d"
+                        aria-label="Filter Results D">D</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-e"
+                        aria-label="Filter Results E">E</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-f"
+                        aria-label="Filter Results F">F</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-g"
+                        aria-label="Filter Results G">G</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-h"
+                        aria-label="Filter Results H">H</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-i"
+                        aria-label="Filter Results I">I</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-j"
+                        aria-label="Filter Results J">J</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-k"
+                        aria-label="Filter Results K">K</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-l"
+                        aria-label="Filter Results L">L</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-m"
+                        aria-label="Filter Results M">M</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-n"
+                        aria-label="Filter Results N">N</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-o"
+                        aria-label="Filter Results O">O</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-p"
+                        aria-label="Filter Results P">P</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-q"
+                        aria-label="Filter Results Q">Q</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-r"
+                        aria-label="Filter Results R">R</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-s"
+                        aria-label="Filter Results S">S</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-t"
+                        aria-label="Filter Results T">T</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-u"
+                        aria-label="Filter Results U">U</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-v"
+                        aria-label="Filter Results V">V</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-w"
+                        aria-label="Filter Results W">W</button>
+                <button type=button class="s-lg-disabled-text-contrast btn btn-link" disabled>X</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-y"
+                        aria-label="Filter Results Y">Y</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-z"
+                        aria-label="Filter Results Z">Z</button>
+                <button type="button"
+                        class="s-lg-az-header btn btn-link s-lg-az-first"
+                        id="s-lg-az-first-pound"
+                        aria-label="Filter Results #">#</button>
+              </div>
+            </div>
+            <div id=s-lg-az-content class=pad-right-sm>
+              <div id=s-lg-az-results>
+                <div id=s-lg-az-results-title class=sf-hidden>All Databases</div>
+                <div id=s-lg-az-name-a class=s-lg-db-panel>
+                  <h3 class=s-lg-db-panel-title>A</h3>
+                  <div class=az-item>
+                    <div class="d-flex justify-content-between">
+                      <div class="flex-fill align-self-center">
+                        <a href=https://www.lib.uchicago.edu/h/ghe class=az-title target=_blank>
+                          A Global History of Epidemics 1800-1970<i class="fa fa-fw fa-external-link"
+   aria-hidden="true"
+   title="This link opens in a new window"></i><span class=sr-only>This link opens in a new window</span>
+                        </a>
+                        <div class="d-none d-lg-inline">
+                          <div class=az-flags></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=mt-3>
+                      <div class="d-block d-lg-none mb-2 sf-hidden"></div>
+                      <div class="az-configured-fields mb-3"></div>
+                      <div class="az-description-short az-description-max-height az-description"
+                           style="overflow-wrap"
+                           :break-word></div>
+                      <div class="az-description-view-more d-none sf-hidden"></div>
+                      <div class="d-flex justify-content-start">
+                        <button class="collapsible collapsed az-toggle"
+                                data-bs-toggle="collapse"
+                                href
+                                additional-info-80840422
+                                aria-expanded="false"
+                                aria-controls="additional-info-80840422">
+                          <span class="d-inline-flex rotate-n180 me-2 align-middle az-collapsible">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 aria-hidden="true"
+                                 role="presentation">
+                              <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
+                            </svg>
+                          </span>
+                          Additional Info
+                        </button>
+                      </div>
+                      <div id=group-80840422>
+                        <div class="collapse w-100 az-entry-collapsible-box rounded sf-hidden"
+                             id="additional-info-80840422"
+                             data-bs-parent
+                             group-80840422></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=az-item>
+                    <div class="d-flex justify-content-between">
+                      <div class="flex-fill align-self-center">
+                        <a href=http://www.lib.uchicago.edu/h/magyarirobiblio class=az-title target=_blank>
+                          A Magyar irodalomtörténet bibliográfiája<i class="fa fa-fw fa-external-link"
+   aria-hidden="true"
+   title="This link opens in a new window"></i><span class=sr-only>This link opens in a new window</span>
+                        </a>
+                        <div class="d-none d-lg-inline">
+                          <div class=az-flags></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=mt-3>
+                      <div class="d-block d-lg-none mb-2 sf-hidden"></div>
+                      <div class="az-configured-fields mb-3"></div>
+                      <div class="az-description-short az-description-max-height az-description"
+                           style="overflow-wrap"
+                           :break-word></div>
+                      <div class="az-description-view-more d-none sf-hidden"></div>
+                      <div class="d-flex justify-content-start">
+                        <button class="collapsible collapsed az-toggle"
+                                data-bs-toggle="collapse"
+                                href
+                                additional-info-64192719
+                                aria-expanded="false"
+                                aria-controls="additional-info-64192719">
+                          <span class="d-inline-flex rotate-n180 me-2 align-middle az-collapsible">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 aria-hidden="true"
+                                 role="presentation">
+                              <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
+                            </svg>
+                          </span>
+                          Additional Info
+                        </button>
+                      </div>
+                      <div id=group-64192719>
+                        <div class="collapse w-100 az-entry-collapsible-box rounded sf-hidden"
+                             id="additional-info-64192719"
+                             data-bs-parent
+                             group-64192719>
+                          Bibliography of the history of Hungarian literature. Data collected since 2013.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=az-item>
+                    <div class="d-flex justify-content-between">
+                      <div class="flex-fill align-self-center">
+                        <a href=http://www.lib.uchicago.edu/h/aae class=az-title target=_blank>
+                          A&amp;AePortal<i class="fa fa-fw fa-external-link"
+   aria-hidden="true"
+   title="This link opens in a new window"></i><span class=sr-only>This link opens in a new window</span>
+                        </a>
+                        <div class="d-none d-lg-inline">
+                          <div class=az-flags></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=mt-3>
+                      <div class="d-block d-lg-none mb-2 sf-hidden"></div>
+                      <div class="az-configured-fields mb-3"></div>
+                      <div class="az-description-short az-description-max-height az-description"
+                           style="overflow-wrap"
+                           :break-word></div>
+                      <div class="az-description-view-more d-none sf-hidden"></div>
+                      <div class="d-flex justify-content-start">
+                        <button class="collapsible collapsed az-toggle"
+                                data-bs-toggle="collapse"
+                                href
+                                additional-info-59042730
+                                aria-expanded="false"
+                                aria-controls="additional-info-59042730">
+                          <span class="d-inline-flex rotate-n180 me-2 align-middle az-collapsible">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 aria-hidden="true"
+                                 role="presentation">
+                              <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
+                            </svg>
+                          </span>
+                          Additional Info
+                        </button>
+                      </div>
+                      <div id=group-59042730>
+                        <div class="collapse w-100 az-entry-collapsible-box rounded sf-hidden"
+                             id="additional-info-59042730"
+                             data-bs-parent
+                             group-59042730>
+                          Features important works of scholarship in the history of art, architecture, decorative arts, photography, and design.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=az-item>
+                    <div class="d-flex justify-content-between">
+                      <div class="flex-fill align-self-center">
+                        <a href="https://proxy-redirector.lib.uchicago.edu/login?url=https%3A%2F%2Fdlib.eastview.com%2Fbrowse%2Fpublication%2F7427%2Fudb%2F550"
+                           class="az-title"
+                           target="_blank">
+                          AAASS NewsNet Digital Archive, 1960-2006<i class="fa fa-fw fa-external-link"
+   aria-hidden="true"
+   title="This link opens in a new window"></i><span class=sr-only>This link opens in a new window</span>
+                        </a>
+                        <div class="d-none d-lg-inline">
+                          <div class=az-flags></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=mt-3>
+                      <div class="d-block d-lg-none mb-2 sf-hidden"></div>
+                      <div class="az-configured-fields mb-3"></div>
+                      <div class="az-description-short az-description-max-height az-description"
+                           style="overflow-wrap"
+                           :break-word></div>
+                      <div class="az-description-view-more d-none sf-hidden"></div>
+                      <div class="d-flex justify-content-start"></div>
+                      <div id=group-65616011></div>
+                    </div>
+                  </div>
+                  <div class=az-item>
+                    <div class="d-flex justify-content-between">
+                      <div class="flex-fill align-self-center">
+                        <a href=http://www.lib.uchicago.edu/h/aata class=az-title target=_blank>
+                          AATA Online: Abstracts of International Conservation Literature<i class="fa fa-fw fa-external-link"
+   aria-hidden="true"
+   title="This link opens in a new window"></i><span class=sr-only>This link opens in a new window</span>
+                        </a>
+                        <div class="d-none d-lg-inline">
+                          <div class=az-flags></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=mt-3>
+                      <div class="d-block d-lg-none mb-2 sf-hidden"></div>
+                      <div class="az-configured-fields mb-3"></div>
+                      <div class="az-description-short az-description-max-height az-description"
+                           style="overflow-wrap"
+                           :break-word></div>
+                      <div class="az-description-view-more d-none sf-hidden"></div>
+                      <div class="d-flex justify-content-start">
+                        <button class="collapsible collapsed az-toggle"
+                                data-bs-toggle="collapse"
+                                href
+                                additional-info-45031278
+                                aria-expanded="false"
+                                aria-controls="additional-info-45031278">
+                          <span class="d-inline-flex rotate-n180 me-2 align-middle az-collapsible">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 aria-hidden="true"
+                                 role="presentation">
+                              <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
+                            </svg>
+                          </span>
+                          Additional Info
+                        </button>
+                      </div>
+                      <div id=group-45031278>
+                        <div class="collapse w-100 az-entry-collapsible-box rounded sf-hidden"
+                             id="additional-info-45031278"
+                             data-bs-parent
+                             group-45031278>
+                          Covers works of art, cultural objects, museum collections, archives and library materials, architecture, historic sites, and archaeology. AATA Online incorporates all 36 volumes of Art and Archaeology Technical Abstracts (N8560.A78 stacks) and its predecessor, IIC Abstracts, published between 1955 and the present.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=az-item>
+                    <div class="d-flex justify-content-between">
+                      <div class="flex-fill align-self-center">
+                        <a href="https://proxy-redirector.lib.uchicago.edu/login?url=https%3A%2F%2Fwww.bloomberglaw.com%2Fproduct%2Fblic%2Fpage%2Fgeneral_ethics"
+                           class="az-title"
+                           target="_blank">
+                          ABA/BNA Lawyers' Manual on Professional Conduct<i class="fa fa-fw fa-external-link"
+   aria-hidden="true"
+   title="This link opens in a new window"></i><span class=sr-only>This link opens in a new window</span>
+                        </a>
+                        <div class="d-none d-lg-inline">
+                          <div class=az-flags></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=mt-3>
+                      <div class="d-block d-lg-none mb-2 sf-hidden"></div>
+                      <div class="az-configured-fields mb-3"></div>
+                      <div class="az-description-short az-description-max-height az-description"
+                           style="overflow-wrap"
+                           :break-word></div>
+                      <div class="az-description-view-more d-none sf-hidden"></div>
+                      <div class="d-flex justify-content-start">
+                        <button class="collapsible collapsed az-toggle"
+                                data-bs-toggle="collapse"
+                                href
+                                additional-info-11996622
+                                aria-expanded="false"
+                                aria-controls="additional-info-11996622">
+                          <span class="d-inline-flex rotate-n180 me-2 align-middle az-collapsible">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 aria-hidden="true"
+                                 role="presentation">
+                              <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
+                            </svg>
+                          </span>
+                          Additional Info
+                        </button>
+                      </div>
+                      <div id=group-11996622>
+                        <div class="collapse w-100 az-entry-collapsible-box rounded sf-hidden"
+                             id="additional-info-11996622"
+                             data-bs-parent
+                             group-11996622>
+                          Analysis, guidance, primary source material and news and developments on attorney conduct and legal ethics. Includes full text of ABA ethics opinions issued from 1986 onward, digests of state and local ethics opinions from 1986 to the present, links to state Web sites for full text of state ethics rules and opinions, practice guides by topics of how laws have been applied, and reports on court decisions, ethics opinions, disciplinary actions, and other news from 1998 to the present.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=az-item>
+                    <div class="d-flex justify-content-between">
+                      <div class="flex-fill align-self-center">
+                        <a href=http://www.lib.uchicago.edu/h/abell class=az-title target=_blank>
+                          ABELL: Annual Bibliography of English Literature<i class="fa fa-fw fa-external-link"
+   aria-hidden="true"
+   title="This link opens in a new window"></i><span class=sr-only>This link opens in a new window</span>
+                        </a>
+                        <div class="d-none d-lg-inline">
+                          <div class=az-flags></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=mt-3>
+                      <div class="d-block d-lg-none mb-2 sf-hidden"></div>
+                      <div class="az-configured-fields mb-3">
+                        <div class=d-flex>
+                          <span class="az-configured-fields-label text-nowrap">Alternative Name(s)::</span>
+                          <span class="az-configured-fields-value d-flex flex-wrap">ProQuest One Literature</span>
+                        </div>
+                      </div>
+                      <div class="az-description-short az-description-max-height az-description"
+                           style="overflow-wrap"
+                           :break-word></div>
+                      <div class="az-description-view-more d-none sf-hidden"></div>
+                      <div class="d-flex justify-content-start">
+                        <button class="collapsible collapsed az-toggle"
+                                data-bs-toggle="collapse"
+                                href
+                                additional-info-11996815
+                                aria-expanded="false"
+                                aria-controls="additional-info-11996815">
+                          <span class="d-inline-flex rotate-n180 me-2 align-middle az-collapsible">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 aria-hidden="true"
+                                 role="presentation">
+                              <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
+                            </svg>
+                          </span>
+                          Additional Info
+                        </button>
+                      </div>
+                      <div id=group-11996815>
+                        <div class="collapse w-100 az-entry-collapsible-box rounded sf-hidden"
+                             id="additional-info-11996815"
+                             data-bs-parent
+                             group-11996815>
+                          Covers monographs, periodical articles, critical editions of literary works, book reviews, collections of essays and doctoral dissertations on English language and literatures. (Coverage: 1920-present). Now part of ProQuest One Literature. To search ABELL alone, click on "Criticism" and then select ABELL on the left-hand sidebar.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=az-item>
+                    <div class="d-flex justify-content-between">
+                      <div class="flex-fill align-self-center">
+                        <a href=http://www.lib.uchicago.edu/h/abia class=az-title target=_blank>
+                          ABIA - Index of South and Southeast Asian Art and Archaeology<i class="fa fa-fw fa-external-link"
+   aria-hidden="true"
+   title="This link opens in a new window"></i><span class=sr-only>This link opens in a new window</span>
+                        </a>
+                        <div class="d-none d-lg-inline">
+                          <div class=az-flags></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=mt-3>
+                      <div class="d-block d-lg-none mb-2 sf-hidden"></div>
+                      <div class="az-configured-fields mb-3"></div>
+                      <div class="az-description-short az-description-max-height az-description"
+                           style="overflow-wrap"
+                           :break-word></div>
+                      <div class="az-description-view-more d-none sf-hidden"></div>
+                      <div class="d-flex justify-content-start">
+                        <button class="collapsible collapsed az-toggle"
+                                data-bs-toggle="collapse"
+                                href
+                                additional-info-61425557
+                                aria-expanded="false"
+                                aria-controls="additional-info-61425557">
+                          <span class="d-inline-flex rotate-n180 me-2 align-middle az-collapsible">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="24"
+                                 height="24"
+                                 viewBox="0 0 24 24"
+                                 fill="none"
+                                 aria-hidden="true"
+                                 role="presentation">
+                              <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
+                            </svg>
+                          </span>
+                          Additional Info
+                        </button>
+                      </div>
+                      <div id=group-61425557>
+                        <div class="collapse w-100 az-entry-collapsible-box rounded sf-hidden"
+                             id="additional-info-61425557"
+                             data-bs-parent
+                             group-61425557>
+                          This bibliography is dedicated to South and Southeast Asian prehistory, archaeology of the historical period, art, crafts and architecture (from early down to contemporary), inscriptions and palaeography, coins and seals of these regions.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="lazy-load-link text-center">
+                <a class="btn btn-primary" href=javascript:void(0)>Load More Databases</a>
+              </div>
+            </div>
+            <div id=s-lg-az-pager class="pad-right-sm pad-top-med"></div>
+          </div>
+          <div id=col2 class="col-lg-4 center">
+            <div class=sidebar-boxes>
+              {% include "mockups/libchat.html" %}
+              <div class="accordion public-collapsible-box mb-5" id=s-lg-az-trials>
+                <div class=accordion-item>
+                  <h2 class=accordion-header id=s-lg-az-trials-heading>
+                    <button class="accordion-button"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target
+                            s-lg-az-trials-body
+                            aria-expanded="true"
+                            aria-controls="s-lg-az-trials-body">New / Trial Databases</button>
+                  </h2>
+                  <div id="s-lg-az-trials-body"
+                       class="accordion-collapse collapse show"
+                       data-bs-parent
+                       s-lg-az-trials>
+                    <div class=accordion-body>
+                      <p>The following databases are newly acquired or being evaluated for a future subscription.</p>
+                      <div class=mb-4>
+                        <div class="d-flex justify-content-start">
+                          <div class=flex-fill>
+                            <a href=https://www.lib.uchicago.edu/h/heinamnom target=_blank data-landing-page>American Nominative Reports<i class="fa fa-fw fa-external-link"
+   aria-hidden="true"
+   title="This link opens in a new window"></i><span class=sr-only>This link opens in a new window</span></a>
+                            <div class="az-flags ms-0 me-2">
+                              <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">New</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class=justify-content-start>
+                          <div class="az-description az-description-max-height mt-2"
+                               style="overflow-wrap"
+                               :break-word></div>
+                        </div>
+                      </div>
+                      <div class=mb-4>
+                        <div class="d-flex justify-content-start">
+                          <div class=flex-fill>
+                            <a href=https://www.lib.uchicago.edu/h/but target=_blank data-landing-page>Britain Under Threat: Civil Defence in the Era of Total War, 1914-1989<i class="fa fa-fw fa-external-link"
+   aria-hidden="true"
+   title="This link opens in a new window"></i><span class=sr-only>This link opens in a new window</span></a>
+                            <div class="az-flags ms-0 me-2">
+                              <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">New</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class=justify-content-start>
+                          <div class="az-description az-description-max-height mt-2"
+                               style="overflow-wrap"
+                               :break-word></div>
+                        </div>
+                      </div>
+                      <div class=mb-4>
+                        <div class="d-flex justify-content-start">
+                          <div class=flex-fill>
+                            <a href=https://www.lib.uchicago.edu/h/heinclp target=_blank data-landing-page>Case Law Premium (powered by CourtListener)<i class="fa fa-fw fa-external-link"
+   aria-hidden="true"
+   title="This link opens in a new window"></i><span class=sr-only>This link opens in a new window</span></a>
+                            <div class="az-flags ms-0 me-2">
+                              <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">New</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class=justify-content-start>
+                          <div class="az-description az-description-max-height mt-2"
+                               style="overflow-wrap"
+                               :break-word></div>
+                        </div>
+                      </div>
+                      <div class=mb-4>
+                        <div class="d-flex justify-content-start">
+                          <div class=flex-fill>
+                            <a href=https://www.lib.uchicago.edu/h/cppdww2 target=_blank data-landing-page>Censorship: Policy and Practice During the Second World War<i class="fa fa-fw fa-external-link"
+   aria-hidden="true"
+   title="This link opens in a new window"></i><span class=sr-only>This link opens in a new window</span></a>
+                            <div class="az-flags ms-0 me-2">
+                              <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">New</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class=justify-content-start>
+                          <div class="az-description az-description-max-height mt-2"
+                               style="overflow-wrap"
+                               :break-word></div>
+                        </div>
+                      </div>
+                      <div class=mb-4>
+                        <div class="d-flex justify-content-start">
+                          <div class=flex-fill>
+                            <a href=http://www.lib.uchicago.edu/h/capa target=_blank data-landing-page>Central Asia, Persia and Afghanistan, 1834‐1949 <i class="fa fa-fw fa-external-link"
+    aria-hidden="true"
+    title="This link opens in a new window"></i><span class=sr-only>This link opens in a new window</span></a>
+                            <div class="az-flags ms-0 me-2">
+                              <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">New</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class=justify-content-start>
+                          <div class="az-description az-description-max-height mt-2"
+                               style="overflow-wrap"
+                               :break-word></div>
+                        </div>
+                      </div>
+                      <div class="collapse sf-hidden" id=s-lg-az-trials-view-all></div>
+                      <a class="az-new-trial-popular-view-toggle"
+                         data-bs-toggle="collapse"
+                         href
+                         s-lg-az-trials-view-all
+                         role="button"
+                         aria-expanded="false"
+                         aria-controls="s-lg-az-trials-view-all">
+                        <span class=if-collapsed>View All</span>
+                        <span class="if-not-collapsed sf-hidden">View Less</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion public-collapsible-box mb-5"
+                   id="s-lg-az-subject-resources"
+                   style="display"
+                   :none></div>
+              <div class="accordion public-collapsible-box mb-5" id=s-lg-az-icon-legend>
+                <div class=accordion-item>
+                  <h2 class=accordion-header id=s-lg-az-icon-legend-heading>
+                    <button class="accordion-button"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target
+                            s-lg-az-icon-legend-body
+                            aria-expanded="true"
+                            aria-controls="s-lg-az-icon-legend-body">Icon Legend</button>
+                  </h2>
+                  <div id="s-lg-az-icon-legend-body"
+                       class="accordion-collapse collapse show"
+                       data-bs-parent
+                       s-lg-az-icon-legend>
+                    <div class=accordion-body>
+                      <div class="d-flex justify-content-start az-icon-legend-row align-items-center">
+                        <div class="az-icon-legend-key me-4">
+                          <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15"><rect fill-opacity="0"/></svg>'
+                               alt="Icon Law School users only"
+                               style="background-blend-mode:normal!important;
+                                      background-clip:content-box!important;
+                                      background-position:50% 50%!important;
+                                      background-color:rgba(0,0,0,0)!important;
+                                      background-image:var(--sf-img-69)!important;
+                                      background-size:100% 100%!important;
+                                      background-origin:content-box!important;
+                                      background-repeat:no-repeat!important">
+                          </div>
+                          <div class="d-flex align-items-center flex-fill az-icon-legend-value">Law School users only</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion public-collapsible-box mb-5"
+                     id="s-lg-az-helpful-links">
+                  <div class=accordion-item>
+                    <h2 class=accordion-header id=s-lg-az-helpful-links-heading>
+                      <button class="accordion-button"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target
+                              s-lg-az-helpful-links-body
+                              aria-expanded="true"
+                              aria-controls="s-lg-az-helpful-links-body">Helpful Links</button>
+                    </h2>
+                    <div id="s-lg-az-helpful-links-body"
+                         class="accordion-collapse collapse show"
+                         data-bs-parent
+                         s-lg-az-helpful-links>
+                      <div class=accordion-body>
+                        <div class="d-flex justify-content-start az-helpful-links-row">
+                          <div class=flex-fill>
+                            <a href="https://answers.lib.uchicago.edu/form?queue_id=3123"
+                               target="_blank">
+                              Report a Problem
+                              <i class="fa fa-fw fa-external-link"
+                                 aria-hidden="true"
+                                 title="This link opens in a new window"></i><span class=sr-only>This link opens in a new window</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div id="s-lib-footer-public"
+           class="container s-lib-footer footer s-lib-side-borders">
+        <div>
+          <div id=s-lib-footer-brand>Powered by Springshare.</div>
+          <div id=s-lib-footer-rights>All rights reserved.</div>
+          <div id=s-lib-footer-login-link>
+            <a href="https://uchicago.libapps.com/libapps/login.php?site_id=1951">Login to LibApps</a>
+          </div>
+        </div>
+        <div>
+          <div id=s-lib-footer-support-link>
+            <a href=https://www.lib.uchicago.edu/research/help/ask-librarian/report-problem />Report a problem.</a>
+          </div>
+        </div>
+      </div>
+      <div id=s-lib-alert class="modal fade sf-hidden" tabindex=-1 role=dialog>
+        <div class="modal-dialog modal-lg sf-hidden" role=document>
+          <div class="modal-content sf-hidden">
+            <div class="modal-body sf-hidden">
+              <div id=s-lib-alert-loading class=sf-hidden>
+                <style>@-webkit-keyframes load{0%{-webkit-transform:scale(0,0);transform:scale(0,0)}100%{-webkit-transform:scale(1,1);transform:scale(1,1)}}@keyframes load{0%{-webkit-transform:scale(0,0);transform:scale(0,0)}100%{-webkit-transform:scale(1,1);transform:scale(1,1)}}</style>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id=s-lib-popover-title class="hide sf-hidden"></div>
+      <div id=s-lib-popover-content class="hide sf-hidden">Loading...</div>
+      <footer id=footer role=contentinfo class=footer>
+        <div class=container-md>
+          <div class=row>
+            <div class="col-12 col-md-6 col-lg-2 col-footer mb-4">
+              <h2 class=footer-heading id=contact_label>Contact</h2>
+              <ul aria-labelledby=contact_label>
+                <li><a href=#>Contact Us</a></li>
+                <li><a href=#>Library Departments</a></li>
+                <li><a href=#>Staff Directory</a></li>
+                <li><a href=#>Feedback</a></li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-2 col-footer mb-4">
+              <h2 class=footer-heading id=information_for_label>Information for</h2>
+              <ul aria-labelledby=information_for_label>
+                <li><a href=#>Patrons with Disabilities</a></li>
+              </ul>
+              <h2 class=footer-heading id=policies_label>Policies</h2>
+              <ul aria-labelledby=policies_label>
+                <li><a href=#>Library Policies</a></li>
+                <li><a href=#>Privacy Statement</a></li>
+                <li><a href=#>University Accessibility</a></li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4 col-footer order-lg-3 order-2 mb-4">
+              <div class=centerdiv>
+                <a href=#>
+                  <img alt="The University of Chicago"
+                       src="https://www.lib.uchicago.edu/web-resources/img/white-logo.png"
+                       width="150">
+                </a>
+                <p>
+                  <span>The University of Chicago Library</span>
+                  <br>
+                  <span>1100 E. 57th St., Chicago, IL 60637</span>
+                </p>
+                <small>
+                  © <span>The University of Chicago</span>
+                  <br>
+                  <span class=staff-login><a href=#>Staff Login</a></span>
+                </small>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-2 col-footer order-lg-4 order-1 mb-4">
+              <h2 class=footer-heading id=library_list_label>Libraries</h2>
+              <ul aria-labelledby=library_list_label>
+                <li><a href=#>Crerar</a></li>
+                <li><a href=#>D'Angelo Law</a></li>
+                <li><a href=#>Eckhart</a></li>
+                <li><a href=#>Mansueto</a></li>
+                <li><a href=#>Regenstein</a></li>
+                <li><a href=#>Special Collections</a></li>
+                <li><a href=#>Social Work</a></li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-6 col-lg-2 col-footer order-lg-5 order-1 mb-4">
+              <h2 class=footer-heading id=social_media_label>Library Social Media</h2>
+              <ul aria-labelledby=social_media_label>
+                <li><a href=#><i class="fa-brands fa-facebook" aria-hidden=true></i> Facebook</a></li>
+                <li><a href=#><i class="fa-brands fa-twitter" aria-hidden=true></i> Twitter</a></li>
+                <li><a href=#><i class="fa-brands fa-instagram" aria-hidden=true></i> Instagram</a></li>
+                <li><a href=#><i class="fa-solid fa-rss" aria-hidden=true></i> Library News</a></li>
+                <li><a href=#><i class="fa-brands fa-youtube" aria-hidden=true></i> YouTube</a></li>
+                <li><a href=#><i class="fa-solid fa-clone" aria-hidden=true></i> More Library Accounts...</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div id=s-lib-scroll-top class=sf-hidden></div>
+    </body>
+  </html>
