@@ -16,7 +16,7 @@
                     padding: 0;
 
                     & > div {
-                        border-right-color: var(--bs-border-color);
+                        border-right-color: var(--bs-light);
                     }
 
                     i.fa.fa-angle-down.me-2.fs-4 {
@@ -49,14 +49,21 @@
     border-bottom-color: var(--bs-border-color);
 }
 
-.az-item a.az-toggle,
+.az-item .az-toggle {
+    .az-collapsible > img {
+        width: 1rem;
+    }
+}
 .az-item button.az-toggle,
 .az-item h4.az-toggle {
     margin: 0.5rem 1rem 0.5rem 0;
 
-    .az-collapsible > img {
-        width: 1rem;
-    }
+    .az-collapsible{
+        &> img, &> svg {
+            width: 1.1rem;
+            height: 1.1rem;
+        }
+    } 
 }
 
 .az-entry-collapsible-box {

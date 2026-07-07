@@ -1,6 +1,48 @@
 ---
 title: "Database Finder — fixed"
 ---
+{% comment %}
+The LibApps system Look and Feel allows to customize some BS5 variables like text font settings, links, buttons color hover square or rounded, tab, boxes, and even favicons.
+
+https://ask.springshare.com/libguides/faq/3332#template
+
+How to customize paddings?
+And boxes?
+Can we just add our own compiled BS5 to override?
+
+## template that we can edit on Springshare:
+<body class="s-lib-public-body">
+    {{skip_to_main}}
+    
+    {{header_section}}
+    
+    
+    <div id="s-lib-public-header" class="s-lib-header container s-lib-side-borders">
+        {{breadcrumbs_section}}
+        
+        {{page_title_section}}
+        
+        {{page_description_section}}
+
+        {{page_alert_section}}
+        
+    </div>
+
+    <div id="s-lib-public-main" class="s-lib-main container s-lib-side-borders" tabindex="-1">
+        <div id="s-lib-public-main-searchbar">
+            {{search_bar_section}}
+
+        </div>
+        <section>
+            {{page_content_section}}
+            
+        </section>
+    </div>
+    {{footer_section}}
+    
+</body>
+{% endcomment %}
+
 
 <!DOCTYPE html>
 <html lang="en">
