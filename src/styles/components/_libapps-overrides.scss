@@ -30,6 +30,9 @@
     button{
     font-family: var(--bs-body-font-family) !important;
 }
+.container {
+    max-width: 1320px;
+}
 
 // Filter navigation region
 #s-lib-public-main-searchbar{
