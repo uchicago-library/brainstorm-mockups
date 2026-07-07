@@ -1,6 +1,9 @@
 // This is the main entry point to compile a LibApps override CSS file.
 // Pages consuming this output are expected to already load Bootstrap 5 from LibApps.
 
+@import url("https://uchicago-brand-fonts.s3.us-east-2.amazonaws.com/UChicagoSansSerif.css");
+@import url("https://www.lib.uchicago.edu/web-resources/css/uchicagoSansSerif.css");
+
 // Include only Sass foundations needed for tokens and component partial compilation.
 
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)

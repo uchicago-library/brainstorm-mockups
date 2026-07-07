@@ -5,8 +5,11 @@
 //   --ucl-token-name: #{$sass-token-name};
 // }
 
-:root {
+:root, body {
     --ucl-info-bg-extra-subtle: #{$info-bg-extra-subtle};
+    --bs-font-sans-serif: #{$font-family-sans-serif};
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    font-family: var(--bs-body-font-family);
 }
 
 :focus-visible {

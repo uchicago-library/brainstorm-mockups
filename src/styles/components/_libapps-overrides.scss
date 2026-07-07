@@ -1,11 +1,52 @@
 // LibApps platform-specific overrides shared across mockups.
 
+// Force UChicago Sans Serif across LibApps text-bearing elements.
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a,
+    span,
+    li,
+    dt,
+    dd,
+    small,
+    strong,
+    em,
+    blockquote,
+    cite,
+    figcaption,
+    label,
+    legend,
+    caption,
+    th,
+    td,
+    input,
+    textarea,
+    select,
+    button{
+    font-family: var(--bs-body-font-family) !important;
+}
+
 // Filter navigation region
+#s-lib-public-main-searchbar{
+    button.btn.btn-primary {
+        padding: 0.375rem 0.75rem !important;
+    }
+
+    a.recommended-list {
+        font-size: 0.9rem !important;
+        font-weight: 400 !important;
+    }
+}
 #az-search-col-1 {
     nav.navbar {
         background-color: $ucl-greystone-lighter;
     }
-
+    
     #s-lg-az-filters {
         padding: 1rem;
         background-color: $ucl-greystone-lighter;
@@ -25,14 +66,6 @@
                 }
             }
 
-            button.btn.btn-primary {
-                padding: 0.375rem 0.75rem !important;
-            }
-
-            a.recommended-list {
-                font-size: 0.9rem !important;
-                font-weight: 400 !important;
-            }
         }
     }
 }
@@ -103,10 +136,14 @@
     border-color: var(--bs-border-color);
 }
 
-#s-lib-footer-public {
+#s-lib-footer-public.footer {
     max-width: unset;
     padding: 1rem;
-    color: $ucl-greystone-dark;
+    color: $ucl-greystone-light;
+
+    a{
+        text-decoration: underline;
+    }
 }
 
 h2.footer-heading {
