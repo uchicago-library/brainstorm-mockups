@@ -17,6 +17,8 @@
 .breadcrumb-section-toggle {
     line-height: 1;
     color: var(--bs-breadcrumb-divider-color);
+    font-size: inherit;
+    font-weight: inherit;
 
     &:hover,
     &:focus {

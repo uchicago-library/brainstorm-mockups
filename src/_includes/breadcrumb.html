@@ -16,8 +16,8 @@
       {%- if page.url == breadcrumbUrl %}
     <li class="breadcrumb-item active" aria-current="page">
       <span class="breadcrumb-section-dropdown dropdown">
-        {{ breadcrumbParent }}
         <button class="btn btn-link breadcrumb-section-toggle dropdown-toggle dropdown-toggle-split p-0 ms-1 border-0" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch section">
+          {{ breadcrumbParent }}
           <span class="visually-hidden">Switch section</span>
         </button>
         <ul class="dropdown-menu">
