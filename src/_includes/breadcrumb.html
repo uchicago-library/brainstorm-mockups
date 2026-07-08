@@ -2,23 +2,20 @@
 <nav aria-label="breadcrumb" class="container-md">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
-    {%- if breadcrumbItems %}
-      {%- for item in breadcrumbItems %}
-    <li class="breadcrumb-item"><a href="{{ item.url | url }}">{{ item.label }}</a></li>
-      {%- endfor %}
-    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
-    {%- elif breadcrumbParent %}
-      {%- set sections = [
-        { label: "Design System", url: "/design_system/" },
-        { label: "Mockups", url: "/design_mockups/" },
-        { label: "Project Methodology", url: "/methodology/" }
-      ] %}
-      {%- if page.url == breadcrumbUrl %}
+    {%- set sections = [
+      { label: "Design System", url: "/design_system/" },
+      { label: "Mockups", url: "/design_mockups/" },
+      { label: "Project Methodology", url: "/methodology/" }
+    ] %}
+    {%- set showCurrentPage = true %}
+
+    {%- if breadcrumbParent %}
+      {%- if page.url == breadcrumbUrl and not breadcrumbItems %}
     <li class="breadcrumb-item active" aria-current="page">
       <span class="breadcrumb-section-dropdown dropdown">
-        <button class="btn btn-link breadcrumb-section-toggle dropdown-toggle dropdown-toggle-split p-0  border-0" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch section">
+        <button class="btn btn-link breadcrumb-section-toggle dropdown-toggle dropdown-toggle-split p-0 border-0" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch section">
           <span class="visually-hidden">Switch section</span>
-          <span class="">{{ breadcrumbParent }}</span>
+          <span>{{ breadcrumbParent }}</span>
         </button>
         <ul class="dropdown-menu">
           {%- for section in sections %}
@@ -29,6 +26,7 @@
         </ul>
       </span>
     </li>
+        {%- set showCurrentPage = false %}
       {%- else %}
     <li class="breadcrumb-item">
       <span class="breadcrumb-section-dropdown dropdown">
@@ -45,9 +43,16 @@
         </ul>
       </span>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
       {%- endif %}
-    {%- else %}
+    {%- endif %}
+
+    {%- if breadcrumbItems %}
+      {%- for item in breadcrumbItems %}
+    <li class="breadcrumb-item"><a href="{{ item.url | url }}">{{ item.label }}</a></li>
+      {%- endfor %}
+    {%- endif %}
+
+    {%- if showCurrentPage %}
     <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
     {%- endif %}
   </ol>
