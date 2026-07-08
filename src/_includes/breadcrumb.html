@@ -16,9 +16,9 @@
       {%- if page.url == breadcrumbUrl %}
     <li class="breadcrumb-item active" aria-current="page">
       <span class="breadcrumb-section-dropdown dropdown">
-        <button class="btn btn-link breadcrumb-section-toggle dropdown-toggle dropdown-toggle-split p-0 ms-1 border-0" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch section">
-          {{ breadcrumbParent }}
+        <button class="btn btn-link breadcrumb-section-toggle dropdown-toggle dropdown-toggle-split p-0  border-0" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch section">
           <span class="visually-hidden">Switch section</span>
+          <span class="">{{ breadcrumbParent }}</span>
         </button>
         <ul class="dropdown-menu">
           {%- for section in sections %}
@@ -33,7 +33,7 @@
     <li class="breadcrumb-item">
       <span class="breadcrumb-section-dropdown dropdown">
         <a href="{{ breadcrumbUrl | url }}">{{ breadcrumbParent }}</a>
-        <button class="btn btn-link breadcrumb-section-toggle dropdown-toggle dropdown-toggle-split p-0 ms-1 border-0" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch section">
+        <button class="btn btn-link breadcrumb-section-toggle dropdown-toggle dropdown-toggle-split p-0 border-0" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch section">
           <span class="visually-hidden">Switch section</span>
         </button>
         <ul class="dropdown-menu">
