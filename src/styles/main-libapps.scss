@@ -19,7 +19,7 @@
 // 4. Include remainder of Sass foundations used by custom partials.
 @import "../../node_modules/bootstrap/scss/maps";
 @import "../../node_modules/bootstrap/scss/mixins";
-// @import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/root";
 
 // 5. Bootstrap component CSS is provided by LibApps runtime; keep optional imports commented.
 // @import "../../node_modules/bootstrap/scss/utilities";
@@ -75,3 +75,41 @@
 @import "components/libapps-overrides";
 // @import "components/accordion";
 // @import "components/panel";
+
+
+// START Sample of order of rules for the primary color.
+@if false{
+	/* _libapps-overrides.scss */
+	// nothing yet
+
+	/* lookfeel.css */
+	.btn-primary {
+		background-color: #800000;
+	}
+	/* lg-public-bs5.min.css */
+	.btn-primary {
+		background-color: #2074a2;
+	}
+	/* lg-public-bs5.min.css */
+	.btn-primary {
+		--bs-btn-bg: #0d6efd;
+	}
+	/* lg-public-bs5.min.css */
+	.btn-primary {
+		background-color: #2074a2;
+	}
+	/* lg-public-bs5.min.css */
+	.btn-primary {
+		--bs-btn-bg: #0d6efd;
+	}
+
+	/* lg-public-bs5.min.css */
+	:root{ 
+		--bs-primary: #0d6efd;
+	}
+	/* lg-public-bs5.min.css */
+	:root{ 
+		--bs-primary: #0d6efd;
+	}
+}
+// END Sample of order of rules for the primary color.

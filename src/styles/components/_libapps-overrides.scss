@@ -1,5 +1,35 @@
 // LibApps platform-specific overrides shared across mockups.
 
+// Override Bootstrap runtime CSS variables from LibApps with UChicago brand tokens.
+:root {
+    --bs-primary: #{$primary};
+    --bs-primary-rgb: #{to-rgb($primary)};
+}
+
+$theme-color-overrides: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark
+);
+
+@each $name, $color in $theme-color-overrides {
+    .btn-#{$name} {
+        --bs-btn-bg: #{$color};
+        --bs-btn-border-color: #{$color};
+        --bs-btn-hover-bg: #{shade-color($color, 15%)};
+        --bs-btn-hover-border-color: #{shade-color($color, 20%)};
+        --bs-btn-active-bg: #{shade-color($color, 20%)};
+        --bs-btn-active-border-color: #{shade-color($color, 25%)};
+        --bs-btn-disabled-bg: #{$color};
+        --bs-btn-disabled-border-color: #{$color};
+    }
+}
+
 // Force UChicago Sans Serif across LibApps text-bearing elements.
     h1,
     h2,
