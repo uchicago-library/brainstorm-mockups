@@ -67,6 +67,40 @@ $theme-color-overrides: (
 #s-lib-public-header{
     margin-top: 0.4rem;
 }
+// Embedded LibChat blocks
+.lci_chat_load {
+    border-radius: 4px;
+    padding: 4px;
+    background-color: #fff !important;
+}
+
+#s-lib-footer-public.footer {
+    max-width: unset;
+    padding: 1rem;
+    color: $ucl-greystone-light;
+
+    a{
+        text-decoration: underline;
+    }
+}
+
+h2.footer-heading {
+    color: $ucl-greystone-light;
+}
+
+// Shared utility regions
+#s-lib-scroll-top {
+    .span.fa-stack.fa-lg {
+        font-size: 1.1rem;
+    }
+
+    .fa.fa-angle-double-up.fa-stack-1x {
+        color: #fff;
+        bottom: unset !important;
+    }
+}
+
+// ## Database finder Specific
 
 // Filter navigation region
 #s-lib-public-main-searchbar{
@@ -149,40 +183,10 @@ $theme-color-overrides: (
     }
 }
 
-// Embedded LibChat blocks
-.lci_chat_load {
-    border-radius: 4px;
-    padding: 4px;
-    background-color: #fff !important;
-}
-
-// Shared utility regions
-#s-lib-scroll-top {
-    .span.fa-stack.fa-lg {
-        font-size: 1.1rem;
-    }
-
-    .fa.fa-angle-double-up.fa-stack-1x {
-        color: #fff;
-        bottom: unset !important;
-    }
-}
-
 .sidebar-boxes .accordion .accordion-item {
     border-style: solid;
     border-color: var(--bs-border-color);
 }
 
-#s-lib-footer-public.footer {
-    max-width: unset;
-    padding: 1rem;
-    color: $ucl-greystone-light;
 
-    a{
-        text-decoration: underline;
-    }
-}
-
-h2.footer-heading {
-    color: $ucl-greystone-light;
-}
+//  Guides Specific
