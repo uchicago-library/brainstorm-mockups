@@ -1,27 +1,287 @@
+{# Best effort to replicate the LibApps document start for all their apps. #}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} | UCL DS Exploration</title>
+    <meta name="robots" content="noindex,nofollow,noarchive">
     <link rel="icon" type="image/x-icon" href="https://www.lib.uchicago.edu/web-resources/img/favicon-m.ico">
-    
-    <!--  %%% LIBGUIDES STUFF  -->
-    <link rel="stylesheet" href="https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691" />
+    <title>{{ title }} | UCL DS Exploration</title>
+
+    <!--  %%% LIBAPPS STUFF  -->
+    <link rel="stylesheet" href="https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css" />
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://static-assets-us.libguides.com/web/css3.27.3/lg-public-bs5.min.css" />
-    <script type="text/javascript" src="https://static-assets-us.libguides.com/web/jquery/js/jquery-3.7.0.min.js"></script>
-    <!-- js_include_fallback_lg.twig -->
-    <script src="//code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-    <script>jQuery.ui || document.write('<script src="https://static-assets-us.libguides.com/web/jquery/js/jquery-ui.min.js?2691">\x3C/script>');</script>
-    <!-- !js_include_fallback_lg.twig -->
+
+    <!-- %%%% Guide specific -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css"> -->
+    
+    <link rel="stylesheet" href="https://static-assets-us.libguides.com/web/css3.28.0/lg-public-bs5.min.css">
+    <!-- <link rel="stylesheet" href="https://static-assets-us.libguides.com/web/css3.28.0/lg-public-bs535.min.css"> --> {# guide version #}
+    
+    <script type="text/javascript" src="https://static-assets-us.libguides.com/web/jquery/js/jquery-3.7.1.min.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            var s_lg_guide_name = jQuery('#s-lg-guide-name');
+            if (s_lg_guide_name.length) {
+                if (jQuery.trim(s_lg_guide_name.text()) === '') {
+                    s_lg_guide_name.remove();
+                }
+            }
+        });
+    </script>
+
     <script type="text/javascript" src="https://static-assets-us.libguides.com/web/js3.27.3/lg-public-bs5.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" />
-    <script src="https://static-assets-us.libguides.com/web/select2/current/js/select2.min.js"></script>
-    <script src="https://static-assets-us.libguides.com/web/js3.27.3/springshare.select2.min.js"></script>
-    <link rel="stylesheet" href="https://static-assets-us.libguides.com/web/select2/current/css/select2.min.css" />
-    <script src="https://static-assets-us.libguides.com/web/js/sa.min.js?3116"></script> {# Probably not needed #}
+    <!-- <script type="text/javascript" src="https://static-assets-us.libguides.com/web/js3.27.3/lg-public-bs35.min.js"></script> --> {# guide version #}
+
+    <!-- %%% Database Finder Specific -->
+    <!-- <script src="https://static-assets-us.libguides.com/web/select2/current/js/select2.min.js"></script> -->
+    <!-- <script src="https://static-assets-us.libguides.com/web/js3.27.3/springshare.select2.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://static-assets-us.libguides.com/web/select2/current/css/select2.min.css" /> -->
+
+    <!-- %%%% Guide Specific -->
+    <style>
+        /** bs5/bootstrap_tab_box_css.twig **/
+
+
+        #s-lg-tabs-container .nav-tabs>li>a,
+        #s-lg-tabs-container .nav-tabs>li>button,
+        #s-lg-tabs-container .nav-pills>li>a,
+        #s-lg-tabs-container .nav-pills>li>button {
+            border: 1px solid transparent;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            background-color: #f2f2f2;
+            color: #737373;
+            font-weight: bold;
+            padding: 4px 15px;
+        }
+
+        #s-lg-tabs-container .nav-tabs {
+            border-bottom: 0;
+        }
+
+        #s-lg-tabs-container .nav-tabs>li#s-lg-admin-tab-add>a {
+            -webkit-border-radius: 4px 4px 0 0;
+            -moz-border-radius: 4px 4px 0 0;
+            border-radius: 4px 4px 0 0;
+        }
+
+        #s-lg-tabs-container .nav-tabs>li>a:hover,
+        #s-lg-tabs-container .nav-tabs>li>button:hover,
+        #s-lg-tabs-container .nav-pills>li>a:hover,
+        #s-lg-tabs-container .nav-pills>li>button:hover {
+            border: 1px solid transparent;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            background-color: #ffffff;
+            color: #800000;
+        }
+
+        #s-lg-tabs-container .nav-tabs>.active>a,
+        #s-lg-tabs-container .nav-tabs>.active>button,
+        #s-lg-tabs-container .nav-pills>.active>a,
+        #s-lg-tabs-container .nav-pills>.active>button {
+            color: #800000;
+            cursor: default;
+            background-color: #ffffff;
+            border: 1px solid transparent;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            border-bottom-color: transparent;
+            font-weight: bold;
+        }
+
+        #s-lg-tabs-container .nav-tabs>.active>.s-lg-subtab-ul>.active>a,
+        #s-lg-tabs-container .nav-tabs>.active>.s-lg-subtab-ul>.active>button {
+            color: #800000;
+            cursor: default;
+            background-color: #ffffff;
+            border-bottom-color: transparent;
+        }
+
+        #s-lg-tabs-container .dropdown-item.active {
+            background-color: #ffffff;
+        }
+
+        #s-lg-tabs-container .nav-tabs>.active>a:hover,
+        #s-lg-tabs-container .nav-pills>.active>a:hover,
+        #s-lg-tabs-container .nav-tabs>.active>button:hover,
+        #s-lg-tabs-container .nav-pills>.active>button:hover {
+            color: #800000;
+            cursor: pointer;
+            background-color: #ffffff;
+            border: 1px solid transparent;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            border-bottom-color: transparent;
+            font-weight: bold;
+        }
+
+        #s-lg-tabs-container .nav .dropdown-toggle .caret {
+            border-top-color: #e1e1e1;
+        }
+
+        #s-lg-tabs-container .nav-tabs button.dropdown-toggle .caret {
+            margin-left: 2px;
+            margin-top: -3px;
+        }
+
+        #s-lg-tabs-container .nav-tabs>li>a.s-lg-tab-drop {
+            border-radius: 0;
+            padding: 4px 6px 4px 3px;
+            border-left: 1px solid transparent;
+        }
+
+        #s-lg-tabs-container .nav-tabs>li>button.s-lg-tab-drop {
+            border-radius: 0;
+            padding: 4px 6px 0px 3px;
+            border-left: 1px solid transparent;
+            margin-right: 2px;
+        }
+
+        #s-lg-tabs-container .nav-tabs>li>a.s-lg-tab-drop:hover {
+            border-radius: 0;
+            border-left: 1px solid #bbb;
+            padding: 4px 6px 4px 3px;
+        }
+
+        #s-lg-tabs-container .nav-tabs>li>button.s-lg-tab-drop:hover {
+            border-radius: 0;
+            border-left: 1px solid #bbb;
+            padding: 4px 6px 0px 3px;
+        }
+
+        #s-lg-tabs-container .nav-tabs>li>a.s-lg-tab-top-link,
+        #s-lg-tabs-container .nav-tabs>li>a.s-lg-tab-top-link:hover,
+        #s-lg-tabs-container .nav-tabs>li>button.s-lg-tab-top-link,
+        #s-lg-tabs-container .nav-tabs>li>button.s-lg-tab-top-link:hover {
+            border-radius: 0;
+            font-weight: bold;
+            padding: 4px 5px 4px 10px;
+        }
+
+        .nav-tabs>li>a.s-lg-tab-top-link,
+        .nav-tabs>li>button.s-lg-tab-top-link {
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+
+        #s-lg-tabs-container .nav-pills>li>a.s-lg-tab-drop,
+        #s-lg-tabs-container .nav-pills>li>button.s-lg-tab-drop {
+            border-radius: 0;
+            padding: 4px 8px 4px 8px;
+            border-left: 1px solid transparent;
+            right: 0;
+        }
+
+        #s-lg-tabs-container .nav-pills>li>a.s-lg-tab-drop:hover,
+        #s-lg-tabs-container .nav-pills>li>button.s-lg-tab-drop:hover {
+            border-radius: 0;
+            border-left: 1px solid #bbb;
+            padding: 4px 8px 4px 8px;
+        }
+
+        #s-lg-tabs-container .nav-pills>li>a.s-lg-tab-top-link,
+        #s-lg-tabs-container .nav-pills>li>a.s-lg-tab-top-link:hover,
+        #s-lg-tabs-container .nav-pills>li>button.s-lg-tab-top-link,
+        #s-lg-tabs-container .nav-pills>li>button.s-lg-tab-top-link:hover {
+            width: 100%;
+            float: left;
+            border-radius: 0;
+            font-weight: bold;
+            padding: 4px 15px 4px 15px;
+        }
+
+        .s-lib-box {
+            border-color: #cccccc;
+            border-width: 1px;
+            box-shadow: 0 8px 6px -6px #AAAAAA;
+            border-radius: 0;
+            background-color: #ffffff;
+        }
+
+        .s-lib-box-std .s-lib-box-title {
+            background-color: #f2f2f2;
+            background-image: none;
+            color: #800000;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .s-lib-box .s-lib-box-title {
+            background-color: #f2f2f2;
+            background-image: none;
+            color: #800000;
+            border-bottom: 1px solid #cccccc;
+            border-radius: 0;
+        }
+
+        .s-lib-box .s-lib-box-title button {
+            background-color: #f2f2f2;
+            color: #800000;
+        }
+
+        .s-lib-box .s-lg-box-footer {
+            border-radius: 0;
+        }
+
+        /** !bs5/bootstrap_tab_box_css.twig **/
+    </style>
+
+    <!-- %%% Custom stuff -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> --> {# Let's avoid duplication #}
+    <link rel="stylesheet" href="https://uchicago-brand-fonts.s3.us-east-2.amazonaws.com/UChicagoSansSerif.css">
+    <link href="{{ '/styles/main-libapps.css' | url }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://guides.lib.uchicago.edu/lookfeel.css">
+
+    {# Sprinshare analytics. Not needed. #}
+    <!-- <script src="https://static-assets-us.libguides.com/web/js/sa.min.js?3116"></script> --> 
+
+    <script>
+        // Enable tooltips.
+        jQuery(function () {
+            try {
+                springSpace.UI.initPopOvers(true);
+                jQuery(".az-bs-tooltip").tooltip();
+            } catch (e) { }
+        });
+        jQuery(document).ready(function () {
+            springSpace.springTrack.trackPage({ _st_type_id: '1', _st_guide_id: '1241077', _st_page_id: '9082320' });
+        });
+        jQuery(document).ready(function () {
+            handleScroll();
+        });
+    </script>
+
+
+    <!-- %%%% Database Finder specific -->
+    <style>
+        /* LibChat Widget CSS */
+        #libchat_ca4897bb588579f664ecc4543a0d8e56 .lci_chat_load {
+            width: 100%;
+            height: 350px;
+            background-color: #F9F9F9;
+            border: 1px solid #800000;
+            box-sizing: content-box;
+        }
+
+        #libchat_ca4897bb588579f664ecc4543a0d8e56 iframe {
+            width: 100%;
+            height: 350px;
+            background-color: #F9F9F9;
+            border: 0px;
+            box-sizing: border-box;
+        }
+    </style>
+
+
+    <!-- %%% Local solution, Database Finder specific -->
     <script>
         jQuery('.az-toggle').click(function () {
             var item = jQuery(this);
@@ -33,9 +293,4 @@
         });
     </script>
 
-    <!-- %%% Custom stuff -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="https://uchicago-brand-fonts.s3.us-east-2.amazonaws.com/UChicagoSansSerif.css">
-    <link href="{{ '/styles/main-libapps.css' | url }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://guides.lib.uchicago.edu/lookfeel.css">
 </head>
