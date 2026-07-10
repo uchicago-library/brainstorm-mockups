@@ -19,14 +19,14 @@ $theme-color-overrides: (
 
 @each $name, $color in $theme-color-overrides {
     .btn-#{$name} {
-        --bs-btn-bg: #{$color};
-        --bs-btn-border-color: #{$color};
+        --bs-btn-bg: var(--bs-#{$name});
+        --bs-btn-border-color: var(--bs-#{$name});
         --bs-btn-hover-bg: #{shade-color($color, 15%)};
         --bs-btn-hover-border-color: #{shade-color($color, 20%)};
         --bs-btn-active-bg: #{shade-color($color, 20%)};
         --bs-btn-active-border-color: #{shade-color($color, 25%)};
-        --bs-btn-disabled-bg: #{$color};
-        --bs-btn-disabled-border-color: #{$color};
+        --bs-btn-disabled-bg: var(--bs-#{$name});
+        --bs-btn-disabled-border-color: var(--bs-#{$name});
     }
 }
 
