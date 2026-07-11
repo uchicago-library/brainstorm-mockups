@@ -22,21 +22,25 @@ url: "/pages/libapps/"
 
     <!-- BEGIN: Guide Header -->
     <div id="s-lg-guide-header" class="container s-lib-header s-lib-side-borders">
-        <div class="container">
-            <div id="s-lib-bc" class="d-none d-sm-block" data-ga-category="Navigation" data-ga-subcategory="Breadcrumbs">
-                {% include "libapps/breadcrumbs.html" %}{{breadcrumbs}}
+        <div class="row g-3 align-items-start">
+            <div class="col-12 col-md-8">
+                <div id="s-lib-bc" class="d-none d-sm-block" data-ga-category="Navigation" data-ga-subcategory="Breadcrumbs">
+                    {% include "libapps/breadcrumbs.html" %}{{breadcrumbs}}
+                </div>
+                <div id="s-lg-guide-header-info">
+                    <h1 id="s-lg-guide-name">Evaluating Resources and Misinformation{{guide_title}}</h1>
+                    <div id="s-lg-guide-desc-container" class="mt-3">
+                        <span id="s-lg-guide-description">{{guide_description}}</span>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="col-12 col-sm-4 order-sm-2">
-            <div id="s-lg-guide-header-search" data-ga-category="Navigation" data-ga-subcategory="Guides Search Form">
-                {% include "libapps/search-form.html" %}{{guide_search}}
-            </div>
-            {{ADMIN_MINI_CMD_BAR}}
-        </div>
-            <div class="col-12 col-sm-8 order-sm-1" id="s-lg-guide-header-info">
-                <h1 id="s-lg-guide-name">Evaluating Resources and Misinformation{{guide_title}}</h1>
-                <div id="s-lg-guide-desc-container" class="mt-3">
-                <span id="s-lg-guide-description">{{guide_description}}</span>
+            <div class="col-12 col-md-4">
+                <div id="s-lg-guide-header-search" class="text-md-end" data-ga-category="Navigation" data-ga-subcategory="Guides Search Form">
+                    {% include "libapps/search-form.html" %}{{guide_search}}
+                </div>
+                <div class="text-md-end">
+                    {{ADMIN_MINI_CMD_BAR}}
+                </div>
             </div>
         </div>
     </div>
@@ -44,43 +48,45 @@ url: "/pages/libapps/"
 
     <!--Start Guide Content -->
 
-    <div id="s-lg-guide-tabs-title-bar" class="container s-lib-side-borders"></div>
-        <div id="s-lg-tabs-container" class="container s-lib-side-borders pt-3">
+    <div id="s-lg-tabs-container" class="container s-lib-side-borders pt-3">
         <div id="s-lg-guide-tabs">
-            <div class="row">
-                    <div class="col-md-3 s-lg-tabs-side pb-3" data-ga-category="Sidebar" data-ga-subcategory="Left Sidebar">
-                        <ul class="nav nav-pills nav-stacked" data-ga-category="Navigation" data-ga-subcategory="Guide Navigation">
+            <div class="row g-3">
+                <aside class="col-12 col-md-3 s-lg-tabs-side pb-3" data-ga-category="Sidebar" data-ga-subcategory="Left Sidebar">
+                    <nav aria-label="Guide navigation">
+                        <ul class="nav nav-pills flex-column" data-ga-category="Navigation" data-ga-subcategory="Guide Navigation">
                         {% include "libapps/guide-nav.html" %}{{guide_nav}}
-                    </ul>
+                        </ul>
+                    </nav>
                     {% include "libapps/side-nav-boxes.html" %}{{side_nav_boxes}}
-                </div>
+                </aside>
 
                 <!--Creates Three column layout -->
-                <div id="s-lg-guide-main" class="tab-pane active" tabindex="-1">
-                    <div class="col-md-6">
-                        <div class="s-lg-tab-content">
-                            <div id="s-lg-col-1" class="tab-pane" data-ga-category="Main" data-ga-subcategory="Main Content Links">
-                                {% include "libapps/content_col_1.html" %}{{content_col_1}}
-                            </div>
+                <main id="s-lg-guide-main" class="col-12 col-md-6" tabindex="-1">
+                    <div class="s-lg-tab-content">
+                        <div id="s-lg-col-1" data-ga-category="Main" data-ga-subcategory="Main Content Links">
+                            {% include "libapps/content_col_1.html" %}{{content_col_1}}
                         </div>
                     </div>
+                </main>
 
-                    <div class="col-md-3">
-                        <div class="s-lg-tab-content">
-                                <div id="s-lg-col-2" class="tab-pane" data-ga-category="Sidebar" data-ga-subcategory="Right Sidebar">
-                                {% include "libapps/content_col_2.html" %}{{content_col_2}}
-                            </div>
+                <aside class="col-12 col-md-3">
+                    <div class="s-lg-tab-content">
+                        <div id="s-lg-col-2" data-ga-category="Sidebar" data-ga-subcategory="Right Sidebar">
+                            {% include "libapps/content_col_2.html" %}{{content_col_2}}
                         </div>
-                        {% include "libapps/page_prev_next_links.html" %}{{page_prev_next_links}}
                     </div>
-                </div>
+                    {% include "libapps/page_prev_next_links.html" %}{{page_prev_next_links}}
+                </aside>
+
             </div>
         </div>
+    </div>
+
         <!-- End Guide Content -->
 
         <!-- BEGIN: Guide Page Footer -->
-            <div id="s-lib-footer-public" class="s-lib-footer footer container s-lib-side-borders" data-ga-category="Footer">
-                <div id="s-lg-guide-header-meta" class="pt-2 ps-3 clearfix">
+        <div id="s-lib-footer-public" class="s-lib-footer footer container s-lib-side-borders" data-ga-category="Footer">
+            <div id="s-lg-guide-header-meta" class="pt-2 ps-3 clearfix">
                 <ul id="s-lg-guide-header-attributes" class="">
                     <li id="s-lg-guide-header-subjects" class="s-lg-h-separator" data-ga-subcategory="Footer Guide Subjects">
                         {{guide_subjects}}
@@ -114,7 +120,6 @@ url: "/pages/libapps/"
                 </ul>
             </div>
         </div>
-        <!-- END: Guide Page Footer -->
 
         <div id="s-lib-scroll-top" title="Back to Top">
             <span class="fa-stack fa-lg">
