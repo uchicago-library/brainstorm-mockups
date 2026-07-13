@@ -1,41 +1,149 @@
 // LibApps platform-specific overrides shared across mockups.
 
-// Force UChicago Sans Serif across LibApps text-bearing elements.
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    a,
-    span,
-    li,
-    dt,
-    dd,
-    small,
-    strong,
-    em,
-    blockquote,
-    cite,
-    figcaption,
-    label,
-    legend,
-    caption,
-    th,
-    td,
-    input,
-    textarea,
-    select,
-    button{
-    font-family: var(--bs-body-font-family) !important;
-}
-.container {
-    max-width: 1320px;
+// Override Bootstrap runtime CSS variables from LibApps with UChicago brand tokens.
+:root {
+    --bs-primary: #{$primary};
+    --bs-primary-rgb: #{to-rgb($primary)};
+    --bs-secondary: #{$secondary};
+    --bs-secondary-rgb: #{to-rgb($secondary)};
+    --bs-success: #{$success};
+    --bs-success-rgb: #{to-rgb($success)};
+    --bs-info: #{$info};
+    --bs-info-rgb: #{to-rgb($info)};
+    --bs-warning: #{$warning};
+    --bs-warning-rgb: #{to-rgb($warning)};
+    --bs-danger: #{$danger};
+    --bs-danger-rgb: #{to-rgb($danger)};
+    --bs-light: #{$light};
+    --bs-light-rgb: #{to-rgb($light)};
+    --bs-dark: #{$dark};
+    --bs-dark-rgb: #{to-rgb($dark)};
 }
 
+$theme-color-overrides: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark
+);
+
+@each $name, $color in $theme-color-overrides {
+    .btn-#{$name} {
+        --bs-btn-bg: var(--bs-#{$name});
+        --bs-btn-border-color: var(--bs-#{$name});
+        --bs-btn-hover-bg: #{shade-color($color, 15%)};
+        --bs-btn-hover-border-color: #{shade-color($color, 20%)};
+        --bs-btn-active-bg: #{shade-color($color, 20%)};
+        --bs-btn-active-border-color: #{shade-color($color, 25%)};
+        --bs-btn-disabled-bg: var(--bs-#{$name});
+        --bs-btn-disabled-border-color: var(--bs-#{$name});
+    }
+}
+
+// Force UChicago Sans Serif across LibApps text-bearing elements.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+li,
+dt,
+dd,
+small,
+strong,
+em,
+blockquote,
+cite,
+figcaption,
+label,
+legend,
+caption,
+th,
+td,
+input,
+textarea,
+select,
+button {
+    font-family: var(--bs-body-font-family) !important;
+}
+
+.container {
+    max-width: 1320px !important;
+    max-width: 1140px !important;
+}
+
+#s-lib-public-header {
+    margin-top: 0.4rem;
+}
+
+// Override all dashed borders
+.az-item,
+.az-icon-legend-row,
+.az-helpful-links-row,
+.az-subject-guides-row,
+.az-landing-bottom,
+.blog-public-custom-sidebar .custom-border-bottom:not(:last-of-type),
+.ck-content .page-break::after {
+    border-bottom-style: var(--bs-border-style);
+    border-bottom-color: var(--bs-border-color);
+}
+
+.az-landing-info,
+.alert-border-dashed,
+.az-landing-page-alert,
+.az-page-alert,
+.az-entry-collapsible-box,
+.toast-success-background {
+    border-style: var(--bs-border-style);
+    border-color: var(--bs-border-color);
+}
+
+// Embedded LibChat blocks
+.lci_chat_load {
+    border-radius: 4px;
+    padding: 4px;
+    background-color: #fff !important;
+}
+
+// Footer
+#s-lib-footer-public.footer {
+    max-width: unset;
+    padding: 1rem;
+    color: $ucl-greystone-light;
+
+    a {
+        text-decoration: underline;
+    }
+}
+
+h2.footer-heading {
+    color: $ucl-greystone-light;
+}
+
+// Shared utility regions
+#s-lib-scroll-top {
+    .span.fa-stack.fa-lg {
+        font-size: 1.1rem;
+    }
+
+    .fa.fa-angle-double-up.fa-stack-1x {
+        color: #fff;
+        bottom: unset !important;
+    }
+}
+
+// ## Database finder Specific
+
 // Filter navigation region
-#s-lib-public-main-searchbar{
+#s-lib-public-main-searchbar {
     button.btn.btn-primary {
         padding: 0.375rem 0.75rem !important;
     }
@@ -45,11 +153,12 @@
         font-weight: 400 !important;
     }
 }
+
 #az-search-col-1 {
     nav.navbar {
         background-color: $ucl-greystone-lighter;
     }
-    
+
     #s-lg-az-filters {
         padding: 1rem;
         background-color: $ucl-greystone-lighter;
@@ -59,7 +168,7 @@
                 div.row {
                     padding: 0;
 
-                    & > div {
+                    &>div {
                         border-right-color: var(--bs-light);
                     }
 
@@ -86,20 +195,23 @@
 }
 
 .az-item .az-toggle {
-    .az-collapsible > img {
+    .az-collapsible>img {
         width: 1rem;
     }
 }
+
 .az-item button.az-toggle,
 .az-item h4.az-toggle {
     margin: 0.5rem 1rem 0.5rem 0;
 
-    .az-collapsible{
-        &> img, &> svg {
+    .az-collapsible {
+
+        &>img,
+        &>svg {
             width: 1.1rem;
             height: 1.1rem;
         }
-    } 
+    }
 }
 
 .az-entry-collapsible-box {
@@ -115,40 +227,23 @@
     }
 }
 
-// Embedded LibChat blocks
-.lci_chat_load {
-    border-radius: 4px;
-    padding: 4px;
-    background: #fff;
-}
-
-// Shared utility regions
-#s-lib-scroll-top {
-    .span.fa-stack.fa-lg {
-        font-size: 1.1rem;
-    }
-
-    .fa.fa-angle-double-up.fa-stack-1x {
-        color: #fff;
-        bottom: unset !important;
-    }
-}
-
 .sidebar-boxes .accordion .accordion-item {
     border-style: solid;
     border-color: var(--bs-border-color);
 }
 
-#s-lib-footer-public.footer {
-    max-width: unset;
-    padding: 1rem;
-    color: $ucl-greystone-light;
 
-    a{
-        text-decoration: underline;
+//  Guides Specific
+.s-lib-profile-email {
+    .label-info{
+        background-color: var(--bs-secondary);
+        font-size: var(--bs-btn-font-size);
     }
 }
 
-h2.footer-heading {
-    color: $ucl-greystone-light;
+.s-lib-profile-widget button#mysched_63613{
+    @extend .btn;
+    @extend .btn-outline-secondary;
+    // background-color: var(--bs-secondary);
+    font-size: var(--bs-btn-font-size);
 }

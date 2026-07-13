@@ -1,0 +1,137 @@
+---
+title: "Guides Guide Wide Column"
+breadcrumbParent: "Pages"
+breadcrumbUrl: "/pages/"
+breadcrumbItems:
+- label: "LibApps"
+url: "/pages/libapps/"
+---
+
+{% include "libapps/document-start.html" %}
+
+
+<!-- [B] Three Column Guide: Wide Center Column -->
+<!-- SIDE NAV -->
+
+<body class="s-lg-guide-body">
+    {% include "libapps/skip-link.html" %} {{skip_link}}
+    {{ADMIN_CMD_BAR}}
+    <!-- BEGIN: Page Header -->
+    {% include "header.html" %} {{public_header}}
+    <!-- END: Page Header -->
+
+    <!-- BEGIN: Guide Header -->
+    <div id="s-lg-guide-header" class="container s-lib-header s-lib-side-borders">
+        <div class="row g-3 align-items-start">
+            <div class="col-12 col-md-8">
+                <nav id="s-lib-bc" class="d-none d-sm-block" aria-label="breadcrumb" data-ga-category="Navigation" data-ga-subcategory="Breadcrumbs">
+                    {% include "libapps/breadcrumbs.html" %}{{breadcrumbs}}
+                </nav>
+                <div id="s-lg-guide-header-info">
+                    <h1 id="s-lg-guide-name">{% include "libapps/guide_title.html" %}{{guide_title}}</h1>
+                    <div id="s-lg-guide-desc-container" class="mt-3">
+                        <span id="s-lg-guide-description">{% include "libapps/guide_description.html" %}{{guide_description}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div id="s-lg-guide-header-search" class="text-md-end" data-ga-category="Navigation" data-ga-subcategory="Guides Search Form">
+                    {% include "libapps/search-form.html" %}{{guide_search}}
+                </div>
+                <div class="text-md-end">
+                    {{ADMIN_MINI_CMD_BAR}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END: Guide Header -->
+
+    <!--Start Guide Content -->
+
+    <div id="s-lg-tabs-container" class="container s-lib-side-borders pt-3">
+        <div id="s-lg-guide-tabs">
+            <div class="row g-3">
+                <aside class="col-12 col-md-3 s-lg-tabs-side pb-3" data-ga-category="Sidebar" data-ga-subcategory="Left Sidebar">
+                    <nav aria-label="Guide navigation">
+                        <ul class="nav nav-pills flex-column" data-ga-category="Navigation" data-ga-subcategory="Guide Navigation">
+                        {% include "libapps/guide_nav.html" %}{{guide_nav}}
+                        </ul>
+                    </nav>
+                    {% include "libapps/side_nav_boxes.html" %}{{side_nav_boxes}}
+                </aside>
+
+                <!--Creates Three column layout -->
+                <main id="s-lg-guide-main" class="col-12 col-md-6" tabindex="-1">
+                    <div class="s-lg-tab-content">
+                        <div id="s-lg-col-1" data-ga-category="Main" data-ga-subcategory="Main Content Links">
+                            {% include "libapps/content_col_1.html" %}{{content_col_1}}
+                        </div>
+                    </div>
+                </main>
+
+                <aside class="col-12 col-md-3">
+                    <div class="s-lg-tab-content">
+                        <div id="s-lg-col-2" data-ga-category="Sidebar" data-ga-subcategory="Right Sidebar">
+                            {% include "libapps/content_col_2.html" %}{{content_col_2}}
+                        </div>
+                    </div>
+                    {% include "libapps/page_prev_next_links.html" %}{{page_prev_next_links}}
+                </aside>
+
+            </div>
+        </div>
+    </div>
+
+        <!-- End Guide Content -->
+
+        <!-- BEGIN: Guide Page Footer -->
+        <div id="s-lib-footer-public" class="s-lib-footer footer container s-lib-side-borders" data-ga-category="Footer">
+            <div id="s-lg-guide-header-meta" class="pt-2 ps-3 clearfix">
+                <ul id="s-lg-guide-header-attributes" class="">
+                    <li id="s-lg-guide-header-subjects" class="s-lg-h-separator" data-ga-subcategory="Footer Guide Subjects">
+                        {{guide_subjects}}
+                        <span class="s-lg-guide-label">Subjects: </span><span class="s-lg-small bold">
+                            <ul class="ul-link-list">
+                                <li><a href="https://guides.lib.uchicago.edu/sb.php?subject_id=11609" aria-label="Biological Sciences Subject">Biological Sciences</a></li>
+                                <li><a href="https://guides.lib.uchicago.edu/sb.php?subject_id=60127" aria-label="Biomedical Sciences Subject">Biomedical Sciences</a></li>
+                                <li><a href="https://guides.lib.uchicago.edu/sb.php?subject_id=11611" aria-label="Medicine Subject">Medicine</a></li>
+                            </ul>
+                        </span>
+                    </li>
+                    <li id="s-lg-guide-header-tags" class="s-lg-h-separator" data-ga-subcategory="Footer Guide Tags">
+                        {{guide_tags}}
+                    </li>
+                    <li id="s-lg-guide-header-updated" class="s-lg-h-separator">
+                        {{last_updated_display}}
+                        <span class="s-lg-guide-label">Updated:</span> <span class="s-lg-text-greyout">Jun 30, 2025 10:50 AM</span>
+                    </li>
+
+                    <li id="s-lg-guide-header-url" class="s-lg-h-separator">
+                        {{guide_url_display}}
+                        <span class="s-lg-guide-label">URL:</span> <span class="s-lg-text-greyout">https://guides.lib.uchicago.edu/misinformation</span>
+                    </li>
+                    <li id="s-lib-footer-support-link" class="s-lg-h-separator">
+                        <a href="https://www.lib.uchicago.edu/research/help/ask-librarian/report-problem/">Report a problem</a>
+                    </li>
+                    <li id="s-lib-footer-login-link">
+                        {{login_url_display}}
+                        <a href="https://uchicago.libapps.com/libapps/login.php?site_id=1951&amp;target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTEyNDEwNzcmcD05MDgyMzIw">Login to LibApps</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="s-lib-scroll-top" title="Back to Top">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-angle-double-up fa-stack-1x" style="position:relative; bottom:2px;"></i>
+            </span>
+        </div>
+        <div id="s-lib-alert" title="">
+            <div id="s-lib-alert-content"></div>
+        </div>
+
+        <!-- BEGIN: Library Footer -->
+        {% include "libapps/footer.html" %}{{public_footer}}
+        <!-- END: Library Footer -->
+</body>
