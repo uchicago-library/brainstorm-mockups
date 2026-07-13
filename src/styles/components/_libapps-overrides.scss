@@ -143,11 +143,12 @@ h2.footer-heading {
 // ## Database finder Specific
 
 // Filter navigation region
-#s-lib-public-main-searchbar {
-    button.btn.btn-primary {
-        padding: 0.375rem 0.75rem !important;
-    }
-
+#s-lg-az-filter-cols button,
+.az-landing .btn.btn-primary,
+#s-lib-public-main-searchbar button.btn.btn-primary {
+    padding: 0.375rem 0.75rem !important;
+}
+#s-lib-public-main-searchbar {}
     a.recommended-list {
         font-size: 0.9rem !important;
         font-weight: 400 !important;
