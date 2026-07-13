@@ -29,20 +29,20 @@
 // @import "../../node_modules/bootstrap/scss/containers";
 // @import "../../node_modules/bootstrap/scss/grid";
 
-// @import "../../node_modules/bootstrap/scss/tables";
-// @import "../../node_modules/bootstrap/scss/forms";
-// @import "../../node_modules/bootstrap/scss/buttons";
+@import "../../node_modules/bootstrap/scss/tables"; // *
+@import "../../node_modules/bootstrap/scss/forms"; // *
+@import "../../node_modules/bootstrap/scss/buttons";
 // @import "../../node_modules/bootstrap/scss/transitions";
-// @import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/dropdown";
 // @import "../../node_modules/bootstrap/scss/button-group";
-// @import "../../node_modules/bootstrap/scss/nav";
-// @import "../../node_modules/bootstrap/scss/navbar";
-// @import "../../node_modules/bootstrap/scss/card";
-// @import "../../node_modules/bootstrap/scss/accordion";
-// @import "../../node_modules/bootstrap/scss/breadcrumb";
-// @import "../../node_modules/bootstrap/scss/pagination";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/navbar";
+@import "../../node_modules/bootstrap/scss/card";
+@import "../../node_modules/bootstrap/scss/accordion";
+@import "../../node_modules/bootstrap/scss/breadcrumb"; // *
+@import "../../node_modules/bootstrap/scss/pagination";
 // @import "../../node_modules/bootstrap/scss/badge";
-// @import "../../node_modules/bootstrap/scss/alert";
+@import "../../node_modules/bootstrap/scss/alert"; // *
 // @import "../../node_modules/bootstrap/scss/list-group";
 // @import "../../node_modules/bootstrap/scss/close";
 // @import "../../node_modules/bootstrap/scss/modal";
@@ -75,41 +75,3 @@
 @import "components/libapps-overrides";
 // @import "components/accordion";
 // @import "components/panel";
-
-
-// START Sample of order of rules for the primary color.
-@if false{
-	/* _libapps-overrides.scss */
-	// nothing yet
-
-	/* lookfeel.css */
-	.btn-primary {
-		background-color: #800000;
-	}
-	/* lg-public-bs5.min.css */
-	.btn-primary {
-		background-color: #2074a2;
-	}
-	/* lg-public-bs5.min.css */
-	.btn-primary {
-		--bs-btn-bg: #0d6efd;
-	}
-	/* lg-public-bs5.min.css */
-	.btn-primary {
-		background-color: #2074a2;
-	}
-	/* lg-public-bs5.min.css */
-	.btn-primary {
-		--bs-btn-bg: #0d6efd;
-	}
-
-	/* lg-public-bs5.min.css */
-	:root{ 
-		--bs-primary: #0d6efd;
-	}
-	/* lg-public-bs5.min.css */
-	:root{ 
-		--bs-primary: #0d6efd;
-	}
-}
-// END Sample of order of rules for the primary color.

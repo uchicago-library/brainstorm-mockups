@@ -4,6 +4,20 @@
 :root {
     --bs-primary: #{$primary};
     --bs-primary-rgb: #{to-rgb($primary)};
+    --bs-secondary: #{$secondary};
+    --bs-secondary-rgb: #{to-rgb($secondary)};
+    --bs-success: #{$success};
+    --bs-success-rgb: #{to-rgb($success)};
+    --bs-info: #{$info};
+    --bs-info-rgb: #{to-rgb($info)};
+    --bs-warning: #{$warning};
+    --bs-warning-rgb: #{to-rgb($warning)};
+    --bs-danger: #{$danger};
+    --bs-danger-rgb: #{to-rgb($danger)};
+    --bs-light: #{$light};
+    --bs-light-rgb: #{to-rgb($light)};
+    --bs-dark: #{$dark};
+    --bs-dark-rgb: #{to-rgb($dark)};
 }
 
 $theme-color-overrides: (
@@ -31,42 +45,67 @@ $theme-color-overrides: (
 }
 
 // Force UChicago Sans Serif across LibApps text-bearing elements.
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    a,
-    span,
-    li,
-    dt,
-    dd,
-    small,
-    strong,
-    em,
-    blockquote,
-    cite,
-    figcaption,
-    label,
-    legend,
-    caption,
-    th,
-    td,
-    input,
-    textarea,
-    select,
-    button{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+li,
+dt,
+dd,
+small,
+strong,
+em,
+blockquote,
+cite,
+figcaption,
+label,
+legend,
+caption,
+th,
+td,
+input,
+textarea,
+select,
+button {
     font-family: var(--bs-body-font-family) !important;
 }
+
 .container {
-    max-width: 1320px;
+    max-width: 1320px !important;
+    max-width: 1140px !important;
 }
 
-#s-lib-public-header{
+#s-lib-public-header {
     margin-top: 0.4rem;
 }
+
+// Override all dashed borders
+.az-item,
+.az-icon-legend-row,
+.az-helpful-links-row,
+.az-subject-guides-row,
+.az-landing-bottom,
+.blog-public-custom-sidebar .custom-border-bottom:not(:last-of-type),
+.ck-content .page-break::after {
+    border-bottom-style: var(--bs-border-style);
+    border-bottom-color: var(--bs-border-color);
+}
+
+.az-landing-info,
+.alert-border-dashed,
+.az-landing-page-alert,
+.az-page-alert,
+.az-entry-collapsible-box,
+.toast-success-background {
+    border-style: var(--bs-border-style);
+    border-color: var(--bs-border-color);
+}
+
 // Embedded LibChat blocks
 .lci_chat_load {
     border-radius: 4px;
@@ -74,12 +113,13 @@ $theme-color-overrides: (
     background-color: #fff !important;
 }
 
+// Footer
 #s-lib-footer-public.footer {
     max-width: unset;
     padding: 1rem;
     color: $ucl-greystone-light;
 
-    a{
+    a {
         text-decoration: underline;
     }
 }
@@ -103,7 +143,7 @@ h2.footer-heading {
 // ## Database finder Specific
 
 // Filter navigation region
-#s-lib-public-main-searchbar{
+#s-lib-public-main-searchbar {
     button.btn.btn-primary {
         padding: 0.375rem 0.75rem !important;
     }
@@ -113,11 +153,12 @@ h2.footer-heading {
         font-weight: 400 !important;
     }
 }
+
 #az-search-col-1 {
     nav.navbar {
         background-color: $ucl-greystone-lighter;
     }
-    
+
     #s-lg-az-filters {
         padding: 1rem;
         background-color: $ucl-greystone-lighter;
@@ -127,7 +168,7 @@ h2.footer-heading {
                 div.row {
                     padding: 0;
 
-                    & > div {
+                    &>div {
                         border-right-color: var(--bs-light);
                     }
 
@@ -154,20 +195,23 @@ h2.footer-heading {
 }
 
 .az-item .az-toggle {
-    .az-collapsible > img {
+    .az-collapsible>img {
         width: 1rem;
     }
 }
+
 .az-item button.az-toggle,
 .az-item h4.az-toggle {
     margin: 0.5rem 1rem 0.5rem 0;
 
-    .az-collapsible{
-        &> img, &> svg {
+    .az-collapsible {
+
+        &>img,
+        &>svg {
             width: 1.1rem;
             height: 1.1rem;
         }
-    } 
+    }
 }
 
 .az-entry-collapsible-box {
@@ -190,3 +234,16 @@ h2.footer-heading {
 
 
 //  Guides Specific
+.s-lib-profile-email {
+    .label-info{
+        background-color: var(--bs-secondary);
+        font-size: var(--bs-btn-font-size);
+    }
+}
+
+.s-lib-profile-widget button#mysched_63613{
+    @extend .btn;
+    @extend .btn-outline-secondary;
+    // background-color: var(--bs-secondary);
+    font-size: var(--bs-btn-font-size);
+}
