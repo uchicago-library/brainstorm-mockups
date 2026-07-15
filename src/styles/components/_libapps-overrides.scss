@@ -114,14 +114,10 @@ button {
 }
 
 // Footer
-#s-lib-footer-public.footer {
-    max-width: unset;
+#s-lib-footer-public {
+    max-width: unset !important;
     padding: 1rem;
     color: $ucl-greystone-light;
-
-    a {
-        text-decoration: underline;
-    }
 }
 
 h2.footer-heading {
@@ -153,6 +149,10 @@ h2.footer-heading {
         font-size: 0.9rem !important;
         font-weight: 400 !important;
     }
+}
+
+#s-lg-guide-header{
+    margin-top : .5rem;
 }
 
 #az-search-col-1 {
