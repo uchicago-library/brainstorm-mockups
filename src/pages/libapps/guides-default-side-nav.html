@@ -1,0 +1,138 @@
+---
+title: "Side-Nav Layout (Default)"
+breadcrumbParent: "Pages"
+breadcrumbUrl: "/pages/"
+breadcrumbItems:
+- label: "LibApps"
+url: "/pages/libapps/"
+---
+
+{% include "libapps/document-start.html" %}
+<!-- Default Side-Nav Layout -->
+
+<body class="s-lg-guide-body">
+    {{skip_link}}
+
+    {{ADMIN_CMD_BAR}}
+
+    {% include "mockups/header-current-new.html" %} {{public_header}}
+
+    <div id="s-lg-guide-header" class="container s-lib-header s-lib-side-borders">
+        <nav id="s-lib-bc" aria-label="breadcrumb">
+            {% include "libapps/breadcrumbs.html" %}{{breadcrumbs}}
+
+        </nav>
+        <div class="float-end">
+            <div id="s-lg-guide-header-search" class="me-3">
+                {{guide_search}}
+
+            </div>
+        </div>
+        <div id="s-lg-guide-header-info">
+            <h1 id="s-lg-guide-name">{% include "libapps/guide_title.html" %}{{guide_title}}
+                : {{page_title}}
+            </h1>
+            <div id="s-lg-guide-desc-container">
+                <span id="s-lg-guide-description">{% include "libapps/guide_description.html" %}{{guide_description}}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="s-lg-guide-tabs-title-bar" class="container s-lib-side-borders"></div>
+
+    <div id="s-lg-side-nav-content" class="container s-lib-side-borders pt-3">
+        <div class="row">
+            <div class="col-md-3 s-lg-tabs-side pb-3">
+                <div id="s-lg-tabs-container">
+                    <div id="s-lg-guide-tabs" role="navigation" aria-label="Guide Pages">
+                        <ul class="nav nav-pills flex-column split-button-nav">
+                            {% include "libapps/guide_nav.html" %}{{guide_nav}}
+
+                        </ul>
+                        {% include "libapps/side_nav_boxes.html" %}{{side_nav_boxes}}
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="s-lg-tab-content">
+                    <div id="s-lg-guide-main" class="tab-pane active" tabindex="-1">
+                        <div class="row s-lg-row">
+                            <div id="s-lg-col-1" class="col-md-8">
+                                <div class="s-lg-col-boxes">
+                                    {% include "libapps/content_col_1.html" %}{{content_col_1}}
+                                </div>
+                            </div>
+
+                            <div id="s-lg-col-2" class="col-md-4">
+                                <div class="s-lg-col-boxes">
+                                    {% include "libapps/content_col_2.html" %}{{content_col_2}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                {% include "libapps/page_prev_next_links.html" %}{{page_prev_next_links}}
+
+            </div>
+        </div>
+    </div>
+
+    <div id="s-lib-footer-public" class="s-lib-footer footer container s-lib-side-borders">
+        <div id="s-lg-guide-header-meta" class="pt-2 ps-3 clearfix">
+            <ul id="s-lg-guide-header-attributes">
+                <li id="s-lg-guide-header-updated" class="s-lg-h-separator">
+                    {{last_updated_display}}
+
+                </li>
+                <li id="s-lg-guide-header-url" class="s-lg-h-separator">
+                    {{guide_url_display}}
+
+                </li>
+                <li id="s-lg-guide-print-url">
+                    {{print_url_display}}
+
+                </li>
+            </ul>
+            <div id="s-lib-footer-login-link" class="float-end pe-3">
+                {{login_url_display}}
+
+            </div>
+        </div>
+        <div class="pb-2 clearfix">
+            <div id="s-lib-footer-support-link" class="float-end pe-3">
+
+            </div>
+            <div id="s-lg-guide-header-subjects" class="pt-2 ps-3 pe-3 float-start">
+                {{guide_subjects}}
+
+            </div>
+            <div id="s-lg-guide-header-tags" class="pt-2 ps-3 float-start">
+                {{guide_tags}}
+
+            </div>
+        </div>
+    </div>
+
+    <!-- scroll_top.twig -->
+    <div id="s-lib-scroll-top">
+        <a href="javascript:void(0);" onclick="jQuery('body').focus();" title="Back to Top" aria-label="Back to Top">
+            <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-square-o fa-stack-2x"></i>
+                <i class="fa fa-angle-double-up fa-stack-1x" style="position:relative; bottom:2px;"></i>
+            </span>
+        </a>
+    </div>
+    <!-- !scroll_top.twig -->
+
+    <div id="s-lib-alert" title="">
+        <div id="s-lib-alert-content"></div>
+    </div>
+
+    {{public_footer}}
+
+
+
+</body>
