@@ -1,6 +1,3 @@
----
-title: "Static Website"
----
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,25 +28,18 @@ title: "Static Website"
             text-align: center;
         }
 
+        /* Constrained logo size so it isn't overly big */
         .logo-img {
-            max-width: 320px;
+            max-width: 240px;
             height: auto;
             margin-bottom: 5px;
             display: inline-block;
         }
 
-        .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.95;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-            margin-top: 5px;
-        }
-
         /* Main Content Container - Left Aligned */
         main {
             flex: 1;
-            max-width: 650px;
+            max-width: 750px;
             margin: 40px auto;
             padding: 25px;
             background-color: #ffffff;
@@ -66,12 +56,19 @@ title: "Static Website"
             padding-bottom: 10px;
         }
 
+        .status-message {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #c9302c;
+            margin: 15px 0;
+        }
+
         p {
             line-height: 1.6;
             font-size: 1.1rem;
         }
 
-        /* Navigation Links Layout */
+        /* Dynamic Two-Column Layout Grid for Catalog Links */
         .system-links {
             margin-top: 30px;
             padding: 20px;
@@ -87,6 +84,13 @@ title: "Static Website"
             border-bottom: 2px solid #800000;
             padding-bottom: 5px;
             margin-bottom: 15px;
+        }
+
+        /* Responsive grid separation split */
+        .links-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
 
         .system-links ul {
@@ -132,11 +136,11 @@ title: "Static Website"
 
     <header>
         <img src="https://www.lib.uchicago.edu/web-resources/img/white-logo.png" alt="The University of Chicago Library Logo" class="logo-img">
-        <div class="subtitle">University Library</div>
     </header>
 
     <main>
-        <h1>System Temporarily Unavailable</h1>
+        <h1>University of Chicago Library</h1>
+        <div class="status-message">Website Temporarily Unavailable</div>
         
         <p>
             The University of Chicago Library website is currently experiencing technical difficulties or undergoing scheduled maintenance. We apologize for the inconvenience.
@@ -146,32 +150,40 @@ title: "Static Website"
         </p>
 
         <div class="system-links">
-            <h2>Systems & Services Directory</h2>
-            <ul>
-                <li>
-                    <a href="http://catalog.lib.uchicago.edu/" target="_blank">Library Catalog</a>
-                    <ul class="nested-list">
-                        <li><a href="https://catalog.lib.uchicago.edu/vwebv/login" target="_blank">My Account</a></li>
-                    </ul>
-                </li>
-                <li><a href="https://guides.lib.uchicago.edu/" target="_blank">LibGuides</a></li>
-                <li><a href="http://catalog.lib.uchicago.edu/" target="_blank">Databases</a></li>
-                <li><a href="https://catalog.lib.uchicago.edu/vufind/MyResearch/Home?redirect=0/" target="_blank">My Account</a></li>
-                <li><a href="https://research.ebsco.com/c/ijaglh/search" target="_blank">Articles Plus (Direct Access)</a></li>
-                <li><a href="https://www.lib.uchicago.edu/" target="_blank">Ejournals Finder</a></li>
-                <li><a href="https://newfirstsearch.oclc.org/WebZ/FSPrefs?entityjsdetect=:javascript=true:screensize=large:sessionid=fsap11pxm1-1680-mr3x7en9-ou60k4:entitypagenum=1:0" target="_blank">Worldcat</a></li>
-                <li><a href="https://guides.lib.uchicago.edu/az.php" target="_blank">Database Finder</a></li>
-                <li><a href="https://www.lib.uchicago.edu/borrow/requesting/interlibrary-loan/" target="_blank">ILL (Interlibrary Loan / VDX)</a></li>
-                <li><a href="https://www.lib.uchicago.edu/borrow/access-privileges/offcampus/" target="_blank">Proxy & Off-Campus Access Login</a></li>
-                <li><a href="https://www.lib.uchicago.edu/research/help/ask-librarian/" target="_blank">Ask a Librarian</a></li>
-                <li><a href="https://rooms.lib.uchicago.edu/r/search/seats#s-lc-public-pt" target="_blank">Book a Room</a></li>
-                <li><a href="https://guides.lib.uchicago.edu/c.php?g=298425&p=1990078" target="_blank">Special Collections Material Requests</a></li>
-            </ul>
+            <h2>Library Catalogs and Services</h2>
+            
+            <div class="links-grid-container">
+                <!-- Column Group One -->
+                <ul>
+                    <li>
+                        <a href="http://catalog.lib.uchicago.edu/" target="_blank">Library Catalog</a>
+                        <ul class="nested-list">
+                            <li><a href="https://catalog.lib.uchicago.edu/vwebv/login" target="_blank">My Account</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://guides.lib.uchicago.edu/" target="_blank">LibGuides</a></li>
+                    <li><a href="http://catalog.lib.uchicago.edu/" target="_blank">Databases</a></li>
+                    <li><a href="https://catalog.lib.uchicago.edu/vufind/MyResearch/Home?redirect=0/" target="_blank">My Account</a></li>
+                    <li><a href="https://research.ebsco.com/c/ijaglh/search" target="_blank">Articles Plus (Direct Access)</a></li>
+                    <li><a href="https://www.lib.uchicago.edu/" target="_blank">Ejournals Finder</a></li>
+                </ul>
+
+                <!-- Column Group Two -->
+                <ul>
+                    <li><a href="https://newfirstsearch.oclc.org/WebZ/FSPrefs?entityjsdetect=:javascript=true:screensize=large:sessionid=fsap11pxm1-1680-mr3x7en9-ou60k4:entitypagenum=1:0" target="_blank">Worldcat</a></li>
+                    <li><a href="https://guides.lib.uchicago.edu/az.php" target="_blank">Database Finder</a></li>
+                    <li><a href="https://www.lib.uchicago.edu/borrow/requesting/interlibrary-loan/" target="_blank">ILL (Interlibrary Loan / VDX)</a></li>
+                    <li><a href="https://www.lib.uchicago.edu/borrow/access-privileges/offcampus/" target="_blank">Proxy & Off-Campus Access Login</a></li>
+                    <li><a href="https://www.lib.uchicago.edu/research/help/ask-librarian/" target="_blank">Ask a Librarian</a></li>
+                    <li><a href="https://rooms.lib.uchicago.edu/r/search/seats#s-lc-public-pt" target="_blank">Book a Room</a></li>
+                    <li><a href="https://guides.lib.uchicago.edu/c.php?g=298425&p=1990078" target="_blank">Special Collections Material Requests</a></li>
+                </ul>
+            </div>
         </div>
     </main>
 
     <footer>
-        <p>For assistance, please contact the IT Help Desk via <a href="mailto:web-admin@lib.uchicago.edu">web-admin@lib.uchicago.edu</a>.</p>
+        <p>For assistance, please contact the <strong>Library Web Team</strong> via <a href="mailto:web-admin@lib.uchicago.edu">web-admin@lib.uchicago.edu</a>.</p>
     </footer>
 
 </body>
