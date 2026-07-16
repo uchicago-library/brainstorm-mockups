@@ -1,190 +1,243 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library System Status - University of Chicago Library</title>
-    
-    <link rel="icon" type="image/png" href="https://www.lib.uchicago.edu/web-resources/img/favicon.ico">
-    
-    <style>
-        /* Basic CSS Reset and Layout */
-        body {
-            font-family: Arial, sans-serif;
-            color: #333333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background-color: #f9f9f9;
-        }
+---
+title: "UChicago Library Design System"
+---
 
-        /* Branding Header */
-        header {
-            background-color: #800000; /* UChicago Maroon */
-            color: #ffffff;
-            padding: 25px 20px;
-            text-align: center;
-        }
+{% include "meta/document-start.html" %}
+{% include "header.html" %}
 
-        /* Constrained logo size so it isn't overly big */
-        .logo-img {
-            max-width: 240px;
-            height: auto;
-            margin-bottom: 5px;
-            display: inline-block;
-        }
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      
+      <h1 class="display-4 mb-4">UChicago Library Design System</h1>
+      
+      <p class="lead">A comprehensive design system for the University of Chicago Library, providing reusable components, design tokens, and development guidelines built on Bootstrap 5.</p>
 
-        /* Main Content Container - Left Aligned */
-        main {
-            flex: 1;
-            max-width: 750px;
-            margin: 40px auto;
-            padding: 25px;
-            background-color: #ffffff;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-align: left;
-        }
+      <hr class="my-5">
 
-        h1 {
-            color: #800000;
-            font-size: 1.8rem;
-            margin-top: 0;
-            border-bottom: 2px solid #800000;
-            padding-bottom: 10px;
-        }
+      <section class="mb-5">
+        <h2>Quicklinks</h2>
+        <ul>
+          <li><a href="{{ '/pages/libapps/guides-homepage/' | url }}">Guides Homepage</a> - LibGuides homepage pattern with tabbed and categorized guide discovery.</li>
+          <li><a href="{{ '/pages/libapps/database-finder/' | url }}">Database Finder</a> - LibApps database listing and filtering page for styling validation.</li>
+          <li><a href="{{ '/pages/libapps/guides-default-side-nav/' | url }}">Guides Default Side Nav</a></li>
+          <li><a href="{{ '/pages/libapps/guides-guide-wide-column/' | url }}">Guides Guide Wide Column</a> - LibApps guide page with a wide column layout for styling validation.</li>
+        </ul>
+      </section>
 
-        .status-message {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #c9302c;
-            margin: 15px 0;
-        }
-
-        p {
-            line-height: 1.6;
-            font-size: 1.1rem;
-        }
-
-        /* Dynamic Two-Column Layout Grid for Catalog Links */
-        .system-links {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #f1f1f1;
-            border-radius: 4px;
-            text-align: left;
-        }
-
-        .system-links h2 {
-            font-size: 1.2rem;
-            margin-top: 0;
-            color: #333333;
-            border-bottom: 2px solid #800000;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-
-        /* Responsive grid separation split */
-        .links-grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .system-links ul {
-            list-style-type: square;
-            padding-left: 20px;
-            margin: 0;
-        }
-
-        .system-links li {
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .nested-list {
-            list-style-type: circle;
-            padding-left: 20px;
-            margin-top: 5px;
-        }
-
-        /* Link Styling */
-        a {
-            color: #800000;
-            text-decoration: underline;
-            font-weight: bold;
-        }
-
-        a:hover {
-            color: #550000;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #f1f1f1;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.95rem;
-            border-top: 1px solid #e0e0e0;
-            margin-top: auto;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <img src="https://www.lib.uchicago.edu/web-resources/img/white-logo.png" alt="The University of Chicago Library Logo" class="logo-img">
-    </header>
-
-    <main>
-        <h1>University of Chicago Library</h1>
-        <div class="status-message">Website Temporarily Unavailable</div>
-        
-        <p>
-            The University of Chicago Library website is currently experiencing technical difficulties or undergoing scheduled maintenance. We apologize for the inconvenience.
-        </p>
-        <p>
-            Our team is actively working to restore full live availability as soon as possible. In the meantime, please utilize the direct system links below.
-        </p>
-
-        <div class="system-links">
-            <h2>Library Catalogs and Services</h2>
-            
-            <div class="links-grid-container">
-                <!-- Column Group One -->
-                <ul>
-                    <li>
-                        <a href="http://catalog.lib.uchicago.edu/" target="_blank">Library Catalog</a>
-                        <ul class="nested-list">
-                            <li><a href="https://catalog.lib.uchicago.edu/vwebv/login" target="_blank">My Account</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="https://guides.lib.uchicago.edu/" target="_blank">LibGuides</a></li>
-                    <li><a href="http://catalog.lib.uchicago.edu/" target="_blank">Databases</a></li>
-                    <li><a href="https://catalog.lib.uchicago.edu/vufind/MyResearch/Home?redirect=0/" target="_blank">My Account</a></li>
-                    <li><a href="https://research.ebsco.com/c/ijaglh/search" target="_blank">Articles Plus (Direct Access)</a></li>
-                    <li><a href="https://www.lib.uchicago.edu/" target="_blank">Ejournals Finder</a></li>
-                </ul>
-
-                <!-- Column Group Two -->
-                <ul>
-                    <li><a href="https://newfirstsearch.oclc.org/WebZ/FSPrefs?entityjsdetect=:javascript=true:screensize=large:sessionid=fsap11pxm1-1680-mr3x7en9-ou60k4:entitypagenum=1:0" target="_blank">Worldcat</a></li>
-                    <li><a href="https://guides.lib.uchicago.edu/az.php" target="_blank">Database Finder</a></li>
-                    <li><a href="https://www.lib.uchicago.edu/borrow/requesting/interlibrary-loan/" target="_blank">ILL (Interlibrary Loan / VDX)</a></li>
-                    <li><a href="https://www.lib.uchicago.edu/borrow/access-privileges/offcampus/" target="_blank">Proxy & Off-Campus Access Login</a></li>
-                    <li><a href="https://www.lib.uchicago.edu/research/help/ask-librarian/" target="_blank">Ask a Librarian</a></li>
-                    <li><a href="https://rooms.lib.uchicago.edu/r/search/seats#s-lc-public-pt" target="_blank">Book a Room</a></li>
-                    <li><a href="https://guides.lib.uchicago.edu/c.php?g=298425&p=1990078" target="_blank">Special Collections Material Requests</a></li>
-                </ul>
+      <section class="mb-5">
+        <h2>The System</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title"><a href="{{ '/design_system/' | url }}">Design System</a></h3>
+                <p class="card-text">Design principles, color palette, accessibility standards, and design tokens.</p>
+              </div>
             </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title"><a href="{{ '/design_mockups/' | url }}">Mockups</a></h3>
+                <p class="card-text">Exploratory and validation page mockups used to test layout directions and interactions.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title"><a href="{{ '/pages/' | url }}">Pages</a></h3>
+                <p class="card-text">Application-exported pages organized for implementation and visual validation.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title"><a href="{{ '/methodology/' | url }}">Project Methodology</a></h3>
+                <p class="card-text">Best practices, setup, naming conventions, and how to add components and pages.</p>
+              </div>
+            </div>
+          </div>
         </div>
-    </main>
+      </section>
 
-    <footer>
-        <p>For assistance, please contact the <strong>Library Web Team</strong> via <a href="mailto:web-admin@lib.uchicago.edu">web-admin@lib.uchicago.edu</a>.</p>
-    </footer>
+      <section class="mb-5">
+        <h2>Status & Roadmap</h2>
+        <p>Thie System is based on a planning document hosted <a href="https://uchicago.app.box.com/file/2095747484682?s=jf05ybrn63rgky5f66j8uhms6ljr26ez">here</a>.</p>
+        <div class="alert alert-info">
+          <strong>🚀 In Progress:</strong> This design system is a work in progress stabilization effort aimed for completion by <strong>August 2026</strong>.
+        </div>
+        <ul class="mb-0">
+          <li>Review developer user cases.</li>
+          <li>Finalize the initial set of components and design tokens based on the most common patterns across the library's websites.</li>
+          <li><s>Add mockups of HTML from LibApps to test styling.</s> ✓ LibApps/LibGuides/Springshare CSS output created.</li>
+          <li>Define two tab patterns: one for complex content without a bounding box (as used in Revised Guides), and one standard pattern where the active tab and content share a single content box.</li>
+          <li>Add a utility to easily copy any &lt;pre&gt; or &lt;code&gt; content.</li>
+        </ul>
+      </section>
 
-</body>
-</html>
+      <section class="mb-5">
+        <h2>Quick Facts</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title">Based on Brand Guidelines</h3>
+                <p class="card-text">Uses the official University of Chicago Library brand colors and typography (UChicago Sans Serif).</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title">WCAG 2.1 Level AA</h3>
+                <p class="card-text">All components meet accessibility standards for contrast, keyboard navigation, and screen readers.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title">Built on Bootstrap 5</h3>
+                <p class="card-text">Leverages Bootstrap's powerful foundation with custom brand overrides and extensions.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title">Copy-Paste Ready</h3>
+                <p class="card-text">All components can be directly copied into other projects with minimal dependencies.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>Use Cases</h2>
+        <p>This design system is designed to support the main Library website. Other websites will also be supported with multi-platform modularity planned to be considered in the future.</p>
+        <ul>
+          <li><strong>Catalog</strong> (component library)</li>
+          <li><strong>LibGuides</strong> (custom CSS)</li>
+          <li><strong>Book a Room</strong> (embedded components)</li>
+          <li><strong>Other library websites and services</strong></li>
+          <li><strong><a href="https://repository.lib.uchicago.edu" target="_blank">Digital Repository</a></strong></li>
+        </ul>
+      </section>
+
+      <section class="mb-5">
+        <h2>Technology Stack</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Technology</th>
+              <th>Purpose</th>
+              <th>Version</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Eleventy</strong></td>
+              <td>Static site generator</td>
+              <td>2.0.1+</td>
+            </tr>
+            <tr>
+              <td><strong>Bootstrap 5</strong></td>
+              <td>CSS framework (SCSS)</td>
+              <td>5.3.2+</td>
+            </tr>
+            <tr>
+              <td><strong>Sass</strong></td>
+              <td>SCSS compilation</td>
+              <td>1.69.5+</td>
+            </tr>
+            <tr>
+              <td><strong>FontAwesome</strong></td>
+              <td>Icon library (CDN)</td>
+              <td>Latest</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="mb-5">
+        <h2>Documentation Navigation</h2>
+        <ul>
+          <li>
+            <a href="{{ '/design_system/' | url }}">Design System</a>
+            <ul>
+              <li>Foundation
+                <ul>
+                  <li><a href="{{ '/design_system/design-intent/' | url }}">Design Intent</a></li>
+                  <li><a href="{{ '/design_system/observations/' | url }}">Observations</a></li>
+                </ul>
+              </li>
+              <li>Guidelines
+                <ul>
+                  <li><a href="{{ '/design_system/grouping-content/' | url }}">Grouping Content</a></li>
+                  <li><a href="{{ '/design_system/color-usage-guidelines/' | url }}">Color Usage Guidelines</a></li>
+                  <li><a href="{{ '/design_system/copywriting/' | url }}">Copywriting Guidelines</a></li>
+                </ul>
+              </li>
+              <li>Implementation
+                <ul>
+                  <li><a href="{{ '/design_system/design-tokens/' | url }}">Design Tokens</a></li>
+                  <li><a href="{{ '/design_system/design-tokens-colors/' | url }}">Design Tokens - Colors</a></li>
+                  <li><a href="{{ '/design_system/components/' | url }}">Components</a></li>
+                  <li><a href="{{ '/design_system/layouts/' | url }}">Layouts</a></li>
+                  <li><a href="{{ '/design_system/typography/' | url }}">Typography</a></li>
+                  <li><a href="{{ '/design_system/typography-history/' | url }}">Typography History</a></li>
+                  <li><a href="{{ '/design_system/event-tracking/' | url }}">Event Tracking</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="{{ '/design_mockups/' | url }}">Design Mockups</a>
+            <ul>
+              <li><a href="{{ '/design_mockups/guides-in-types/' | url }}">Guides in Types</a></li>
+              <li><a href="{{ '/design_mockups/guides-in-photos/' | url }}">Guides in Photos</a></li>
+              <li><a href="{{ '/design_mockups/guides-in-accordions/' | url }}">Guides in Accordions</a></li>
+              <li><a href="{{ '/design_mockups/guides-in-accordions-subjects/' | url }}">Guides in Accordions (Subjects)</a></li>
+              <li><a href="{{ '/design_mockups/components-glassmorphism/' | url }}">Components Glassmorphism</a></li>
+              <li><a href="{{ '/design_mockups/styling-glassmorphism/' | url }}">Homepage Styling Glassmorphism</a></li>
+              <li><a href="{{ '/design_mockups/styling-minimalist/' | url }}">Homepage Styling Minimalist</a></li>
+              <li><a href="{{ '/design_mockups/ask-us/' | url }}">Ask Us Anything Mockup</a></li>
+              <li><a href="{{ '/design_mockups/contacts/' | url }}">Contacts Mockup</a></li>
+              <li><a href="{{ '/design_mockups/libapps-header/' | url }}">LibApps Header</a></li>
+              <li><a href="{{ '/design_mockups/header-default/' | url }}">Header Default</a></li>
+              <li><a href="{{ '/design_mockups/header-minimal/' | url }}">Header Minimal</a></li>
+              <li><a href="{{ '/design_mockups/header-customization/' | url }}">Header Customization</a></li>
+              <li><a href="{{ '/design_mockups/header-current-new/' | url }}">Header Current New</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="{{ '/pages/' | url }}">Pages</a>
+            <ul>
+              <li><a href="{{ '/pages/libapps/' | url }}">LibApps</a></li>
+              <li><a href="{{ '/pages/libapps/guides-homepage/' | url }}">Guides Homepage</a></li>
+              <li><a href="{{ '/pages/libapps/database-finder/' | url }}">Database Finder</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="{{ '/methodology/' | url }}">Methodology</a>
+            <ul>
+              <li><a href="{{ '/methodology/system-architecture/' | url }}">System Architecture</a></li>
+              <li><a href="{{ '/methodology/design-standards/' | url }}">Design Standards</a></li>
+              <li><a href="{{ '/methodology/file-organization/' | url }}">File Organization</a></li>
+              <li><a href="{{ '/methodology/setup/' | url }}">Setup</a></li>
+              <li><a href="{{ '/methodology/validation/' | url }}">Validation</a></li>
+              <li><a href="{{ '/methodology/annotations/' | url }}">Annotations</a></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}
