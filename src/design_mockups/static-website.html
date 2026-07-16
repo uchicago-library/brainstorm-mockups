@@ -30,7 +30,7 @@
 
         /* Constrained logo size so it isn't overly big */
         .logo-img {
-            max-width: 240px;
+            max-width: 180px;
             height: auto;
             margin-bottom: 5px;
             display: inline-block;
@@ -39,13 +39,18 @@
         /* Main Content Container - Left Aligned */
         main {
             flex: 1;
-            max-width: 750px;
+            max-width: 600px;
             margin: 40px auto;
             padding: 25px;
             background-color: #ffffff;
             border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             text-align: left;
+        }
+        @media (max-width: 700px) {
+            main {
+                margin: 0 auto;
+            }
         }
 
         h1 {
@@ -59,7 +64,6 @@
         .status-message {
             font-size: 1.3rem;
             font-weight: bold;
-            color: #c9302c;
             margin: 15px 0;
         }
 
@@ -89,17 +93,16 @@
         /* Responsive grid separation split */
         .links-grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
-        .system-links ul {
-            list-style-type: square;
+        .links-grid-container ul {
             padding-left: 20px;
             margin: 0;
         }
 
-        .system-links li {
+        .links-grid-container li {
             margin-bottom: 12px;
             line-height: 1.4;
         }
@@ -149,36 +152,34 @@
             Our team is actively working to restore full live availability as soon as possible. In the meantime, please utilize the direct system links below.
         </p>
 
-        <div class="system-links">
-            <h2>Library Catalogs and Services</h2>
-            
-            <div class="links-grid-container">
-                <!-- Column Group One -->
-                <ul>
-                    <li>
-                        <a href="http://catalog.lib.uchicago.edu/" target="_blank">Library Catalog</a>
-                        <ul class="nested-list">
-                            <li><a href="https://catalog.lib.uchicago.edu/vwebv/login" target="_blank">My Account</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="https://guides.lib.uchicago.edu/" target="_blank">LibGuides</a></li>
-                    <li><a href="http://catalog.lib.uchicago.edu/" target="_blank">Databases</a></li>
-                    <li><a href="https://catalog.lib.uchicago.edu/vufind/MyResearch/Home?redirect=0/" target="_blank">My Account</a></li>
-                    <li><a href="https://research.ebsco.com/c/ijaglh/search" target="_blank">Articles Plus (Direct Access)</a></li>
-                    <li><a href="https://www.lib.uchicago.edu/" target="_blank">Ejournals Finder</a></li>
-                </ul>
+        <h2>Library Catalogs and Services</h2>
+        
+        <div class="links-grid-container">
+            <!-- Column Group One -->
+            <ul>
+                <li>
+                    <a href="http://catalog.lib.uchicago.edu/" target="_blank">Library Catalog</a>
+                    <ul class="nested-list">
+                        <li><a href="https://catalog.lib.uchicago.edu/vwebv/login" target="_blank">My Account</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://guides.lib.uchicago.edu/" target="_blank">LibGuides</a></li>
+                <li><a href="http://catalog.lib.uchicago.edu/" target="_blank">Databases</a></li>
+                <li><a href="https://catalog.lib.uchicago.edu/vufind/MyResearch/Home?redirect=0/" target="_blank">My Account</a></li>
+                <li><a href="https://research.ebsco.com/c/ijaglh/search" target="_blank">Articles Plus (Direct Access)</a></li>
+                <li><a href="https://www.lib.uchicago.edu/" target="_blank">Ejournals Finder</a></li>
+            </ul>
 
-                <!-- Column Group Two -->
-                <ul>
-                    <li><a href="https://newfirstsearch.oclc.org/WebZ/FSPrefs?entityjsdetect=:javascript=true:screensize=large:sessionid=fsap11pxm1-1680-mr3x7en9-ou60k4:entitypagenum=1:0" target="_blank">Worldcat</a></li>
-                    <li><a href="https://guides.lib.uchicago.edu/az.php" target="_blank">Database Finder</a></li>
-                    <li><a href="https://www.lib.uchicago.edu/borrow/requesting/interlibrary-loan/" target="_blank">ILL (Interlibrary Loan / VDX)</a></li>
-                    <li><a href="https://www.lib.uchicago.edu/borrow/access-privileges/offcampus/" target="_blank">Proxy & Off-Campus Access Login</a></li>
-                    <li><a href="https://www.lib.uchicago.edu/research/help/ask-librarian/" target="_blank">Ask a Librarian</a></li>
-                    <li><a href="https://rooms.lib.uchicago.edu/r/search/seats#s-lc-public-pt" target="_blank">Book a Room</a></li>
-                    <li><a href="https://guides.lib.uchicago.edu/c.php?g=298425&p=1990078" target="_blank">Special Collections Material Requests</a></li>
-                </ul>
-            </div>
+            <!-- Column Group Two -->
+            <ul>
+                <li><a href="https://newfirstsearch.oclc.org/WebZ/FSPrefs?entityjsdetect=:javascript=true:screensize=large:sessionid=fsap11pxm1-1680-mr3x7en9-ou60k4:entitypagenum=1:0" target="_blank">Worldcat</a></li>
+                <li><a href="https://guides.lib.uchicago.edu/az.php" target="_blank">Database Finder</a></li>
+                <li><a href="https://www.lib.uchicago.edu/borrow/requesting/interlibrary-loan/" target="_blank">ILL (Interlibrary Loan / VDX)</a></li>
+                <li><a href="https://www.lib.uchicago.edu/borrow/access-privileges/offcampus/" target="_blank">Proxy & Off-Campus Access Login</a></li>
+                <li><a href="https://www.lib.uchicago.edu/research/help/ask-librarian/" target="_blank">Ask a Librarian</a></li>
+                <li><a href="https://rooms.lib.uchicago.edu/r/search/seats#s-lc-public-pt" target="_blank">Book a Room</a></li>
+                <li><a href="https://guides.lib.uchicago.edu/c.php?g=298425&p=1990078" target="_blank">Special Collections Material Requests</a></li>
+            </ul>
         </div>
     </main>
 
