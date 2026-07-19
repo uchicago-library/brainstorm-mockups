@@ -1,0 +1,33 @@
+---
+title: "Day Pass — Patron Login"
+description: "Kiosk start screen for patrons who forgot their UChicago ID."
+---
+
+{% include "meta/document-start.html" %}
+
+<style>
+  .daypass-kiosk-frame {
+    max-width: 32rem;
+  }
+</style>
+
+{% include "header.html" %}
+{% include "breadcrumb.html" %}
+
+<main class="container-sm py-4 mb-5">
+  <div class="alert alert-secondary small mb-4" role="note">
+    <strong>Mockup note:</strong> In production, this is a full-screen kiosk interface without site navigation.
+  </div>
+
+  <div class="daypass-kiosk-frame mx-auto text-center py-5">
+    <h1 class="mb-3">Library Day Pass</h1>
+    <p class="lead mb-4">Forgot your UChicago ID? Log in with your CNetID to get a day pass at the entry desk.</p>
+    <a href="#" class="btn btn-primary btn-lg px-5">
+      <i class="fa-solid fa-arrow-right-to-bracket me-2" aria-hidden="true"></i>
+      Log in with CNetID
+    </a>
+    <p class="mt-4 text-muted small">You will be redirected to the UChicago login page.</p>
+  </div>
+</main>
+
+{% include "footer.html" %}

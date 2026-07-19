@@ -1,0 +1,515 @@
+---
+title: "Day Pass — Admin Log"
+description: "Admin interface showing day pass log entries with filter, sort, and action controls."
+---
+
+{% include "meta/document-start.html" %}
+
+<style>
+  .daypass-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bs-secondary-bg);
+    border: 1px solid var(--bs-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bs-secondary-color);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .daypass-log-row--hidden td {
+    opacity: 0.4;
+  }
+
+  .daypass-details-pre {
+    font-size: 0.8rem;
+    max-height: 12rem;
+    overflow-y: auto;
+    background-color: var(--bs-tertiary-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius-sm);
+    padding: 0.75rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+</style>
+
+{% include "header.html" %}
+{% include "breadcrumb.html" %}
+
+<main class="container-lg py-4 mb-5">
+  <div class="d-flex align-items-baseline justify-content-between flex-wrap gap-2 mb-3">
+    <h1 class="mb-0">Day Pass Log</h1>
+    <span class="text-muted small" id="log-count" aria-live="polite"></span>
+  </div>
+
+  <div class="d-flex flex-wrap gap-2 mb-3" aria-label="Log filters and sort controls">
+    <div class="btn-group" role="group" aria-label="Date filter">
+      <input type="radio" class="btn-check" name="filter-date" id="filter-today" value="today" autocomplete="off" checked>
+      <label class="btn btn-outline-secondary btn-sm" for="filter-today">Today</label>
+      <input type="radio" class="btn-check" name="filter-date" id="filter-all-dates" value="all" autocomplete="off">
+      <label class="btn btn-outline-secondary btn-sm" for="filter-all-dates">All logs</label>
+    </div>
+
+    <div class="btn-group" role="group" aria-label="Status filter">
+      <input type="radio" class="btn-check" name="filter-status" id="filter-status-all" value="all" autocomplete="off" checked>
+      <label class="btn btn-outline-secondary btn-sm" for="filter-status-all">All</label>
+      <input type="radio" class="btn-check" name="filter-status" id="filter-status-success" value="pass_issued" autocomplete="off">
+      <label class="btn btn-outline-secondary btn-sm" for="filter-status-success">
+        <i class="fa-solid fa-circle-check me-1" aria-hidden="true"></i>Success
+      </label>
+      <input type="radio" class="btn-check" name="filter-status" id="filter-status-fail" value="fail" autocomplete="off">
+      <label class="btn btn-outline-secondary btn-sm" for="filter-status-fail">
+        <i class="fa-solid fa-circle-xmark me-1" aria-hidden="true"></i>Fails
+      </label>
+    </div>
+
+    <div class="btn-group" role="group" aria-label="Sort order">
+      <button type="button" class="btn btn-outline-secondary btn-sm active" id="sort-timestamp" aria-pressed="true">
+        <i class="fa-solid fa-clock me-1" aria-hidden="true"></i>Timestamp
+      </button>
+      <button type="button" class="btn btn-outline-secondary btn-sm" id="sort-lastname" aria-pressed="false">
+        <i class="fa-solid fa-arrow-down-a-z me-1" aria-hidden="true"></i>Last name
+      </button>
+    </div>
+
+    <div class="form-check form-switch d-flex align-items-center ms-1 mb-0">
+      <input class="form-check-input" type="checkbox" id="show-hidden" role="switch">
+      <label class="form-check-label ms-2 small" for="show-hidden">Show hidden</label>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-sm table-hover align-middle" id="log-table">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">Timestamp</th>
+          <th scope="col">Photo</th>
+          <th scope="col">Name / CNetID</th>
+          <th scope="col">Event</th>
+          <th scope="col">Token</th>
+          <th scope="col">Kiosk</th>
+          <th scope="col"><span class="visually-hidden">Details</span></th>
+          <th scope="col"><span class="visually-hidden">Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-ts="2026-07-18 09:14:23" data-lastname="johnson" data-date="2026-07-18" data-event="pass_issued" data-hidden="false">
+          <td class="text-nowrap small">
+            <span class="d-block">2026-07-18</span>
+            <span class="text-muted">09:14:23</span>
+          </td>
+          <td>
+            <div class="daypass-photo" aria-label="Patron photo placeholder">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </div>
+          </td>
+          <td>
+            <span class="d-block">Amara Johnson</span>
+            <span class="text-muted small font-monospace">ajohnson</span>
+          </td>
+          <td><span class="badge text-bg-success">pass_issued</span></td>
+          <td class="small text-nowrap font-monospace">DPS-2026-0718-001</td>
+          <td class="small">kiosk-01</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-secondary"
+              data-bs-toggle="modal" data-bs-target="#details-modal"
+              data-details='{"timestamp":"2026-07-18 09:14:23","name":"Amara Johnson","cnetid":"ajohnson","dob":"1998-03-15","event":"pass_issued","token":"DPS-2026-0718-001","kiosk":"kiosk-01","details":{"token":"DPS-2026-0718-001","print_queue":"lp01","status":"ok"}}'>
+              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Details
+            </button>
+          </td>
+          <td class="text-nowrap">
+            <button type="button" class="btn btn-sm btn-outline-primary me-1"
+              data-bs-toggle="modal" data-bs-target="#reprint-modal"
+              data-token="DPS-2026-0718-001" data-patron="Amara Johnson (ajohnson)">
+              <i class="fa-solid fa-print me-1" aria-hidden="true"></i>Re-print
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-secondary hide-row-btn" aria-label="Hide this entry">
+              <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+
+        <tr data-ts="2026-07-18 09:22:47" data-lastname="reinholt" data-date="2026-07-18" data-event="block_attempt" data-hidden="false">
+          <td class="text-nowrap small">
+            <span class="d-block">2026-07-18</span>
+            <span class="text-muted">09:22:47</span>
+          </td>
+          <td>
+            <div class="daypass-photo" aria-label="No photo on account">
+              <i class="fa-solid fa-user-slash" aria-hidden="true"></i>
+            </div>
+          </td>
+          <td>
+            <span class="d-block">Felix Reinholt</span>
+            <span class="text-muted small font-monospace">freinhold</span>
+          </td>
+          <td><span class="badge text-bg-danger">block_attempt</span></td>
+          <td class="text-muted small">—</td>
+          <td class="small">kiosk-01</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-secondary"
+              data-bs-toggle="modal" data-bs-target="#details-modal"
+              data-details='{"timestamp":"2026-07-18 09:22:47","name":"Felix Reinholt","cnetid":"freinhold","dob":"2001-07-04","event":"block_attempt","token":null,"kiosk":"kiosk-01","details":{"reason":"no_photo","message":"Account photo unavailable or display restricted"}}'>
+              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Details
+            </button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-secondary hide-row-btn" aria-label="Hide this entry">
+              <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+
+        <tr data-ts="2026-07-18 10:05:12" data-lastname="deluca" data-date="2026-07-18" data-event="auth_fail" data-hidden="false">
+          <td class="text-nowrap small">
+            <span class="d-block">2026-07-18</span>
+            <span class="text-muted">10:05:12</span>
+          </td>
+          <td>
+            <div class="daypass-photo" aria-label="Patron photo placeholder">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </div>
+          </td>
+          <td>
+            <span class="d-block">Marcus DeLuca</span>
+            <span class="text-muted small font-monospace">mdeluca</span>
+          </td>
+          <td><span class="badge text-bg-warning">auth_fail</span></td>
+          <td class="text-muted small">—</td>
+          <td class="small">kiosk-02</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-secondary"
+              data-bs-toggle="modal" data-bs-target="#details-modal"
+              data-details='{"timestamp":"2026-07-18 10:05:12","name":"Marcus DeLuca","cnetid":"mdeluca","dob":"1995-11-22","event":"auth_fail","token":null,"kiosk":"kiosk-02","details":{"error":"okta_timeout","code":503,"retries":3}}'>
+              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Details
+            </button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-secondary hide-row-btn" aria-label="Hide this entry">
+              <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+
+        <tr data-ts="2026-07-17 14:33:08" data-lastname="nair" data-date="2026-07-17" data-event="pass_issued" data-hidden="false">
+          <td class="text-nowrap small">
+            <span class="d-block">2026-07-17</span>
+            <span class="text-muted">14:33:08</span>
+          </td>
+          <td>
+            <div class="daypass-photo" aria-label="Patron photo placeholder">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </div>
+          </td>
+          <td>
+            <span class="d-block">Priya Nair</span>
+            <span class="text-muted small font-monospace">pnair</span>
+          </td>
+          <td><span class="badge text-bg-success">pass_issued</span></td>
+          <td class="small text-nowrap font-monospace">DPS-2026-0717-043</td>
+          <td class="small">kiosk-01</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-secondary"
+              data-bs-toggle="modal" data-bs-target="#details-modal"
+              data-details='{"timestamp":"2026-07-17 14:33:08","name":"Priya Nair","cnetid":"pnair","dob":"2000-02-28","event":"pass_issued","token":"DPS-2026-0717-043","kiosk":"kiosk-01","details":{"token":"DPS-2026-0717-043","print_queue":"lp01","status":"ok"}}'>
+              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Details
+            </button>
+          </td>
+          <td class="text-nowrap">
+            <button type="button" class="btn btn-sm btn-outline-primary me-1"
+              data-bs-toggle="modal" data-bs-target="#reprint-modal"
+              data-token="DPS-2026-0717-043" data-patron="Priya Nair (pnair)">
+              <i class="fa-solid fa-print me-1" aria-hidden="true"></i>Re-print
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-secondary hide-row-btn" aria-label="Hide this entry">
+              <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+
+        <tr data-ts="2026-07-17 16:18:55" data-lastname="blackwell" data-date="2026-07-17" data-event="block_attempt" data-hidden="false">
+          <td class="text-nowrap small">
+            <span class="d-block">2026-07-17</span>
+            <span class="text-muted">16:18:55</span>
+          </td>
+          <td>
+            <div class="daypass-photo" aria-label="Patron photo placeholder">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </div>
+          </td>
+          <td>
+            <span class="d-block">Owen Blackwell</span>
+            <span class="text-muted small font-monospace">oblackwel</span>
+          </td>
+          <td><span class="badge text-bg-danger">block_attempt</span></td>
+          <td class="text-muted small">—</td>
+          <td class="text-muted small">—</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-secondary"
+              data-bs-toggle="modal" data-bs-target="#details-modal"
+              data-details='{"timestamp":"2026-07-17 16:18:55","name":"Owen Blackwell","cnetid":"oblackwel","dob":"1992-08-10","event":"block_attempt","token":null,"kiosk":null,"details":{"reason":"ineligible","message":"Account status: suspended"}}'>
+              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Details
+            </button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-secondary hide-row-btn" aria-label="Hide this entry">
+              <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+
+        <tr data-ts="2026-07-16 11:47:32" data-lastname="kim" data-date="2026-07-16" data-event="pass_issued" data-hidden="false">
+          <td class="text-nowrap small">
+            <span class="d-block">2026-07-16</span>
+            <span class="text-muted">11:47:32</span>
+          </td>
+          <td>
+            <div class="daypass-photo" aria-label="Patron photo placeholder">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </div>
+          </td>
+          <td>
+            <span class="d-block">Sara Kim</span>
+            <span class="text-muted small font-monospace">skim</span>
+          </td>
+          <td><span class="badge text-bg-success">pass_issued</span></td>
+          <td class="small text-nowrap font-monospace">DPS-2026-0716-088</td>
+          <td class="small">kiosk-02</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-secondary"
+              data-bs-toggle="modal" data-bs-target="#details-modal"
+              data-details='{"timestamp":"2026-07-16 11:47:32","name":"Sara Kim","cnetid":"skim","dob":"2003-05-17","event":"pass_issued","token":"DPS-2026-0716-088","kiosk":"kiosk-02","details":{"token":"DPS-2026-0716-088","print_queue":"lp02","status":"ok"}}'>
+              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Details
+            </button>
+          </td>
+          <td class="text-nowrap">
+            <button type="button" class="btn btn-sm btn-outline-primary me-1"
+              data-bs-toggle="modal" data-bs-target="#reprint-modal"
+              data-token="DPS-2026-0716-088" data-patron="Sara Kim (skim)">
+              <i class="fa-solid fa-print me-1" aria-hidden="true"></i>Re-print
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-secondary hide-row-btn" aria-label="Hide this entry">
+              <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+
+        <tr data-ts="2026-07-16 14:22:19" data-lastname="park" data-date="2026-07-16" data-event="auth_fail" data-hidden="false">
+          <td class="text-nowrap small">
+            <span class="d-block">2026-07-16</span>
+            <span class="text-muted">14:22:19</span>
+          </td>
+          <td>
+            <div class="daypass-photo" aria-label="Patron photo placeholder">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </div>
+          </td>
+          <td>
+            <span class="d-block">Daniel Park</span>
+            <span class="text-muted small font-monospace">dpark</span>
+          </td>
+          <td><span class="badge text-bg-warning">auth_fail</span></td>
+          <td class="text-muted small">—</td>
+          <td class="small">kiosk-01</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-secondary"
+              data-bs-toggle="modal" data-bs-target="#details-modal"
+              data-details='{"timestamp":"2026-07-16 14:22:19","name":"Daniel Park","cnetid":"dpark","dob":"1999-09-11","event":"auth_fail","token":null,"kiosk":"kiosk-01","details":{"error":"session_expired","code":401,"retries":1}}'>
+              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Details
+            </button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-secondary hide-row-btn" aria-label="Hide this entry">
+              <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<!-- Details modal -->
+<div class="modal fade" id="details-modal" tabindex="-1" aria-labelledby="details-modal-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="details-modal-label">Log Entry Details</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <dl class="row mb-3">
+          <dt class="col-sm-4">Timestamp</dt>
+          <dd class="col-sm-8" id="detail-timestamp"></dd>
+          <dt class="col-sm-4">Name</dt>
+          <dd class="col-sm-8" id="detail-name"></dd>
+          <dt class="col-sm-4">CNetID</dt>
+          <dd class="col-sm-8 font-monospace" id="detail-cnetid"></dd>
+          <dt class="col-sm-4">Date of birth</dt>
+          <dd class="col-sm-8" id="detail-dob"></dd>
+          <dt class="col-sm-4">Event</dt>
+          <dd class="col-sm-8" id="detail-event"></dd>
+          <dt class="col-sm-4">Token</dt>
+          <dd class="col-sm-8 font-monospace" id="detail-token"></dd>
+          <dt class="col-sm-4">Kiosk</dt>
+          <dd class="col-sm-8" id="detail-kiosk"></dd>
+        </dl>
+        <p class="mb-1 fw-semibold">Details</p>
+        <pre class="daypass-details-pre" id="detail-json"></pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Re-print modal -->
+<div class="modal fade" id="reprint-modal" tabindex="-1" aria-labelledby="reprint-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="reprint-modal-label">Re-print Day Pass</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <dl class="row mb-0">
+          <dt class="col-4">Token</dt>
+          <dd class="col-8 font-monospace" id="reprint-token"></dd>
+          <dt class="col-4">Patron</dt>
+          <dd class="col-8" id="reprint-patron"></dd>
+        </dl>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">
+          <i class="fa-solid fa-print me-1" aria-hidden="true"></i>Confirm re-print
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const TODAY = '2026-07-18';
+    const tbody = document.querySelector('#log-table tbody');
+    const countEl = document.getElementById('log-count');
+
+    let sortMode = 'timestamp';
+    let dateFilter = 'today';
+    let statusFilter = 'all';
+    let showHidden = false;
+
+    function applyView() {
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+
+      rows.sort(function (a, b) {
+        if (sortMode === 'timestamp') {
+          return b.dataset.ts.localeCompare(a.dataset.ts);
+        }
+        return a.dataset.lastname.localeCompare(b.dataset.lastname);
+      });
+      rows.forEach(function (r) { tbody.appendChild(r); });
+
+      var visible = 0;
+      var total = 0;
+
+      rows.forEach(function (row) {
+        var isHidden = row.dataset.hidden === 'true';
+        var dateMatch = dateFilter === 'all' || row.dataset.date === TODAY;
+        var statusMatch = statusFilter === 'all'
+          || (statusFilter === 'pass_issued' && row.dataset.event === 'pass_issued')
+          || (statusFilter === 'fail' && (row.dataset.event === 'auth_fail' || row.dataset.event === 'block_attempt'));
+
+        var matchesFilters = dateMatch && statusMatch;
+
+        if (matchesFilters) {
+          total++;
+          if (!isHidden) visible++;
+        }
+
+        row.hidden = !matchesFilters || (isHidden && !showHidden);
+        row.classList.toggle('daypass-log-row--hidden', isHidden && showHidden && matchesFilters);
+      });
+
+      countEl.textContent = visible + ' of ' + total + ' entries';
+    }
+
+    document.querySelectorAll('input[name="filter-date"]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        dateFilter = input.value;
+        applyView();
+      });
+    });
+
+    document.querySelectorAll('input[name="filter-status"]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        statusFilter = input.value;
+        applyView();
+      });
+    });
+
+    document.getElementById('sort-timestamp').addEventListener('click', function () {
+      sortMode = 'timestamp';
+      this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
+      var other = document.getElementById('sort-lastname');
+      other.classList.remove('active');
+      other.setAttribute('aria-pressed', 'false');
+      applyView();
+    });
+
+    document.getElementById('sort-lastname').addEventListener('click', function () {
+      sortMode = 'lastname';
+      this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
+      var other = document.getElementById('sort-timestamp');
+      other.classList.remove('active');
+      other.setAttribute('aria-pressed', 'false');
+      applyView();
+    });
+
+    document.getElementById('show-hidden').addEventListener('change', function () {
+      showHidden = this.checked;
+      applyView();
+    });
+
+    tbody.addEventListener('click', function (e) {
+      var btn = e.target.closest('.hide-row-btn');
+      if (!btn) return;
+      var row = btn.closest('tr');
+      var isHidden = row.dataset.hidden === 'true';
+      row.dataset.hidden = isHidden ? 'false' : 'true';
+      var icon = btn.querySelector('i');
+      btn.setAttribute('aria-label', isHidden ? 'Hide this entry' : 'Unhide this entry');
+      icon.className = isHidden ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+      applyView();
+    });
+
+    document.getElementById('details-modal').addEventListener('show.bs.modal', function (e) {
+      var data = JSON.parse(e.relatedTarget.getAttribute('data-details'));
+      document.getElementById('detail-timestamp').textContent = data.timestamp;
+      document.getElementById('detail-name').textContent = data.name;
+      document.getElementById('detail-cnetid').textContent = data.cnetid;
+      document.getElementById('detail-dob').textContent = data.dob || '—';
+      document.getElementById('detail-event').textContent = data.event;
+      document.getElementById('detail-token').textContent = data.token || '—';
+      document.getElementById('detail-kiosk').textContent = data.kiosk || '—';
+      document.getElementById('detail-json').textContent = JSON.stringify(data.details, null, 2);
+    });
+
+    document.getElementById('reprint-modal').addEventListener('show.bs.modal', function (e) {
+      document.getElementById('reprint-token').textContent = e.relatedTarget.getAttribute('data-token');
+      document.getElementById('reprint-patron').textContent = e.relatedTarget.getAttribute('data-patron');
+    });
+
+    applyView();
+  }());
+</script>
+
+{% include "footer.html" %}

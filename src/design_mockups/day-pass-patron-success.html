@@ -1,0 +1,29 @@
+---
+title: "Day Pass — Confirmation"
+description: "Kiosk confirmation screen shown after successful Okta authentication."
+---
+
+{% include "meta/document-start.html" %}
+
+<style>
+  .daypass-kiosk-frame {
+    max-width: 32rem;
+  }
+</style>
+
+{% include "header.html" %}
+{% include "breadcrumb.html" %}
+
+<main class="container-sm py-4 mb-5">
+  <div class="alert alert-secondary small mb-4" role="note">
+    <strong>Mockup note:</strong> In production, this is a full-screen kiosk interface without site navigation. No patron account data is displayed.
+  </div>
+
+  <div class="daypass-kiosk-frame mx-auto text-center py-5">
+    <i class="fa-solid fa-circle-check fa-4x text-success mb-4" aria-hidden="true"></i>
+    <h1 class="mb-3">Login successful</h1>
+    <p class="lead">You can retrieve your day pass at the entry desk. You will need to show a valid photo ID.</p>
+  </div>
+</main>
+
+{% include "footer.html" %}
