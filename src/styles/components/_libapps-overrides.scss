@@ -143,6 +143,14 @@ h2.footer-heading {
     }
 }
 
+// color for database finder and guides search
+#s-lg-srch-local,
+#az-search-col-1 {
+    nav.navbar {
+        background-color: var(--bs-light);
+    }
+}
+
 // ## Database finder Specific
 #database-finder-body{
 
@@ -217,12 +225,8 @@ h2.footer-heading {
     }
     
     
-    // Brand colors for the csearch box
+    // Brand colors for the search box
     #az-search-col-1 {
-        nav.navbar {
-            background-color: var(--bs-light);
-        }
-    
         #s-lg-az-filters {
             padding: 1rem;
             background-color: var(--bs-light);
@@ -368,4 +372,36 @@ h2.s-lib-box-title {
     color: var(--bs-secondary-color);
     border: 1px solid var(--bs-border-color);
     border-radius: var(--bs-border-radius);
+}
+
+
+// ## Profiles
+.s-lib-featured-profile-image img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top;
+}
+
+#s-lg-profile-nav{
+    background-color: transparent;
+    padding: 0;
+    .nav-item,
+    .nav-link {
+        font-size: .9rem;
+    }
+    .nav-item:first-child{
+        padding-top: .375rem;
+    }
+    .nav-link{
+        --bs-btn-padding-x: 0.75rem;
+        --bs-btn-padding-y: 0.375rem;
+        padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+    }
+}
+@media (max-width: 991.98px) {
+    #s-lib-public-main {
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+    }
 }
