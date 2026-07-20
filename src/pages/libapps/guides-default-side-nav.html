@@ -5,6 +5,7 @@ breadcrumbUrl: "/pages/"
 breadcrumbItems:
 - label: "LibApps"
 url: "/pages/libapps/"
+is_guide: true
 ---
 
 {% include "libapps/document-start.html" %}
@@ -24,7 +25,7 @@ url: "/pages/libapps/"
         </nav>
         <div class="float-end">
             <div id="s-lg-guide-header-search" class="me-3">
-                {{guide_search}}
+                {% include "libapps/guide_search.html" %}{{guide_search}}
 
             </div>
         </div>

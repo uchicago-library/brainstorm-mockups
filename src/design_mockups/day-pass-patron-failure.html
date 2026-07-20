@@ -1,0 +1,69 @@
+---
+title: "Day Pass — Patron Failure"
+description: "Three failure states for patron day pass requests: ineligible account, no photo, and technical error."
+---
+
+{% include "meta/document-start.html" %}
+
+<style>
+  .daypass-kiosk-frame {
+    max-width: 32rem;
+  }
+</style>
+
+
+<main class="container-md py-4 mb-5">
+  <h1>Day Pass — Patron Failure</h1>
+  <p>Three failure states a patron may see on the kiosk. In production, only the relevant state is shown.</p>
+
+  <ul class="nav nav-tabs mb-4" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="tab-ineligible" data-bs-toggle="tab" data-bs-target="#pane-ineligible" type="button" role="tab" aria-controls="pane-ineligible" aria-selected="true">
+        Ineligible account
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="tab-no-photo" data-bs-toggle="tab" data-bs-target="#pane-no-photo" type="button" role="tab" aria-controls="pane-no-photo" aria-selected="false">
+        No photo
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="tab-error" data-bs-toggle="tab" data-bs-target="#pane-error" type="button" role="tab" aria-controls="pane-error" aria-selected="false">
+        Technical issue
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="pane-ineligible" role="tabpanel" aria-labelledby="tab-ineligible">
+      <p class="text-muted small">Trigger: patron is not staff, faculty, or student — or is on the ban list.</p>
+      <div class="daypass-kiosk-frame mx-auto text-center py-5">
+        <i class="fa-solid fa-circle-xmark fa-4x text-danger mb-4" aria-hidden="true"></i>
+        <h2 class="mb-3">Day pass unavailable</h2>
+        <p class="lead">A day pass was not possible to be printed for this account. Please see the IPO office if this is unexpected.</p>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="pane-no-photo" role="tabpanel" aria-labelledby="tab-no-photo">
+      <p class="text-muted small">Trigger: account has no photo, or photo display is restricted.</p>
+      <div class="daypass-kiosk-frame mx-auto text-center py-5">
+        <i class="fa-solid fa-circle-xmark fa-4x text-danger mb-4" aria-hidden="true"></i>
+        <h2 class="mb-3">Day pass unavailable</h2>
+        <p class="lead">This account doesn't allow their photo to be displayed or doesn't have a photo. The entry desk needs a photo to confirm account match, so a day pass is not possible to be printed for this account.</p>
+        <p>Go to your <a href="#">UChicago account page</a> to change this setting.</p>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="pane-error" role="tabpanel" aria-labelledby="tab-error">
+      <p class="text-muted small">Trigger: Okta authentication failure or system error.</p>
+      <div class="daypass-kiosk-frame mx-auto text-center py-5">
+        <i class="fa-solid fa-triangle-exclamation fa-4x text-warning mb-4" aria-hidden="true"></i>
+        <h2 class="mb-3">Something went wrong</h2>
+        <p class="lead">There seems to be a technical issue. Please try again or visit the IPO office.</p>
+        <a href="{{ '/design_mockups/day-pass-patron-start/' | url }}" class="btn btn-primary mt-2">Try again</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% include "meta/document-end.html" %}

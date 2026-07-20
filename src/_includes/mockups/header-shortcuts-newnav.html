@@ -1,5 +1,6 @@
 <!-- Header mockup: shortcuts + new navigation layout. -->
 <header id="header" role="banner">
+  <!-- Libguides injects the header inside a `<header>` -->
   <div class="logo-bar bg-white">
     <div class="container-md">
       <div class="d-flex justify-content-between align-items-center py-2">
@@ -51,8 +52,7 @@
             </li>
           {% endfor %}
 
-          <li class="d-md-none">
-            <p class="dropdown-group-title text-white-50 px-2 mt-2">Quick Links</p>
+          <li class="d-md-none mt-2">
             <ul class="navbar-nav flex-column mobile-shortcuts-list" role="list">
               {% for link in globalNav.shortcutLinks %}
                 <li class="nav-item">

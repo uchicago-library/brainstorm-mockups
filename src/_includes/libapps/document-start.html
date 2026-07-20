@@ -18,8 +18,11 @@
     <link rel="stylesheet" type="text/css" href="https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css">
     
-    <link rel="stylesheet" href="https://static-assets-us.libguides.com/web/css3.28.0/lg-public-bs5.min.css">
+    {%- if is_guide %}
     <link rel="stylesheet" href="https://static-assets-us.libguides.com/web/css3.28.0/lg-public-bs535.min.css"> {# guide version #}
+    {%- else %}
+    <link rel="stylesheet" href="https://static-assets-us.libguides.com/web/css3.28.0/lg-public-bs5.min.css">
+    {%- endif %}
     
     <script type="text/javascript" src="https://static-assets-us.libguides.com/web/jquery/js/jquery-3.7.1.min.js"></script>
     <script>
@@ -32,9 +35,12 @@
             }
         });
     </script>
-
-    <script type="text/javascript" src="https://static-assets-us.libguides.com/web/js3.27.3/lg-public-bs5.min.js"></script>
+    
+    {%- if is_guide %}
     <script type="text/javascript" src="https://static-assets-us.libguides.com/web/js3.27.3/lg-public-bs35.min.js"></script> {# guide version #}
+    {%- else %}
+    <script type="text/javascript" src="https://static-assets-us.libguides.com/web/js3.27.3/lg-public-bs5.min.js"></script>
+    {%- endif %}
 
     <!-- %%% Database Finder Specific -->
     <!-- <script src="https://static-assets-us.libguides.com/web/select2/current/js/select2.min.js"></script> -->
