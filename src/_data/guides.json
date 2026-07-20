@@ -1,193 +1,181 @@
+
 {
   "subjects": [
     {
       "id": "area-cultural",
       "title": "Area & Cultural Studies",
       "guides": [
-        { "title": "African Studies", "url": "#" },
-        { "title": "Chinese Studies", "url": "#" },
-        { "title": "Japanese Studies", "url": "#" },
-        { "title": "Jewish Studies", "url": "#" },
-        { "title": "Korean Studies", "url": "#" },
-        { "title": "Latin American Studies", "url": "#" },
-        { "title": "Medieval & Byzantine Studies", "url": "#" },
-        { "title": "Middle East", "url": "#" },
-        { "title": "Slavic / Eastern Europe / Eurasia", "url": "#" },
-        { "title": "Southern Asia", "url": "#" }
+        { "title": "African Studies", "url": "http://guides.lib.uchicago.edu/africa" },
+        { "title": "Chinese Studies", "url": "http://guides.lib.uchicago.edu/chinese" },
+        { "title": "Japanese Studies", "url": "http://guides.lib.uchicago.edu/japanese" },
+        { "title": "Jewish Studies", "url": "http://guides.lib.uchicago.edu/jewishstudies" },
+        { "title": "Korean Studies", "url": "http://guides.lib.uchicago.edu/korean" },
+        { "title": "Latin American Studies", "url": "http://guides.lib.uchicago.edu/latin_america" },
+        { "title": "Medieval & Byzantine Studies", "url": "http://guides.lib.uchicago.edu/medieval" },
+        { "title": "Middle East", "url": "http://guides.lib.uchicago.edu/mideast" },
+        { "title": "Slavic / Eastern Europe / Eurasia", "url": "https://guides.lib.uchicago.edu/SEEEStudies" },
+        { "title": "Southern Asia", "url": "http://guides.lib.uchicago.edu/southernasia" },
+        { "title": "(more)", "url": "http://guides.lib.uchicago.edu/sb.php?subject_id=55999" }
       ]
     },
     {
       "id": "ai",
       "title": "Artificial Intelligence",
       "guides": [
-        { "title": "Generative AI", "url": "#" },
-        { "title": "Generative AI in Legal Research, Education, and Practice", "url": "#" },
-        { "title": "AI in Medicine", "url": "#" }
+        { "title": "Generative AI", "url": "https://guides.lib.uchicago.edu/GenAI" },
+        { "title": "Generative AI in Legal Research, Education, and Practice", "url": "https://guides.lib.uchicago.edu/AI" },
+        { "title": "AI in Medicine", "url": "https://guides.lib.uchicago.edu/AIinMedicine" }
       ]
     },
     {
       "id": "business",
       "title": "Business",
       "guides": [
-        { "title": "Annual Reports and Corporate Filings", "url": "#" },
-        { "title": "Business and Economics", "url": "#" },
-        { "title": "Business Plans", "url": "#" },
-        { "title": "Case Studies", "url": "#" },
-        { "title": "Citation Management", "url": "#" },
-        { "title": "Company Information", "url": "#" },
-        { "title": "Conducting Industry Research", "url": "#" },
-        { "title": "Country Information", "url": "#" }
+        { "title": "Business & Economics", "url": "http://guides.lib.uchicago.edu/busecon" },
+        { "title": "(more)", "url": "https://guides.lib.uchicago.edu/sb.php?subject_id=11612" }
       ]
     },
     {
       "id": "digital-scholarship",
       "title": "Digital Scholarship",
       "guides": [
-        { "title": "Digital Scholarship", "url": "#" },
-        { "title": "Author and Research Identifiers", "url": "#" },
-        { "title": "Data Management", "url": "#" },
-        { "title": "Data Repositories", "url": "#" },
-        { "title": "Digital Exhibits with Omeka", "url": "#" },
-        { "title": "Open Access", "url": "#" },
-        { "title": "Text & Data Mining", "url": "#" }
+        { "title": "Digital Scholarship", "url": "https://guides.lib.uchicago.edu/digitalscholarship" },
+        { "title": "Author and Research Identifiers", "url": "http://guides.lib.uchicago.edu/identifiers/" },
+        { "title": "Data Management", "url": "http://guides.lib.uchicago.edu/datamanagement" },
+        { "title": "Data Repositories", "url": "http://guides.lib.uchicago.edu/datarepositories" },
+        { "title": "Digital Exhibits with Omeka", "url": "https://guides.lib.uchicago.edu/omeka" },
+        { "title": "Open Access", "url": "http://guides.lib.uchicago.edu/openaccess" },
+        { "title": "Text & Data Mining", "url": "http://guides.lib.uchicago.edu/textmining" }
       ]
     },
     {
       "id": "humanities",
       "title": "Humanities",
       "guides": [
-        { "title": "Ancient Near East", "url": "#" },
-        { "title": "Art History & Visual Arts", "url": "#" },
-        { "title": "Cinema & Media Studies", "url": "#" },
-        { "title": "Classics", "url": "#" },
-        { "title": "Humanities, General", "url": "#" },
-        { "title": "Linguistics", "url": "#" },
-        { "title": "Music", "url": "#" },
-        { "title": "Philosophy", "url": "#" },
-        { "title": "Religion", "url": "#" },
-        { "title": "Theater", "url": "#" }
+        { "title": "Ancient Near East", "url": "http://guides.lib.uchicago.edu/ane/" },
+        { "title": "Art History & Visual Arts", "url": "http://guides.lib.uchicago.edu/art" },
+        { "title": "Cinema & Media Studies", "url": "http://guides.lib.uchicago.edu/cinema" },
+        { "title": "Classics", "url": "http://guides.lib.uchicago.edu/classics" },
+        { "title": "Humanities, General", "url": "http://guides.lib.uchicago.edu/humanities" },
+        { "title": "Linguistics", "url": "http://guides.lib.uchicago.edu/linguistics" },
+        { "title": "Music", "url": "http://guides.lib.uchicago.edu/music" },
+        { "title": "Philosophy", "url": "http://guides.lib.uchicago.edu/philosophy" },
+        { "title": "Religion", "url": "http://guides.lib.uchicago.edu/religion" },
+        { "title": "Theater", "url": "http://guides.lib.uchicago.edu/theater" },
+        { "title": "(more)", "url": "https://guides.lib.uchicago.edu/sb.php?subject_id=11600" }
       ]
     },
     {
       "id": "law",
       "title": "Law",
       "guides": [
-        { "title": "D'Angelo Law Library Guides", "url": "#" },
-        { "title": "U.S. Legal Research for Non-Lawyers", "url": "#" },
-        { "title": "Administrative Law", "url": "#" },
-        { "title": "Advanced Searching on Bloomberg Law, Lexis, and Westlaw", "url": "#" },
-        { "title": "Antitrust Law", "url": "#" },
-        { "title": "Citation Management for Law Students", "url": "#" },
-        { "title": "Consumer Protection Law", "url": "#" },
-        { "title": "Contract Drafting", "url": "#" },
-        { "title": "Earl B. Dickerson Research Guide", "url": "#" },
-        { "title": "Election Law", "url": "#" },
-        { "title": "Environmental Law", "url": "#" }
+        { "title": "D'Angelo Law Library Guides", "url": "http://guides.lib.uchicago.edu/dangelo" },
+        { "title": "U.S. Legal Research for Non-Lawyers", "url": "http://guides.lib.uchicago.edu/nonlawyers" },
+        { "title": "(more)", "url": "https://guides.lib.uchicago.edu/sb.php?subject_id=11602" }
       ]
     },
     {
       "id": "literature",
       "title": "Literature",
       "guides": [
-        { "title": "Creative Writing", "url": "#" },
-        { "title": "English Literature", "url": "#" },
-        { "title": "French Literature", "url": "#" },
-        { "title": "German Literature", "url": "#" },
-        { "title": "Italian Literature", "url": "#" },
-        { "title": "Scandinavian Literatures", "url": "#" },
-        { "title": "Slavic & East European Literature", "url": "#" },
-        { "title": "Spanish, Portuguese & Catalan Literatures", "url": "#" },
-        { "title": "Theater", "url": "#" }
+        { "title": "Creative Writing", "url": "https://guides.lib.uchicago.edu/creative_writing" },
+        { "title": "English Literature", "url": "http://guides.lib.uchicago.edu/english" },
+        { "title": "French Literature", "url": "http://guides.lib.uchicago.edu/french" },
+        { "title": "German Literature", "url": "http://guides.lib.uchicago.edu/german" },
+        { "title": "Italian Literature", "url": "http://guides.lib.uchicago.edu/italian" },
+        { "title": "Scandinavian Literatures", "url": "http://guides.lib.uchicago.edu/scandinavian" },
+        { "title": "Slavic & East European Literature", "url": "https://guides.lib.uchicago.edu/SEEELangLit" },
+        { "title": "Spanish, Portuguese & Catalan Literatures", "url": "http://guides.lib.uchicago.edu/spanish" },
+        { "title": "Theater", "url": "http://guides.lib.uchicago.edu/theater" },
+        { "title": "(more)", "url": "https://guides.lib.uchicago.edu/sb.php?subject_id=11615" }
       ]
     },
     {
       "id": "medicine",
       "title": "Medicine",
       "guides": [
-        { "title": "History of Medicine", "url": "#" },
-        { "title": "Medicine", "url": "#" },
-        { "title": "Nursing", "url": "#" },
-        { "title": "Pediatrics", "url": "#" },
-        { "title": "Biological Sciences - Molecular & Cell Biology", "url": "#" },
-        { "title": "Biological Sciences - Organismal Biology", "url": "#" },
-        { "title": "Biomedical Informatics", "url": "#" },
-        { "title": "COVID-19", "url": "#" },
-        { "title": "Evidence-Based Medicine", "url": "#" },
-        { "title": "Medical Writing & Editing", "url": "#" }
+        { "title": "History of Medicine", "url": "http://guides.lib.uchicago.edu/historyofmedicine" },
+        { "title": "Medicine", "url": "http://guides.lib.uchicago.edu/medicine" },
+        { "title": "Nursing", "url": "http://guides.lib.uchicago.edu/nursing" },
+        { "title": "Pediatrics", "url": "http://guides.lib.uchicago.edu/pediatrics" },
+        { "title": "(more)", "url": "https://guides.lib.uchicago.edu/sb.php?subject_id=11611" }
       ]
     },
     {
       "id": "sciences-biological",
       "title": "Sciences, Biological",
       "guides": [
-        { "title": "Biomedical Informatics", "url": "#" },
-        { "title": "Environmental Science", "url": "#" },
-        { "title": "History of Medicine", "url": "#" },
-        { "title": "History of Science", "url": "#" },
-        { "title": "Molecular & Cell Biology", "url": "#" },
-        { "title": "Organismal Biology", "url": "#" }
+        { "title": "Biomedical Informatics", "url": "http://guides.lib.uchicago.edu/bioinformatics" },
+        { "title": "Environmental Science", "url": "http://guides.lib.uchicago.edu/environmentalscience" },
+        { "title": "History of Medicine", "url": "http://guides.lib.uchicago.edu/historyofmedicine" },
+        { "title": "History of Science", "url": "http://guides.lib.uchicago.edu/historyofscience" },
+        { "title": "Molecular & Cell Biology", "url": "http://guides.lib.uchicago.edu/mcb" },
+        { "title": "Organismal Biology", "url": "http://guides.lib.uchicago.edu/organismalbiology" },
+        { "title": "(more)", "url": "https://guides.lib.uchicago.edu/sb.php?subject_id=11609" }
       ]
     },
     {
       "id": "sciences-physical",
       "title": "Sciences, Physical",
       "guides": [
-        { "title": "Astronomy & Astrophysics", "url": "#" },
-        { "title": "Chemistry", "url": "#" },
-        { "title": "Computer Science", "url": "#" },
-        { "title": "Financial Mathematics", "url": "#" },
-        { "title": "Geophysical Sciences", "url": "#" },
-        { "title": "History of Science", "url": "#" },
-        { "title": "Mathematics", "url": "#" },
-        { "title": "Molecular Engineering", "url": "#" },
-        { "title": "Physics", "url": "#" },
-        { "title": "Statistics", "url": "#" },
-        { "title": "Weather & Climatology", "url": "#" }
+        { "title": "Astronomy & Astrophysics", "url": "http://guides.lib.uchicago.edu/astro" },
+        { "title": "Chemistry", "url": "http://guides.lib.uchicago.edu/chemistry" },
+        { "title": "Computer Science", "url": "http://guides.lib.uchicago.edu/compsci" },
+        { "title": "Financial Mathematics", "url": "http://guides.lib.uchicago.edu/finmath" },
+        { "title": "Geophysical Sciences", "url": "http://guides.lib.uchicago.edu/geosci" },
+        { "title": "History of Science", "url": "http://guides.lib.uchicago.edu/historyofscience" },
+        { "title": "Mathematics", "url": "http://guides.lib.uchicago.edu/math" },
+        { "title": "Molecular Engineering", "url": "http://guides.lib.uchicago.edu/molecular" },
+        { "title": "Physics", "url": "http://guides.lib.uchicago.edu/physics" },
+        { "title": "Statistics", "url": "http://guides.lib.uchicago.edu/statistics" },
+        { "title": "Weather & Climatology", "url": "http://guides.lib.uchicago.edu/meteorology" },
+        { "title": "(more)", "url": "https://guides.lib.uchicago.edu/sb.php?subject_id=60128" }
       ]
     },
     {
       "id": "social-sciences",
       "title": "Social Sciences",
       "guides": [
-        { "title": "African-American Studies", "url": "#" },
-        { "title": "Anthropology", "url": "#" },
-        { "title": "Chicago Studies", "url": "#" },
-        { "title": "Computational Social Science", "url": "#" },
-        { "title": "Economics", "url": "#" },
-        { "title": "Education", "url": "#" },
-        { "title": "Geography", "url": "#" },
-        { "title": "History", "url": "#" },
-        { "title": "International Relations", "url": "#" },
-        { "title": "LGBTQIA Studies", "url": "#" },
-        { "title": "Political Science", "url": "#" },
-        { "title": "Psychology", "url": "#" },
-        { "title": "Public Policy", "url": "#" }
+        { "title": "African-American Studies", "url": "http://guides.lib.uchicago.edu/afram" },
+        { "title": "Anthropology", "url": "http://guides.lib.uchicago.edu/anthropology" },
+        { "title": "Chicago Studies", "url": "http://guides.lib.uchicago.edu/ChicagoStudies" },
+        { "title": "Computational Social Science", "url": "https://guides.lib.uchicago.edu/compsocsci" },
+        { "title": "Economics", "url": "http://guides.lib.uchicago.edu/busecon" },
+        { "title": "Education", "url": "http://guides.lib.uchicago.edu/education" },
+        { "title": "Geography", "url": "http://guides.lib.uchicago.edu/geography" },
+        { "title": "History", "url": "http://guides.lib.uchicago.edu/history" },
+        { "title": "Human Development", "url": "http://guides.lib.uchicago.edu/humdev" },
+        { "title": "International Relations", "url": "http://guides.lib.uchicago.edu/internatl_studies" },
+        { "title": "LGBTQIA Studies", "url": "http://guides.lib.uchicago.edu/lgbt" },
+        { "title": "Maps", "url": "http://guides.lib.uchicago.edu/maps" },
+        { "title": "Political Science", "url": "http://guides.lib.uchicago.edu/polisci" },
+        { "title": "Psychology", "url": "http://guides.lib.uchicago.edu/psych" },
+        { "title": "Public Policy", "url": "http://guides.lib.uchicago.edu/policystudies" },
+        { "title": "Sociology", "url": "http://guides.lib.uchicago.edu/sociology" },
+        { "title": "Threat & Response Management", "url": "http://guides.lib.uchicago.edu/MScTRM" },
+        { "title": "Urban Studies", "url": "http://guides.lib.uchicago.edu/urbanstudies" },
+        { "title": "Women's Studies", "url": "http://guides.lib.uchicago.edu/women" },
+        { "title": "(more)", "url": "https://guides.lib.uchicago.edu/sb.php?subject_id=11614" }
       ]
     },
     {
       "id": "social-work",
       "title": "Social Work",
       "guides": [
-        { "title": "Education", "url": "#" },
-        { "title": "How do I find reviews?", "url": "#" },
-        { "title": "ICPSR", "url": "#" },
-        { "title": "Public Policy", "url": "#" },
-        { "title": "Religion", "url": "#" },
-        { "title": "Social Work", "url": "#" },
-        { "title": "Tests & Measures", "url": "#" },
-        { "title": "Women's Studies", "url": "#" }
+        { "title": "Social Work", "url": "https://guides.lib.uchicago.edu/socialwork" },
+        { "title": "(more)", "url": "https://guides.lib.uchicago.edu/sb.php?subject_id=60129" }
       ]
     },
     {
       "id": "special-collections",
       "title": "Special Collections",
       "guides": [
-        { "title": "Special Collections Research Center", "url": "#" },
-        { "title": "Requesting Materials from SCRC", "url": "#" },
-        { "title": "Archives and Manuscripts by Subject", "url": "#" },
-        { "title": "Rare Books by Subject", "url": "#" },
-        { "title": "SCRC Digital Resources", "url": "#" },
-        { "title": "Special Collections Research Center COVID-19 Archive", "url": "#" }
+        { "title": "Special Collections Research Center", "url": "http://guides.lib.uchicago.edu/scrc" },
+        { "title": "Requesting Materials from SCRC", "url": "https://guides.lib.uchicago.edu/scrcrequest" },
+        { "title": "Archives and Manuscripts by Subject", "url": "https://guides.lib.uchicago.edu/content.php?pid=336584&sid=4068091" },
+        { "title": "Rare Books by Subject", "url": "https://guides.lib.uchicago.edu/content.php?pid=342722&sid=3181035" },
+        { "title": "SCRC Digital Resources", "url": "https://guides.lib.uchicago.edu/scrcdigital" },
+        { "title": "Special Collections Research Center COVID-19 Archive", "url": "https://guides.lib.uchicago.edu/covid19archive" }
       ]
     }
   ],
