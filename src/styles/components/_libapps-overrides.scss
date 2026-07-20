@@ -123,10 +123,17 @@ button {
 h2.footer-heading {
     color: $ucl-greystone-light;
 }
+// Override all Footer links colors
+.footer a{
+    color: white !important;
+}
+.footer{
+    font-size: 0.9rem;
+}
 
-// Shared utility regions
+// Scroll to top
 #s-lib-scroll-top {
-    .span.fa-stack.fa-lg {
+    span.fa-stack.fa-lg {
         font-size: 1.1rem;
     }
 
@@ -306,4 +313,22 @@ button.btn.btn-default.s-lg-az-reset {
     @extend .btn-outline-secondary;
     // background-color: var(--bs-secondary);
     font-size: var(--bs-btn-font-size);
+}
+
+
+// style boxes on all pages
+
+.s-lib-box {
+    border: none;
+    box-shadow: none;
+}
+
+// remove the prev/next buttons on the guides homepage
+#home-guide-body{
+    h2.s-lib-box-title {
+        display: none;
+    }
+    #s-lg-page-prevnext {
+        display: none;
+    }
 }
