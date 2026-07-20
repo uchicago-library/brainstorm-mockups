@@ -447,3 +447,9 @@ h2.s-lib-box-title {
         padding-left: calc(var(--bs-gutter-x) * .5);
     }
 }
+.s-lib-featured-profile-container a{
+    text-decoration: none;
+    &:hover{
+        text-decoration: underline;
+    }
+}
