@@ -161,135 +161,135 @@ h2.footer-heading {
         transform: rotate(12deg);
     }
     
-    // Remove "Recommended Databases" link. Desktop and mobile.
-    #s-lg-az-filter-cols>div:nth-child(3),
-    div#s-lib-public-main-searchbar>section>div:nth-child(3) {
-        display: none !important;
+}
+// Remove "Recommended Databases" link. Desktop and mobile.
+#s-lg-az-filter-cols>div:nth-child(3),
+div#s-lib-public-main-searchbar>section>div:nth-child(3) {
+    display: none !important;
+}
+
+// Add padding to the sidebar content on smaller screens
+@media (max-width: 991.98px) {
+    #s-lg-az-cols>.col-lg-12, 
+    #s-lg-az-cols>.col-lg-8, 
+    #s-lg-az-cols>.col-lg-4 {
+        --bs-gutter-x: 3rem;
     }
-    
-    // Add padding to the sidebar content on smaller screens
-    @media (max-width: 991.98px) {
-        #s-lg-az-cols>.col-lg-12, 
-        #s-lg-az-cols>.col-lg-8, 
-        #s-lg-az-cols>.col-lg-4 {
-            --bs-gutter-x: 3rem;
-        }
+}
+@media (max-width: 991.98px) {
+    // .az-public-mobile-filters, 
+    #s-lg-az-helpful-links, 
+    #s-lg-az-icon-legend, 
+    #s-lg-az-subject-resources, 
+    div[id^=s-lg-az-custom-box-] {
+        margin-left: 0;
+        margin-right: 0;
     }
-    @media (max-width: 991.98px) {
-        // .az-public-mobile-filters, 
-        #s-lg-az-helpful-links, 
-        #s-lg-az-icon-legend, 
-        #s-lg-az-subject-resources, 
-        div[id^=s-lg-az-custom-box-] {
-            margin-left: 0;
-            margin-right: 0;
-        }
+}
+
+// Make main search buttons smaller
+#s-lg-az-filter-cols button,
+.az-landing .btn.btn-primary,
+#s-lib-public-main-searchbar button.btn.btn-primary,
+button.btn.btn-default.s-lg-az-reset {
+    padding: 0.375rem 0.75rem !important;
+}
+#s-lib-public-main-searchbar {
+    a.recommended-list {
+        font-size: 0.9rem !important;
+        font-weight: 400 !important;
     }
-    
-    // Make main search buttons smaller
-    #s-lg-az-filter-cols button,
-    .az-landing .btn.btn-primary,
-    #s-lib-public-main-searchbar button.btn.btn-primary,
-    button.btn.btn-default.s-lg-az-reset {
-        padding: 0.375rem 0.75rem !important;
+}
+// fix in search buttons
+.d-flex.flex-row.justify-content-around.flex-grow-1{
+    flex-direction: column !important;
+}
+
+// Less gap between the header and the search bar on the A-Z landing page
+#s-lg-guide-header{
+    margin-top : .5rem;
+}
+
+
+// Brand colors for the csearch box
+#az-search-col-1 {
+    nav.navbar {
+        background-color: $ucl-greystone-lighter;
     }
-    #s-lib-public-main-searchbar {
-        a.recommended-list {
-            font-size: 0.9rem !important;
-            font-weight: 400 !important;
-        }
-    }
-    // fix in search buttons
-    .d-flex.flex-row.justify-content-around.flex-grow-1{
-        flex-direction: column !important;
-    }
-    
-    // Less gap between the header and the search bar on the A-Z landing page
-    #s-lg-guide-header{
-        margin-top : .5rem;
-    }
-    
-    
-    // Brand colors for the csearch box
-    #az-search-col-1 {
-        nav.navbar {
-            background-color: $ucl-greystone-lighter;
-        }
-    
-        #s-lg-az-filters {
-            padding: 1rem;
-            background-color: $ucl-greystone-lighter;
-    
-            #az-search-form {
-                #s-lg-az-filter-cols {
-                    div.row {
-                        padding: 0;
-    
-                        &>div {
-                            border-right-color: var(--bs-light);
-                        }
-    
-                        i.fa.fa-angle-down.me-2.fs-4 {
-                            color: $ucl-greystone-dark;
-                        }
+
+    #s-lg-az-filters {
+        padding: 1rem;
+        background-color: $ucl-greystone-lighter;
+
+        #az-search-form {
+            #s-lg-az-filter-cols {
+                div.row {
+                    padding: 0;
+
+                    &>div {
+                        border-right-color: var(--bs-light);
+                    }
+
+                    i.fa.fa-angle-down.me-2.fs-4 {
+                        color: $ucl-greystone-dark;
                     }
                 }
-    
             }
+
         }
     }
-    
-    // Brand colors for the A-Z list index
-    #s-lg-az-index .active-alpha {
-        color: $ucl-maroon;
-        border: 1px solid $ucl-maroon;
+}
+
+// Brand colors for the A-Z list index
+#s-lg-az-index .active-alpha {
+    color: $ucl-maroon;
+    border: 1px solid $ucl-maroon;
+}
+
+// Brand colors for the search result cards
+.az-item {
+    border-bottom-style: solid;
+    border-bottom-color: var(--bs-border-color);
+}
+
+
+// Smaller icons
+.az-item .az-toggle {
+    .az-collapsible>img {
+        width: 1rem;
     }
-    
-    // Brand colors for the search result cards
-    .az-item {
-        border-bottom-style: solid;
-        border-bottom-color: var(--bs-border-color);
-    }
-    
-    
-    // Smaller icons
-    .az-item .az-toggle {
-        .az-collapsible>img {
-            width: 1rem;
+}
+.az-item button.az-toggle,
+.az-item h4.az-toggle {
+    margin: 0.5rem 1rem 0.5rem 0;
+
+    .az-collapsible {
+
+        &>img,
+        &>svg {
+            width: 1.1rem;
+            height: 1.1rem;
         }
     }
-    .az-item button.az-toggle,
-    .az-item h4.az-toggle {
-        margin: 0.5rem 1rem 0.5rem 0;
-    
-        .az-collapsible {
-    
-            &>img,
-            &>svg {
-                width: 1.1rem;
-                height: 1.1rem;
-            }
-        }
+}
+
+// Brand colors for the collapsible boxes
+.az-entry-collapsible-box {
+    border-style: solid;
+    border-color: var(--bs-border-color);
+    background: transparent;
+    padding: 1rem;
+}
+
+.az-title {
+    i.fa.fa-external-link {
+        margin-left: 0.5rem;
     }
-    
-    // Brand colors for the collapsible boxes
-    .az-entry-collapsible-box {
-        border-style: solid;
-        border-color: var(--bs-border-color);
-        background: transparent;
-        padding: 1rem;
-    }
-    
-    .az-title {
-        i.fa.fa-external-link {
-            margin-left: 0.5rem;
-        }
-    }
-    
-    .sidebar-boxes .accordion .accordion-item {
-        border-style: solid;
-        border-color: var(--bs-border-color);
-    }
+}
+
+.sidebar-boxes .accordion .accordion-item {
+    border-style: solid;
+    border-color: var(--bs-border-color);
 }
 
 
