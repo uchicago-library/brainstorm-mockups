@@ -62,6 +62,8 @@
 //     font-size: var(--bs-btn-font-size) !important;
 //     border-radius: var(--bs-border-radius-pill) !important;
 // }
+// Override to match the main website for now.
+.s-lib-profile-div a.label.label-info[title="Schedule Appointment"],
 button[id^='mysched'] {
     font-weight: 600 !important;
     background: white !important;
@@ -71,6 +73,7 @@ button[id^='mysched'] {
     border: 1.5px solid var(--bs-dark) !important;
     border-radius: 4px !important;
 }
+.s-lib-profile-div a.label.label-info[title="Schedule Appointment"]:hover,
 button[id^='mysched']:hover {
     background: #f2f2f2 !important;
 }
