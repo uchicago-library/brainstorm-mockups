@@ -80,9 +80,10 @@ button {
     font-family: var(--bs-body-font-family) !important;
 }
 
+// Overide the increased limit established by Springshare.
 .container {
     max-width: 1320px !important;
-    max-width: 1140px !important;
+    // max-width: 1140px !important;
 }
 
 #s-lib-public-header {
