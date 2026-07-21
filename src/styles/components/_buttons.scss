@@ -72,6 +72,7 @@ button[id^='mysched'] {
     border: 1.5px solid #404040 !important;
     border: 1.5px solid var(--bs-dark) !important;
     border-radius: 4px !important;
+    padding: $btn-padding-y $btn-padding-x !important;
 }
 .s-lib-profile-div a.label.label-info[title="Schedule Appointment"]:hover,
 button[id^='mysched']:hover {
