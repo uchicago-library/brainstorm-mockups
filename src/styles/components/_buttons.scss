@@ -52,3 +52,13 @@
     --bs-border-width: 2px;
     --bs-gradient: none;
 }
+// Mysched button overrides
+button[id^="mysched"] {
+    background: var(--bs-success) !important;
+    background: $ucl-ivy !important;
+    border: 0px !important;
+    color: #fff !important;
+    padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x) !important;
+    font-size: var(--bs-btn-font-size) !important;
+    --bs-btn-border-radius: var(--bs-border-radius-pill);
+}

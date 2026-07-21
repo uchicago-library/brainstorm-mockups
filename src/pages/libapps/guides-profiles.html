@@ -1,303 +1,75 @@
 ---
-title: "Guides Guide"
+title: "Profiles"
 breadcrumbParent: "Pages"
 breadcrumbUrl: "/pages/"
 breadcrumbItems:
 - label: "LibApps"
 url: "/pages/libapps/"
-is_guide: true
+<!-- is_guide: true -->
 ---
 
 {% include "libapps/document-start.html" %}
-{# dump of HTML extracted from the browser 
-    - mind the document-start, the header, the breadcrumbs, and the footer. #}
+{# dump of HTML extracted from the browser
+{% include "mockups/header-current-new.html" %}
+{% include "libapps/breadcrumbs.html" %}
+{% include "libapps/footer.html" %}
+#}
 
-<body class="s-lib-public-body"> <a id="s-lg-public-skiplink" class="alert-info" href="#s-lib-public-main">Skip to Main Content</a> <!-- BEGIN: Page Header -->
+<body class="s-lib-public-body">
+    <a id="s-lg-public-skiplink" class="alert-info" href="#s-lib-public-main">Skip to Main Content</a>
+    <!-- BEGIN: Page Header -->
+    
     {% include "mockups/header-current-new.html" %}
+    <!-- END: Page Header -->
+    <!-- BEGIN: Content Header -->
     <div id="s-lib-public-header" class="s-lib-header container s-lib-side-borders">
         <div id="s-lib-bc">
             {% include "libapps/breadcrumbs.html" %}
         </div>
         <h1 id="s-lib-public-header-title">Profiles</h1>
         <div id="s-lib-public-header-desc">&nbsp;</div>
-        <section aria-label="Subject Search Bar">
-            <div id="s-lg-sb-search-bar" class="row">
-                <div id="sb-search-col-1" class="col-md-12 center">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light border border-1 rounded mb-3">
-        <div class="container-fluid">
-            <div id="s-lg-sb-label" class="navbar-brand">
-                <span id="s-lg-sb-count" class="badge bg-secondary ms-2">73</span>
-                <span id="s-lg-sb-label-text">Subjects</span>
-            </div>
-    
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#s-lg-sb-nav-1" aria-controls="s-lg-sb-nav-1" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="collapse navbar-collapse" id="s-lg-sb-nav-1">
-                <form class="d-flex mt-2 mt-lg-0" role="search">
-                    <div class="row g-2 align-items-center">
-                        <div class="col">
-                            <label class="form-label sr-only" for="sel-guide-drop">Guide Subject Filter</label>
-                            <select name="sel-guide-drop" id="sel-guide-drop" class="form-select">
-                                                            <option value="sb.php?subject_id=66496&amp;bs5=1" selected="selected">
-                                        African Studies
-                                    </option>
-                                <option value="sb.php?subject_id=66497&amp;bs5=1">
-                                        African-American Studies
-                                    </option>
-                                <option value="sb.php?subject_id=66498&amp;bs5=1">
-                                        Ancient Near East
-                                    </option>
-                                <option value="sb.php?subject_id=66540&amp;bs5=1">
-                                        Anthropology
-                                    </option>
-                                <option value="sb.php?subject_id=55999&amp;bs5=1">
-                                        Area &amp; Cultural Studies
-                                    </option>
-                                <option value="sb.php?subject_id=66510&amp;bs5=1">
-                                        Art, Architecture, and Photography
-                                    </option>
-                                <option value="sb.php?subject_id=11613&amp;bs5=1">
-                                        Arts
-                                    </option>
-                                <option value="sb.php?subject_id=66533&amp;bs5=1">
-                                        Astronomy &amp; Astrophysics
-                                    </option>
-                                <option value="sb.php?subject_id=11609&amp;bs5=1">
-                                        Biological Sciences
-                                    </option>
-                                <option value="sb.php?subject_id=66528&amp;bs5=1">
-                                        Biomedical Informatics
-                                    </option>
-                                <option value="sb.php?subject_id=60127&amp;bs5=1">
-                                        Biomedical Sciences
-                                    </option>
-                                <option value="sb.php?subject_id=11612&amp;bs5=1">
-                                        Business
-                                    </option>
-                                <option value="sb.php?subject_id=66534&amp;bs5=1">
-                                        Chemistry
-                                    </option>
-                                <option value="sb.php?subject_id=66499&amp;bs5=1">
-                                        Chinese Studies
-                                    </option>
-                                <option value="sb.php?subject_id=66511&amp;bs5=1">
-                                        Cinema and Media Studies
-                                    </option>
-                                <option value="sb.php?subject_id=66514&amp;bs5=1">
-                                        Classics
-                                    </option>
-                                <option value="sb.php?subject_id=158264&amp;bs5=1">
-                                        Comparative Literature
-                                    </option>
-                                <option value="sb.php?subject_id=66535&amp;bs5=1">
-                                        Computer Science
-                                    </option>
-                                <option value="sb.php?subject_id=66882&amp;bs5=1">
-                                        Economics
-                                    </option>
-                                <option value="sb.php?subject_id=66546&amp;bs5=1">
-                                        Education
-                                    </option>
-                                <option value="sb.php?subject_id=66520&amp;bs5=1">
-                                        English Literature
-                                    </option>
-                                <option value="sb.php?subject_id=66549&amp;bs5=1">
-                                        Environmental &amp; Urban Studies
-                                    </option>
-                                <option value="sb.php?subject_id=66529&amp;bs5=1">
-                                        Environmental Science
-                                    </option>
-                                <option value="sb.php?subject_id=157841&amp;bs5=1">
-                                        Foreign Law
-                                    </option>
-                                <option value="sb.php?subject_id=66521&amp;bs5=1">
-                                        French Literature
-                                    </option>
-                                <option value="sb.php?subject_id=71440&amp;bs5=1">
-                                        Gender Studies
-                                    </option>
-                                <option value="sb.php?subject_id=66516&amp;bs5=1">
-                                        General Humanities
-                                    </option>
-                                <option value="sb.php?subject_id=243461&amp;bs5=1">
-                                        General Interest
-                                    </option>
-                                <option value="sb.php?subject_id=66550&amp;bs5=1">
-                                        Geography
-                                    </option>
-                                <option value="sb.php?subject_id=66536&amp;bs5=1">
-                                        Geophysical Sciences
-                                    </option>
-                                <option value="sb.php?subject_id=66522&amp;bs5=1">
-                                        German Literature
-                                    </option>
-                                <option value="sb.php?subject_id=66526&amp;bs5=1">
-                                        History of Medicine
-                                    </option>
-                                <option value="sb.php?subject_id=66530&amp;bs5=1">
-                                        History of Science
-                                    </option>
-                                <option value="sb.php?subject_id=66515&amp;bs5=1">
-                                        History
-                                    </option>
-                                <option value="sb.php?subject_id=66552&amp;bs5=1">
-                                        Human Development
-                                    </option>
-                                <option value="sb.php?subject_id=11600&amp;bs5=1">
-                                        Humanities
-                                    </option>
-                                <option value="sb.php?subject_id=157842&amp;bs5=1">
-                                        International Law
-                                    </option>
-                                <option value="sb.php?subject_id=66553&amp;bs5=1">
-                                        International Relations
-                                    </option>
-                                <option value="sb.php?subject_id=66523&amp;bs5=1">
-                                        Italian Literature
-                                    </option>
-                                <option value="sb.php?subject_id=66501&amp;bs5=1">
-                                        Japanese Studies
-                                    </option>
-                                <option value="sb.php?subject_id=73676&amp;bs5=1">
-                                        Jewish Studies
-                                    </option>
-                                <option value="sb.php?subject_id=66502&amp;bs5=1">
-                                        Korean Studies
-                                    </option>
-                                <option value="sb.php?subject_id=66503&amp;bs5=1">
-                                        Latin American Studies
-                                    </option>
-                                <option value="sb.php?subject_id=11602&amp;bs5=1">
-                                        Law
-                                    </option>
-                                <option value="sb.php?subject_id=84151&amp;bs5=1">
-                                        Library Science
-                                    </option>
-                                <option value="sb.php?subject_id=66519&amp;bs5=1">
-                                        Linguistics
-                                    </option>
-                                <option value="sb.php?subject_id=11615&amp;bs5=1">
-                                        Literature
-                                    </option>
-                                <option value="sb.php?subject_id=66538&amp;bs5=1">
-                                        Mathematics
-                                    </option>
-                                <option value="sb.php?subject_id=11611&amp;bs5=1">
-                                        Medicine
-                                    </option>
-                                <option value="sb.php?subject_id=66505&amp;bs5=1">
-                                        Medieval and Byzantine Studies
-                                    </option>
-                                <option value="sb.php?subject_id=66506&amp;bs5=1">
-                                        Middle East
-                                    </option>
-                                <option value="sb.php?subject_id=66531&amp;bs5=1">
-                                        Molecular &amp; Cell Biology
-                                    </option>
-                                <option value="/moleng?bs5=1">
-                                        Molecular Engineering
-                                    </option>
-                                <option value="sb.php?subject_id=66512&amp;bs5=1">
-                                        Music
-                                    </option>
-                                <option value="sb.php?subject_id=66527&amp;bs5=1">
-                                        Nursing
-                                    </option>
-                                <option value="sb.php?subject_id=66532&amp;bs5=1">
-                                        Organismal Biology
-                                    </option>
-                                <option value="sb.php?subject_id=66518&amp;bs5=1">
-                                        Philosophy
-                                    </option>
-                                <option value="sb.php?subject_id=60128&amp;bs5=1">
-                                        Physical Sciences
-                                    </option>
-                                <option value="sb.php?subject_id=66537&amp;bs5=1">
-                                        Physics
-                                    </option>
-                                <option value="sb.php?subject_id=66554&amp;bs5=1">
-                                        Political Science
-                                    </option>
-                                <option value="sb.php?subject_id=66555&amp;bs5=1">
-                                        Psychology
-                                    </option>
-                                <option value="sb.php?subject_id=66556&amp;bs5=1">
-                                        Public Policy
-                                    </option>
-                                <option value="sb.php?subject_id=66517&amp;bs5=1">
-                                        Religion
-                                    </option>
-                                <option value="sb.php?subject_id=66524&amp;bs5=1">
-                                        Scandinavian Literature
-                                    </option>
-                                <option value="sb.php?subject_id=66507&amp;bs5=1">
-                                        Slavic/ Eastern Europe/ Eurasia
-                                    </option>
-                                <option value="sb.php?subject_id=11614&amp;bs5=1">
-                                        Social Sciences
-                                    </option>
-                                <option value="sb.php?subject_id=60129&amp;bs5=1">
-                                        Social Work
-                                    </option>
-                                <option value="sb.php?subject_id=66557&amp;bs5=1">
-                                        Sociology
-                                    </option>
-                                <option value="sb.php?subject_id=66508&amp;bs5=1">
-                                        Southern Asia
-                                    </option>
-                                <option value="sb.php?subject_id=66525&amp;bs5=1">
-                                        Spanish, Portuguese &amp; Catalan Literature
-                                    </option>
-                                <option value="sb.php?subject_id=11606&amp;bs5=1">
-                                        Special Collections
-                                    </option>
-                                <option value="sb.php?subject_id=66539&amp;bs5=1">
-                                        Statistics
-                                    </option>
-                                <option value="sb.php?subject_id=66513&amp;bs5=1">
-                                        Theater
-                                    </option>
-                                                        </select>
-                        </div>
-    
-                        <div class="col-auto">
-                            <button type="button" class="btn btn-primary text-nowrap btn-sm" onclick="window.location.href='/' + (jQuery('#sel-guide-drop').val().replace(/^\/+/, ''));">
-                                Go
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </nav>
-    
-                </div>
-            </div>
-        </section>
-    </div> <!-- END: Content Header --> <!-- BEGIN: Nav Bar -->
-    <div id="s-lib-public-nav" class="container s-lib-side-borders"> </div> <!-- END: Nav Bar --> <!-- BEGIN: content -->
+    </div>
+    <!-- END: Content Header -->
+    <!-- BEGIN: Nav Bar -->
+    <div id="s-lib-public-nav" class="container s-lib-side-borders">
+
+    </div>
+    <!-- END: Nav Bar -->
+    <!-- BEGIN: content -->
     <div id="s-lib-public-main" class="s-lib-main container s-lib-side-borders">
         <div class="clearfix">
             <div id="s-lg-profile-nav">
                 <ul class="list-unstyled mb-0">
                     <li>
                         <ul class="nav nav-pills mb-0">
-                            <li id="s-lg-profile-count-btn" class="nav-item"> <span id="s-lg-profile-count" class="badge bg-secondary me-1">62</span> PROFILES </li>
-                            <li id="s-lg-profile-name-btn" class="nav-item s-lg-index-nav-btn"> <a href="#" class="nav-link active" onclick="loadProfileList(0);"> BY NAME </a> </li>
-                            <li id="s-lg-profile-subject-btn" class="nav-item s-lg-index-nav-btn"> <a href="#" class="nav-link" onclick="handleSubjectBtnClick();"> BY SUBJECT </a> </li>
+                            <li id="s-lg-profile-count-btn" class="nav-item">
+                                <span id="s-lg-profile-count" class="badge bg-secondary me-1">62</span>
+                                PROFILES
+                            </li>
+                            <li id="s-lg-profile-name-btn" class="nav-item s-lg-index-nav-btn">
+                                <a href="#" class="nav-link active" onclick="loadProfileList(0);">
+                                    BY NAME
+                                </a>
+                            </li>
+                            <li id="s-lg-profile-subject-btn" class="nav-item s-lg-index-nav-btn">
+                                <a href="#" class="nav-link" onclick="handleSubjectBtnClick();">
+                                    BY SUBJECT
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
+
         <section>
             <div id="s-lg-profile-cols" class="row">
                 <div id="col1" class="col-md-9 center">
                     <div id="s-lg-profile-subjects" style="display:none; margin-bottom:20px;" class="pad-right-sm">
                         <div class="row">
-                            <div class="col-md-10" style="display:inline-block;"> <label for="sel-guide-drop" class="visually-hidden">Please select a subject...</label> <select name="sel-guide-drop" id="sel-guide-drop" class="form-select form-select-sm w-100" aria-controls="s-lg-profile-results">
+                            <div class="col-md-10" style="display:inline-block;">
+                                <label for="sel-guide-drop" class="visually-hidden">Please select a subject...</label>
+                                <select name="sel-guide-drop" id="sel-guide-drop" class="form-select form-select-sm w-100" aria-controls="s-lg-profile-results">
                                     <option selected="" value="">Please select a subject...</option>
                                     <option value="66496">African Studies</option>
                                     <option value="66497">African-American Studies</option>
@@ -361,10 +133,18 @@ is_guide: true
                                     <option value="66525">Spanish, Portuguese &amp; Catalan Literature</option>
                                     <option value="11606">Special Collections</option>
                                     <option value="66539">Statistics</option>
-                                </select> </div>
-                            <div class="col-md-2 pad-left-none" style="display:inline-block;"> <button type="button" class="btn btn-primary text-nowrap btn-sm" onclick="filterBySubject(jQuery('#sel-guide-drop').val());"> Go </button> </div>
+                                </select>
+                            </div>
+
+                            <div class="col-md-2 pad-left-none" style="display:inline-block;">
+                                <button type="button" class="btn btn-primary text-nowrap btn-sm" onclick="filterBySubject(jQuery('#sel-guide-drop').val());">
+                                    Go
+                                </button>
+                            </div>
                         </div>
+
                         <div style="clear:both;"></div>
+
                     </div>
                     <div id="s-lg-profile-content">
                         <div id="s-lg-profile-results">
@@ -652,11 +432,25 @@ is_guide: true
                 </div>
             </div>
         </section>
-    </div> <!-- END: content --> <!-- BEGIN: Page Footer --> <!-- END: Page Footer -->
+    </div>
+    <!-- END: content -->
+    <!-- BEGIN: Page Footer -->
+    <!-- END: Page Footer -->
     <div id="s-lib-alert" title="">
         <div id="s-lib-alert-content"></div>
     </div>
-    <div id="s-lib-popover-title" class="hide"> <span class="text-info"><strong>title</strong></span> <button type="button" id="popclose" class="close" onclick="jQuery('.s-lib-popover').popover('hide')">×</button> </div>
-    <div id="s-lib-popover-content" class="hide"><i class="fa fa-refresh fa-spin"></i> Loading... <button class="btn btn-default btn-sm popclose" type="button">Close</button> </div>
-    <div id="s-lib-scroll-top" title="Back to Top" style="display: none;"> <span class="fa-stack fa-lg"> <i class="fa fa-square-o fa-stack-2x"></i> <i class="fa fa-angle-double-up fa-stack-1x" style="position:relative; bottom:2px;"></i> </span> </div> <!-- BEGIN: Custom Footer --> {% include "libapps/footer.html" %}{{public_footer}}
+    <div id="s-lib-popover-title" class="hide">
+        <span class="text-info"><strong>title</strong></span>
+        <button type="button" id="popclose" class="close" onclick="jQuery('.s-lib-popover').popover('hide')">×</button>
+    </div>
+    <div id="s-lib-popover-content" class="hide"><i class="fa fa-refresh fa-spin"></i> Loading...
+        <button class="btn btn-default btn-sm popclose" type="button">Close</button>
+    </div>
+    <div id="s-lib-scroll-top" title="Back to Top">
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-square-o fa-stack-2x"></i>
+            <i class="fa fa-angle-double-up fa-stack-1x" style="position:relative; bottom:2px;"></i>
+        </span>
+    </div>
+    {% include "libapps/footer.html" %}
 </body>

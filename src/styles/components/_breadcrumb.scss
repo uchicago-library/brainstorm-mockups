@@ -4,12 +4,12 @@
 
 .breadcrumb-item {
     a {
-        color: var(--bs-breadcrumb-divider-color);
-        text-decoration: none;
+        color: var(--bs-breadcrumb-divider-color) !important;
+        text-decoration: none !important;
 
         &:hover {
             color: darken($info, 15%);
-            text-decoration: underline;
+            text-decoration: underline !important;
         }
     }
 }

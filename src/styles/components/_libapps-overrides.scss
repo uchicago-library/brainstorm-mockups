@@ -44,6 +44,11 @@ $theme-color-overrides: (
     }
 }
 
+:root, body {
+    --bs-body-font-family: #{$font-family-sans-serif};
+    font-family: var(--bs-body-font-family) !important;
+}
+
 // Force UChicago Sans Serif across LibApps text-bearing elements.
 h1,
 h2,
@@ -149,6 +154,16 @@ h2.footer-heading {
     nav.navbar {
         background-color: var(--bs-light);
     }
+}
+
+// Profile on subjects
+.s-lib-profile-image img{
+    background-color: #fff;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    max-width: 160px;
+    border-radius: 8px;
 }
 
 // ## Database finder Specific
@@ -396,8 +411,15 @@ button.btn.btn-default.s-lg-az-reset,
 // Style Guides boxes and side nav
 h2.s-lib-box-title {
     background-color: transparent !important;
+    background-image: none !important;
     border: none !important;
     font-size: 1.8rem !important;
+
+    #s-lg-box-profile &{
+        font-size: 1.1rem !important;
+        font-weight: 600 !important;
+        padding: 0;
+    }
 }
 #s-lg-guide-tabs .nav-item:not(.active) a.nav-link {
     color: var(--bs-secondary) !important;
@@ -428,6 +450,22 @@ h2.s-lib-box-title {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: top;
+    border-radius: 8px;
+}
+
+// Profile on subjects
+.s-lib-featured-profile-image img,
+.s-lib-profile-image img{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top;
+    background-color: #fff;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    max-width: 160px;
+    border-radius: 8px;
 }
 
 #s-lg-profile-nav{
