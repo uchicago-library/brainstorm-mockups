@@ -220,6 +220,10 @@ div#s-lib-public-main-searchbar>section>div:nth-child(3) {
 
 // Make main search buttons smaller
 #s-lg-az-filter-cols button,
+button.btn.btn-default.s-lg-az-reset{
+    padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x) !important;
+    padding: $btn-padding-y $btn-padding-x !important;
+}
 .az-landing .btn.btn-primary,
 #s-lib-public-main-searchbar button.btn.btn-primary,
 #sb-search-col-1 button.btn.btn-primary {
@@ -230,9 +234,9 @@ div#s-lib-public-main-searchbar>section>div:nth-child(3) {
         background: #{shade-color($primary, 15%)} !important;
     }
 }
+#s-lg-az-filter-cols button,
 button.btn.btn-default.s-lg-az-reset{
-    padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x) !important;
-    padding: $btn-padding-y $btn-padding-x !important;
+    background: white !important;
 }
 #s-lib-public-main-searchbar {
     a.recommended-list {
