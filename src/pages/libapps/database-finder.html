@@ -1817,137 +1817,832 @@ is_dbfinder: true
         </div>
         <div id="col2" class="col-lg-4 center">
           <div class="sidebar-boxes">
-            {% include "libapps/libchat.html" %}
-            <div class="accordion public-collapsible-box mb-5" id="s-lg-az-trials">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="s-lg-az-trials-heading">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#s-lg-az-trials-body" aria-expanded="true" aria-controls="s-lg-az-trials-body">New / Trial Databases</button>
-                </h2>
-                <div id="s-lg-az-trials-body" class="accordion-collapse collapse show" data-bs-parent="#s-lg-az-trials">
-                  <div class="accordion-body">
-                    <p>The following databases are newly acquired or being evaluated for a future subscription.</p>
-                    <div class="mb-4">
-                      <div class="d-flex justify-content-start">
-                        <div class="flex-fill">
-                          <a href="https://www.lib.uchicago.edu/h/heinamnom" target="_blank" data-landing-page="">
-                            American Nominative Reports<i class="fa fa-fw fa-external-link" aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span>
-                          </a>
-                          <div class="az-flags ms-0 me-2">
-                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">New</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="justify-content-start">
-                        <div class="az-description az-description-max-height mt-2" style="overflow-wrap: break-word"></div>
-                      </div>
-                    </div>
-                    <div class="mb-4">
-                      <div class="d-flex justify-content-start">
-                        <div class="flex-fill">
-                          <a href="https://www.lib.uchicago.edu/h/but" target="_blank" data-landing-page="">
-                            Britain Under Threat: Civil Defence in the Era of Total War, 1914-1989<i class="fa fa-fw fa-external-link" aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span>
-                          </a>
-                          <div class="az-flags ms-0 me-2">
-                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">New</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="justify-content-start">
-                        <div class="az-description az-description-max-height mt-2" style="overflow-wrap: break-word"></div>
-                      </div>
-                    </div>
-                    <div class="mb-4">
-                      <div class="d-flex justify-content-start">
-                        <div class="flex-fill">
-                          <a href="https://www.lib.uchicago.edu/h/heinclp" target="_blank" data-landing-page="">
-                            Case Law Premium (powered by CourtListener)<i class="fa fa-fw fa-external-link" aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span>
-                          </a>
-                          <div class="az-flags ms-0 me-2">
-                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">New</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="justify-content-start">
-                        <div class="az-description az-description-max-height mt-2" style="overflow-wrap: break-word"></div>
-                      </div>
-                    </div>
-                    <div class="mb-4">
-                      <div class="d-flex justify-content-start">
-                        <div class="flex-fill">
-                          <a href="https://www.lib.uchicago.edu/h/cppdww2" target="_blank" data-landing-page="">
-                            Censorship: Policy and Practice During the Second World War<i class="fa fa-fw fa-external-link" aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span>
-                          </a>
-                          <div class="az-flags ms-0 me-2">
-                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">New</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="justify-content-start">
-                        <div class="az-description az-description-max-height mt-2" style="overflow-wrap: break-word"></div>
-                      </div>
-                    </div>
-                    <div class="mb-4">
-                      <div class="d-flex justify-content-start">
-                        <div class="flex-fill">
-                          <a href="http://www.lib.uchicago.edu/h/capa" target="_blank" data-landing-page="">
-                            Central Asia, Persia and Afghanistan, 1834‐1949<i class="fa fa-fw fa-external-link" aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span>
-                          </a>
-                          <div class="az-flags ms-0 me-2">
-                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">New</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="justify-content-start">
-                        <div class="az-description az-description-max-height mt-2" style="overflow-wrap: break-word"></div>
-                      </div>
-                    </div>
-                    <div class="collapse sf-hidden" id="s-lg-az-trials-view-all"></div>
-                    <a class="az-new-trial-popular-view-toggle" data-bs-toggle="collapse" href="#s-lg-az-trials-view-all" role="button" aria-expanded="false" aria-controls="s-lg-az-trials-view-all">
-                      <span class="if-collapsed">View All</span>
-                      <span class="if-not-collapsed sf-hidden">View Less</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="accordion public-collapsible-box mb-5" id="s-lg-az-subject-resources" style="display: none"></div>
-            <div class="accordion public-collapsible-box mb-5" id="s-lg-az-icon-legend">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="s-lg-az-icon-legend-heading">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#s-lg-az-icon-legend-body" aria-expanded="true" aria-controls="s-lg-az-icon-legend-body">Icon Legend</button>
-                </h2>
-                <div id="s-lg-az-icon-legend-body" class="accordion-collapse collapse show" data-bs-parent="#s-lg-az-icon-legend">
-                  <div class="accordion-body">
-                    <div class="d-flex justify-content-start az-icon-legend-row align-items-center">
-                      <div class="az-icon-legend-key me-4">
-                        <img src="https://d2jv02qf7xgjwx.cloudfront.net/sites/1951/icons/9720/lawonly.png" alt="Icon Law School users only">
-                      </div>
-                      <div class="d-flex align-items-center flex-fill az-icon-legend-value">Law School users only</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div class="accordion public-collapsible-box mb-5" id="s-lg-az-helpful-links">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="s-lg-az-helpful-links-heading">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#s-lg-az-helpful-links-body" aria-expanded="true" aria-controls="s-lg-az-helpful-links-body">Helpful Links</button>
-                </h2>
-                <div id="s-lg-az-helpful-links-body" class="accordion-collapse collapse show" data-bs-parent="#s-lg-az-helpful-links">
-                  <div class="accordion-body">
-                    <div class="d-flex justify-content-start az-helpful-links-row">
-                      <div class="flex-fill">
-                        <a href="https://answers.lib.uchicago.edu/form?queue_id=3123" target="_blank">
-                          Report a Problem
-                          <i class="fa fa-fw fa-external-link" aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span>
-                        </a>
-                      </div>
+<div class="accordion-item">
+<h2 class="accordion-header" id="s-lg-az-helpful-links-heading">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#s-lg-az-helpful-links-body" aria-expanded="true" aria-controls="s-lg-az-helpful-links-body">
+    Helpful Links
+</button>
+</h2>
+
+<div id="s-lg-az-helpful-links-body" class="accordion-collapse collapse show" data-bs-parent="#s-lg-az-helpful-links">
+<div class="accordion-body">
+                <div class="d-flex justify-content-start az-helpful-links-row">
+<div class="flex-fill">
+    <a href="https://answers.lib.uchicago.edu/form?queue_id=3123" target="_blank" onclick="return springSpace.springTrack.trackLink({_st_inc_return: this,link: this,_st_type_id: '46',_st_setting_id: '20279'});">
+        Report a Problem
+                            <i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span>                </a>
+</div>
+</div>
+<div class="d-flex justify-content-start az-helpful-links-row">
+<div class="flex-fill">
+    <a href="https://www.lib.uchicago.edu/ask" target="_blank" onclick="return springSpace.springTrack.trackLink({_st_inc_return: this,link: this,_st_type_id: '46',_st_setting_id: '84384'});">
+        Ask a Librarian
+                            <i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span>                </a>
+</div>
+</div>
+    </div>
+</div>
+</div>
+</div>
+<div class="accordion public-collapsible-box mb-5" id="s-lg-az-trials">
+<div class="accordion-item">
+<h2 class="accordion-header" id="s-lg-az-trials-heading">
+<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#s-lg-az-trials-body" aria-expanded="false" aria-controls="s-lg-az-trials-body">
+    New / Trial Databases
+</button>
+</h2>
+
+<div id="s-lg-az-trials-body" class="accordion-collapse collapse" data-bs-parent="#s-lg-az-trials">
+<div class="accordion-body">
+    
+
+<p>The following databases are newly acquired or being evaluated for a future subscription.</p>
+
+
+    
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/heinamnom" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '84982578',_st_inc_return: this});" data-landing-page="">American Nominative Reports<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description az-description-max-height mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/but" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85324282',_st_inc_return: this});" data-landing-page="">Britain Under Threat: Civil Defence in the Era of Total War, 1914-1989<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description az-description-max-height mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/heinclp" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '84982496',_st_inc_return: this});" data-landing-page="">Case Law Premium (powered by CourtListener)<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description az-description-max-height mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/cppdww2" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '76672365',_st_inc_return: this});" data-landing-page="">Censorship: Policy and Practice During the Second World War<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description az-description-max-height mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="http://www.lib.uchicago.edu/h/capa" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '67170673',_st_inc_return: this});" data-landing-page="">Central Asia, Persia and Afghanistan, 1834‐1949 <i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description az-description-max-height mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>    
+<div class="collapse" id="s-lg-az-trials-view-all">
+                    
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/brillcclc" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85125622',_st_inc_return: this});" data-landing-page="">Climate Change and Law Collection<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="http://www.lib.uchicago.edu/h/dnda" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85399177',_st_inc_return: this});" data-landing-page="">Daily News (Tanzania) Digital Archive, 1945-1975<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/brillhrei" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85125528',_st_inc_return: this});" data-landing-page="">Economy and Inequality (Human Rights Documents)<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/heinengnom" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '84982592',_st_inc_return: this});" data-landing-page="">English Nominative Reports<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/gbfocp" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85554920',_st_inc_return: this});" data-landing-page="">Germany, 1920-1969: British Foreign Office Confidential Print<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/girlhood" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85276357',_st_inc_return: this});" data-landing-page="">Girlhood: Magazines and Print Culture. Module I &amp; II<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/guangming" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85312142',_st_inc_return: this});" data-landing-page="">Guangming ribao, 1949-2018 光明日报<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/hein_amworker" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '81211548',_st_inc_return: this});" data-landing-page="">HeinOnline: Labor and Employment: The American Worker<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/hindi-cinema" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '76450445',_st_inc_return: this});" data-landing-page="">Hindi Cinema<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/galehodi" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '84640906',_st_inc_return: this});" data-landing-page="">History of Disabilities: Disabilities in Society, Seventeenth to Twentieth Century<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/iepda" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85420410',_st_inc_return: this});" data-landing-page="">Independence Evening Post (Zi Li Wan Bao, 自立晚報), 1947-1995<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/heinirnom" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '84982610',_st_inc_return: this});" data-landing-page="">Irish Nominative Reports<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="http://www.lib.uchicago.edu/h/ktda" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85399319',_st_inc_return: this});" data-landing-page="">Korea Times Digital Archive, 1992-2024<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="http://www.lib.uchicago.edu/h/lhda" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85554127',_st_inc_return: this});" data-landing-page="">La Hora Digital Archive, 1984–1987<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/lahus" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85281173',_st_inc_return: this});" data-landing-page="">Latin American Histories in the United States<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/wnalatam2" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '84923862',_st_inc_return: this});" data-landing-page="">Latin American Newspapers, Series 2<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/medlitaloud" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85427190',_st_inc_return: this});" data-landing-page="">Medieval Literature Aloud<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/musicid" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85281915',_st_inc_return: this});" data-landing-page="">Music ID<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/heinnmc" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '84982528',_st_inc_return: this});" data-landing-page="">National Moot Court Competition<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/heinoas" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85743796',_st_inc_return: this});" data-landing-page="">Organization of American States (OAS)<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="http://www.lib.uchicago.edu/h/ore_scitechsoc" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85535550',_st_inc_return: this});" data-landing-page="">Oxford Research Encyclopedia of Science, Technology, and Society <i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="http://www.lib.uchicago.edu/h/ore_sociology" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85535671',_st_inc_return: this});" data-landing-page="">Oxford Research Encyclopedia of Sociology<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/pam" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85552880',_st_inc_return: this});" data-landing-page="">Pan-African Magazines<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://proxy-redirector.lib.uchicago.edu/login?url=https%3A%2F%2Ftrials.proquest.com%2Faccess%3Ftoken%3DdTSnuCxeaMAVThvWrbtGVjfFV" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '84593009',_st_inc_return: this});" data-landing-page="">ProQuest One Visual Art and Design<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                                    <span class="margin-left-sm s-lg-az-result-badge-trial badge rounded-pill">
+    Trial
+</span>
+
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;">
+    Expires May 14, 2026.
+</div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/rppgb" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85324150',_st_inc_return: this});" data-landing-page="">Radicalism and Popular Protest in Georgian Britain, c. 1714-1837<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/groam" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '84425260',_st_inc_return: this});" data-landing-page="">Religions of America<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/brillhrcr" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85125481',_st_inc_return: this});" data-landing-page="">Rights of the Child, Women’s Rights, Reproductive Rights, LGBTQ+ and Gender (Human Rights Documents)<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/brillrose" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85125426',_st_inc_return: this});" data-landing-page="">Rosenne's Law and Practice of the International Court: 1920-2015, Fifth Edition<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/snl" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '76653402',_st_inc_return: this});" data-landing-page="">Scottish nationalist leaflets, 1844-1973<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="http://www.lib.uchicago.edu/h/stt" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '76672114',_st_inc_return: this});" data-landing-page="">Slavery Through Time: from Enslavers to Abolitionists, 1675-1865<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="http://www.lib.uchicago.edu/h/spocasia1" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '72094949',_st_inc_return: this});" data-landing-page="">State Papers Online Colonial: Asia<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/brillhrtd" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85125571',_st_inc_return: this});" data-landing-page="">Technology, Democracy and Society (Human Rights Documents)<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;"></div>
+</div>
+</div>                                
+<div class="mb-4">
+<div class="d-flex justify-content-start">
+    <div class="flex-fill">
+                <a href="https://www.lib.uchicago.edu/h/wam" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '16',_st_content_id: '85326978',_st_inc_return: this});" data-landing-page="">West Africa Magazine, 1917-2003<i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span></a>
+
+                <div class="az-flags ms-0 me-2">
+                            <span class="margin-left-sm s-lg-az-result-badge-new badge rounded-pill">
+    New
+</span>
+        
+    </div>
+                    </div>
+</div>
+<div class="justify-content-start">
+<div class="az-description mt-2" style="overflow-wrap: break-word;">
+    Featuring over 170,000 images, this comprehensive run of West Africa, spanning the years 1917 to 2003, offers insights into a period of transformation across Africa and the wider world.
+</div>
+</div>
+</div>                    </div>
+
+<a class="az-new-trial-popular-view-toggle" data-bs-toggle="collapse" href="#s-lg-az-trials-view-all" role="button" aria-expanded="false" aria-controls="s-lg-az-trials-view-all">
+<span class="if-collapsed">View All</span>
+<span class="if-not-collapsed">View Less</span>
+</a>
+
+</div>
+</div>
+</div>
+</div>
+<div class="accordion public-collapsible-box mb-5" id="s-lg-az-subject-resources" style="display: none;">
+<div class="accordion-item">
+<h2 class="accordion-header" id="s-lg-az-subject-resources-heading">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#s-lg-az-subject-resources-body" aria-expanded="true" aria-controls="s-lg-az-subject-resources-body">
+    Subject Resources
+</button>
+</h2>
+
+<div id="s-lg-az-subject-resources-body" class="accordion-collapse collapse show" data-bs-parent="#s-lg-az-subject-resources">
+<div class="accordion-body">
+        
+<h2 class="mb-4">
+Guides by Subject
+</h2>
+    </div>
+</div>
+</div>
+</div>
+<div class="accordion public-collapsible-box mb-5" id="s-lg-az-icon-legend">
+<div class="accordion-item">
+<h2 class="accordion-header" id="s-lg-az-icon-legend-heading">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#s-lg-az-icon-legend-body" aria-expanded="true" aria-controls="s-lg-az-icon-legend-body">
+    Icon Legend
+</button>
+</h2>
+
+<div id="s-lg-az-icon-legend-body" class="accordion-collapse collapse show" data-bs-parent="#s-lg-az-icon-legend">
+<div class="accordion-body">
+            <div class="d-flex justify-content-start az-icon-legend-row align-items-center">
+<div class="az-icon-legend-key me-4"><img src="//d2jv02qf7xgjwx.cloudfront.net/sites/1951/icons/9720/lawonly.png" alt="Icon Law School users only"></div>
+<div class="d-flex align-items-center flex-fill az-icon-legend-value">Law School users only</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion public-collapsible-box mb-5" id="s-lg-az-custom-box-29712241">
+<div class="accordion-item">
+<h2 class="accordion-header" id="s-lg-az-custom-box-29712241-heading">
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#s-lg-az-custom-box-29712241-body" aria-expanded="true" aria-controls="s-lg-az-custom-box-29712241-body">
+    Acceptable Use Policies
+</button>
+</h2>
+
+<div id="s-lg-az-custom-box-29712241-body" class="accordion-collapse collapse show" data-bs-parent="#s-lg-az-custom-box-29712241">
+<div class="accordion-body">
+        
+
+
+<div id="s-lg-box-29712241-container" class="s-lib-box-container">
+<div id="s-lg-box-29712241" class="s-lib-box s-lib-box-std">
+                <h2 class="s-lib-box-title sr-only">
+        Acceptable Use Policies
+                        </h2>
+            <div id="s-lg-box-collapse-29712241">
+    <div class="s-lib-box-content">
+        <div id="s-lg-content-69258217" class="  clearfix">
+<p>Use of any Library electronic resource constitutes acceptance of the following policies:</p>
+
+</div>
+
+<div class="">
+<ul id="s-lg-link-list-71773439" class="s-lg-link-list s-lg-link-list-2">
+
+<li class="">
+
+
+
+<div id="s-lg-content-69257841" class="">
+<span>
+        <a href="https://www.lib.uchicago.edu/about/thelibrary/policies/eresources/" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '2',_st_content_id: '69257841',_st_inc_return: this});">
+    Library Policy on Acceptable Use of Electronic Resources <i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span>             </a>
+
+</span>
+
+
+
+
+</div>
+
+</li>
+
+
+
+
+<li class="">
+
+
+
+<div id="s-lg-content-69257874" class="">
+<span>
+        <a href="https://its.uchicago.edu/acceptable-use-policy/" target="_blank" onclick="return springSpace.springTrack.trackLink({link: this,_st_type_id: '2',_st_content_id: '69257874',_st_inc_return: this});">
+    University Policy on Information Technology Use and Access <i class="fa fa-fw fa-external-link " aria-hidden="true" title="This link opens in a new window"></i><span class="sr-only">This link opens in a new window</span>             </a>
+
+</span>
+
+
+
+
+</div>
+
+</li>
+
+</ul>
+
+
+</div>
+
+    </div>
+    
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+        </div>
         </div>
       </div>
     </section>

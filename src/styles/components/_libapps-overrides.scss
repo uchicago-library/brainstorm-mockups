@@ -168,6 +168,30 @@ h2.footer-heading {
 }
 
 // ## Database finder Specific
+
+// Magnifying glass icon via Font Awesome ::before on parent wrappers. Targetting desktop and mobile
+#col-search .d-flex.justify-content-start,
+.az-public-mobile-filters .form-group {
+    position: relative;
+
+    &::before {
+        content: "\f002";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $input-placeholder-color;
+        font-size: 0.9rem;
+        pointer-events: none;
+    }
+
+    input.s-lg-az-search {
+        padding-left: 2rem;
+    }
+}
+
 #database-finder-body{
 
     // Add a Beta flag
