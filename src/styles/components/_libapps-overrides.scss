@@ -46,6 +46,7 @@ $theme-color-overrides: (
 
 :root, body {
     --bs-body-font-family: #{$font-family-sans-serif};
+    --bs-body-font-size: 1rem;
     font-family: var(--bs-body-font-family) !important;
 }
 
@@ -169,6 +170,17 @@ h2.footer-heading {
 
 // ## Database finder Specific
 
+// Search inputs
+.select2-container--bootstrap5 .select2-search.select2-search--inline .select2-search__field,
+#col-search input, 
+.col-subjects input, 
+.col-types input, 
+.col-vendors input {
+    font-size: 1rem !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
 // Magnifying glass icon via Font Awesome ::before on parent wrappers. Targetting desktop and mobile
 #col-search .d-flex.justify-content-start,
 .az-public-mobile-filters .form-group {
@@ -188,7 +200,7 @@ h2.footer-heading {
     }
 
     input.s-lg-az-search {
-        padding-left: 2rem;
+        padding-left: 2rem !important;
     }
 }
 
@@ -278,8 +290,12 @@ button.btn.btn-default.s-lg-az-reset{
     margin-top : .5rem;
 }
 
+// Less gap between an item name and additional info
+.az-item>.mt-3{
+    margin-top: 0 !important;
+}
 
-// Brand colors for the csearch box
+// Brand colors for the search box
 #az-search-col-1 {
     nav.navbar {
         background-color: $ucl-greystone-lighter;
@@ -351,38 +367,6 @@ button.btn.btn-default.s-lg-az-reset{
     }
 }
 
-// Brand colors for the A-Z list index
-#s-lg-az-index .active-alpha {
-    color: $ucl-maroon;
-    border: 1px solid $ucl-maroon;
-}
-
-// Brand colors for the search result cards
-.az-item {
-    border-bottom-style: solid;
-    border-bottom-color: var(--bs-border-color);
-}
-
-
-// Smaller icons
-.az-item .az-toggle {
-    .az-collapsible>img {
-        width: 1rem;
-    }
-}
-.az-item button.az-toggle,
-.az-item h4.az-toggle {
-    margin: 0.5rem 1rem 0.5rem 0;
-
-    .az-collapsible {
-
-        &>img,
-        &>svg {
-            width: 1.1rem;
-            height: 1.1rem;
-        }
-    }
-}
 
 // Brand colors for the collapsible boxes
 .az-entry-collapsible-box {
