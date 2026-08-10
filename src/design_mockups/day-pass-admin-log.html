@@ -69,7 +69,7 @@ description: "Admin interface showing day pass log entries with filter, sort, an
     <div class="btn-group" role="group" aria-label="Status filter">
       <input type="radio" class="btn-check" name="filter-status" id="filter-status-all" value="all" autocomplete="off" checked>
       <label class="btn btn-outline-secondary btn-sm" for="filter-status-all">All</label>
-      <input type="radio" class="btn-check" name="filter-status" id="filter-status-success" value="pass_issued" autocomplete="off">
+      <input type="radio" class="btn-check" name="filter-status" id="filter-status-success" value="success" autocomplete="off">
       <label class="btn btn-outline-secondary btn-sm" for="filter-status-success">
         <i class="fa-solid fa-circle-check me-1" aria-hidden="true"></i>Success
       </label>
@@ -94,22 +94,23 @@ description: "Admin interface showing day pass log entries with filter, sort, an
       <thead class="table-light">
         <tr>
           <th scope="col">Timestamp</th>
-          <th scope="col">Photo</th>
+          <th scope="col" class="d-none d-sm-table-cell">Photo</th>
           <th scope="col">Name / CNetID</th>
           <th scope="col">Event</th>
-          <th scope="col">Token</th>
-          <th scope="col">Kiosk</th>
+          <th scope="col" class="d-none d-sm-table-cell">Token</th>
+          <th scope="col" class="d-none d-md-table-cell">Kiosk</th>
           <th scope="col"><span class="visually-hidden">Actions</span></th>
         </tr>
       </thead>
       <tbody>
-        <tr data-ts="2026-07-18 09:14:23" data-lastname="johnson" data-date="2026-07-18" data-event="pass_issued"
-          data-details='{"timestamp":"2026-07-18 09:14:23","name":"Amara Johnson","cnetid":"ajohnson","dob":"1998-03-15","event":"pass_issued","token":"DPS-2026-0718-001","kiosk":"kiosk-01","details":{"token":"DPS-2026-0718-001","print_queue":"lp01","status":"ok"}}'>
+
+        <tr data-ts="2026-07-18 09:14:23" data-lastname="johnson" data-date="2026-07-18" data-event="PASS_ISSUED"
+          data-details='{"timestamp":"2026-07-18 09:14:23","name":"Amara Johnson","cnetid":"ajohnson","dob":"1998-03-15","event":"PASS_ISSUED","token":"DPS-2026-0718-001","kiosk":"kiosk-01","details":{"token":"DPS-2026-0718-001","print_queue":"lp01","status":"ok"}}'>
           <td class="text-nowrap small">
             <span class="d-block">2026-07-18</span>
             <span class="text-muted">09:14:23</span>
           </td>
-          <td>
+          <td class="d-none d-sm-table-cell">
             <div class="daypass-photo" aria-label="Patron photo placeholder">
               <i class="fa-solid fa-user" aria-hidden="true"></i>
             </div>
@@ -118,19 +119,19 @@ description: "Admin interface showing day pass log entries with filter, sort, an
             <span class="d-block">Amara Johnson</span>
             <span class="text-muted small font-monospace">ajohnson</span>
           </td>
-          <td><span class="badge text-bg-success">pass_issued</span></td>
-          <td class="small text-nowrap font-monospace">DPS-2026-0718-001</td>
-          <td class="small">kiosk-01</td>
+          <td><span class="badge text-bg-success">PASS_ISSUED</span></td>
+          <td class="small text-nowrap font-monospace d-none d-sm-table-cell">DPS-2026-0718-001</td>
+          <td class="small d-none d-md-table-cell">kiosk-01</td>
           <td></td>
         </tr>
 
-        <tr data-ts="2026-07-18 09:22:47" data-lastname="reinholt" data-date="2026-07-18" data-event="block_attempt"
-          data-details='{"timestamp":"2026-07-18 09:22:47","name":"Felix Reinholt","cnetid":"freinhold","dob":"2001-07-04","event":"block_attempt","token":null,"kiosk":"kiosk-01","details":{"reason":"no_photo","message":"Account photo unavailable or display restricted"}}'>
+        <tr data-ts="2026-07-18 09:22:47" data-lastname="reinholt" data-date="2026-07-18" data-event="NO_PHOTO"
+          data-details='{"timestamp":"2026-07-18 09:22:47","name":"Felix Reinholt","cnetid":"freinhold","dob":"2001-07-04","event":"NO_PHOTO","token":null,"kiosk":"kiosk-01","details":{"reason":"no_photo","message":"Account photo unavailable or display restricted"}}'>
           <td class="text-nowrap small">
             <span class="d-block">2026-07-18</span>
             <span class="text-muted">09:22:47</span>
           </td>
-          <td>
+          <td class="d-none d-sm-table-cell">
             <div class="daypass-photo" aria-label="No photo on account">
               <i class="fa-solid fa-user-slash" aria-hidden="true"></i>
             </div>
@@ -139,19 +140,40 @@ description: "Admin interface showing day pass log entries with filter, sort, an
             <span class="d-block">Felix Reinholt</span>
             <span class="text-muted small font-monospace">freinhold</span>
           </td>
-          <td><span class="badge text-bg-danger">block_attempt</span></td>
-          <td class="text-muted small">—</td>
-          <td class="small">kiosk-01</td>
+          <td><span class="badge text-bg-danger">NO_PHOTO</span></td>
+          <td class="text-muted small d-none d-sm-table-cell">—</td>
+          <td class="small d-none d-md-table-cell">kiosk-01</td>
           <td></td>
         </tr>
 
-        <tr data-ts="2026-07-18 10:05:12" data-lastname="deluca" data-date="2026-07-18" data-event="auth_fail"
-          data-details='{"timestamp":"2026-07-18 10:05:12","name":"Marcus DeLuca","cnetid":"mdeluca","dob":"1995-11-22","event":"auth_fail","token":null,"kiosk":"kiosk-02","details":{"error":"okta_timeout","code":503,"retries":3}}'>
+        <tr data-ts="2026-07-18 09:45:11" data-lastname="" data-date="2026-07-18" data-event="AUTH_FAIL"
+          data-details='{"timestamp":"2026-07-18 09:45:11","name":null,"cnetid":null,"dob":null,"event":"AUTH_FAIL","token":null,"kiosk":"kiosk-02","details":{"error":"auth_failed_before_identity","code":401,"retries":0}}'>
+          <td class="text-nowrap small">
+            <span class="d-block">2026-07-18</span>
+            <span class="text-muted">09:45:11</span>
+          </td>
+          <td class="d-none d-sm-table-cell">
+            <div class="daypass-photo" aria-label="Unknown patron">
+              <i class="fa-solid fa-user-secret" aria-hidden="true"></i>
+            </div>
+          </td>
+          <td>
+            <span class="d-block text-muted fst-italic">Unknown</span>
+            <span class="text-muted small font-monospace">—</span>
+          </td>
+          <td><span class="badge text-bg-warning">AUTH_FAIL</span></td>
+          <td class="text-muted small d-none d-sm-table-cell">—</td>
+          <td class="small d-none d-md-table-cell">kiosk-02</td>
+          <td></td>
+        </tr>
+
+        <tr data-ts="2026-07-18 10:05:12" data-lastname="deluca" data-date="2026-07-18" data-event="AUTH_FAIL"
+          data-details='{"timestamp":"2026-07-18 10:05:12","name":"Marcus DeLuca","cnetid":"mdeluca","dob":"1995-11-22","event":"AUTH_FAIL","token":null,"kiosk":"kiosk-02","details":{"error":"okta_timeout","code":503,"retries":3}}'>
           <td class="text-nowrap small">
             <span class="d-block">2026-07-18</span>
             <span class="text-muted">10:05:12</span>
           </td>
-          <td>
+          <td class="d-none d-sm-table-cell">
             <div class="daypass-photo" aria-label="Patron photo placeholder">
               <i class="fa-solid fa-user" aria-hidden="true"></i>
             </div>
@@ -160,19 +182,61 @@ description: "Admin interface showing day pass log entries with filter, sort, an
             <span class="d-block">Marcus DeLuca</span>
             <span class="text-muted small font-monospace">mdeluca</span>
           </td>
-          <td><span class="badge text-bg-warning">auth_fail</span></td>
-          <td class="text-muted small">—</td>
-          <td class="small">kiosk-02</td>
+          <td><span class="badge text-bg-warning">AUTH_FAIL</span></td>
+          <td class="text-muted small d-none d-sm-table-cell">—</td>
+          <td class="small d-none d-md-table-cell">kiosk-02</td>
           <td></td>
         </tr>
 
-        <tr data-ts="2026-07-17 14:33:08" data-lastname="nair" data-date="2026-07-17" data-event="pass_issued"
-          data-details='{"timestamp":"2026-07-17 14:33:08","name":"Priya Nair","cnetid":"pnair","dob":"2000-02-28","event":"pass_issued","token":"DPS-2026-0717-043","kiosk":"kiosk-01","details":{"token":"DPS-2026-0717-043","print_queue":"lp01","status":"ok"}}'>
+        <tr data-ts="2026-07-18 10:31:44" data-lastname="tanaka" data-date="2026-07-18" data-event="PRINT_FAIL"
+          data-details='{"timestamp":"2026-07-18 10:31:44","name":"Yuki Tanaka","cnetid":"ytanaka","dob":"2002-11-09","event":"PRINT_FAIL","token":null,"kiosk":"kiosk-01","details":{"error":"printer_offline","print_queue":"lp01","status":"error"}}'>
+          <td class="text-nowrap small">
+            <span class="d-block">2026-07-18</span>
+            <span class="text-muted">10:31:44</span>
+          </td>
+          <td class="d-none d-sm-table-cell">
+            <div class="daypass-photo" aria-label="Patron photo placeholder">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </div>
+          </td>
+          <td>
+            <span class="d-block">Yuki Tanaka</span>
+            <span class="text-muted small font-monospace">ytanaka</span>
+          </td>
+          <td><span class="badge text-bg-warning">PRINT_FAIL</span></td>
+          <td class="text-muted small d-none d-sm-table-cell">—</td>
+          <td class="small d-none d-md-table-cell">kiosk-01</td>
+          <td></td>
+        </tr>
+
+        <tr data-ts="2026-07-18 10:35:02" data-lastname="tanaka" data-date="2026-07-18" data-event="REPRINT"
+          data-details='{"timestamp":"2026-07-18 10:35:02","name":"Yuki Tanaka","cnetid":"ytanaka","dob":"2002-11-09","event":"REPRINT","token":"DPS-2026-0718-002","kiosk":"kiosk-01","details":{"token":"DPS-2026-0718-002","print_queue":"lp02","status":"ok","admin":"ipo-staff"}}'>
+          <td class="text-nowrap small">
+            <span class="d-block">2026-07-18</span>
+            <span class="text-muted">10:35:02</span>
+          </td>
+          <td class="d-none d-sm-table-cell">
+            <div class="daypass-photo" aria-label="Patron photo placeholder">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </div>
+          </td>
+          <td>
+            <span class="d-block">Yuki Tanaka</span>
+            <span class="text-muted small font-monospace">ytanaka</span>
+          </td>
+          <td><span class="badge text-bg-secondary">REPRINT</span></td>
+          <td class="small text-nowrap font-monospace d-none d-sm-table-cell">DPS-2026-0718-002</td>
+          <td class="small d-none d-md-table-cell">kiosk-01</td>
+          <td></td>
+        </tr>
+
+        <tr data-ts="2026-07-17 14:33:08" data-lastname="nair" data-date="2026-07-17" data-event="PASS_ISSUED"
+          data-details='{"timestamp":"2026-07-17 14:33:08","name":"Priya Nair","cnetid":"pnair","dob":"2000-02-28","event":"PASS_ISSUED","token":"DPS-2026-0717-043","kiosk":"kiosk-01","details":{"token":"DPS-2026-0717-043","print_queue":"lp01","status":"ok"}}'>
           <td class="text-nowrap small">
             <span class="d-block">2026-07-17</span>
             <span class="text-muted">14:33:08</span>
           </td>
-          <td>
+          <td class="d-none d-sm-table-cell">
             <div class="daypass-photo" aria-label="Patron photo placeholder">
               <i class="fa-solid fa-user" aria-hidden="true"></i>
             </div>
@@ -181,19 +245,19 @@ description: "Admin interface showing day pass log entries with filter, sort, an
             <span class="d-block">Priya Nair</span>
             <span class="text-muted small font-monospace">pnair</span>
           </td>
-          <td><span class="badge text-bg-success">pass_issued</span></td>
-          <td class="small text-nowrap font-monospace">DPS-2026-0717-043</td>
-          <td class="small">kiosk-01</td>
+          <td><span class="badge text-bg-success">PASS_ISSUED</span></td>
+          <td class="small text-nowrap font-monospace d-none d-sm-table-cell">DPS-2026-0717-043</td>
+          <td class="small d-none d-md-table-cell">kiosk-01</td>
           <td></td>
         </tr>
 
-        <tr data-ts="2026-07-17 16:18:55" data-lastname="blackwell" data-date="2026-07-17" data-event="block_attempt"
-          data-details='{"timestamp":"2026-07-17 16:18:55","name":"Owen Blackwell","cnetid":"oblackwel","dob":"1992-08-10","event":"block_attempt","token":null,"kiosk":null,"details":{"reason":"ineligible","message":"Account status: suspended"}}'>
+        <tr data-ts="2026-07-17 16:18:55" data-lastname="blackwell" data-date="2026-07-17" data-event="INELIGIBLE"
+          data-details='{"timestamp":"2026-07-17 16:18:55","name":"Owen Blackwell","cnetid":"oblackwel","dob":"1992-08-10","event":"INELIGIBLE","token":null,"kiosk":null,"details":{"reason":"ineligible","message":"Account status: suspended"}}'>
           <td class="text-nowrap small">
             <span class="d-block">2026-07-17</span>
             <span class="text-muted">16:18:55</span>
           </td>
-          <td>
+          <td class="d-none d-sm-table-cell">
             <div class="daypass-photo" aria-label="Patron photo placeholder">
               <i class="fa-solid fa-user" aria-hidden="true"></i>
             </div>
@@ -202,19 +266,40 @@ description: "Admin interface showing day pass log entries with filter, sort, an
             <span class="d-block">Owen Blackwell</span>
             <span class="text-muted small font-monospace">oblackwel</span>
           </td>
-          <td><span class="badge text-bg-danger">block_attempt</span></td>
-          <td class="text-muted small">—</td>
-          <td class="text-muted small">—</td>
+          <td><span class="badge text-bg-danger">INELIGIBLE</span></td>
+          <td class="text-muted small d-none d-sm-table-cell">—</td>
+          <td class="text-muted small d-none d-md-table-cell">—</td>
           <td></td>
         </tr>
 
-        <tr data-ts="2026-07-16 11:47:32" data-lastname="kim" data-date="2026-07-16" data-event="pass_issued"
-          data-details='{"timestamp":"2026-07-16 11:47:32","name":"Sara Kim","cnetid":"skim","dob":"2003-05-17","event":"pass_issued","token":"DPS-2026-0716-088","kiosk":"kiosk-02","details":{"token":"DPS-2026-0716-088","print_queue":"lp02","status":"ok"}}'>
+        <tr data-ts="2026-07-16 11:20:03" data-lastname="" data-date="2026-07-16" data-event="UPSTREAM_OUTAGE"
+          data-details='{"timestamp":"2026-07-16 11:20:03","name":null,"cnetid":null,"dob":null,"event":"UPSTREAM_OUTAGE","token":null,"kiosk":"kiosk-02","details":{"error":"okta_unreachable","http_status":0,"duration_ms":5002}}'>
+          <td class="text-nowrap small">
+            <span class="d-block">2026-07-16</span>
+            <span class="text-muted">11:20:03</span>
+          </td>
+          <td class="d-none d-sm-table-cell">
+            <div class="daypass-photo" aria-label="Unknown patron">
+              <i class="fa-solid fa-user-secret" aria-hidden="true"></i>
+            </div>
+          </td>
+          <td>
+            <span class="d-block text-muted fst-italic">Unknown</span>
+            <span class="text-muted small font-monospace">—</span>
+          </td>
+          <td><span class="badge text-bg-warning">UPSTREAM_OUTAGE</span></td>
+          <td class="text-muted small d-none d-sm-table-cell">—</td>
+          <td class="small d-none d-md-table-cell">kiosk-02</td>
+          <td></td>
+        </tr>
+
+        <tr data-ts="2026-07-16 11:47:32" data-lastname="kim" data-date="2026-07-16" data-event="PASS_ISSUED"
+          data-details='{"timestamp":"2026-07-16 11:47:32","name":"Sara Kim","cnetid":"skim","dob":"2003-05-17","event":"PASS_ISSUED","token":"DPS-2026-0716-088","kiosk":"kiosk-02","details":{"token":"DPS-2026-0716-088","print_queue":"lp02","status":"ok"}}'>
           <td class="text-nowrap small">
             <span class="d-block">2026-07-16</span>
             <span class="text-muted">11:47:32</span>
           </td>
-          <td>
+          <td class="d-none d-sm-table-cell">
             <div class="daypass-photo" aria-label="Patron photo placeholder">
               <i class="fa-solid fa-user" aria-hidden="true"></i>
             </div>
@@ -223,19 +308,19 @@ description: "Admin interface showing day pass log entries with filter, sort, an
             <span class="d-block">Sara Kim</span>
             <span class="text-muted small font-monospace">skim</span>
           </td>
-          <td><span class="badge text-bg-success">pass_issued</span></td>
-          <td class="small text-nowrap font-monospace">DPS-2026-0716-088</td>
-          <td class="small">kiosk-02</td>
+          <td><span class="badge text-bg-success">PASS_ISSUED</span></td>
+          <td class="small text-nowrap font-monospace d-none d-sm-table-cell">DPS-2026-0716-088</td>
+          <td class="small d-none d-md-table-cell">kiosk-02</td>
           <td></td>
         </tr>
 
-        <tr data-ts="2026-07-16 14:22:19" data-lastname="park" data-date="2026-07-16" data-event="auth_fail"
-          data-details='{"timestamp":"2026-07-16 14:22:19","name":"Daniel Park","cnetid":"dpark","dob":"1999-09-11","event":"auth_fail","token":null,"kiosk":"kiosk-01","details":{"error":"session_expired","code":401,"retries":1}}'>
+        <tr data-ts="2026-07-16 14:22:19" data-lastname="park" data-date="2026-07-16" data-event="AUTH_FAIL"
+          data-details='{"timestamp":"2026-07-16 14:22:19","name":"Daniel Park","cnetid":"dpark","dob":"1999-09-11","event":"AUTH_FAIL","token":null,"kiosk":"kiosk-01","details":{"error":"session_expired","code":401,"retries":1}}'>
           <td class="text-nowrap small">
             <span class="d-block">2026-07-16</span>
             <span class="text-muted">14:22:19</span>
           </td>
-          <td>
+          <td class="d-none d-sm-table-cell">
             <div class="daypass-photo" aria-label="Patron photo placeholder">
               <i class="fa-solid fa-user" aria-hidden="true"></i>
             </div>
@@ -244,11 +329,12 @@ description: "Admin interface showing day pass log entries with filter, sort, an
             <span class="d-block">Daniel Park</span>
             <span class="text-muted small font-monospace">dpark</span>
           </td>
-          <td><span class="badge text-bg-warning">auth_fail</span></td>
-          <td class="text-muted small">—</td>
-          <td class="small">kiosk-01</td>
+          <td><span class="badge text-bg-warning">AUTH_FAIL</span></td>
+          <td class="text-muted small d-none d-sm-table-cell">—</td>
+          <td class="small d-none d-md-table-cell">kiosk-01</td>
           <td></td>
         </tr>
+
       </tbody>
     </table>
   </div>
@@ -297,6 +383,9 @@ description: "Admin interface showing day pass log entries with filter, sort, an
 
 <script>
   (function () {
+    var FAIL_EVENTS = ['AUTH_FAIL', 'NO_PHOTO', 'INELIGIBLE', 'PRINT_FAIL', 'UPSTREAM_OUTAGE'];
+    var SUCCESS_EVENTS = ['PASS_ISSUED', 'REPRINT'];
+
     const TODAY = '2026-07-18';
     const tbody = document.querySelector('#log-table tbody');
     const countEl = document.getElementById('log-count');
@@ -317,10 +406,11 @@ description: "Admin interface showing day pass log entries with filter, sort, an
 
       var count = 0;
       rows.forEach(function (row) {
+        var ev = row.dataset.event;
         var dateMatch = dateFilter === 'all' || row.dataset.date === TODAY;
         var statusMatch = statusFilter === 'all'
-          || (statusFilter === 'pass_issued' && row.dataset.event === 'pass_issued')
-          || (statusFilter === 'fail' && (row.dataset.event === 'auth_fail' || row.dataset.event === 'block_attempt'));
+          || (statusFilter === 'success' && SUCCESS_EVENTS.indexOf(ev) !== -1)
+          || (statusFilter === 'fail' && FAIL_EVENTS.indexOf(ev) !== -1);
         var visible = dateMatch && statusMatch;
         row.hidden = !visible;
         if (visible) count++;
@@ -373,8 +463,8 @@ description: "Admin interface showing day pass log entries with filter, sort, an
       var data = JSON.parse(row.dataset.details);
 
       document.getElementById('detail-timestamp').textContent = data.timestamp;
-      document.getElementById('detail-name').textContent = data.name;
-      document.getElementById('detail-cnetid').textContent = data.cnetid;
+      document.getElementById('detail-name').textContent = data.name || '—';
+      document.getElementById('detail-cnetid').textContent = data.cnetid || '—';
       document.getElementById('detail-dob').textContent = data.dob || '—';
       document.getElementById('detail-event').textContent = data.event;
       document.getElementById('detail-token').textContent = data.token || '—';
@@ -382,12 +472,15 @@ description: "Admin interface showing day pass log entries with filter, sort, an
       document.getElementById('detail-json').textContent = JSON.stringify(data.details, null, 2);
 
       var noPhoto = data.details && data.details.reason === 'no_photo';
+      var unknown = !data.name;
       var photoEl = document.getElementById('detail-photo');
-      photoEl.querySelector('i').className = noPhoto ? 'fa-solid fa-user-slash' : 'fa-solid fa-user';
-      photoEl.setAttribute('aria-label', noPhoto ? 'No photo on account' : 'Patron photo');
+      photoEl.querySelector('i').className = noPhoto
+        ? 'fa-solid fa-user-slash'
+        : (unknown ? 'fa-solid fa-user-secret' : 'fa-solid fa-user');
+      photoEl.setAttribute('aria-label', noPhoto ? 'No photo on account' : (unknown ? 'Unknown patron' : 'Patron photo'));
 
       currentToken = data.token || null;
-      currentName = data.name;
+      currentName = data.name || '(unknown)';
       reprintBtn.classList.toggle('d-none', !currentToken);
 
       bootstrap.Modal.getOrCreateInstance(document.getElementById('details-modal')).show();
