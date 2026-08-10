@@ -297,33 +297,27 @@ button.btn.btn-default.s-lg-az-reset{
 
 // Brand colors for the search box
 #az-search-col-1 {
-    nav.navbar {
-        background-color: $ucl-greystone-lighter;
-    }
     
-    
-    // Brand colors for the search box
-    #az-search-col-1 {
-        #s-lg-az-filters {
-            padding: 1rem;
-            background-color: var(--bs-light);
-    
-            #az-search-form {
-                #s-lg-az-filter-cols {
-                    div.row {
-                        padding: 0;
-    
-                        &>div {
-                            border-right-color: var(--bs-light);
-                        }
-    
-                        i.fa.fa-angle-down.me-2.fs-4 {
-                            color: $ucl-greystone-dark;
-                        }
+    #s-lg-az-filters {
+        padding: 1rem;
+        background-color: var(--bs-light);
+
+        #az-search-form {
+            #s-lg-az-filter-cols {
+                div.row {
+                    padding: 0;
+                    border-radius: 100px;
+
+                    &>div {
+                        border-right-color: var(--bs-light);
+                    }
+
+                    i.fa.fa-angle-down.me-2.fs-4 {
+                        color: $ucl-greystone-dark;
                     }
                 }
-    
             }
+
         }
     }
     
@@ -367,6 +361,24 @@ button.btn.btn-default.s-lg-az-reset{
     }
 }
 
+// brand color and input border radius on mobile
+#s-lib-public-main-searchbar{
+    #az-public-mobile-filters-default{
+        background-color: var(--bs-light);
+        border: none !important;
+        input.s-lg-az-search{
+            border-radius: 100px !important;
+        }
+    }
+}
+
+// remove unnecessary padding
+@media (max-width: 991.98px) {
+    #s-lib-public-main {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+}
 
 // Brand colors for the collapsible boxes
 .az-entry-collapsible-box {
