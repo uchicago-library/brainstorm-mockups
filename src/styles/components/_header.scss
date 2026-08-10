@@ -60,6 +60,10 @@ header[role="banner"] {
     --bs-nav-link-font-size: 0.9rem;
     --bs-nav-link-font-weight: 400;
 
+    a:visited{
+        color: var(--bs-navbar-color);
+    }
+
     @media (max-width: 767.98px) {
         .navbar-collapse {
             margin-left: calc(var(--bs-gutter-x) * 0.5 * -1);
