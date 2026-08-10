@@ -9,6 +9,40 @@ description: "Three failure states for patron day pass requests: ineligible acco
   .daypass-kiosk-frame {
     max-width: 32rem;
   }
+
+  .timeout-bar-wrap {
+    width: 320px;
+    margin: 1.5rem auto 0;
+  }
+
+  .timeout-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--bs-secondary-color);
+    margin-bottom: 0.3rem;
+  }
+
+  .timeout-bar-track {
+    height: 3px;
+    background: var(--bs-border-color);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .timeout-bar-fill {
+    height: 100%;
+    width: 100%;
+    background: var(--bs-secondary-color);
+    border-radius: 2px;
+    transform-origin: left;
+    animation: timeout-drain 30s linear forwards;
+  }
+
+  @keyframes timeout-drain {
+    from { transform: scaleX(1); }
+    to   { transform: scaleX(0); }
+  }
 </style>
 
 
@@ -41,6 +75,15 @@ description: "Three failure states for patron day pass requests: ineligible acco
         <i class="fa-solid fa-circle-xmark fa-4x text-danger mb-4" aria-hidden="true"></i>
         <h2 class="mb-3">Day pass unavailable</h2>
         <p class="lead">A day pass was not possible to be printed for this account. Please see the IPO office if this is unexpected.</p>
+        <div class="timeout-bar-wrap" aria-hidden="true">
+          <div class="timeout-bar-label">
+            <span>Screen closes automatically</span>
+            <span class="timeout-counter">0:30</span>
+          </div>
+          <div class="timeout-bar-track">
+            <div class="timeout-bar-fill"></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -51,6 +94,15 @@ description: "Three failure states for patron day pass requests: ineligible acco
         <h2 class="mb-3">Day pass unavailable</h2>
         <p class="lead">This account doesn't allow their photo to be displayed or doesn't have a photo. The entry desk needs a photo to confirm account match, so a day pass is not possible to be printed for this account.</p>
         <p>Go to your <a href="#">UChicago account page</a> to change this setting.</p>
+        <div class="timeout-bar-wrap" aria-hidden="true">
+          <div class="timeout-bar-label">
+            <span>Screen closes automatically</span>
+            <span class="timeout-counter">0:30</span>
+          </div>
+          <div class="timeout-bar-track">
+            <div class="timeout-bar-fill"></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -61,9 +113,39 @@ description: "Three failure states for patron day pass requests: ineligible acco
         <h2 class="mb-3">Something went wrong</h2>
         <p class="lead">There seems to be a technical issue. Please try again or visit the IPO office.</p>
         <a href="{{ '/design_mockups/day-pass-patron-start/' | url }}" class="btn btn-primary mt-2">Try again</a>
+        <div class="timeout-bar-wrap" aria-hidden="true">
+          <div class="timeout-bar-label">
+            <span>Screen closes automatically</span>
+            <span class="timeout-counter">0:30</span>
+          </div>
+          <div class="timeout-bar-track">
+            <div class="timeout-bar-fill"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </main>
+
+<script>
+  (function () {
+    var TOTAL = 30;
+    var remaining = TOTAL;
+    var counters = document.querySelectorAll('.timeout-counter');
+
+    function fmt(s) {
+      return '0:' + (s < 10 ? '0' : '') + s;
+    }
+
+    var interval = setInterval(function () {
+      remaining -= 1;
+      if (remaining <= 0) {
+        clearInterval(interval);
+        remaining = 0;
+      }
+      counters.forEach(function (el) { el.textContent = fmt(remaining); });
+    }, 1000);
+  }());
+</script>
 
 {% include "meta/document-end.html" %}
