@@ -9,6 +9,159 @@ description: "Kiosk confirmation screen shown after successful Okta authenticati
   .daypass-kiosk-frame {
     max-width: 32rem;
   }
+
+  /*
+  .thermal-pass {
+    width: 320px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 1.25rem 1.5rem 1rem;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    position: relative;
+  }
+
+  .thermal-pass__header {
+    text-align: center;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    color: #000;
+  }
+
+  .thermal-pass__header strong {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  .thermal-pass__divider {
+    border: none;
+    border-top: 1px dashed #aaa;
+    margin: 0.75rem 0;
+  }
+
+  .thermal-pass__photo {
+    width: 80px;
+    height: 96px;
+    background: #e0e0e0;
+    border: 1px solid #bbb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 2.5rem;
+    filter: grayscale(100%);
+    flex-shrink: 0;
+  }
+
+  .thermal-pass__info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .thermal-pass__label {
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 0.1rem;
+  }
+
+  .thermal-pass__name {
+    font-size: 0.9rem;
+    font-weight: bold;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  .thermal-pass__field {
+    margin-top: 0.5rem;
+  }
+
+  .thermal-pass__value {
+    font-size: 0.78rem;
+    line-height: 1.2;
+  }
+
+  .thermal-pass__token {
+    text-align: center;
+    margin-top: 0.25rem;
+  }
+
+  .thermal-pass__token .thermal-pass__label {
+    margin-bottom: 0.2rem;
+  }
+
+  .thermal-pass__token-value {
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+  }
+
+  .thermal-pass__valid {
+    text-align: center;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #333;
+    margin-top: 0.1rem;
+  }
+
+  .thermal-pass__cut {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.6rem;
+    color: #999;
+    margin-top: 0.75rem;
+  }
+
+  .thermal-pass__cut::before,
+  .thermal-pass__cut::after {
+    content: "";
+    flex: 1;
+    border-top: 1px dashed #bbb;
+  }
+  */
+
+  .timeout-bar-wrap {
+    width: 320px;
+    margin: 1.5rem auto 0;
+  }
+
+  .timeout-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--bs-secondary-color);
+    margin-bottom: 0.3rem;
+  }
+
+  .timeout-bar-track {
+    height: 3px;
+    background: var(--bs-border-color);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .timeout-bar-fill {
+    height: 100%;
+    width: 100%;
+    background: var(--bs-secondary-color);
+    border-radius: 2px;
+    transform-origin: left;
+    animation: timeout-drain 30s linear forwards;
+  }
+
+  @keyframes timeout-drain {
+    from { transform: scaleX(1); }
+    to   { transform: scaleX(0); }
+  }
 </style>
 
 
@@ -17,8 +170,88 @@ description: "Kiosk confirmation screen shown after successful Okta authenticati
   <div class="daypass-kiosk-frame mx-auto text-center py-5">
     <i class="fa-solid fa-circle-check fa-4x text-success mb-4" aria-hidden="true"></i>
     <h1 class="mb-3">Login successful</h1>
-    <p class="lead">You can retrieve your day pass at the entry desk. You will need to show a valid photo ID.</p>
+    <p class="lead mb-4">Your day pass is printing now. Retrieve it at the entry desk and present it with a valid photo ID.</p>
+
+    <!--
+    <p class="text-muted small mb-3">Your pass will look like this:</p>
+
+    <div class="thermal-pass mx-auto text-start" aria-label="Day pass preview" role="img">
+
+      <div class="thermal-pass__header">
+        <strong>University of Chicago Library</strong>
+        Day Pass
+      </div>
+
+      <hr class="thermal-pass__divider">
+
+      <div class="d-flex gap-3 align-items-start">
+        <div class="thermal-pass__photo" aria-hidden="true">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="thermal-pass__info">
+          <div class="thermal-pass__label">Name</div>
+          <div class="thermal-pass__name">Amara Johnson</div>
+
+          <div class="thermal-pass__field">
+            <div class="thermal-pass__label">Date</div>
+            <div class="thermal-pass__value">2026-08-07</div>
+          </div>
+
+          <div class="thermal-pass__field">
+            <div class="thermal-pass__label">Time</div>
+            <div class="thermal-pass__value">09:14</div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="thermal-pass__divider">
+
+      <div class="thermal-pass__token">
+        <div class="thermal-pass__label">Token</div>
+        <div class="thermal-pass__token-value">DPS-2026-0807-001</div>
+      </div>
+
+      <div class="thermal-pass__valid">Valid for one day only</div>
+
+      <div class="thermal-pass__cut">
+        <i class="fa-solid fa-scissors" aria-hidden="true"></i>
+      </div>
+
+    </div>
+    -->
+
+    <div class="timeout-bar-wrap" aria-hidden="true">
+      <div class="timeout-bar-label">
+        <span>Screen closes automatically</span>
+        <span id="timeout-counter">0:30</span>
+      </div>
+      <div class="timeout-bar-track">
+        <div class="timeout-bar-fill" id="timeout-bar"></div>
+      </div>
+    </div>
+
   </div>
 </main>
+
+<script>
+  (function () {
+    var TOTAL = 30;
+    var remaining = TOTAL;
+    var counter = document.getElementById('timeout-counter');
+
+    function fmt(s) {
+      return '0:' + (s < 10 ? '0' : '') + s;
+    }
+
+    var interval = setInterval(function () {
+      remaining -= 1;
+      if (remaining <= 0) {
+        clearInterval(interval);
+        remaining = 0;
+      }
+      counter.textContent = fmt(remaining);
+    }, 1000);
+  }());
+</script>
 
 {% include "meta/document-end.html" %}

@@ -20,8 +20,18 @@ description: "Admin interface showing day pass log entries with filter, sort, an
     flex-shrink: 0;
   }
 
-  .daypass-log-row--hidden td {
-    opacity: 0.4;
+  .daypass-photo-lg {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: var(--bs-secondary-bg);
+    border: 1px solid var(--bs-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bs-secondary-color);
+    font-size: 4rem;
+    margin: 0 auto;
   }
 
   .daypass-details-pre {
@@ -34,6 +44,10 @@ description: "Admin interface showing day pass log entries with filter, sort, an
     padding: 0.75rem;
     white-space: pre-wrap;
     word-break: break-all;
+  }
+
+  #log-table tbody tr {
+    cursor: pointer;
   }
 </style>
 
@@ -73,11 +87,6 @@ description: "Admin interface showing day pass log entries with filter, sort, an
         <i class="fa-solid fa-arrow-down-a-z me-1" aria-hidden="true"></i>Last name
       </button>
     </div>
-
-    <div class="form-check form-switch d-flex align-items-center ms-1 mb-0">
-      <input class="form-check-input" type="checkbox" id="show-hidden" role="switch">
-      <label class="form-check-label ms-2 small" for="show-hidden">Show hidden</label>
-    </div>
   </div>
 
   <div class="table-responsive">
@@ -90,12 +99,12 @@ description: "Admin interface showing day pass log entries with filter, sort, an
           <th scope="col">Event</th>
           <th scope="col">Token</th>
           <th scope="col">Kiosk</th>
-          <th scope="col"><span class="visually-hidden">Details</span></th>
           <th scope="col"><span class="visually-hidden">Actions</span></th>
         </tr>
       </thead>
       <tbody>
-        <tr data-ts="2026-07-18 09:14:23" data-lastname="johnson" data-date="2026-07-18" data-event="pass_issued" data-hidden="false">
+        <tr data-ts="2026-07-18 09:14:23" data-lastname="johnson" data-date="2026-07-18" data-event="pass_issued"
+          data-details='{"timestamp":"2026-07-18 09:14:23","name":"Amara Johnson","cnetid":"ajohnson","dob":"1998-03-15","event":"pass_issued","token":"DPS-2026-0718-001","kiosk":"kiosk-01","details":{"token":"DPS-2026-0718-001","print_queue":"lp01","status":"ok"}}'>
           <td class="text-nowrap small">
             <span class="d-block">2026-07-18</span>
             <span class="text-muted">09:14:23</span>
@@ -112,26 +121,11 @@ description: "Admin interface showing day pass log entries with filter, sort, an
           <td><span class="badge text-bg-success">pass_issued</span></td>
           <td class="small text-nowrap font-monospace">DPS-2026-0718-001</td>
           <td class="small">kiosk-01</td>
-          <td>
-            <button type="button" class="btn btn-sm btn-outline-secondary"
-              data-bs-toggle="modal" data-bs-target="#details-modal"
-              data-details='{"timestamp":"2026-07-18 09:14:23","name":"Amara Johnson","cnetid":"ajohnson","dob":"1998-03-15","event":"pass_issued","token":"DPS-2026-0718-001","kiosk":"kiosk-01","details":{"token":"DPS-2026-0718-001","print_queue":"lp01","status":"ok"}}'>
-              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Details
-            </button>
-          </td>
-          <td class="text-nowrap">
-            <button type="button" class="btn btn-sm btn-outline-primary me-1"
-              data-bs-toggle="modal" data-bs-target="#reprint-modal"
-              data-token="DPS-2026-0718-001" data-patron="Amara Johnson (ajohnson)">
-              <i class="fa-solid fa-print me-1" aria-hidden="true"></i>Re-print
-            </button>
-            <button type="button" class="btn btn-sm btn-outline-secondary hide-row-btn" aria-label="Hide this entry">
-              <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
-            </button>
-          </td>
+          <td></td>
         </tr>
 
-        <tr data-ts="2026-07-18 09:22:47" data-lastname="reinholt" data-date="2026-07-18" data-event="block_attempt" data-hidden="false">
+        <tr data-ts="2026-07-18 09:22:47" data-lastname="reinholt" data-date="2026-07-18" data-event="block_attempt"
+          data-details='{"timestamp":"2026-07-18 09:22:47","name":"Felix Reinholt","cnetid":"freinhold","dob":"2001-07-04","event":"block_attempt","token":null,"kiosk":"kiosk-01","details":{"reason":"no_photo","message":"Account photo unavailable or display restricted"}}'>
           <td class="text-nowrap small">
             <span class="d-block">2026-07-18</span>
             <span class="text-muted">09:22:47</span>
@@ -148,21 +142,11 @@ description: "Admin interface showing day pass log entries with filter, sort, an
           <td><span class="badge text-bg-danger">block_attempt</span></td>
           <td class="text-muted small">—</td>
           <td class="small">kiosk-01</td>
-          <td>
-            <button type="button" class="btn btn-sm btn-outline-secondary"
-              data-bs-toggle="modal" data-bs-target="#details-modal"
-              data-details='{"timestamp":"2026-07-18 09:22:47","name":"Felix Reinholt","cnetid":"freinhold","dob":"2001-07-04","event":"block_attempt","token":null,"kiosk":"kiosk-01","details":{"reason":"no_photo","message":"Account photo unavailable or display restricted"}}'>
-              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Details
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-sm btn-outline-secondary hide-row-btn" aria-label="Hide this entry">
-              <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
-            </button>
-          </td>
+          <td></td>
         </tr>
 
-        <tr data-ts="2026-07-18 10:05:12" data-lastname="deluca" data-date="2026-07-18" data-event="auth_fail" data-hidden="false">
+        <tr data-ts="2026-07-18 10:05:12" data-lastname="deluca" data-date="2026-07-18" data-event="auth_fail"
+          data-details='{"timestamp":"2026-07-18 10:05:12","name":"Marcus DeLuca","cnetid":"mdeluca","dob":"1995-11-22","event":"auth_fail","token":null,"kiosk":"kiosk-02","details":{"error":"okta_timeout","code":503,"retries":3}}'>
           <td class="text-nowrap small">
             <span class="d-block">2026-07-18</span>
             <span class="text-muted">10:05:12</span>
@@ -179,21 +163,11 @@ description: "Admin interface showing day pass log entries with filter, sort, an
           <td><span class="badge text-bg-warning">auth_fail</span></td>
           <td class="text-muted small">—</td>
           <td class="small">kiosk-02</td>
-          <td>
-            <button type="button" class="btn btn-sm btn-outline-secondary"
-              data-bs-toggle="modal" data-bs-target="#details-modal"
-              data-details='{"timestamp":"2026-07-18 10:05:12","name":"Marcus DeLuca","cnetid":"mdeluca","dob":"1995-11-22","event":"auth_fail","token":null,"kiosk":"kiosk-02","details":{"error":"okta_timeout","code":503,"retries":3}}'>
-              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Details
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-sm btn-outline-secondary hide-row-btn" aria-label="Hide this entry">
-              <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
-            </button>
-          </td>
+          <td></td>
         </tr>
 
-        <tr data-ts="2026-07-17 14:33:08" data-lastname="nair" data-date="2026-07-17" data-event="pass_issued" data-hidden="false">
+        <tr data-ts="2026-07-17 14:33:08" data-lastname="nair" data-date="2026-07-17" data-event="pass_issued"
+          data-details='{"timestamp":"2026-07-17 14:33:08","name":"Priya Nair","cnetid":"pnair","dob":"2000-02-28","event":"pass_issued","token":"DPS-2026-0717-043","kiosk":"kiosk-01","details":{"token":"DPS-2026-0717-043","print_queue":"lp01","status":"ok"}}'>
           <td class="text-nowrap small">
             <span class="d-block">2026-07-17</span>
             <span class="text-muted">14:33:08</span>
@@ -210,26 +184,11 @@ description: "Admin interface showing day pass log entries with filter, sort, an
           <td><span class="badge text-bg-success">pass_issued</span></td>
           <td class="small text-nowrap font-monospace">DPS-2026-0717-043</td>
           <td class="small">kiosk-01</td>
-          <td>
-            <button type="button" class="btn btn-sm btn-outline-secondary"
-              data-bs-toggle="modal" data-bs-target="#details-modal"
-              data-details='{"timestamp":"2026-07-17 14:33:08","name":"Priya Nair","cnetid":"pnair","dob":"2000-02-28","event":"pass_issued","token":"DPS-2026-0717-043","kiosk":"kiosk-01","details":{"token":"DPS-2026-0717-043","print_queue":"lp01","status":"ok"}}'>
-              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Details
-            </button>
-          </td>
-          <td class="text-nowrap">
-            <button type="button" class="btn btn-sm btn-outline-primary me-1"
-              data-bs-toggle="modal" data-bs-target="#reprint-modal"
-              data-token="DPS-2026-0717-043" data-patron="Priya Nair (pnair)">
-              <i class="fa-solid fa-print me-1" aria-hidden="true"></i>Re-print
-            </button>
-            <button type="button" class="btn btn-sm btn-outline-secondary hide-row-btn" aria-label="Hide this entry">
-              <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
-            </button>
-          </td>
+          <td></td>
         </tr>
 
-        <tr data-ts="2026-07-17 16:18:55" data-lastname="blackwell" data-date="2026-07-17" data-event="block_attempt" data-hidden="false">
+        <tr data-ts="2026-07-17 16:18:55" data-lastname="blackwell" data-date="2026-07-17" data-event="block_attempt"
+          data-details='{"timestamp":"2026-07-17 16:18:55","name":"Owen Blackwell","cnetid":"oblackwel","dob":"1992-08-10","event":"block_attempt","token":null,"kiosk":null,"details":{"reason":"ineligible","message":"Account status: suspended"}}'>
           <td class="text-nowrap small">
             <span class="d-block">2026-07-17</span>
             <span class="text-muted">16:18:55</span>
@@ -246,21 +205,11 @@ description: "Admin interface showing day pass log entries with filter, sort, an
           <td><span class="badge text-bg-danger">block_attempt</span></td>
           <td class="text-muted small">—</td>
           <td class="text-muted small">—</td>
-          <td>
-            <button type="button" class="btn btn-sm btn-outline-secondary"
-              data-bs-toggle="modal" data-bs-target="#details-modal"
-              data-details='{"timestamp":"2026-07-17 16:18:55","name":"Owen Blackwell","cnetid":"oblackwel","dob":"1992-08-10","event":"block_attempt","token":null,"kiosk":null,"details":{"reason":"ineligible","message":"Account status: suspended"}}'>
-              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Details
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-sm btn-outline-secondary hide-row-btn" aria-label="Hide this entry">
-              <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
-            </button>
-          </td>
+          <td></td>
         </tr>
 
-        <tr data-ts="2026-07-16 11:47:32" data-lastname="kim" data-date="2026-07-16" data-event="pass_issued" data-hidden="false">
+        <tr data-ts="2026-07-16 11:47:32" data-lastname="kim" data-date="2026-07-16" data-event="pass_issued"
+          data-details='{"timestamp":"2026-07-16 11:47:32","name":"Sara Kim","cnetid":"skim","dob":"2003-05-17","event":"pass_issued","token":"DPS-2026-0716-088","kiosk":"kiosk-02","details":{"token":"DPS-2026-0716-088","print_queue":"lp02","status":"ok"}}'>
           <td class="text-nowrap small">
             <span class="d-block">2026-07-16</span>
             <span class="text-muted">11:47:32</span>
@@ -277,26 +226,11 @@ description: "Admin interface showing day pass log entries with filter, sort, an
           <td><span class="badge text-bg-success">pass_issued</span></td>
           <td class="small text-nowrap font-monospace">DPS-2026-0716-088</td>
           <td class="small">kiosk-02</td>
-          <td>
-            <button type="button" class="btn btn-sm btn-outline-secondary"
-              data-bs-toggle="modal" data-bs-target="#details-modal"
-              data-details='{"timestamp":"2026-07-16 11:47:32","name":"Sara Kim","cnetid":"skim","dob":"2003-05-17","event":"pass_issued","token":"DPS-2026-0716-088","kiosk":"kiosk-02","details":{"token":"DPS-2026-0716-088","print_queue":"lp02","status":"ok"}}'>
-              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Details
-            </button>
-          </td>
-          <td class="text-nowrap">
-            <button type="button" class="btn btn-sm btn-outline-primary me-1"
-              data-bs-toggle="modal" data-bs-target="#reprint-modal"
-              data-token="DPS-2026-0716-088" data-patron="Sara Kim (skim)">
-              <i class="fa-solid fa-print me-1" aria-hidden="true"></i>Re-print
-            </button>
-            <button type="button" class="btn btn-sm btn-outline-secondary hide-row-btn" aria-label="Hide this entry">
-              <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
-            </button>
-          </td>
+          <td></td>
         </tr>
 
-        <tr data-ts="2026-07-16 14:22:19" data-lastname="park" data-date="2026-07-16" data-event="auth_fail" data-hidden="false">
+        <tr data-ts="2026-07-16 14:22:19" data-lastname="park" data-date="2026-07-16" data-event="auth_fail"
+          data-details='{"timestamp":"2026-07-16 14:22:19","name":"Daniel Park","cnetid":"dpark","dob":"1999-09-11","event":"auth_fail","token":null,"kiosk":"kiosk-01","details":{"error":"session_expired","code":401,"retries":1}}'>
           <td class="text-nowrap small">
             <span class="d-block">2026-07-16</span>
             <span class="text-muted">14:22:19</span>
@@ -313,18 +247,7 @@ description: "Admin interface showing day pass log entries with filter, sort, an
           <td><span class="badge text-bg-warning">auth_fail</span></td>
           <td class="text-muted small">—</td>
           <td class="small">kiosk-01</td>
-          <td>
-            <button type="button" class="btn btn-sm btn-outline-secondary"
-              data-bs-toggle="modal" data-bs-target="#details-modal"
-              data-details='{"timestamp":"2026-07-16 14:22:19","name":"Daniel Park","cnetid":"dpark","dob":"1999-09-11","event":"auth_fail","token":null,"kiosk":"kiosk-01","details":{"error":"session_expired","code":401,"retries":1}}'>
-              <i class="fa-solid fa-circle-info me-1" aria-hidden="true"></i>Details
-            </button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-sm btn-outline-secondary hide-row-btn" aria-label="Hide this entry">
-              <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
-            </button>
-          </td>
+          <td></td>
         </tr>
       </tbody>
     </table>
@@ -340,6 +263,9 @@ description: "Admin interface showing day pass log entries with filter, sort, an
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <div id="detail-photo" class="daypass-photo-lg mb-3">
+          <i class="fa-solid fa-user" aria-hidden="true"></i>
+        </div>
         <dl class="row mb-3">
           <dt class="col-sm-4">Timestamp</dt>
           <dd class="col-sm-8" id="detail-timestamp"></dd>
@@ -361,31 +287,8 @@ description: "Admin interface showing day pass log entries with filter, sort, an
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Re-print modal -->
-<div class="modal fade" id="reprint-modal" tabindex="-1" aria-labelledby="reprint-modal-label" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title fs-5" id="reprint-modal-label">Re-print Day Pass</h2>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <dl class="row mb-0">
-          <dt class="col-4">Token</dt>
-          <dd class="col-8 font-monospace" id="reprint-token"></dd>
-          <dt class="col-4">Patron</dt>
-          <dd class="col-8" id="reprint-patron"></dd>
-        </dl>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">
-          <i class="fa-solid fa-print me-1" aria-hidden="true"></i>Confirm re-print
+        <button type="button" class="btn btn-primary d-none" id="detail-reprint-btn">
+          <i class="fa-solid fa-print me-1" aria-hidden="true"></i>Re-print
         </button>
       </div>
     </div>
@@ -397,11 +300,9 @@ description: "Admin interface showing day pass log entries with filter, sort, an
     const TODAY = '2026-07-18';
     const tbody = document.querySelector('#log-table tbody');
     const countEl = document.getElementById('log-count');
-
     let sortMode = 'timestamp';
     let dateFilter = 'today';
     let statusFilter = 'all';
-    let showHidden = false;
 
     function applyView() {
       const rows = Array.from(tbody.querySelectorAll('tr'));
@@ -414,28 +315,18 @@ description: "Admin interface showing day pass log entries with filter, sort, an
       });
       rows.forEach(function (r) { tbody.appendChild(r); });
 
-      var visible = 0;
-      var total = 0;
-
+      var count = 0;
       rows.forEach(function (row) {
-        var isHidden = row.dataset.hidden === 'true';
         var dateMatch = dateFilter === 'all' || row.dataset.date === TODAY;
         var statusMatch = statusFilter === 'all'
           || (statusFilter === 'pass_issued' && row.dataset.event === 'pass_issued')
           || (statusFilter === 'fail' && (row.dataset.event === 'auth_fail' || row.dataset.event === 'block_attempt'));
-
-        var matchesFilters = dateMatch && statusMatch;
-
-        if (matchesFilters) {
-          total++;
-          if (!isHidden) visible++;
-        }
-
-        row.hidden = !matchesFilters || (isHidden && !showHidden);
-        row.classList.toggle('daypass-log-row--hidden', isHidden && showHidden && matchesFilters);
+        var visible = dateMatch && statusMatch;
+        row.hidden = !visible;
+        if (visible) count++;
       });
 
-      countEl.textContent = visible + ' of ' + total + ' entries';
+      countEl.textContent = count + ' ' + (count === 1 ? 'entry' : 'entries');
     }
 
     document.querySelectorAll('input[name="filter-date"]').forEach(function (input) {
@@ -472,25 +363,15 @@ description: "Admin interface showing day pass log entries with filter, sort, an
       applyView();
     });
 
-    document.getElementById('show-hidden').addEventListener('change', function () {
-      showHidden = this.checked;
-      applyView();
-    });
+    var reprintBtn = document.getElementById('detail-reprint-btn');
+    var currentToken = null;
+    var currentName = null;
 
     tbody.addEventListener('click', function (e) {
-      var btn = e.target.closest('.hide-row-btn');
-      if (!btn) return;
-      var row = btn.closest('tr');
-      var isHidden = row.dataset.hidden === 'true';
-      row.dataset.hidden = isHidden ? 'false' : 'true';
-      var icon = btn.querySelector('i');
-      btn.setAttribute('aria-label', isHidden ? 'Hide this entry' : 'Unhide this entry');
-      icon.className = isHidden ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
-      applyView();
-    });
+      var row = e.target.closest('tr[data-details]');
+      if (!row) return;
+      var data = JSON.parse(row.dataset.details);
 
-    document.getElementById('details-modal').addEventListener('show.bs.modal', function (e) {
-      var data = JSON.parse(e.relatedTarget.getAttribute('data-details'));
       document.getElementById('detail-timestamp').textContent = data.timestamp;
       document.getElementById('detail-name').textContent = data.name;
       document.getElementById('detail-cnetid').textContent = data.cnetid;
@@ -499,11 +380,21 @@ description: "Admin interface showing day pass log entries with filter, sort, an
       document.getElementById('detail-token').textContent = data.token || '—';
       document.getElementById('detail-kiosk').textContent = data.kiosk || '—';
       document.getElementById('detail-json').textContent = JSON.stringify(data.details, null, 2);
+
+      var noPhoto = data.details && data.details.reason === 'no_photo';
+      var photoEl = document.getElementById('detail-photo');
+      photoEl.querySelector('i').className = noPhoto ? 'fa-solid fa-user-slash' : 'fa-solid fa-user';
+      photoEl.setAttribute('aria-label', noPhoto ? 'No photo on account' : 'Patron photo');
+
+      currentToken = data.token || null;
+      currentName = data.name;
+      reprintBtn.classList.toggle('d-none', !currentToken);
+
+      bootstrap.Modal.getOrCreateInstance(document.getElementById('details-modal')).show();
     });
 
-    document.getElementById('reprint-modal').addEventListener('show.bs.modal', function (e) {
-      document.getElementById('reprint-token').textContent = e.relatedTarget.getAttribute('data-token');
-      document.getElementById('reprint-patron').textContent = e.relatedTarget.getAttribute('data-patron');
+    reprintBtn.addEventListener('click', function () {
+      alert('Printing day pass ' + currentToken + ' for ' + currentName + '…');
     });
 
     applyView();
