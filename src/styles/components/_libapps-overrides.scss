@@ -1,5 +1,10 @@
 // LibApps platform-specific overrides shared across mockups.
 
+
+// =============================================================================
+// GLOBAL TOKEN OVERRIDES
+// =============================================================================
+
 // Override Bootstrap runtime CSS variables from LibApps with UChicago brand tokens.
 :root {
     --bs-primary: #{$primary};
@@ -46,6 +51,7 @@ $theme-color-overrides: (
 
 :root, body {
     --bs-body-font-family: #{$font-family-sans-serif};
+    --bs-body-font-size: 1rem;
     font-family: var(--bs-body-font-family) !important;
 }
 
@@ -80,14 +86,14 @@ button {
     font-family: var(--bs-body-font-family) !important;
 }
 
-// Overide the increased limit established by Springshare.
+
+// =============================================================================
+// GLOBAL LAYOUT & COMPONENTS
+// =============================================================================
+
+// Override the increased container limit established by Springshare.
 .container {
     max-width: 1320px !important;
-    // max-width: 1140px !important;
-}
-
-#s-lib-public-header {
-    margin-top: 0.4rem;
 }
 
 // Override all dashed borders
@@ -114,9 +120,9 @@ button {
 
 // Embedded LibChat blocks
 .lci_chat_load {
-    border-radius: 4px;
+    border-radius: $border-radius-sm;
     padding: 4px;
-    background-color: #fff !important;
+    background-color: var(--bs-body-bg) !important;
 }
 
 // Footer
@@ -129,12 +135,13 @@ button {
 h2.footer-heading {
     color: $ucl-greystone-light;
 }
-// Override all Footer links colors
-.footer a{
-    color: white !important;
-}
-.footer{
+
+.footer {
     font-size: 0.9rem;
+
+    a {
+        color: $white !important;
+    }
 }
 
 // Scroll to top
@@ -144,22 +151,20 @@ h2.footer-heading {
     }
 
     .fa.fa-angle-double-up.fa-stack-1x {
-        color: #fff;
+        color: $white;
         bottom: unset !important;
     }
 }
 
-// color for database finder and guides search
-#s-lg-srch-local,
-#az-search-col-1 {
-    nav.navbar {
-        background-color: var(--bs-light);
-    }
+// Box styles (shared across all page types)
+.s-lib-box {
+    border: none;
+    box-shadow: none;
 }
 
-// Profile on subjects
-.s-lib-profile-image img{
-    background-color: #fff;
+// Profile on subjects page
+.s-lib-profile-image img {
+    background-color: var(--bs-body-bg);
     border: none;
     box-shadow: none;
     padding: 0;
@@ -167,203 +172,208 @@ h2.footer-heading {
     border-radius: 8px;
 }
 
-// ## Database finder Specific
-#database-finder-body{
 
-    // Add a Beta flag
+// =============================================================================
+// DATABASE FINDER
+// =============================================================================
+
+// Header spacing
+#s-lib-public-header {
+    margin-top: 0.4rem;
+}
+
+// Search bar background (also used by guides search via #s-lg-srch-local)
+#s-lg-srch-local,
+#az-search-col-1 {
+    nav.navbar {
+        background-color: var(--bs-body-bg);
+    }
+}
+
+// Beta badge on the page title
+#database-finder-body {
     h1#s-lib-public-header-title {
         position: relative;
         display: inline-block;
+
+        &::after {
+            content: "beta";
+            display: block;
+            position: absolute;
+            top: .5rem;
+            right: -52px;
+            width: 50px;
+            height: 24px;
+            color: $ucl-maroon;
+            font-size: .8rem;
+            border: 2px dashed $ucl-maroon;
+            border-radius: 8px;
+            text-align: center;
+            padding: 2px;
+            transform: rotate(12deg);
+        }
     }
-    h1#s-lib-public-header-title:after {
-        content: "beta";
-        display: block;
-        position: absolute;
-        top: .5rem;
-        right: -52px;
-        width: 50px;
-        height: 24px;
-        color: #800000;
-        font-size: .8rem;
-        border: 2px dashed #800000;
-        border-radius: 8px;
-        text-align: center;
-        padding: 2px;
-        transform: rotate(12deg);
-    }
-    
 }
-// Remove "Recommended Databases" link. Desktop and mobile.
+
+// Search inputs — normalize font size and padding from LibApps defaults
+// .select2-container--bootstrap5 .select2-selection--multiple:not(.form-select-sm):not(.form-select-lg),
+.select2-container--bootstrap5 .select2-search.select2-search--inline .select2-search__field,
+#col-search input,
+.col-subjects input,
+.col-types input,
+.col-vendors input {
+    font-size: 1rem !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+// Magnifying glass icon via Font Awesome ::before on parent wrappers (desktop + mobile)
+#col-search .d-flex.justify-content-start,
+.az-public-mobile-filters .form-group {
+    position: relative;
+
+    &::before {
+        content: "\f002";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $input-placeholder-color;
+        font-size: 0.9rem;
+        pointer-events: none;
+    }
+
+    input.s-lg-az-search {
+        padding-left: 2rem !important;
+    }
+}
+i.fa.fa-angle-down.me-2.fs-4:before {
+    font-size: 1.1rem;
+}
+
+// Remove "Recommended Databases" link (desktop and mobile)
 #s-lg-az-filter-cols>div:nth-child(3),
 div#s-lib-public-main-searchbar>section>div:nth-child(3) {
     display: none !important;
 }
 
-// Add padding to the sidebar content on smaller screens
-@media (max-width: 991.98px) {
-    #s-lg-az-cols>.col-lg-12, 
-    #s-lg-az-cols>.col-lg-8, 
-    #s-lg-az-cols>.col-lg-4 {
-        --bs-gutter-x: 3rem;
-    }
-}
-@media (max-width: 991.98px) {
-    // .az-public-mobile-filters, 
-    #s-lg-az-helpful-links, 
-    #s-lg-az-icon-legend, 
-    #s-lg-az-subject-resources, 
-    div[id^=s-lg-az-custom-box-] {
-        margin-left: 0;
-        margin-right: 0;
-    }
-}
-
-// Make main search buttons smaller
-#s-lg-az-filter-cols button,
-button.btn.btn-default.s-lg-az-reset{
-    padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x) !important;
-    padding: $btn-padding-y $btn-padding-x !important;
-}
-.az-landing .btn.btn-primary,
-#s-lib-public-main-searchbar button.btn.btn-primary,
-#sb-search-col-1 button.btn.btn-primary {
-    padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x) !important;
-    padding: $btn-padding-y $btn-padding-x !important;
-    background: var(--bs-primary) !important;
-    &:hover {
-        background: #{shade-color($primary, 15%)} !important;
-    }
-}
-#s-lg-az-filter-cols button,
-button.btn.btn-default.s-lg-az-reset{
-    background: white !important;
-}
-#s-lib-public-main-searchbar {
-    a.recommended-list {
-        font-size: 0.9rem !important;
-        font-weight: 400 !important;
-    }
-}
-// fix in search buttons
-.d-flex.flex-row.justify-content-around.flex-grow-1{
-    flex-direction: column !important;
-}
-
-// Less gap between the header and the search bar on the A-Z landing page
-#s-lg-guide-header{
-    margin-top : .5rem;
-}
-
-
-// Brand colors for the csearch box
+// Filter bar layout and brand colors
 #az-search-col-1 {
-    nav.navbar {
-        background-color: $ucl-greystone-lighter;
-    }
-    
-    
-    // Brand colors for the search box
-    #az-search-col-1 {
-        #s-lg-az-filters {
-            padding: 1rem;
-            background-color: var(--bs-light);
-    
-            #az-search-form {
-                #s-lg-az-filter-cols {
-                    div.row {
-                        padding: 0;
-    
-                        &>div {
-                            border-right-color: var(--bs-light);
-                        }
-    
-                        i.fa.fa-angle-down.me-2.fs-4 {
-                            color: $ucl-greystone-dark;
-                        }
+    padding: 0;
+    #s-lg-az-filters {
+        padding: 1rem;
+        background-color: var(--bs-body-bg);
+
+        #az-search-form {
+            #s-lg-az-filter-cols {
+                div.row {
+                    padding: 0;
+                    border-radius: 100px;
+                    border: 1px solid var(--bs-border-color);
+
+                    &>div:not(:last-child) {
+                        border-right: 1px solid var(--bs-border-color);
+
+                    }
+
+                    i.fa.fa-angle-down.me-2.fs-4 {
+                        color: $ucl-greystone-dark;
                     }
                 }
-    
             }
         }
     }
-    
-    // Brand colors for the A-Z list index
+
+    // A-Z index active letter
     #s-lg-az-index .active-alpha {
         color: $ucl-maroon;
         border: 1px solid $ucl-maroon;
     }
-    
-    // Brand colors for the search result cards
-    .az-item {
-        border-bottom-style: solid;
-        border-bottom-color: var(--bs-border-color);
-    }
-    
-    
-    // Smaller icons
+
+    // Smaller collapsible icons on result cards
     .az-item .az-toggle {
-    
-        .az-collapsible{
+        .az-collapsible {
             background: var(--bs-light);
+            background: var(--bs-body-bg);
 
             &>img {
                 width: 1rem;
             }
         }
     }
+
     .az-item button.az-toggle,
     .az-item h4.az-toggle {
         margin: 0.5rem 1rem 0.5rem 0;
-    
+
         .az-collapsible {
-    
             &>img,
             &>svg {
                 width: 1.1rem;
                 height: 1.1rem;
             }
-
         }
     }
 }
 
-// Brand colors for the A-Z list index
-#s-lg-az-index .active-alpha {
-    color: $ucl-maroon;
-    border: 1px solid $ucl-maroon;
-}
+// Mobile filter bar
+#s-lib-public-main-searchbar {
+    #az-public-mobile-filters-default {
+        background-color: var(--bs-body-bg);
+        border: none !important;
+        padding: 0;
 
-// Brand colors for the search result cards
-.az-item {
-    border-bottom-style: solid;
-    border-bottom-color: var(--bs-border-color);
-}
-
-
-// Smaller icons
-.az-item .az-toggle {
-    .az-collapsible>img {
-        width: 1rem;
-    }
-}
-.az-item button.az-toggle,
-.az-item h4.az-toggle {
-    margin: 0.5rem 1rem 0.5rem 0;
-
-    .az-collapsible {
-
-        &>img,
-        &>svg {
-            width: 1.1rem;
-            height: 1.1rem;
+        input.s-lg-az-search {
+            border-radius: 100px !important;
         }
     }
 }
 
-// Brand colors for the collapsible boxes
+// Search buttons
+#s-lg-az-filter-cols button,
+button.btn.btn-default.s-lg-az-reset {
+    padding: $btn-padding-y $btn-padding-x !important;
+    background: var(--bs-body-bg) !important;
+}
+
+.az-landing .btn.btn-primary,
+#s-lib-public-main-searchbar button.btn.btn-primary,
+#sb-search-col-1 button.btn.btn-primary {
+    padding: $btn-padding-y $btn-padding-x !important;
+    background: var(--bs-primary) !important;
+
+    &:hover {
+        background: #{shade-color($primary, 15%)} !important;
+    }
+}
+
+// Fix flex direction on button group
+.d-flex.flex-row.justify-content-around.flex-grow-1 {
+    flex-direction: column !important;
+}
+
+// Recommended Databases link
+#s-lib-public-main-searchbar {
+    a.recommended-list {
+        font-size: 0.9rem !important;
+        font-weight: 400 !important;
+    }
+}
+
+// Reduce gap between header and search bar on the A-Z landing page
+#s-lg-guide-header {
+    margin-top: .5rem;
+}
+
+// Reduce gap between item name and additional info
+.az-item>.mt-3 {
+    margin-top: 0 !important;
+}
+
+// Collapsible detail boxes (border set globally above)
 .az-entry-collapsible-box {
-    border-style: solid;
-    border-color: var(--bs-border-color);
     background: transparent;
     padding: 1rem;
 }
@@ -379,97 +389,151 @@ button.btn.btn-default.s-lg-az-reset{
     border-color: var(--bs-border-color);
 }
 
+// Mobile layout adjustments for database finder
+@media (max-width: 991.98px) {
+    // Remove padding added by LibApps
+    #s-lib-public-main {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
 
-// ## Guides Specific
+    // Widen gutters for sidebar columns
+    #s-lg-az-cols>.col-lg-12,
+    #s-lg-az-cols>.col-lg-8,
+    #s-lg-az-cols>.col-lg-4 {
+        --bs-gutter-x: 3rem;
+    }
+
+    // Remove extra margins from sidebar content blocks
+    #s-lg-az-helpful-links,
+    #s-lg-az-icon-legend,
+    #s-lg-az-subject-resources,
+    div[id^=s-lg-az-custom-box-] {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+
+// =============================================================================
+// GUIDES
+// =============================================================================
+
+// Profile email badge
 .s-lib-profile-email {
-    .label-info{
+    .label-info {
         background-color: var(--bs-secondary);
         font-size: var(--bs-btn-font-size);
     }
 }
 
-.s-lib-profile-widget button#mysched_63613{
+// Schedule button
+.s-lib-profile-widget button#mysched_63613 {
     @extend .btn;
     @extend .btn-outline-secondary;
-    // background-color: var(--bs-secondary);
     font-size: var(--bs-btn-font-size);
 }
 
-
-// style boxes on all pages
-
-.s-lib-box {
-    border: none;
-    box-shadow: none;
-}
-
-// remove the prev/next buttons on the guides homepage
-#home-guide-body{
+// Guide home: hide box titles and prev/next pagination
+#home-guide-body {
     h2.s-lib-box-title {
-        /*display: none;*/
         @extend .visually-hidden;
     }
+
     #s-lg-page-prevnext {
         display: none;
     }
+
     #s-lg-guide-tabs a.nav-link {
         --bs-nav-link-font-size: 1.1rem;
     }
 }
 
-// Style Guides boxes and side nav
+// Guide box titles
 h2.s-lib-box-title {
     background-color: transparent !important;
     background-image: none !important;
     border: none !important;
     font-size: 1.8rem !important;
 
-    #s-lg-box-profile &{
+    #s-lg-box-profile & {
         font-size: 1.1rem !important;
         font-weight: 600 !important;
         padding: 0;
     }
 }
+
+// Guide tabs
 #s-lg-guide-tabs .nav-item:not(.active) a.nav-link {
     color: var(--bs-secondary) !important;
     background-color: var(--bs-light) !important;
 }
+
 #s-lg-guide-tabs .list-group-item {
     border: none;
     background-color: transparent;
     margin: 0;
-    a{
-        color: var(--bs-body-color);
+
+    a {
+        color: var(--bs-body-bg);
         text-decoration: none;
-        &:hover{
+
+        &:hover {
             text-decoration: underline;
         }
     }
 }
+
+// Prev/next page navigation
 #s-lg-page-prevnext .page-link {
     color: var(--bs-secondary-color);
     border: 1px solid var(--bs-border-color);
     border-radius: var(--bs-border-radius);
 }
 
+// Profile nav sidebar
+#sb-search-col-1 nav,
+#s-lg-profile-nav {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0;
 
-// ## Profiles
-.s-lib-featured-profile-image img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 8px;
+    .nav-item,
+    .nav-link {
+        font-size: .9rem;
+    }
+
+    .nav-item:first-child {
+        padding-top: .375rem;
+    }
+
+    .nav-link {
+        --bs-btn-padding-x: 0.75rem;
+        --bs-btn-padding-y: 0.375rem;
+        padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+    }
 }
 
-// Profile on subjects
+// Restore standard gutter on guides/profiles pages
+@media (max-width: 991.98px) {
+    #s-lib-public-main {
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+    }
+}
+
+
+// =============================================================================
+// PROFILES
+// =============================================================================
+
 .s-lib-featured-profile-image img,
-.s-lib-profile-image img{
+.s-lib-profile-image img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: top;
-    background-color: #fff;
+    background-color: var(--bs-body-bg);;
     border: none;
     box-shadow: none;
     padding: 0;
@@ -477,38 +541,19 @@ h2.s-lib-box-title {
     border-radius: 8px;
 }
 
-#sb-search-col-1 nav,
-#s-lg-profile-nav{
-    background-color: transparent !important;
-    border: none !important;
-    padding: 0;
-    .nav-item,
-    .nav-link {
-        font-size: .9rem;
-    }
-    .nav-item:first-child{
-        padding-top: .375rem;
-    }
-    .nav-link{
-        --bs-btn-padding-x: 0.75rem;
-        --bs-btn-padding-y: 0.375rem;
-        padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
-    }
-}
-@media (max-width: 991.98px) {
-    #s-lib-public-main {
-        padding-right: calc(var(--bs-gutter-x) * .5);
-        padding-left: calc(var(--bs-gutter-x) * .5);
-    }
-}
-.s-lib-featured-profile-container a{
+.s-lib-featured-profile-container a {
     text-decoration: none;
-    &:hover{
+
+    &:hover {
         text-decoration: underline;
     }
 }
 
-// ## Subjects
-#s-lg-sb-label{
+
+// =============================================================================
+// SUBJECTS
+// =============================================================================
+
+#s-lg-sb-label {
     font-size: 1rem;
 }
