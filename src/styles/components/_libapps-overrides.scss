@@ -419,6 +419,45 @@ button.btn.btn-default.s-lg-az-reset {
 // GUIDES
 // =============================================================================
 
+h1 {
+    font-weight: 500 !important;
+}
+/* separate home page tabs from title and description */
+#s-lg-tabs-container{
+    margin-top: 1rem !important;
+}
+
+
+/* add space between lists of links */
+div#s-lg-guide-main li {
+    margin-bottom: .5rem !important;
+}
+
+/* Style Home page tabs */
+#s-lg-guide-tabs a.nav-link {
+    border-radius: 100px !important;
+}
+#s-lg-guide-tabs a.nav-link.active {
+    border: 1px solid var(--bs-border-color);
+    border: 1px solid #737373;
+}
+
+/* Style collapsible boxes heading */
+button.s-lib-box-collapse-toggle{
+    background-color: white !important;
+}
+
+/* Style manual guides lists' details line */
+.s-lg-guide-list-info{
+    opacity: 0.8 !important;
+    font-size: .7rem !important;
+}
+
+/* stop author links from exceeding limits */
+.s-lg-guide-list-info a {
+    white-space: break-spaces;
+}
+
 // Profile email badge
 .s-lib-profile-email {
     .label-info {
@@ -464,22 +503,27 @@ h2.s-lib-box-title {
 }
 
 // Guide tabs
-#s-lg-guide-tabs .nav-item:not(.active) a.nav-link {
-    color: var(--bs-secondary) !important;
-    background-color: var(--bs-light) !important;
-}
+#s-lg-guide-tabs{
 
-#s-lg-guide-tabs .list-group-item {
-    border: none;
-    background-color: transparent;
-    margin: 0;
+    // horizontal tabs
+    .nav-item:not(.active) a.nav-link {
+        color: var(--bs-secondary) !important;
+        background-color: var(--bs-light) !important;
+    }
 
-    a {
-        color: var(--bs-body-bg);
-        text-decoration: none;
+    // vertical sub-item tabs
+    .list-group-item {
+        border: none;
+        background-color: transparent;
+        margin: 0;
 
-        &:hover {
-            text-decoration: underline;
+        a {
+            color: var(--bs-body-color);
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 }
