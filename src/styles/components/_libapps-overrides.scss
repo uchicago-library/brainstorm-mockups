@@ -172,6 +172,53 @@ h2.footer-heading {
     border-radius: 8px;
 }
 
+// *Restore standard gutter on guides/profiles pages
+@media (max-width: 991.98px) {
+    // works on /search /subject /profiles
+    #s-lib-public-main,
+    #s-lib-public-header {
+        padding-right: calc(var(--bs-gutter-x) * 1);
+        padding-left: calc(var(--bs-gutter-x) * 1);
+    }
+}
+@media (max-width: 576px) {
+    // works on /search /subject /profiles
+    #s-lib-public-main,
+    #s-lib-public-header {
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+    }
+}
+
+// Force search bar in search page to be visible even in small screens
+#s-lg-srch-local{
+    nav.navbar{
+        background-color: transparent !important;
+        border: none !important;
+    }
+    .navbar div#s-lg-srch-nav-1.navbar-collapse {
+        display: block !important;
+        form#s-lg-srch-form input{
+            border-top-left-radius: 50rem !important;
+            border-bottom-left-radius: 50rem !important;
+        }
+    }
+    .navbar-expand-md button.navbar-toggler.pad-right-med.navbar-toggler{
+        display: none !important;
+    }
+}
+
+// rounded corners on the prevailing search form
+form#s-lg-guide-search-form {
+    input#s-lg-guide-search-terms{
+        border-top-left-radius: 50rem !important;
+        border-bottom-left-radius: 50rem !important;
+    }
+    button{
+        border-top-right-radius: 50rem !important;
+        border-bottom-right-radius: 50rem !important;
+    }
+}
 
 // =============================================================================
 // DATABASE FINDER
@@ -391,11 +438,6 @@ button.btn.btn-default.s-lg-az-reset {
 
 // Mobile layout adjustments for database finder
 @media (max-width: 991.98px) {
-    // Remove padding added by LibApps
-    #s-lib-public-main {
-        padding-right: 0 !important;
-        padding-left: 0 !important;
-    }
 
     // Widen gutters for sidebar columns
     #s-lg-az-cols>.col-lg-12,
@@ -434,12 +476,14 @@ div#s-lg-guide-main li {
 }
 
 /* Style Home page tabs */
-#s-lg-guide-tabs a.nav-link {
-    border-radius: 100px !important;
-}
-#s-lg-guide-tabs a.nav-link.active {
-    border: 1px solid var(--bs-border-color);
-    border: 1px solid #737373;
+#s-lg-tabs-container{
+    #s-lg-guide-tabs a.nav-link {
+        border-radius: 100px !important;
+    }
+    #s-lg-guide-tabs a.nav-link.active {
+        border: 1px solid var(--bs-border-color);
+        border: 1px solid #737373;
+    }
 }
 
 /* Style collapsible boxes heading */
@@ -555,14 +599,6 @@ h2.s-lib-box-title {
         --bs-btn-padding-x: 0.75rem;
         --bs-btn-padding-y: 0.375rem;
         padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
-    }
-}
-
-// Restore standard gutter on guides/profiles pages
-@media (max-width: 991.98px) {
-    #s-lib-public-main {
-        padding-right: calc(var(--bs-gutter-x) * .5);
-        padding-left: calc(var(--bs-gutter-x) * .5);
     }
 }
 
