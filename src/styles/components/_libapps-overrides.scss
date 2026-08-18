@@ -476,13 +476,15 @@ div#s-lg-guide-main li {
 }
 
 /* Style Home page tabs */
-#s-lg-tabs-container{
-    #s-lg-guide-tabs a.nav-link {
-        border-radius: 100px !important;
-    }
-    #s-lg-guide-tabs a.nav-link.active {
-        border: 1px solid var(--bs-border-color);
-        border: 1px solid #737373;
+#s-lg-side-nav-content{
+    &>#s-lg-tabs-container{
+        #s-lg-guide-tabs a.nav-link {
+            border-radius: 100px !important;
+        }
+        #s-lg-guide-tabs a.nav-link.active {
+            border: 1px solid var(--bs-border-color);
+            border: 1px solid #737373;
+        }
     }
 }
 
