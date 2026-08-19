@@ -85,7 +85,10 @@ select,
 button {
     font-family: var(--bs-body-font-family) !important;
 }
-
+// do not override font-awesome stuff
+.fa {
+    font-family: 'FontAwesome' !important;
+}
 
 // =============================================================================
 // GLOBAL LAYOUT & COMPONENTS
