@@ -52,7 +52,7 @@ description: "Federated search results page across library systems."
   .badge-system-finding-aid { background-color: #8b4513; color: #fff; } /* brown */
   .badge-system-libguide    { background-color: #007a33; color: #fff; } /* green */
   .badge-system-collection  { background-color: #b5451b; color: #fff; } /* terracotta-ish */
-  .badge-system-web         { background-color: #3b6e8f; color: #fff; } /* lake-ish */
+  .badge-system-lib         { background-color: #3b6e8f; color: #fff; } /* lake-ish — all lib: types */
   .badge-system-database    { background-color: #555;    color: #fff; }
 
   /* Active filter chips */
@@ -284,14 +284,14 @@ description: "Federated search results page across library systems."
       </a>
     </li>
 
-    <!-- Result 5: Web Article -->
+    <!-- Result 5: Lib News -->
     <li class="result-item py-3">
       <div class="d-flex flex-wrap align-items-start gap-2 mb-1">
         <a href="#" class="result-item__title text-decoration-none link-primary">
           A Short History of Chicago's Neighborhood Libraries
         </a>
-        <span class="badge result-item__type align-self-center text-bg-secondary fw-normal">Web Article</span>
-        <span class="badge badge-system-web align-self-center">Web Articles</span>
+        <span class="badge result-item__type align-self-center text-bg-secondary fw-normal">News</span>
+        <span class="badge badge-system-lib align-self-center">Lib News</span>
       </div>
       <p class="result-item__meta mb-1">
         University of Chicago Library &middot; 2023
@@ -372,12 +372,37 @@ description: "Federated search results page across library systems."
                 <label class="form-check-label" for="sys-collections">Collections</label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="sys-web" name="systems" value="web">
-                <label class="form-check-label" for="sys-web">Web Articles</label>
-              </div>
-              <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="sys-databases" name="systems" value="databases">
                 <label class="form-check-label" for="sys-databases">Databases</label>
+              </div>
+              <div class="border-start border-2 ps-3 mt-1">
+                <p class="small fw-semibold text-muted mb-2">Library Website</p>
+                <div class="d-flex flex-column gap-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="sys-lib-staff" name="systems" value="lib-staff">
+                    <label class="form-check-label" for="sys-lib-staff">Lib Staff</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="sys-lib-news" name="systems" value="lib-news">
+                    <label class="form-check-label" for="sys-lib-news">Lib News</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="sys-lib-services" name="systems" value="lib-services">
+                    <label class="form-check-label" for="sys-lib-services">Lib Services</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="sys-lib-events" name="systems" value="lib-events">
+                    <label class="form-check-label" for="sys-lib-events">Lib Events</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="sys-lib-locations" name="systems" value="lib-locations">
+                    <label class="form-check-label" for="sys-lib-locations">Lib Locations</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="sys-lib-programs" name="systems" value="lib-programs">
+                    <label class="form-check-label" for="sys-lib-programs">Lib Programs</label>
+                  </div>
+                </div>
               </div>
             </div>
           </fieldset>
