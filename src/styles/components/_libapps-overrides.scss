@@ -429,8 +429,14 @@ button.btn.btn-default.s-lg-az-reset {
 }
 
 .az-title {
+    color: black;
+    text-decoration: none;
     i.fa.fa-external-link {
         margin-left: 0.5rem;
+    }
+    &.az-title:hover {
+        color: #800000;
+        text-decoration: underline;
     }
 }
 
