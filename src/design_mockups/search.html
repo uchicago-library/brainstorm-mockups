@@ -1,0 +1,437 @@
+---
+title: "Search Mockup"
+description: "Federated search results page across library systems."
+---
+
+{% include "meta/document-start.html" %}
+{% include "header.html" %}
+
+<style>
+  /* Search bar area */
+  .search-hero {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  /* Pill-shaped input group. Rounding rules target the first child which is techincally the non visible label. */
+  .input-group-pill > input {
+    border-top-left-radius: 2rem !important;
+    border-bottom-left-radius: 2rem !important;
+  }
+  .input-group-pill > .btn:last-child {
+    border-top-right-radius: 2rem !important;
+    border-bottom-right-radius: 2rem !important;
+  }
+
+  /* Result items */
+  .result-item {
+    border-bottom: 1px solid var(--bs-gray-200);
+  }
+  .result-item:last-child {
+    border-bottom: none;
+  }
+  .result-item__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .result-item__snippet {
+    font-size: 0.9rem;
+    color: var(--bs-gray-700);
+  }
+  .result-item__meta {
+    font-size: 0.85rem;
+    color: var(--bs-gray-600);
+  }
+  .result-item__access {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  /* System source badges */
+  .badge-system-catalog     { background-color: #4e2a84; color: #fff; } /* purple */
+  .badge-system-finding-aid { background-color: #8b4513; color: #fff; } /* brown */
+  .badge-system-libguide    { background-color: #007a33; color: #fff; } /* green */
+  .badge-system-collection  { background-color: #b5451b; color: #fff; } /* terracotta-ish */
+  .badge-system-web         { background-color: #3b6e8f; color: #fff; } /* lake-ish */
+  .badge-system-database    { background-color: #555;    color: #fff; }
+
+  /* Active filter chips */
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    background-color: var(--bs-gray-200);
+    border: 1px solid var(--bs-gray-400);
+    color: var(--bs-gray-800);
+    white-space: nowrap;
+  }
+  .filter-chip__remove {
+    background: none;
+    border: none;
+    padding: 0;
+    line-height: 1;
+    color: var(--bs-gray-600);
+    cursor: pointer;
+    font-size: 0.75rem;
+  }
+  .filter-chip__remove:hover {
+    color: var(--bs-danger);
+  }
+
+  /* Spell-check suggestion banner */
+  .search-suggestion {
+    font-size: 0.9rem;
+  }
+
+  /* AI Summary block */
+  .ai-summary {
+    background-color: var(--bs-gray-100);
+    border: 1px solid var(--bs-gray-300) !important;
+    border-left: 3px solid var(--bs-primary) !important;
+  }
+  .ai-summary__label {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 0.75rem !important;
+  }
+  .ai-summary__disclaimer {
+    font-style: italic;
+  }
+</style>
+
+<!-- ── Search bar ─────────────────────────────────────────────────────── -->
+<section class="search-hero" aria-label="Search">
+  <div class="container-md">
+    <form action="#" method="get" role="search" aria-label="Library search">
+      <div class="input-group input-group-pill input-group-lg">
+        <label for="search-query" class="visually-hidden">Search the library</label>
+        <input
+          type="search"
+          id="search-query"
+          name="q"
+          class="form-control"
+          value="chicago history"
+          placeholder="Search the library…"
+          aria-label="Search query"
+          autocomplete="off"
+        >
+        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#filterModal" aria-label="Open search filters (3 active)">
+          <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+          <span class="badge text-bg-primary ms-1" aria-hidden="true">3</span>
+        </button>
+        <button class="btn btn-primary" type="submit" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="mt-2">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="ai-summary-toggle" name="ai_summary" checked>
+          <label class="form-check-label small" for="ai-summary-toggle">
+            <i class="fa-solid fa-wand-magic-sparkles me-1" aria-hidden="true"></i>
+            AI Summary
+          </label>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<main class="container-md py-4 mb-5">
+
+  <!-- ── "Did you mean?" suggestion ──────────────────────────────────── -->
+  <p class="search-suggestion text-muted mb-3">
+    Showing results for <strong>chicago history</strong>.
+    Did you mean <a href="#">Chicago History</a>?
+  </p>
+
+  <!-- ── AI Summary ──────────────────────────────────────────────────── -->
+  <aside class="ai-summary card border-0 mb-4" aria-label="AI-generated summary">
+    <div class="card-body">
+      <p class="ai-summary__label text-muted mb-2">
+        <i class="fa-solid fa-wand-magic-sparkles me-1" aria-hidden="true"></i>
+        AI Summary
+      </p>
+      <p class="mb-2">Chicago history encompasses over 180 years of urban development, from the city's incorporation in 1837 through its rise as a commercial and cultural hub of the American Midwest. The University of Chicago Library holds significant primary source collections documenting this history, including mayoral papers, photographic archives, and newspapers spanning the 19th and 20th centuries.</p>
+      <p class="mb-2">Key themes in available resources include urban planning and architecture, racial and social politics (particularly the Civil Rights era and Mayor Harold Washington's administration), industrial development, and the city's role in shaping American literature and sociology.</p>
+      <p class="ai-summary__disclaimer small text-muted mb-0">AI-generated overview based on search results. Verify information in the primary sources below.</p>
+    </div>
+  </aside>
+
+  <!-- ── Results summary + active filter chips ────────────────────────── -->
+  <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+    <p class="mb-0 me-1 text-secondary" style="white-space: nowrap;">
+      <strong>1,247</strong> results
+    </p>
+
+    <!-- Active filter chips -->
+    <span class="filter-chip">
+      Catalog
+      <button class="filter-chip__remove" aria-label="Remove Catalog filter">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </span>
+    <span class="filter-chip">
+      Finding Aids
+      <button class="filter-chip__remove" aria-label="Remove Finding Aids filter">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </span>
+    <span class="filter-chip">
+      E-resources only
+      <button class="filter-chip__remove" aria-label="Remove E-resources only filter">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </span>
+    <button class="btn btn-link btn-sm p-0 text-danger" type="button">Clear all</button>
+
+    <!-- Sort indicator (right-aligned on large screens) -->
+    <span class="ms-auto text-secondary small d-none d-md-inline">
+      Sorted by: <strong>Relevance</strong>
+    </span>
+  </div>
+
+  <!-- ── Results list ───────────────────────────────────────────────── -->
+  <ol class="list-unstyled" aria-label="Search results">
+
+    <!-- Result 1: Catalog book -->
+    <li class="result-item py-3">
+      <div class="d-flex flex-wrap align-items-start gap-2 mb-1">
+        <a href="#" class="result-item__title text-decoration-none link-primary">
+          A History of the University of Chicago
+        </a>
+        <span class="badge result-item__type align-self-center text-bg-secondary fw-normal">Book</span>
+        <span class="badge badge-system-catalog align-self-center">Catalog</span>
+      </div>
+      <p class="result-item__meta mb-1">
+        McNeill, William H. &middot; 1991 &middot;
+        <span>University of Chicago Press</span>
+      </p>
+      <p class="result-item__snippet mb-2">
+        Traces the founding and development of the University of <mark>Chicago</mark> from 1890, examining how it shaped American higher education and <mark>Chicago</mark>'s intellectual culture&hellip;
+      </p>
+      <a href="#" class="result-item__access text-success">
+        <i class="fa-solid fa-check-circle me-1" aria-hidden="true"></i>
+        Available — Regenstein Library
+      </a>
+    </li>
+
+    <!-- Result 2: Finding Aid -->
+    <li class="result-item py-3">
+      <div class="d-flex flex-wrap align-items-start gap-2 mb-1">
+        <a href="#" class="result-item__title text-decoration-none link-primary">
+          Mayor Harold Washington Papers, 1983–1987
+        </a>
+        <span class="badge result-item__type align-self-center text-bg-secondary fw-normal">Finding Aid</span>
+        <span class="badge badge-system-finding-aid align-self-center">Finding Aids</span>
+      </div>
+      <p class="result-item__meta mb-1">
+        Chicago History Museum &middot; 1988 &middot;
+        <span>Special Collections</span>
+      </p>
+      <p class="result-item__snippet mb-2">
+        Papers documenting the administration of <mark>Chicago</mark>'s first Black mayor, including correspondence, press releases, legislative files, and campaign materials covering city governance and policy&hellip;
+      </p>
+      <a href="#" class="result-item__access text-primary">
+        <i class="fa-solid fa-box-archive me-1" aria-hidden="true"></i>
+        Request access — Special Collections Research Center
+      </a>
+    </li>
+
+    <!-- Result 3: LibGuide -->
+    <li class="result-item py-3">
+      <div class="d-flex flex-wrap align-items-start gap-2 mb-1">
+        <a href="#" class="result-item__title text-decoration-none link-primary">
+          Chicago History: Research Guide
+        </a>
+        <span class="badge result-item__type align-self-center text-bg-secondary fw-normal">Research Guide</span>
+        <span class="badge badge-system-libguide align-self-center">LibGuides</span>
+      </div>
+      <p class="result-item__meta mb-1">
+        Chen, Sarah &middot; Updated Aug 2026
+      </p>
+      <p class="result-item__snippet mb-2">
+        A curated guide to primary and secondary sources for researching <mark>Chicago</mark> <mark>history</mark>, including newspapers, city records, photographs, maps, and recommended databases&hellip;
+      </p>
+      <a href="#" class="result-item__access text-success">
+        <i class="fa-solid fa-globe me-1" aria-hidden="true"></i>
+        Available online
+      </a>
+    </li>
+
+    <!-- Result 4: Digital Collection -->
+    <li class="result-item py-3">
+      <div class="d-flex flex-wrap align-items-start gap-2 mb-1">
+        <a href="#" class="result-item__title text-decoration-none link-primary">
+          Chicago Panoramas, 1890–1940
+        </a>
+        <span class="badge result-item__type align-self-center text-bg-secondary fw-normal">Image Collection</span>
+        <span class="badge badge-system-collection align-self-center">Collections</span>
+      </div>
+      <p class="result-item__meta mb-1">
+        University of Chicago Library &middot; 1890–1940 &middot;
+        <span>Digital Collections</span>
+      </p>
+      <p class="result-item__snippet mb-2">
+        Over 2,400 panoramic photographs documenting <mark>Chicago</mark>'s urban growth, architecture, neighborhoods, and lakefront from the World's Columbian Exposition through the New Deal era&hellip;
+      </p>
+      <a href="#" class="result-item__access text-success">
+        <i class="fa-solid fa-globe me-1" aria-hidden="true"></i>
+        Available online
+      </a>
+    </li>
+
+    <!-- Result 5: Web Article -->
+    <li class="result-item py-3">
+      <div class="d-flex flex-wrap align-items-start gap-2 mb-1">
+        <a href="#" class="result-item__title text-decoration-none link-primary">
+          A Short History of Chicago's Neighborhood Libraries
+        </a>
+        <span class="badge result-item__type align-self-center text-bg-secondary fw-normal">Web Article</span>
+        <span class="badge badge-system-web align-self-center">Web Articles</span>
+      </div>
+      <p class="result-item__meta mb-1">
+        University of Chicago Library &middot; 2023
+      </p>
+      <p class="result-item__snippet mb-2">
+        An overview of how the UChicago Library supported <mark>Chicago</mark> community research through the 20th century, focusing on branch collections and outreach partnerships&hellip;
+      </p>
+      <a href="#" class="result-item__access text-success">
+        <i class="fa-solid fa-globe me-1" aria-hidden="true"></i>
+        Available online
+      </a>
+    </li>
+
+    <!-- Result 6: Database -->
+    <li class="result-item py-3">
+      <div class="d-flex flex-wrap align-items-start gap-2 mb-1">
+        <a href="#" class="result-item__title text-decoration-none link-primary">
+          Chicago Tribune Historical Archive, 1849–1987
+        </a>
+        <span class="badge result-item__type align-self-center text-bg-secondary fw-normal">Database</span>
+        <span class="badge badge-system-database align-self-center">Databases</span>
+      </div>
+      <p class="result-item__meta mb-1">
+        ProQuest &middot; 1849–1987
+      </p>
+      <p class="result-item__snippet mb-2">
+        Fully searchable full-text archive of the <mark>Chicago</mark> Tribune from its founding through 1987, including articles, editorials, photographs, and classified advertisements&hellip;
+      </p>
+      <a href="#" class="result-item__access text-success">
+        <i class="fa-solid fa-lock-open me-1" aria-hidden="true"></i>
+        Full text — UChicago access
+      </a>
+    </li>
+
+  </ol>
+
+  <!-- ── Load more ────────────────────────────────────────────────────── -->
+  <div class="text-center mt-4">
+    <button type="button" class="btn btn-outline-primary px-5">
+      Load more results
+    </button>
+    <p class="text-secondary small mt-2 mb-0">Showing 6 of 1,247 results</p>
+  </div>
+
+</main>
+
+<!-- ── Filter Modal ───────────────────────────────────────────────────── -->
+<div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="filterModalLabel">Search Filters</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form id="filter-form" action="#" method="get">
+
+          <!-- Systems to search -->
+          <fieldset class="mb-4">
+            <legend class="fw-semibold mb-2">Search in</legend>
+            <div class="d-flex flex-column gap-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="sys-catalog" name="systems" value="catalog" checked>
+                <label class="form-check-label" for="sys-catalog">Catalog</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="sys-finding-aids" name="systems" value="finding-aids" checked>
+                <label class="form-check-label" for="sys-finding-aids">Finding Aids</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="sys-libguides" name="systems" value="libguides">
+                <label class="form-check-label" for="sys-libguides">LibGuides</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="sys-collections" name="systems" value="collections">
+                <label class="form-check-label" for="sys-collections">Collections</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="sys-web" name="systems" value="web">
+                <label class="form-check-label" for="sys-web">Web Articles</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="sys-databases" name="systems" value="databases">
+                <label class="form-check-label" for="sys-databases">Databases</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <hr>
+
+          <!-- E-resources limit -->
+          <div class="mb-4 mt-3">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="limit-eresources" name="eresources" checked>
+              <label class="form-check-label fw-semibold" for="limit-eresources">Limit to e-resources</label>
+            </div>
+            <p class="text-muted small mt-1 mb-0">Show only items available online.</p>
+          </div>
+
+          <hr>
+
+          <!-- AI Summary -->
+          <div class="mb-4 mt-3">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="modal-ai-summary" name="ai_summary" checked>
+              <label class="form-check-label fw-semibold" for="modal-ai-summary">
+                <i class="fa-solid fa-wand-magic-sparkles me-1" aria-hidden="true"></i>
+                AI Summary
+              </label>
+            </div>
+            <p class="text-muted small mt-1 mb-0">Show an AI-generated overview before the results list.</p>
+          </div>
+
+          <hr>
+
+          <!-- Sort -->
+          <div class="mb-2 mt-3">
+            <label for="sort-select" class="form-label fw-semibold">Sort by</label>
+            <select class="form-select" id="sort-select" name="sort">
+              <option value="relevance" selected>Relevance</option>
+              <option value="title">Title (A–Z)</option>
+              <option value="date-desc">Date (newest first)</option>
+              <option value="date-asc">Date (oldest first)</option>
+              <option value="author">Author (A–Z)</option>
+              <option value="subject">Subject</option>
+            </select>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" form="filter-form" class="btn btn-primary">Apply filters</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% include "footer.html" %}
