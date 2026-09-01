@@ -3,13 +3,13 @@
 
 // Preformatted text
 pre {
-    background-color: $ucl-greystone-lighter;
-    color: $ucl-greystone-dark;
+    background-color: $body-tertiary-bg;
+    color: $body-secondary-color;
     padding: $spacer * 0.5;
 }
 
 code {
-    background-color: $ucl-greystone-lighter;
+    background-color: $body-tertiary-bg;
     border-radius: 0.2rem;
     padding: 0.1em 0.3em;
 }
@@ -29,7 +29,7 @@ h1 {
     line-height: 1.2;
     margin-top: $spacer * 2;
     margin-bottom: $spacer * 1;
-    color: $ucl-maroon;
+    color: $primary;
 }
 
 h2 {
@@ -72,5 +72,5 @@ h6 {
     margin-bottom: $spacer * 0.375;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: $ucl-greystone-dark;
+    color: $body-secondary-color;
 }

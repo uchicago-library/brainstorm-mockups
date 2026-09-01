@@ -25,7 +25,7 @@
     border-radius: 0.375rem;
 
     // Color scheme: light background with dark text
-    background-color: $ucl-greystone-light;
-    color: $ucl-greystone-dark;
-    border: 1px solid $ucl-greystone;
+    background-color: $body-secondary-bg;
+    color: $body-secondary-color;
+    border: $border-width solid $border-color;
 }

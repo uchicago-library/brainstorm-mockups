@@ -1,0 +1,113 @@
+---
+title: "Token Tables"
+description: "Generated reference for every design token in the system, with its CSS variable, SCSS variable, utility classes and value."
+---
+
+{% include "meta/document-start.html" %}
+{% include "header.html" %}
+{% include "breadcrumb.html" %}
+
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      <h1>{{ title }}</h1>
+      <p>Every token below is read directly from <code>src/styles/_variables.scss</code> when the site builds. Nothing on this page is maintained by hand, so it cannot fall out of step with the stylesheet.</p>
+
+      <section class="mt-5">
+        <h2>Using these tokens</h2>
+        <p>Where a utility class exists, use it instead of a raw token. Reach for a token only when no utility or component class covers the need.</p>
+
+        <h3>SCSS variable or CSS variable?</h3>
+        <p>The short version: <strong>SCSS to configure, CSS to apply.</strong></p>
+        <p>Use the <strong>SCSS variable</strong> only where the compiler has to see the value. That means as an argument to a Sass function or mixin, inside maps and <code>@if</code> or <code>@each</code> logic, in media query conditions, and when configuring Bootstrap, which reads variables such as <code>$primary</code> before it emits anything. These are cases where <code>var()</code> cannot work at all: <code>rgba($ucl-lake-light, 0.8)</code> computes a colour, while <code>rgba(var(--ucl-lake-light), 0.8)</code> does not.</p>
+        <p>Use the <strong>CSS variable</strong> everywhere else — that is, whenever you are simply applying a value to a property. It survives into the compiled stylesheet, so anyone inspecting the page can trace a colour straight back to the token that produced it, which an SCSS variable makes impossible because it is gone by the time the browser sees the CSS. It can also be overridden per scope or per component instance, it responds to <code>[data-bs-theme]</code>, and it is the only form available to anyone consuming the compiled CSS from outside this repository.</p>
+        <p>The trade-off is that <code>var()</code> has no compile-time safety: a misspelled custom property produces no error, just no style. Where a missing value would break layout rather than merely look wrong, give it a fallback — <code>var(--ucl-maroon, #800000)</code>.</p>
+        <h3>Reading the tables</h3>
+        <p>Brand tokens carry no utility classes by design. They are the raw palette; components should consume the semantic tokens that sit on top of them, so that a change of brand colour propagates rather than needing to be chased through every component.</p>
+        <p>A dash means the data does not exist rather than that it is missing: no custom property is published, no utility class is generated, or no note has been written yet.</p>
+        <p>Bootstrap's theme colours are only partly semantic. Primary, success, info and warning name a role, but secondary, light and dark name an appearance and so tell you nothing about when to use them. A fully semantic name would read more like <em>subtle text on a dark surface</em>. Treat the appearance-named slots as Bootstrap's vocabulary rather than as this system's roles.</p>
+      </section>
+
+      <section class="mt-5">
+        <h2>Token reference</h2>
+
+        <ul class="nav nav-tabs" role="tablist">
+          {% for table in tokens.tables %}
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link{% if loop.first %} active{% endif %}"
+                id="tab-{{ table.id }}"
+                data-bs-toggle="tab"
+                data-bs-target="#panel-{{ table.id }}"
+                type="button"
+                role="tab"
+                aria-controls="panel-{{ table.id }}"
+                aria-selected="{% if loop.first %}true{% else %}false{% endif %}">
+                {{ table.label }} <span class="badge text-bg-secondary">{{ table.count }}</span>
+              </button>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div class="tab-content pt-4">
+          {% for table in tokens.tables %}
+            <div
+              class="tab-pane fade{% if loop.first %} show active{% endif %}"
+              id="panel-{{ table.id }}"
+              role="tabpanel"
+              aria-labelledby="tab-{{ table.id }}"
+              tabindex="0">
+              {% include "token-table.njk" %}
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="mt-5">
+        <h2>Documenting a token</h2>
+        <p>The generator reads four comment forms in <code>_variables.scss</code>. Any other comment is treated as an ordinary code comment and ignored, and a token with no annotation still appears in the table with empty cells.</p>
+
+        <div class="table-responsive">
+          <table class="table table-sm">
+            <caption class="visually-hidden">Comment conventions read by the token generator</caption>
+            <thead>
+              <tr>
+                <th scope="col">Comment form</th>
+                <th scope="col">Effect</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>// == Section Name ==</code></td>
+                <td>Starts a section. Groups every token that follows until the next section marker.</td>
+              </tr>
+              <tr>
+                <td><code>//! guidance</code></td>
+                <td>Guidance prose for the current section, shown above its table.</td>
+              </tr>
+              <tr>
+                <td><code>/// note</code></td>
+                <td>Note for the single token declared immediately below.</td>
+              </tr>
+              <tr>
+                <td><code>// note</code> at the end of a declaration</td>
+                <td>Note for that token. The inline equivalent of <code>///</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Sections route to a tab by type: colour tokens land in Colors, everything else in Other Tokens. Build flags such as <code>$enable-dark-mode</code> are excluded, since they configure the build rather than describe the design.</p>
+      </section>
+
+      <section class="mt-5">
+        <h2>Machine-readable output</h2>
+        <p>The same data is published as JSON at <a href="{{ '/design_system/tokens.json' | url }}"><code>/design_system/tokens.json</code></a> for tooling that needs to consume the token set directly.</p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script src="{{ '/assets/js/token-table.js' | url }}" defer></script>
+
+{% include "footer.html" %}

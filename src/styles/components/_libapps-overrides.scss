@@ -132,11 +132,11 @@ button {
 #s-lib-footer-public {
     max-width: unset !important;
     padding: 1rem;
-    color: $ucl-greystone-light;
+    color: $light;
 }
 
 h2.footer-heading {
-    color: $ucl-greystone-light;
+    color: $light;
 }
 
 .footer {
@@ -254,9 +254,9 @@ form#s-lg-guide-search-form {
             right: -52px;
             width: 50px;
             height: 24px;
-            color: $ucl-maroon;
+            color: $primary;
             font-size: .8rem;
-            border: 2px dashed $ucl-maroon;
+            border: 2px dashed $primary;
             border-radius: 8px;
             text-align: center;
             padding: 2px;
@@ -329,7 +329,7 @@ div#s-lib-public-main-searchbar>section>div:nth-child(3) {
                     }
 
                     i.fa.fa-angle-down.me-2.fs-4 {
-                        color: $ucl-greystone-dark;
+                        color: $body-secondary-color;
                     }
                 }
             }
@@ -338,8 +338,8 @@ div#s-lib-public-main-searchbar>section>div:nth-child(3) {
 
     // A-Z index active letter
     #s-lg-az-index .active-alpha {
-        color: $ucl-maroon;
-        border: 1px solid $ucl-maroon;
+        color: $primary;
+        border: 1px solid $primary;
     }
 
     // Smaller collapsible icons on result cards

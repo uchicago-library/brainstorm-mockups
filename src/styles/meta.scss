@@ -1,0 +1,23 @@
+// Entry point for styles that exist for this project itself and ship with no
+// product — the same convention as src/_includes/meta/.
+//
+// Pages in this project load main.css AND meta.css. Anything imported here is
+// therefore additive: it must not restate Bootstrap output that main.css
+// already carries.
+//
+// The import block below is Bootstrap's configuration layer only. It defines
+// variables, maps, functions and mixins so the component partials can compile,
+// and emits no CSS of its own. Do not add "root" or "utilities/api" here —
+// they would duplicate several kilobytes already present in main.css.
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "variables";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// Documentation-only components.
+@import "components/annotations";
+@import "components/typography-labels";
+@import "components/token-table";

@@ -1,12 +1,28 @@
+@use "sass:meta";
+@use "sass:string";
+@use "../variables" as tokens;
+
 // Global element overrides
 // Use this file for non-typography element overrides that can't be controlled via Bootstrap variables
-// Token exposure pattern:
-// :root {
-//   --ucl-token-name: #{$sass-token-name};
-// }
+
+// Brand token exposure
+// Every $ucl-* color in _variables.scss is published as --ucl-<name> so that
+// consumers of the compiled CSS — external platforms, LibApps, one-off pages —
+// can reach the brand palette without access to the Sass sources.
+//
+// This loads _variables.scss as a module so the compiler can enumerate it;
+// nothing here needs updating when a brand color is added or removed. See the
+// Auto-Exposure Constraint note in _variables.scss before adding !default to,
+// or reassigning, any $ucl-* token.
+:root {
+    @each $name, $value in meta.module-variables("tokens") {
+        @if string.index($name, "ucl-") == 1 and meta.type-of($value) == color {
+            --#{$name}: #{$value};
+        }
+    }
+}
 
 :root, body {
-    --ucl-info-bg-extra-subtle: #{$info-bg-extra-subtle};
     --bs-font-sans-serif: #{$font-family-sans-serif};
     --bs-body-font-family: var(--bs-font-sans-serif);
     font-family: var(--bs-body-font-family);

@@ -2,28 +2,82 @@
 // Variables Reference
 // This file defines design-token values and Bootstrap variable overrides that
 // are consumed before Bootstrap is imported in src/styles/main.scss.
-// Import order matters:
-// - src/styles/main.scss imports this file first.
-// - Then Bootstrap imports its own stack (functions, variables, maps, utilities,
-//   components), where many map-derived CSS custom properties are generated.
 //
 // Table of Contents
-// 1) Primary Brand Colors
-// 2) Secondary Brand Color Families
-// 3) Bootstrap Semantic Color Mapping
-// 4) Typography
-// 5) Body
-// 6) Breadcrumb Overrides
-// 7) Accordion Overrides
+//  1) Configuration
+//  2) Primary Brand Colors
+//  3) Secondary Brand Colors - Goldenrod Family
+//  4) Secondary Brand Colors - Terracotta Family
+//  5) Secondary Brand Colors - Ivy Family
+//  6) Secondary Brand Colors - Forest Family
+//  7) Secondary Brand Colors - Lake Family
+//  8) Secondary Brand Colors - Violet Family
+//  9) Secondary Brand Colors - Brick Family
+// 10) Bootstrap Theme Colors
+// 11) Semantic Surfaces and Text
+// 12) Interactive and Inline Text Colors
+// 13) Active State Colors
+// 14) Typography
+// 15) Body
+// 16) Focus Ring
+// 17) Breadcrumb Overrides
+// 18) Accordion Overrides
 //
+// ----------------------------------------------------------------------------
+// Annotation Reference
+// The Token Tables documentation page is generated from this file at build time
+// by src/_data/tokens.js. Four comment forms are meaningful to that generator:
+//
+//   // == Section Name ==      Section heading. Groups the rows that follow.
+//   //! prose                  Guidance block, rendered above the section table.
+//   /// prose                  Note for the single token declared below it.
+//   $token: value; // prose    Note for that token (same as ///, inline form).
+//
+// Any other // comment is ignored by the generator and is a plain code comment.
+// A token with no annotation still appears in the table, with empty cells.
+//
+// ----------------------------------------------------------------------------
+// Naming Rule
+// - $ucl-* is ours. A token this design system defines, which would not exist
+//   without this file.
+// - Everything else is Bootstrap's. An unprefixed name here is always an
+//   existing Bootstrap variable that we are overriding, set before Bootstrap's
+//   own !default declaration so ours wins. Every unprefixed declaration below
+//   follows this rule, so a name with no prefix can be looked up in
+//   node_modules/bootstrap/scss/_variables.scss.
+//
+// ----------------------------------------------------------------------------
 // Availability Rule
-// - this is the first SCSS file imported so names like $info-bg-subtle are not available in this scope.
+// - Bootstrap's functions are available here, but its variables are not: this
+//   file is imported before bootstrap/scss/variables, so names like
+//   $info-bg-subtle do not yet exist in this scope.
 // - If a Sass variable is not declared in this file, it is unavailable.
 // - Use the Bootstrap CSS custom property form instead when needed, such as
 //   var(--bs-info-bg-subtle).
+//
+// ----------------------------------------------------------------------------
+// Auto-Exposure Constraint
+// Every $ucl-* color below is automatically published as a --ucl-<name> custom
+// property by src/styles/base/_global.scss, which loads this file as a Sass
+// module (@use) rather than through the @import cascade. Consequently:
+// - Do NOT add !default to a $ucl-* token.
+// - Do NOT reassign a $ucl-* token anywhere downstream.
+// Either would leave the module copy holding the literal below while the
+// @import cascade holds the new value, and the published --ucl-* would
+// silently disagree with the compiled Sass. The token generator asserts that
+// the two agree and fails the build if they diverge.
 // ============================================================================
 
-// Primary Brand Colors
+// == Configuration ==
+//! Build flags, not design tokens. These are excluded from the token tables.
+
+$enable-dark-mode: false;
+
+// == Primary Brand Colors ==
+//! The core UChicago palette. Brand tokens are the raw material of the system:
+//! prefer the semantic tokens further down when styling components, and reach
+//! for these only when defining a new semantic role.
+
 $ucl-maroon: #800000;
 $ucl-greystone-lighter: #f9fafc;
 $ucl-greystone-light: #e8ebef;
@@ -32,79 +86,118 @@ $ucl-greystone-dark: #585f6b;
 $ucl-greystone-darker: #474f5b;
 $ucl-greystone-darkest: #2f3640;
 
-// Secondary Brand Colors - Goldenrod Family
-$ucl-goldenrod-light: #F3D03E;
-$ucl-goldenrod: #EAAA00;
-$ucl-goldenrod-dark: #CC8A00;
+// == Secondary Brand Colors - Goldenrod Family ==
 
-// Secondary Brand Colors - Terracotta Family
-$ucl-terracotta-light: #ECA154;
-$ucl-terracotta: #DE7C00;
-$ucl-terracotta-dark: #A9431E;
+$ucl-goldenrod-light: #f3d03e;
+$ucl-goldenrod: #eaaa00;
+$ucl-goldenrod-dark: #cc8a00;
 
-// Secondary Brand Colors - Ivy Family
-$ucl-ivy-light: #A9C47F;
-$ucl-ivy: #789D4A;
-$ucl-ivy-dark: #13301C;
+// == Secondary Brand Colors - Terracotta Family ==
 
-// Secondary Brand Colors - Forest Family
-$ucl-forest-light: #9CAF88;
-$ucl-forest: #275D38;
+$ucl-terracotta-light: #eca154;
+$ucl-terracotta: #de7c00;
+$ucl-terracotta-dark: #a9431e;
+
+// == Secondary Brand Colors - Ivy Family ==
+
+$ucl-ivy-light: #a9c47f;
+$ucl-ivy: #789d4a;
+$ucl-ivy-dark: #13301c;
+
+// == Secondary Brand Colors - Forest Family ==
+
+$ucl-forest-light: #9caf88;
+$ucl-forest: #275d38;
 $ucl-forest-dark: #284734;
 
-// Secondary Brand Colors - Lake Family
-$ucl-lake-light: #3EB1C8;
+// == Secondary Brand Colors - Lake Family ==
+
+$ucl-lake-light: #3eb1c8;
 $ucl-lake: #007396;
-$ucl-lake-dark: #002A3A;
+$ucl-lake-dark: #002a3a;
 
-// Semantic Surface Tokens
-$info-bg-extra-subtle: #f3f4f6;
+// == Secondary Brand Colors - Violet Family ==
 
-// Secondary Brand Colors - Violet Family
-$ucl-violet-light: #86647A;
-$ucl-violet: #59315F;
-$ucl-violet-dark: #41273B;
+$ucl-violet-light: #86647a;
+$ucl-violet: #59315f;
+$ucl-violet-dark: #41273b;
 
-// Secondary Brand Colors - Brick Family
-$ucl-brick-light: #B46A55;
-$ucl-brick: #A4343A;
+// == Secondary Brand Colors - Brick Family ==
+
+$ucl-brick-light: #b46a55;
+$ucl-brick: #a4343a;
 $ucl-brick-dark: #643335;
 
-$enable-dark-mode: false;
+// == Bootstrap Theme Colors ==
+//! Bootstrap's theme slots, remapped onto the brand palette. Setting these
+//! drives every .text-*, .bg-*, .border-*, .btn-* and .alert-* variant, so
+//! component styles should consume these rather than the brand tokens above.
+//!
+//! These are only partly semantic. Primary, success, info and warning describe
+//! a role. Secondary, light and dark describe an appearance, so they say
+//! nothing about when to use them — a genuinely semantic name would read like
+//! "subtle text on a dark surface". Treat the appearance-named slots as
+//! Bootstrap's vocabulary rather than as this system's roles, and prefer a
+//! purpose-named token where one exists.
 
-// Bootstrap Semantic Colors - Mapped to Brand Colors
-$primary: $ucl-maroon; // Maroon
+$primary: $ucl-maroon; // Maroon. Reserved for calls to action.
 $secondary: $ucl-greystone-dark; // Dark Greystone
 $success: $ucl-ivy; // Ivy
 $info: $ucl-lake; // Lake
 $warning: $ucl-goldenrod; // Goldenrod
-$danger: #dc3545; // Bootstrap default
+// $danger: #dc3545; // Bootstrap default
 $light: $ucl-greystone-light; // Light Greystone
 $dark: $ucl-greystone-darkest; // Black
 
-// Interactive and Inline Text Colors
-// Primary (maroon) is reserved for CTA usage.
+// == Semantic Surfaces and Text ==
+//! Low-contrast surfaces and de-emphasised text. These override Bootstrap's
+//! own roles, so the matching utilities work unchanged: .bg-body-tertiary,
+//! .bg-body-secondary and .text-body-secondary.
+
+/// Subtlest page surface. Use for inset panels and code blocks.
+$body-tertiary-bg: $ucl-greystone-lighter;
+
+/// Slightly recessed surface, one step stronger than tertiary.
+$body-secondary-bg: $ucl-greystone-light;
+
+/// De-emphasised body text. Opaque, unlike Bootstrap's translucent default.
+$body-secondary-color: $ucl-greystone-dark;
+
+/// Active accordion surface.
+$ucl-info-bg-extra-subtle: $ucl-greystone-lighter;
+
+// == Interactive and Inline Text Colors ==
+//! Links use the Lake family, not Primary. Maroon is reserved for calls to
+//! action so that a page's primary action stays visually unique.
+
 $link-color: $ucl-lake;
 $link-hover-color: $ucl-lake-dark;
 $code-color: $link-color;
 
-// Active states should use the Lake family for consistent interaction feedback.
+// == Active State Colors ==
+//! Active states use the Lake family for consistent interaction feedback.
+
 $component-active-bg: $ucl-lake;
 $component-active-border-color: $ucl-lake;
 $component-active-color: #ffffff;
 
-// Typography
+// == Typography ==
+
 $font-family-sans-serif: "UChicago Sans Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-// Body
+// == Body ==
+
 $body-bg: #ffffff;
 $body-color: $dark;
 
-// Focus Ring
+// == Focus Ring ==
+
 $focus-ring-color: rgba($ucl-lake-light, 0.80);
 
+// == Breadcrumb Overrides ==
+//! Level 3 component tokens. They live here because Bootstrap reads them while
+//! building its component styles, which happens after this file is imported.
 
-// Breadcrumb
 $breadcrumb-font-size: 0.75rem;
 $breadcrumb-padding-y: 0.5rem;
 $breadcrumb-padding-x: 0;
@@ -112,7 +205,9 @@ $breadcrumb-margin-bottom: 0;
 $breadcrumb-divider-color: $secondary;
 $breadcrumb-active-color: $secondary;
 
-// Accordion
+// == Accordion Overrides ==
+//! Level 3 component tokens. See the note on Breadcrumb Overrides above.
+
 $accordion-button-bg: $body-bg;
 $accordion-button-active-bg: var(--ucl-info-bg-extra-subtle);
 $accordion-button-color: $body-color;
