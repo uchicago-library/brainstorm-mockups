@@ -63,6 +63,17 @@ const THEME_COLOR_COMPONENTS = ["btn", "alert", "table", "text-bg", "list-group-
 
 const COLOR_PROPERTIES = /color|background|border-color|fill|stroke/;
 
+// Bootstrap names a utility after the role, dropping the property suffix that
+// the Sass variable carries: $body-tertiary-bg is keyed "body-tertiary" and
+// $body-secondary-color is keyed "body-secondary". Both keys are the same, so
+// the suffix is also what tells the two apart — strip it to find the key, then
+// use it to pick the right property. Longest suffix first.
+const NAME_SUFFIXES = [
+  { suffix: "-border-color", property: /^border-color$/ },
+  { suffix: "-bg", property: /^background-color$/ },
+  { suffix: "-color", property: /^color$/ },
+];
+
 // ---------------------------------------------------------------------------
 // A. Token values, types and source order, straight from the Sass compiler.
 // ---------------------------------------------------------------------------
@@ -104,11 +115,11 @@ function unquote(text) {
 
 function readUtilities() {
   const byKey = new Map();
-  const add = (key, className, property) => {
+  const add = (key, className, property, isColor) => {
     if (!byKey.has(key)) byKey.set(key, []);
     const list = byKey.get(key);
     if (!list.some((u) => u.className === className)) {
-      list.push({ className, property });
+      list.push({ className, property, isColor });
     }
   };
 
@@ -155,13 +166,16 @@ function readUtilities() {
           const key = unquote(args[1].assertString().text);
           const property = unquote(args[2].assertString().text);
           if (key === "null" || key === "") return sass.sassNull;
-          add(key, `.${cls}-${key}`, property);
+          // .focus-ring-* has a null property because it sets a local custom
+          // property rather than a CSS property, but it is a colour utility.
+          const isColor = COLOR_PROPERTIES.test(property) || cls === "focus-ring";
+          add(key, `.${cls}-${key}`, property, isColor);
           return sass.sassNull;
         },
         "emit-theme-color($key)": (args) => {
           const key = unquote(args[0].assertString().text);
           for (const component of THEME_COLOR_COMPONENTS) {
-            add(key, `.${component}-${key}`, "color");
+            add(key, `.${component}-${key}`, "color", true);
           }
           return sass.sassNull;
         },
@@ -398,12 +412,32 @@ function resolveCssVar(name, properties) {
 }
 
 function resolveUtilities(token, utilities) {
-  const matches = utilities.get(token.name) || [];
   const wantsColor = token.type === "color";
-  return matches
-    .filter((u) => COLOR_PROPERTIES.test(u.property) === wantsColor)
-    .map((u) => u.className)
-    .sort();
+  const found = new Set();
+
+  const take = (key, property) => {
+    for (const utility of utilities.get(key) || []) {
+      if (utility.isColor !== wantsColor) continue;
+      if (property && !property.test(utility.property)) continue;
+      found.add(utility.className);
+    }
+  };
+
+  // An exact name match covers the theme colours, which Bootstrap keys on the
+  // bare role: $primary -> .text-primary, .bg-primary, .btn-primary, ...
+  take(token.name, null);
+
+  // Otherwise the utility key drops the property suffix, and the suffix
+  // decides which property to accept: $body-secondary-bg is .bg-body-secondary
+  // while $body-secondary-color is .text-body-secondary.
+  for (const rule of NAME_SUFFIXES) {
+    if (token.name.endsWith(rule.suffix)) {
+      take(token.name.slice(0, -rule.suffix.length), rule.property);
+      break;
+    }
+  }
+
+  return [...found].sort();
 }
 
 module.exports = function () {
