@@ -76,6 +76,8 @@ To add a component: create `src/styles/components/_name.scss` and `@import` it i
 
 A trailing `// prose` on a declaration is the inline equivalent of `///`. The same `///` form documents a **class** in `base/` and `components/`, where it is opt-in — a class appears on the page only if it carries a note. Tokens are exhaustive; classes are not.
 
+Annotation prose is rendered as **inline Markdown** via the `inlineMarkdown` filter in [.eleventy.js](.eleventy.js), so backticks become `<code>` and raw HTML is escaped. Block-level Markdown is unsupported (the prose sits in a table cell). Wrap class names containing an asterisk in backticks — a bare `.btn-*` pairs its asterisks into `<em>`.
+
 Two build guards will fail the build rather than publish wrong data: an unresolved Sass function in `_variables.scss`, and disagreement between the `--ucl-*` custom properties and the compiled Sass values. Do not add `!default` to a `$ucl-*` token or reassign one downstream — see the Auto-Exposure Constraint note in `_variables.scss`.
 
 ### Content directories

@@ -4,7 +4,7 @@
 {% for section in table.sections %}
   <section class="mb-5" data-token-section>
     <h3 id="{{ table.id }}-{{ section.label | slugify }}">{{ section.label }}</h3>
-    {% if section.guidance %}<p>{{ section.guidance }}</p>{% endif %}
+    {% if section.guidance %}<p>{{ section.guidance | inlineMarkdown | safe }}</p>{% endif %}
 
     <div class="table-responsive">
       <table class="table table-sm align-middle token-table">
@@ -23,7 +23,7 @@
                 <td class="token-table__name">
                   <button type="button" class="token-table__copy" data-copy="{{ item.selector }}">{{ item.selector }}</button>
                 </td>
-                <td class="token-table__notes">{{ item.note }}</td>
+                <td class="token-table__notes">{{ item.note | inlineMarkdown | safe }}</td>
               </tr>
             {% endfor %}
           </tbody>
@@ -70,7 +70,7 @@
                 </td>
                 <td><code>{{ token.value }}</code></td>
                 <td class="token-table__notes">
-                  {% if token.note %}{{ token.note }}{% else %}<span class="token-table__empty" title="Not documented yet">&mdash;</span>{% endif %}
+                  {% if token.note %}{{ token.note | inlineMarkdown | safe }}{% else %}<span class="token-table__empty" title="Not documented yet">&mdash;</span>{% endif %}
                 </td>
               </tr>
             {% endfor %}

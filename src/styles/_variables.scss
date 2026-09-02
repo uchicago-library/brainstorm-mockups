@@ -42,6 +42,12 @@
 //   /// prose                 Note for the single token declared below it.
 //   $token: value; // prose   Note for that token (same as ///, inline form).
 //
+// Annotation prose is rendered as inline Markdown, so `backticks` become code,
+// **bold** and [links](url) work, and raw HTML is escaped. Wrap any class name
+// containing an asterisk in backticks — a bare `.btn-*` would otherwise pair
+// its asterisks into emphasis. Block-level Markdown (lists, headings) is not
+// supported, since the prose sits inside a table cell or a paragraph.
+//
 // Any other // comment is ignored by the generator and is a plain code comment.
 // A token with no annotation still appears in the table, with empty cells, but
 // a token declared before the first === Tab === marker is not documented at
@@ -179,7 +185,7 @@ $ucl-brick-dark: #643335;
 
 // == Bootstrap Theme Colors ==
 //! Bootstrap's theme slots, remapped onto the brand palette. Setting these
-//! drives every .text-*, .bg-*, .border-*, .btn-* and .alert-* variant, so
+//! drives every `.text-*`, `.bg-*`, `.border-*`, `.btn-*` and `.alert-*`, so
 //! component styles should consume these rather than the brand tokens above.
 //!
 //! These are only partly semantic. Primary, success, info and warning describe
@@ -200,8 +206,8 @@ $dark: $ucl-greystone-darkest; // Black
 
 // == Semantic Surfaces and Text ==
 //! Low-contrast surfaces and de-emphasised text. These override Bootstrap's
-//! own roles, so the matching utilities work unchanged: .bg-body-tertiary,
-//! .bg-body-secondary and .text-body-secondary.
+//! own roles, so the matching utilities work unchanged: `.bg-body-tertiary`,
+//! `.bg-body-secondary` and `.text-body-secondary`.
 
 /// Subtlest page surface. Use for inset panels and code blocks.
 $body-tertiary-bg: $ucl-greystone-lighter;

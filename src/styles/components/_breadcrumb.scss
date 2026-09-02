@@ -2,8 +2,8 @@
 // Bootstrap variables are customized in _variables.scss
 // This file only adds styling not covered by Bootstrap defaults
 
-/// Bootstrap's breadcrumb entry, restyled so links use the muted divider
-/// colour and only underline on hover.
+// Bootstrap's breadcrumb entry, restyled so links use the muted divider
+// colour and only underline on hover.
 .breadcrumb-item {
     a {
         color: var(--bs-breadcrumb-divider-color) !important;
