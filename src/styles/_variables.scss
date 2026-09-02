@@ -52,6 +52,9 @@
 // if it carries a /// note, because a stylesheet is mostly internal whereas
 // this file is entirely public API.
 //
+// The generator also publishes /design_system/tokens.json, holding a `tokens`
+// array and a `classes` array, for tooling that needs the set directly.
+//
 // ----------------------------------------------------------------------------
 // Naming Rule
 // - $ucl-* is ours. A token this design system defines, which would not exist
@@ -61,6 +64,32 @@
 //   own !default declaration so ours wins. Every unprefixed declaration below
 //   follows this rule, so a name with no prefix can be looked up in
 //   node_modules/bootstrap/scss/_variables.scss.
+//
+// ----------------------------------------------------------------------------
+// SCSS Variable or CSS Variable?
+// Short version: SCSS to configure, CSS to apply.
+//
+// Use the SCSS variable only where the compiler has to see the value:
+// - as an argument to a Sass function or mixin
+// - inside maps, @if / @each, or any Sass logic
+// - in a media query condition
+// - when configuring Bootstrap, which reads $primary and friends before it
+//   emits anything
+// These are cases var() cannot do at all. rgba($ucl-lake-light, 0.8) computes
+// a color; rgba(var(--ucl-lake-light), 0.8) does not.
+//
+// Use the CSS variable everywhere else, meaning whenever you are simply
+// applying a value to a property. It survives into the compiled stylesheet, so
+// anyone inspecting the page can trace a value back to the token that produced
+// it — an SCSS variable is gone before the browser sees the CSS. It can also be
+// overridden per scope or per component instance, it responds to
+// [data-bs-theme], and it is the only form available to anyone consuming the
+// compiled CSS from outside this repository.
+//
+// The trade-off: var() has no compile-time safety, so a misspelled custom
+// property produces no error, just no style. Where a missing value would break
+// layout rather than merely look wrong, give it a fallback:
+// var(--ucl-maroon, #800000).
 //
 // ----------------------------------------------------------------------------
 // Availability Rule

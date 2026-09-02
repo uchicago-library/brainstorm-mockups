@@ -47,7 +47,7 @@
                     {# Decorative: the same colour is stated as text in the Value column. #}
                     <span class="token-table__swatch" style="--token-swatch: {{ token.swatch }}" aria-hidden="true"></span>
                   {% else %}
-                    <span class="token-table__empty">&mdash;</span>
+                    <span class="token-table__empty" title="Not a colour">&mdash;</span>
                   {% endif %}
                 </td>
                 <td class="token-table__name">
@@ -65,12 +65,12 @@
                   {% if token.utilities.length %}
                     {% for utility in token.utilities %}<code>{{ utility }}</code>{% if not loop.last %} {% endif %}{% endfor %}
                   {% else %}
-                    <span class="token-table__empty">&mdash;</span>
+                    <span class="token-table__empty" title="No utility class generates this value">&mdash;</span>
                   {% endif %}
                 </td>
                 <td><code>{{ token.value }}</code></td>
                 <td class="token-table__notes">
-                  {% if token.note %}{{ token.note }}{% else %}<span class="token-table__empty">&mdash;</span>{% endif %}
+                  {% if token.note %}{{ token.note }}{% else %}<span class="token-table__empty" title="Not documented yet">&mdash;</span>{% endif %}
                 </td>
               </tr>
             {% endfor %}
