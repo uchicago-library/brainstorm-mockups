@@ -11,8 +11,6 @@ description: "Generated reference for every design token in the system, with its
   <div class="row">
     <div class="col-lg-10 mx-auto">
       <h1>{{ title }}</h1>
-      <p>This page lists only the tokens and classes this system defines or overrides. Everything else in <a href="https://getbootstrap.com/docs/5.3/components/">Bootstrap 5.3</a> is available as-is and documented there.</p>
-      <p>Avoid creating new classes. Reach for a component class or a semantic CSS variable, both of which stay traceable in devtools back to the token that set them. Brand tokens are published as CSS variables too, for a pinch.</p>
 
       <section class="mt-4">
         <div class="token-search-bar d-flex flex-wrap align-items-center gap-3 mb-3">
@@ -64,5 +62,12 @@ description: "Generated reference for every design token in the system, with its
 </main>
 
 <script src="{{ '/assets/js/token-table.js' | url }}" defer></script>
-
+<template class="ds-annotations-template">
+  <div data-target="h1"
+       data-category="info"
+       data-title="when to use">
+       <p>This page lists only the tokens and classes this system defines or overrides. Everything else in <a href="https://getbootstrap.com/docs/5.3/components/">Bootstrap 5.3</a> is available as-is and documented there.</p>
+       <p>Avoid creating new classes. Reach for a component class or a semantic CSS variable, both of which stay traceable in devtools back to the token that set them. Brand tokens are published as CSS variables too, for a pinch.</p>
+  </div>
+</template>
 {% include "footer.html" %}

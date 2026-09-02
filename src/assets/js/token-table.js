@@ -30,6 +30,51 @@
     });
   });
 
+  // Remember which tab was last open. Someone cross-referencing tokens against
+  // their own stylesheet reloads this page repeatedly, and landing back on the
+  // first tab every time is a small tax on exactly that use.
+  var TAB_KEY = "ucl-ds.token-tables.tab";
+
+  // localStorage throws rather than returning null when storage is blocked, so
+  // both directions are guarded and simply do nothing on failure.
+  function readStoredTab() {
+    try {
+      return window.localStorage.getItem(TAB_KEY);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function storeTab(id) {
+    try {
+      window.localStorage.setItem(TAB_KEY, id);
+    } catch (error) {
+      /* storage unavailable; the tab simply will not persist */
+    }
+  }
+
+  var tabs = document.querySelectorAll('[data-bs-toggle="tab"]');
+
+  if (tabs.length) {
+    tabs.forEach(function (tab) {
+      tab.addEventListener("shown.bs.tab", function () {
+        storeTab(tab.id);
+      });
+    });
+
+    var stored = readStoredTab();
+    // Only restore a tab that still exists and is not already open — tab ids
+    // change when sections are renamed, and a stale id must not blank the page.
+    if (stored) {
+      var target = document.getElementById(stored);
+      if (target && target.matches('[data-bs-toggle="tab"]') && !target.classList.contains("active")) {
+        // Going through the data-api rather than the Tab constructor keeps this
+        // a no-op if Bootstrap's JS failed to load.
+        target.click();
+      }
+    }
+  }
+
   var input = document.querySelector("[data-token-search]");
   if (!input) return;
 
