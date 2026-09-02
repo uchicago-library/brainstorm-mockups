@@ -1,3 +1,5 @@
+/// Bootstrap's accordion, restyled so headers are bold and any heading level
+/// used inside a header carries no margin of its own.
 .accordion {
 
     .accordion-button {
@@ -14,8 +16,9 @@
     }
 }
 
-// Two-column accordion layout using Bootstrap grid system
-// Wraps accordion items in a Bootstrap row with two columns at md+ breakpoint
+/// Two-column accordion. Wrap the items in a Bootstrap `.row` with two
+/// columns; they stack below md. Each item keeps its own border and radius,
+/// since they are no longer a single vertical stack.
 .accordion-two-column {
 
     @media (min-width: 768px) {

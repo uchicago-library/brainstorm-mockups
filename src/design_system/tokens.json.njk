@@ -2,4 +2,4 @@
 permalink: "/design_system/tokens.json"
 eleventyExcludeFromCollections: true
 ---
-{{ tokens.all | dump | safe }}
+{{ { "tokens": tokens.all, "classes": tokens.classes } | dump | safe }}

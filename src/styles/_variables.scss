@@ -4,37 +4,53 @@
 // are consumed before Bootstrap is imported in src/styles/main.scss.
 //
 // Table of Contents
-//  1) Configuration
-//  2) Primary Brand Colors
-//  3) Secondary Brand Colors - Goldenrod Family
-//  4) Secondary Brand Colors - Terracotta Family
-//  5) Secondary Brand Colors - Ivy Family
-//  6) Secondary Brand Colors - Forest Family
-//  7) Secondary Brand Colors - Lake Family
-//  8) Secondary Brand Colors - Violet Family
-//  9) Secondary Brand Colors - Brick Family
-// 10) Bootstrap Theme Colors
-// 11) Semantic Surfaces and Text
-// 12) Interactive and Inline Text Colors
-// 13) Active State Colors
-// 14) Typography
-// 15) Body
-// 16) Focus Ring
-// 17) Breadcrumb Overrides
-// 18) Accordion Overrides
+// Sections are grouped into the tabs shown on the Token Tables page.
+//
+//   Configuration                             (not documented)
+//
+//   Brand Colors
+//     Primary Brand Colors
+//     Secondary Brand Colors - Goldenrod Family
+//     Secondary Brand Colors - Terracotta Family
+//     Secondary Brand Colors - Ivy Family
+//     Secondary Brand Colors - Forest Family
+//     Secondary Brand Colors - Lake Family
+//     Secondary Brand Colors - Violet Family
+//     Secondary Brand Colors - Brick Family
+//
+//   Semantic Colors
+//     Bootstrap Theme Colors
+//     Semantic Surfaces and Text
+//     Interactive and Inline Text Colors
+//     Active State Colors
+//     Body
+//     Focus Ring
+//
+//   Other Tokens
+//     Typography
+//     Breadcrumb Overrides
+//     Accordion Overrides
 //
 // ----------------------------------------------------------------------------
 // Annotation Reference
 // The Token Tables documentation page is generated from this file at build time
-// by src/_data/tokens.js. Four comment forms are meaningful to that generator:
+// by src/_data/tokens.js. Five comment forms are meaningful to that generator:
 //
-//   // == Section Name ==      Section heading. Groups the rows that follow.
-//   //! prose                  Guidance block, rendered above the section table.
-//   /// prose                  Note for the single token declared below it.
-//   $token: value; // prose    Note for that token (same as ///, inline form).
+//   // === Tab Name ===       Opens a tab. Sections below it belong to it.
+//   // == Section Name ==     Section heading. Groups the rows that follow.
+//   //! prose                 Guidance block, rendered above the section table.
+//   /// prose                 Note for the single token declared below it.
+//   $token: value; // prose   Note for that token (same as ///, inline form).
 //
 // Any other // comment is ignored by the generator and is a plain code comment.
-// A token with no annotation still appears in the table, with empty cells.
+// A token with no annotation still appears in the table, with empty cells, but
+// a token declared before the first === Tab === marker is not documented at
+// all — the build reports any that are not deliberately excluded.
+//
+// The same /// form documents a class in the component and base stylesheets.
+// There it is opt-in rather than exhaustive: a class appears on the page only
+// if it carries a /// note, because a stylesheet is mostly internal whereas
+// this file is entirely public API.
 //
 // ----------------------------------------------------------------------------
 // Naming Rule
@@ -72,6 +88,8 @@
 //! Build flags, not design tokens. These are excluded from the token tables.
 
 $enable-dark-mode: false;
+
+// === Brand Colors ===
 
 // == Primary Brand Colors ==
 //! The core UChicago palette. Brand tokens are the raw material of the system:
@@ -128,6 +146,8 @@ $ucl-brick-light: #b46a55;
 $ucl-brick: #a4343a;
 $ucl-brick-dark: #643335;
 
+// === Semantic Colors ===
+
 // == Bootstrap Theme Colors ==
 //! Bootstrap's theme slots, remapped onto the brand palette. Setting these
 //! drives every .text-*, .bg-*, .border-*, .btn-* and .alert-* variant, so
@@ -181,10 +201,6 @@ $component-active-bg: $ucl-lake;
 $component-active-border-color: $ucl-lake;
 $component-active-color: #ffffff;
 
-// == Typography ==
-
-$font-family-sans-serif: "UChicago Sans Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-
 // == Body ==
 
 $body-bg: #ffffff;
@@ -193,6 +209,12 @@ $body-color: $dark;
 // == Focus Ring ==
 
 $focus-ring-color: rgba($ucl-lake-light, 0.80);
+
+// === Other Tokens ===
+
+// == Typography ==
+
+$font-family-sans-serif: "UChicago Sans Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
 // == Breadcrumb Overrides ==
 //! Level 3 component tokens. They live here because Bootstrap reads them while

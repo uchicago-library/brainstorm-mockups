@@ -30,39 +30,56 @@
     });
   });
 
-  function filterTable(input) {
-    var panel = input.closest(".tab-pane") || document;
+  var input = document.querySelector("[data-token-search]");
+  if (!input) return;
+
+  var totalLabel = document.querySelector("[data-token-total]");
+
+  // Filtering spans every panel, not just the visible one. A search scoped to
+  // the active tab silently hides matches that exist one tab away, so the
+  // per-tab badge becomes the signal for where the hits are.
+  function filter() {
     var query = input.value.trim().toLowerCase();
-    var counter = document.querySelector(
-      '[data-token-count="' + input.dataset.tokenSearch + '"]'
-    );
     var matched = 0;
     var total = 0;
 
-    panel.querySelectorAll(".token-table__row").forEach(function (row) {
-      var hit = !query || row.textContent.toLowerCase().indexOf(query) !== -1;
-      row.classList.toggle(FILTERED_CLASS, !hit);
-      total += 1;
-      if (hit) matched += 1;
+    document.querySelectorAll(".tab-pane").forEach(function (panel) {
+      var panelMatched = 0;
+
+      panel.querySelectorAll(".token-table__row").forEach(function (row) {
+        var hit = !query || row.textContent.toLowerCase().indexOf(query) !== -1;
+        row.classList.toggle(FILTERED_CLASS, !hit);
+        total += 1;
+        if (hit) {
+          panelMatched += 1;
+          matched += 1;
+        }
+      });
+
+      // Hide a section whose rows have all been filtered out, so the page does
+      // not fill with empty headings.
+      panel.querySelectorAll("[data-token-section]").forEach(function (section) {
+        var visible = section.querySelectorAll(
+          ".token-table__row:not(." + FILTERED_CLASS + ")"
+        ).length;
+        section.hidden = visible === 0;
+      });
+
+      var badge = document.querySelector(
+        '[data-token-count="' + panel.id.replace(/^panel-/, "") + '"]'
+      );
+      if (badge) {
+        badge.textContent = query
+          ? panelMatched
+          : badge.dataset.tokenTotalCount;
+        badge.classList.toggle("token-badge--empty", Boolean(query) && panelMatched === 0);
+      }
     });
 
-    // Hide a section whose rows have all been filtered out, so the page does
-    // not fill with empty headings.
-    panel.querySelectorAll("[data-token-section]").forEach(function (section) {
-      var visible = section.querySelectorAll(
-        ".token-table__row:not(." + FILTERED_CLASS + ")"
-      ).length;
-      section.hidden = visible === 0;
-    });
-
-    if (counter) {
-      counter.textContent = query ? matched + " of " + total + " tokens" : "";
+    if (totalLabel) {
+      totalLabel.textContent = query ? matched + " of " + total + " match" : "";
     }
   }
 
-  document.querySelectorAll("[data-token-search]").forEach(function (input) {
-    input.addEventListener("input", function () {
-      filterTable(input);
-    });
-  });
+  input.addEventListener("input", filter);
 })();

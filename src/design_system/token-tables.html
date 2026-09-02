@@ -25,11 +25,24 @@ description: "Generated reference for every design token in the system, with its
         <h3>Reading the tables</h3>
         <p>Brand tokens carry no utility classes by design. They are the raw palette; components should consume the semantic tokens that sit on top of them, so that a change of brand colour propagates rather than needing to be chased through every component.</p>
         <p>A dash means the data does not exist rather than that it is missing: no custom property is published, no utility class is generated, or no note has been written yet.</p>
+        <p>The <strong>Component Classes</strong> tab lists classes this system defines, grouped by the file that defines them. It includes Bootstrap classes we visibly restyle — <code>.btn</code> and <code>.accordion</code> among them — because a contributor needs to know they no longer behave exactly as Bootstrap documents them. Classes belonging to this documentation site rather than the product are excluded.</p>
+        <p>Unlike the token tables, that tab is opt-in: a class appears only if it carries a <code>///</code> note in the stylesheet. A variables file is entirely public API, so listing everything is right there; a stylesheet is mostly internal structure, so listing everything would bury the classes you can actually reach for.</p>
         <p>Bootstrap's theme colours are only partly semantic. Primary, success, info and warning name a role, but secondary, light and dark name an appearance and so tell you nothing about when to use them. A fully semantic name would read more like <em>subtle text on a dark surface</em>. Treat the appearance-named slots as Bootstrap's vocabulary rather than as this system's roles.</p>
       </section>
 
       <section class="mt-5">
         <h2>Token reference</h2>
+
+        <div class="token-search-bar d-flex flex-wrap align-items-center gap-3 mb-3">
+          <label class="visually-hidden" for="token-search">Search tokens and classes</label>
+          <input
+            type="search"
+            id="token-search"
+            class="form-control token-search"
+            placeholder="Search all tabs&hellip;"
+            data-token-search>
+          <span class="token-search__count" data-token-total aria-live="polite"></span>
+        </div>
 
         <ul class="nav nav-tabs" role="tablist">
           {% for table in tokens.tables %}
@@ -43,7 +56,8 @@ description: "Generated reference for every design token in the system, with its
                 role="tab"
                 aria-controls="panel-{{ table.id }}"
                 aria-selected="{% if loop.first %}true{% else %}false{% endif %}">
-                {{ table.label }} <span class="badge text-bg-secondary">{{ table.count }}</span>
+                {{ table.label }}
+                <span class="badge text-bg-secondary" data-token-count="{{ table.id }}" data-token-total-count="{{ table.count }}">{{ table.count }}</span>
               </button>
             </li>
           {% endfor %}
@@ -64,8 +78,8 @@ description: "Generated reference for every design token in the system, with its
       </section>
 
       <section class="mt-5">
-        <h2>Documenting a token</h2>
-        <p>The generator reads four comment forms in <code>_variables.scss</code>. Any other comment is treated as an ordinary code comment and ignored, and a token with no annotation still appears in the table with empty cells.</p>
+        <h2>Documenting a token or a class</h2>
+        <p>The generator reads five comment forms in <code>_variables.scss</code>. Any other comment is treated as an ordinary code comment and ignored, and a token with no annotation still appears in the table with empty cells.</p>
 
         <div class="table-responsive">
           <table class="table table-sm">
@@ -77,6 +91,10 @@ description: "Generated reference for every design token in the system, with its
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <td><code>// === Tab Name ===</code></td>
+                <td>Opens a tab. Every section below it belongs to that tab, until the next tab marker.</td>
+              </tr>
               <tr>
                 <td><code>// == Section Name ==</code></td>
                 <td>Starts a section. Groups every token that follows until the next section marker.</td>
@@ -97,12 +115,13 @@ description: "Generated reference for every design token in the system, with its
           </table>
         </div>
 
-        <p>Sections route to a tab by type: colour tokens land in Colors, everything else in Other Tokens. Build flags such as <code>$enable-dark-mode</code> are excluded, since they configure the build rather than describe the design.</p>
+        <p>A section belongs to whichever tab was declared above it, so a component's tokens stay together whether or not they happen to be colours. Any row holding a colour gets a swatch; the rest show a dash. Build flags such as <code>$enable-dark-mode</code> are excluded, since they configure the build rather than describe the design, and a token declared before the first tab marker is reported at build time rather than being quietly dropped.</p>
+        <p>The same <code>///</code> form documents a class in the component and base stylesheets. There it is the only way in, and a class with no note simply does not appear.</p>
       </section>
 
       <section class="mt-5">
         <h2>Machine-readable output</h2>
-        <p>The same data is published as JSON at <a href="{{ '/design_system/tokens.json' | url }}"><code>/design_system/tokens.json</code></a> for tooling that needs to consume the token set directly.</p>
+        <p>The same data is published as JSON at <a href="{{ '/design_system/tokens.json' | url }}"><code>/design_system/tokens.json</code></a> for tooling that needs to consume it directly, as a <code>tokens</code> array and a <code>classes</code> array.</p>
       </section>
     </div>
   </div>

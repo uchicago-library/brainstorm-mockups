@@ -45,14 +45,38 @@ Templates live in [src/_includes/](src/_includes/). Data files in [src/_data/](s
 
 ### SCSS structure
 
-[src/styles/main.scss](src/styles/main.scss) is the entry point. Load order matters:
+There are three entry points, each compiling to `_site/styles/`:
 
-1. `_variables.scss` — Bootstrap overrides + UChicago brand tokens (maroon, greystone, goldenrod, terracotta, ivy, forest, lake, violet, brick). Holds Level 1 (core/brand) and Level 2 (semantic) design tokens.
-2. Full Bootstrap import
-3. `base/` — global resets, typography, layout
-4. `components/` — per-component files, each holding Level 3 (component-specific) tokens and styles
+- **`main.scss`** — the product stylesheet, loaded by every page.
+- **`main-libapps.scss`** — overrides for Springshare LibApps/LibGuides pages, which load their own Bootstrap at runtime.
+- **`meta.scss`** — styles for this documentation site itself, never shipped with the product. Loaded alongside `main.css` by `meta/document-start.html`.
 
-To add a component: create `src/styles/components/_name.scss` and `@use` it in `main.scss`. Each bespoke element, component, or page gets its own SCSS file — one file per concept.
+Load order in `main.scss` matters, and Bootstrap is imported in parts rather than as a bundle:
+
+1. `bootstrap/scss/functions` — **must precede `_variables.scss`** so Bootstrap's colour helpers are in scope. An unresolved Sass function does not error; it degrades to a literal, so this ordering is load-bearing.
+2. `_variables.scss` — Bootstrap variable overrides + UChicago brand tokens. Holds Level 1 (core/brand) and Level 2 (semantic) design tokens. `$ucl-*` names are ours; unprefixed names are Bootstrap variables we override.
+3. The rest of Bootstrap's config layer, then its components, then `utilities/api`
+4. `base/` — global resets, typography, layout
+5. `components/` — per-component files, each holding Level 3 (component-specific) tokens and styles
+
+`src/styles/meta/` holds the documentation-only components (annotations, typography labels, token tables). Import them from `meta.scss`, never from `main.scss`.
+
+To add a component: create `src/styles/components/_name.scss` and `@import` it in `main.scss` (the codebase uses `@import`, not `@use`, apart from one deliberate `@use` in `base/_global.scss`). Each bespoke element, component, or page gets its own SCSS file — one file per concept.
+
+### Generated token documentation
+
+`src/design_system/token-tables.html` is generated at build time by [src/_data/tokens.js](src/_data/tokens.js) from the SCSS itself — values, CSS variable names, utility classes and notes are never transcribed by hand. Four comment forms in `_variables.scss` drive it:
+
+| Form | Effect |
+|---|---|
+| `// === Tab Name ===` | Opens a tab; sections below belong to it |
+| `// == Section Name ==` | Section heading, grouping the rows that follow |
+| `//! prose` | Guidance block above that section's table |
+| `/// prose` | Note for the token declared immediately below |
+
+A trailing `// prose` on a declaration is the inline equivalent of `///`. The same `///` form documents a **class** in `base/` and `components/`, where it is opt-in — a class appears on the page only if it carries a note. Tokens are exhaustive; classes are not.
+
+Two build guards will fail the build rather than publish wrong data: an unresolved Sass function in `_variables.scss`, and disagreement between the `--ucl-*` custom properties and the compiled Sass values. Do not add `!default` to a `$ucl-*` token or reassign one downstream — see the Auto-Exposure Constraint note in `_variables.scss`.
 
 ### Content directories
 

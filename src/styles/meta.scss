@@ -18,6 +18,6 @@
 @import "../../node_modules/bootstrap/scss/mixins";
 
 // Documentation-only components.
-@import "components/annotations";
-@import "components/typography-labels";
-@import "components/token-table";
+@import "meta/annotations";
+@import "meta/typography-labels";
+@import "meta/token-table";

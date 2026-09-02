@@ -61,6 +61,17 @@ const CSS_VAR_ALIASES = {
 // than by the utilities API, so they never appear in the $utilities map.
 const THEME_COLOR_COMPONENTS = ["btn", "alert", "table", "text-bg", "list-group-item"];
 
+// Display order for the tabs, which cannot follow source order: the semantic
+// tokens alias the brand tokens, so brand has to be declared first in Sass
+// even though it is the tab you reach for least. Any tab not listed here
+// falls to the end, in source order.
+const TAB_ORDER = [
+  "Semantic Colors",
+  "Other Tokens",
+  "Component Classes",
+  "Brand Colors",
+];
+
 const COLOR_PROPERTIES = /color|background|border-color|fill|stroke/;
 
 // Bootstrap names a utility after the role, dropping the property suffix that
@@ -282,15 +293,26 @@ function readAnnotations() {
   const sections = [];
   const annotations = new Map();
 
+  let currentTab = null;
   let current = null;
   let pendingNote = [];
 
   for (const line of source) {
     const trimmed = line.trim();
 
+    // Tab marker must be tested before the section marker, since === also
+    // satisfies the == pattern.
+    const tabMatch = trimmed.match(/^\/\/\s*===\s*(.+?)\s*===\s*$/);
+    if (tabMatch) {
+      currentTab = tabMatch[1];
+      current = null;
+      pendingNote = [];
+      continue;
+    }
+
     const sectionMatch = trimmed.match(/^\/\/\s*==\s*(.+?)\s*==\s*$/);
     if (sectionMatch) {
-      current = { label: sectionMatch[1], guidance: [] };
+      current = { label: sectionMatch[1], tab: currentTab, guidance: [] };
       sections.push(current);
       pendingNote = [];
       continue;
@@ -314,6 +336,7 @@ function readAnnotations() {
       const inline = commentAt === -1 ? "" : line.slice(commentAt + 2).trim();
       annotations.set(declarationMatch[1], {
         section: current ? current.label : null,
+        tab: current ? current.tab : null,
         note: pendingNote.length ? pendingNote.join(" ") : inline,
       });
       pendingNote = [];
@@ -327,10 +350,79 @@ function readAnnotations() {
   return {
     sections: sections.map((s) => ({
       label: s.label,
+      tab: s.tab,
       guidance: s.guidance.join(" ").trim(),
     })),
     annotations,
   };
+}
+
+// ---------------------------------------------------------------------------
+// E. Component classes. Top-level class selectors carrying a /// note, read
+//    from the partials main.scss imports — which is what excludes the
+//    documentation-only components in meta.scss and the LibApps overrides,
+//    without needing a list of exceptions here.
+// ---------------------------------------------------------------------------
+function localImportsOfMain() {
+  const source = fs.readFileSync(path.join(STYLES_DIR, "main.scss"), "utf8");
+  const files = [];
+  const pattern = /@import\s+["']([^"']+)["']/g;
+  let match;
+  while ((match = pattern.exec(source)) !== null) {
+    const target = match[1];
+    if (target.includes("node_modules") || target === "variables") continue;
+    const dir = path.dirname(target);
+    const name = path.basename(target);
+    files.push(path.join(STYLES_DIR, dir, `_${name}.scss`));
+  }
+  return files.filter((file) => fs.existsSync(file));
+}
+
+function readComponentClasses() {
+  const groups = [];
+
+  for (const file of localImportsOfMain()) {
+    const relative = path
+      .relative(path.join(STYLES_DIR, ".."), file)
+      .replace(/\\/g, "/");
+    const lines = fs.readFileSync(file, "utf8").split(/\r?\n/);
+    const classes = [];
+    let pendingNote = [];
+
+    for (const line of lines) {
+      const trimmed = line.trim();
+
+      const noteMatch = trimmed.match(/^\/\/\/\s?(.*)$/);
+      if (noteMatch) {
+        pendingNote.push(noteMatch[1]);
+        continue;
+      }
+
+      // A selector opening a block. Only annotated ones are documented, so a
+      // BEM child, a nested descendant or a pseudo-class never appears unless
+      // someone deliberately wrote a note for it.
+      const selectorMatch = trimmed.match(/^([.#][^{};]*?)\s*\{$/);
+      if (selectorMatch && pendingNote.length) {
+        classes.push({
+          selector: selectorMatch[1].trim(),
+          note: pendingNote.join(" "),
+          file: relative,
+        });
+        pendingNote = [];
+        continue;
+      }
+
+      if (trimmed === "" || trimmed.endsWith("{") || trimmed.endsWith(";")) {
+        pendingNote = [];
+      }
+    }
+
+    if (classes.length) {
+      groups.push({ label: relative, guidance: "", classes });
+    }
+  }
+
+  return groups;
 }
 
 // ---------------------------------------------------------------------------
@@ -456,7 +548,8 @@ module.exports = function () {
   const tokens = rawTokens
     .filter((token) => token.type !== "bool" && !token.name.startsWith("enable-"))
     .map((token) => {
-      const annotation = annotations.get(token.name) || { section: null, note: "" };
+      const annotation =
+        annotations.get(token.name) || { section: null, tab: null, note: "" };
       const cssVar = resolveCssVar(token.name, properties);
       return {
         name: token.name,
@@ -465,41 +558,84 @@ module.exports = function () {
         cssVarScope: cssVar && cssVar.scope !== ":root" ? cssVar.scope : "",
         value: token.value,
         type: token.type,
+        // The swatch is a per-row decision, so a table can hold colour and
+        // non-colour tokens side by side and a component's tokens stay
+        // together rather than being split across tabs by type.
+        swatch: token.type === "color" ? token.value : "",
         utilities: resolveUtilities(token, utilities),
         note: annotation.note,
         section: annotation.section,
-        table: token.type === "color" ? "colors" : "other",
+        tab: annotation.tab,
       };
     });
 
-  const tables = [
-    { id: "colors", label: "Colors", swatch: true },
-    { id: "other", label: "Other Tokens", swatch: false },
-  ].map((table) => {
-    const rows = tokens.filter((token) => token.table === table.id);
-    const grouped = [];
-    for (const section of sections) {
-      const sectionRows = rows.filter((row) => row.section === section.label);
-      if (sectionRows.length) {
-        grouped.push({ ...section, tokens: sectionRows });
-      }
+  // Tabs are declared in _variables.scss, in source order.
+  const tabs = [];
+  for (const section of sections) {
+    if (!section.tab) continue;
+    const rows = tokens.filter((token) => token.section === section.label);
+    if (!rows.length) continue;
+    let tab = tabs.find((candidate) => candidate.label === section.tab);
+    if (!tab) {
+      tab = { id: slug(section.tab), label: section.tab, kind: "tokens", sections: [] };
+      tabs.push(tab);
     }
-    return { ...table, count: rows.length, sections: grouped };
-  });
+    tab.sections.push({ ...section, tokens: rows });
+  }
 
-  report(tokens);
+  const classGroups = readComponentClasses();
+  if (classGroups.length) {
+    tabs.push({
+      id: "component-classes",
+      label: "Component Classes",
+      kind: "classes",
+      sections: classGroups,
+    });
+  }
 
-  return { tables, all: tokens };
+  for (const tab of tabs) {
+    tab.count = tab.sections.reduce(
+      (total, section) => total + (section.tokens || section.classes).length,
+      0
+    );
+  }
+
+  const rank = (tab) => {
+    const index = TAB_ORDER.indexOf(tab.label);
+    return index === -1 ? TAB_ORDER.length : index;
+  };
+  tabs.sort((a, b) => rank(a) - rank(b));
+
+  const allClasses = classGroups.flatMap((group) => group.classes);
+  report(tokens, allClasses);
+
+  return { tables: tabs, all: tokens, classes: allClasses };
 };
 
-function report(tokens) {
+function slug(label) {
+  return label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+function report(tokens, classes) {
   const undocumented = tokens.filter((t) => !t.note);
   const unexposed = tokens.filter((t) => !t.cssVar);
+  const untabbed = tokens.filter((t) => !t.tab);
+  const byTab = new Map();
+  for (const token of tokens) {
+    const key = token.tab || "(no tab)";
+    byTab.set(key, (byTab.get(key) || 0) + 1);
+  }
   const lines = [
-    `[tokens] ${tokens.length} documented ` +
-      `(${tokens.filter((t) => t.table === "colors").length} colors, ` +
-      `${tokens.filter((t) => t.table === "other").length} other)`,
+    `[tokens] ${tokens.length} tokens, ${classes.length} classes ` +
+      `(${[...byTab].map(([tab, n]) => `${tab}: ${n}`).join(", ")})`,
   ];
+  if (untabbed.length) {
+    lines.push(
+      `[tokens] ${untabbed.length} not in any tab, so not documented — add a ` +
+        `// === Tab === marker above their section: ` +
+        untabbed.map((t) => t.scss).join(", ")
+    );
+  }
   if (undocumented.length) {
     lines.push(
       `[tokens] ${undocumented.length} without a note: ` +

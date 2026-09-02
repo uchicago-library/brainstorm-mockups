@@ -1,6 +1,6 @@
 // Token Tables — documentation-only component.
 // Renders the generated design-token reference on design_system/token-tables.
-// Imported by meta.scss, never by main.scss.
+// Lives in styles/meta/ and is imported by meta.scss, never by main.scss.
 
 // Level 3 tokens
 $token-table-swatch-size: 2.5rem;
@@ -74,4 +74,10 @@ $token-table-code-font-size: 0.8125rem;
 .token-search__count {
     color: $body-secondary-color;
     font-size: $font-size-sm;
+}
+
+// A tab whose rows are all filtered out. Muted rather than hidden, so the tab
+// still reads as "no matches here" instead of looking broken.
+.token-badge--empty {
+    opacity: 0.5;
 }
