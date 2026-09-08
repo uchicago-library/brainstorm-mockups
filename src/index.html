@@ -172,6 +172,7 @@ title: "UChicago Library Design System"
           '/methodology/'
         ] %}
         <ul>
+        {%- for topSection in collections.all | sort(false, false, 'data.title') %}
           {%- if topSection.url in whitelist %}
           {%- set topDepth = topSection.url | urlDepth %}
           <li>
