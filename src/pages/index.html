@@ -1,7 +1,5 @@
 ---
 title: "Pages"
-breadcrumbParent: "Pages"
-breadcrumbUrl: "/pages/"
 ---
 
 {% include "meta/document-start.html" %}
@@ -13,7 +11,11 @@ breadcrumbUrl: "/pages/"
   <h1>Pages</h1>
   <p>Application-exported pages organized as a standalone project section.</p>
   <ul>
-    <li><a href="{{ '/pages/libapps/' | url }}">LibApps</a></li>
+  {% for p in collections.all | sort(false, false, 'data.title') %}
+    {% if page.url in p.url and p | isIndexPage and p.url != page.url %}
+    <li><a href="{{ p.url | url }}">{{ p.data.title }}</a></li>
+    {% endif %}
+  {% endfor %}
   </ul>
 </main>
 

@@ -1,60 +1,53 @@
-<!-- Breadcrumbs -->
+<!-- Breadcrumbs — auto-derived from URL directory structure -->
 <nav aria-label="breadcrumb" class="container-md">
+  {%- set crumbs = page.url | buildBreadcrumbs(collections.all) %}
+  {%- set sections = [
+    { label: "Design System",       url: "/design_system/" },
+    { label: "Pages",               url: "/pages/" },
+    { label: "Mockups",             url: "/design_mockups/" },
+    { label: "Project Methodology", url: "/methodology/" }
+  ] %}
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ '/' | url }}">Home</a></li>
-    {%- set sections = [
-      { label: "Design System", url: "/design_system/" },
-      { label: "Pages", url: "/pages/" },
-      { label: "Mockups", url: "/design_mockups/" },
-      { label: "Project Methodology", url: "/methodology/" }
-    ] %}
-    {%- set showCurrentPage = true %}
-
-    {%- if breadcrumbParent %}
-      {%- if page.url == breadcrumbUrl and not breadcrumbItems %}
+    {%- for crumb in crumbs %}
+      {%- if loop.first %}
+        {%- if loop.last %}
     <li class="breadcrumb-item active" aria-current="page">
       <span class="breadcrumb-section-dropdown dropdown">
         <button class="btn btn-link breadcrumb-section-toggle dropdown-toggle dropdown-toggle-split p-0 border-0" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch section">
-          <span class="visually-hidden">Switch section</span>
-          <span>{{ breadcrumbParent }}</span>
+          <span>{{ crumb.label }}</span>
         </button>
         <ul class="dropdown-menu">
-          {%- for section in sections %}
-            {%- if section.url != breadcrumbUrl %}
-          <li><a class="dropdown-item" href="{{ section.url | url }}">{{ section.label }}</a></li>
+          {%- for s in sections %}
+            {%- if s.url != crumb.url %}
+          <li><a class="dropdown-item" href="{{ s.url | url }}">{{ s.label }}</a></li>
             {%- endif %}
           {%- endfor %}
         </ul>
       </span>
     </li>
-        {%- set showCurrentPage = false %}
-      {%- else %}
+        {%- else %}
     <li class="breadcrumb-item">
       <span class="breadcrumb-section-dropdown dropdown">
-        <a href="{{ breadcrumbUrl | url }}">{{ breadcrumbParent }}</a>
+        <a href="{{ crumb.url | url }}">{{ crumb.label }}</a>
         <button class="btn btn-link breadcrumb-section-toggle dropdown-toggle dropdown-toggle-split p-0 border-0" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Switch section">
           <span class="visually-hidden">Switch section</span>
         </button>
         <ul class="dropdown-menu">
-          {%- for section in sections %}
-            {%- if section.url != breadcrumbUrl %}
-          <li><a class="dropdown-item" href="{{ section.url | url }}">{{ section.label }}</a></li>
+          {%- for s in sections %}
+            {%- if s.url != crumb.url %}
+          <li><a class="dropdown-item" href="{{ s.url | url }}">{{ s.label }}</a></li>
             {%- endif %}
           {%- endfor %}
         </ul>
       </span>
     </li>
+        {%- endif %}
+      {%- elif loop.last %}
+    <li class="breadcrumb-item active" aria-current="page">{{ crumb.label }}</li>
+      {%- else %}
+    <li class="breadcrumb-item"><a href="{{ crumb.url | url }}">{{ crumb.label }}</a></li>
       {%- endif %}
-    {%- endif %}
-
-    {%- if breadcrumbItems %}
-      {%- for item in breadcrumbItems %}
-    <li class="breadcrumb-item"><a href="{{ item.url | url }}">{{ item.label }}</a></li>
-      {%- endfor %}
-    {%- endif %}
-
-    {%- if showCurrentPage %}
-    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
-    {%- endif %}
+    {%- endfor %}
   </ol>
 </nav>

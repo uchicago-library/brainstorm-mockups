@@ -165,82 +165,38 @@ title: "UChicago Library Design System"
 
       <section class="mb-5">
         <h2>Documentation Navigation</h2>
+        {%- set whitelist = [
+          '/design_system/',
+          '/design_mockups/',
+          '/pages/',
+          '/methodology/'
+        ] %}
         <ul>
+          {%- if topSection.url in whitelist %}
+          {%- set topDepth = topSection.url | urlDepth %}
           <li>
-            <a href="{{ '/design_system/' | url }}">Design System</a>
+            <a href="{{ topSection.url | url }}">{{ topSection.data.title }}</a>
             <ul>
-              <li>Foundation
+            {%- for section in collections.all | sort(false, false, 'data.title') %}
+              {%- if topSection.url in section.url and section | isIndexPage and section.url != topSection.url %}
+              <li>
+                <a href="{{ section.url | url }}">{{ section.data.title }}</a>
                 <ul>
-                  <li><a href="{{ '/design_system/design-intent/' | url }}">Design Intent</a></li>
-                  <li><a href="{{ '/design_system/observations/' | url }}">Observations</a></li>
+                {%- for p in collections.all | sort(false, false, 'data.title') %}
+                  {%- if section.url in p.url and not (p | isIndexPage) %}
+                  <li><a href="{{ p.url | url }}">{{ p.data.title }}</a></li>
+                  {%- endif %}
+                {%- endfor %}
                 </ul>
               </li>
-              <li>Guidelines
-                <ul>
-                  <li><a href="{{ '/design_system/grouping-content/' | url }}">Grouping Content</a></li>
-                  <li><a href="{{ '/design_system/color-usage-guidelines/' | url }}">Color Usage Guidelines</a></li>
-                  <li><a href="{{ '/design_system/copywriting/' | url }}">Copywriting Guidelines</a></li>
-                </ul>
-              </li>
-              <li>Implementation
-                <ul>
-                  <li><a href="{{ '/design_system/design-tokens/' | url }}">Design Tokens</a></li>
-                  <li><a href="{{ '/design_system/design-tokens-colors/' | url }}">Design Tokens - Colors</a></li>
-                  <li><a href="{{ '/design_system/components/' | url }}">Components</a></li>
-                  <li><a href="{{ '/design_system/layouts/' | url }}">Layouts</a></li>
-                  <li><a href="{{ '/design_system/typography/' | url }}">Typography</a></li>
-                  <li><a href="{{ '/design_system/typography-history/' | url }}">Typography History</a></li>
-                  <li><a href="{{ '/design_system/event-tracking/' | url }}">Event Tracking</a></li>
-                </ul>
-              </li>
+              {%- elif topSection.url in section.url and not (section | isIndexPage) and section.url | urlDepth == topDepth + 1 %}
+              <li><a href="{{ section.url | url }}">{{ section.data.title }}</a></li>
+              {%- endif %}
+            {%- endfor %}
             </ul>
           </li>
-          <li>
-            <a href="{{ '/design_mockups/' | url }}">Design Mockups</a>
-            <ul>
-              <li><a href="{{ '/design_mockups/guides-in-types/' | url }}">Guides in Types</a></li>
-              <li><a href="{{ '/design_mockups/guides-in-photos/' | url }}">Guides in Photos</a></li>
-              <li><a href="{{ '/design_mockups/guides-in-accordions/' | url }}">Guides in Accordions</a></li>
-              <li><a href="{{ '/design_mockups/guides-in-accordions-subjects/' | url }}">Guides in Accordions (Subjects)</a></li>
-              <li><a href="{{ '/design_mockups/components-glassmorphism/' | url }}">Components Glassmorphism</a></li>
-              <li><a href="{{ '/design_mockups/styling-glassmorphism/' | url }}">Homepage Styling Glassmorphism</a></li>
-              <li><a href="{{ '/design_mockups/styling-minimalist/' | url }}">Homepage Styling Minimalist</a></li>
-              <li><a href="{{ '/design_mockups/ask-us/' | url }}">Ask Us Anything Mockup</a></li>
-              <li><a href="{{ '/design_mockups/contacts/' | url }}">Contacts Mockup</a></li>
-              <li><a href="{{ '/design_mockups/libapps-header/' | url }}">LibApps Header</a></li>
-              <li><a href="{{ '/design_mockups/header-default/' | url }}">Header Default</a></li>
-              <li><a href="{{ '/design_mockups/header-minimal/' | url }}">Header Minimal</a></li>
-              <li><a href="{{ '/design_mockups/header-customization/' | url }}">Header Customization</a></li>
-              <li><a href="{{ '/design_mockups/header-current-new/' | url }}">Header Current New</a></li>
-              <li>Day Pass
-                <ul>
-                  <li><a href="{{ '/design_mockups/day-pass-patron-start/' | url }}">Patron — Login</a></li>
-                  <li><a href="{{ '/design_mockups/day-pass-patron-success/' | url }}">Patron — Confirmation</a></li>
-                  <li><a href="{{ '/design_mockups/day-pass-patron-failure/' | url }}">Patron — Failure (3 variants)</a></li>
-                  <li><a href="{{ '/design_mockups/day-pass-admin-log/' | url }}">Admin — Log</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="{{ '/pages/' | url }}">Pages</a>
-            <ul>
-              <li><a href="{{ '/pages/libapps/' | url }}">LibApps</a></li>
-              <li><a href="{{ '/pages/libapps/guides-homepage/' | url }}">Guides Homepage</a></li>
-              <li><a href="{{ '/pages/libapps/database-finder/' | url }}">Database Finder</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="{{ '/methodology/' | url }}">Methodology</a>
-            <ul>
-              <li><a href="{{ '/methodology/system-architecture/' | url }}">System Architecture</a></li>
-              <li><a href="{{ '/methodology/design-standards/' | url }}">Design Standards</a></li>
-              <li><a href="{{ '/methodology/file-organization/' | url }}">File Organization</a></li>
-              <li><a href="{{ '/methodology/setup/' | url }}">Setup</a></li>
-              <li><a href="{{ '/methodology/validation/' | url }}">Validation</a></li>
-              <li><a href="{{ '/methodology/annotations/' | url }}">Annotations</a></li>
-            </ul>
-          </li>
+          {%- endif %}
+        {%- endfor %}
         </ul>
       </section>
 
