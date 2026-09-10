@@ -558,16 +558,34 @@ h2.s-lib-box-title {
 }
 
 // Guide tabs
+// div#s-lg-guide-main div.s-lib-box-container  div.s-lib-box.s-lib-box-std div.s-lib-box-content div.s-lib-jqtabs ul.nav-tabs li.nav-item a.nav-link
+div#s-lg-guide-main,
 #s-lg-guide-tabs{
-
-    // horizontal tabs
-    .nav-item:not(.active) a.nav-link {
+    
+    // any tabs 
+    li.nav-item:not(.active) a.nav-link:not(.active) {
         color: var(--bs-secondary) !important;
         background-color: var(--bs-light) !important;
     }
+    // any tabs 
+    li.nav-item a.nav-link.active,
+    li.nav-item.active a.nav-link {
+        color: var(--bs-primary) !important;
+        background-color: var(--bs-body-bg) !important;
+        border-bottom: 4px solid var(--bs-primary) ;
+    }
+}
+#s-lg-guide-tabs{
+    li.nav-item.active {
+            border-left: 4px solid var(--bs-primary) !important;
+
+        a.nav-link {
+            border-bottom: none !important;
+        }
+    }
 
     // vertical sub-item tabs
-    .list-group-item {
+    li.list-group-item {
         border: none;
         background-color: transparent;
         margin: 0;
