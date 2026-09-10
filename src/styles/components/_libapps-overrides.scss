@@ -566,12 +566,14 @@ div#s-lg-guide-main,
     li.nav-item:not(.active) a.nav-link:not(.active) {
         color: var(--bs-secondary) !important;
         background-color: var(--bs-light) !important;
+        border: none;
     }
     // any tabs 
     li.nav-item a.nav-link.active,
     li.nav-item.active a.nav-link {
         color: var(--bs-primary) !important;
         background-color: var(--bs-body-bg) !important;
+        border: none;
         border-bottom: 4px solid var(--bs-primary) ;
     }
 }
