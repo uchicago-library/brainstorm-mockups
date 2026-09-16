@@ -484,19 +484,6 @@ div#s-lg-guide-main li {
     margin-bottom: .5rem !important;
 }
 
-/* Style Home page tabs */
-#s-lg-side-nav-content{
-    &>#s-lg-tabs-container{
-        #s-lg-guide-tabs a.nav-link {
-            border-radius: 100px !important;
-        }
-        #s-lg-guide-tabs a.nav-link.active {
-            border: 1px solid var(--bs-border-color);
-            border: 1px solid #737373;
-        }
-    }
-}
-
 /* Style collapsible boxes heading */
 button.s-lib-box-collapse-toggle{
     background-color: white !important;
@@ -557,17 +544,62 @@ h2.s-lib-box-title {
     }
 }
 
-// Guide tabs
-#s-lg-guide-tabs{
+/* Style Home page tabs */
+#s-lg-side-nav-content{
+    &>#s-lg-tabs-container{
+        #s-lg-guide-tabs a.nav-link {
+            border-radius: 100px !important;
+        }
+        #s-lg-guide-tabs a.nav-link.active {
+            border: 1px solid var(--bs-border-color);
+            border: 1px solid #737373;
+        }
+    }
+}
 
-    // horizontal tabs
-    .nav-item:not(.active) a.nav-link {
-        color: var(--bs-secondary) !important;
-        background-color: var(--bs-light) !important;
+// Guide tabs
+// div#s-lg-guide-main div.s-lib-box-container  div.s-lib-box.s-lib-box-std div.s-lib-box-content div.s-lib-jqtabs ul.nav-tabs li.nav-item a.nav-link
+div#s-lg-guide-main,
+#s-lg-guide-tabs{
+    
+    // any tabs default
+    li.nav-item:not(.active) {
+        a.nav-link:not(.active),
+        a.s-lg-tab-drop.dropdown-toggle{
+            color: var(--bs-secondary) !important;
+            background-color: var(--bs-light) !important;
+            border: none;
+        }
+    }
+    // any tabs active
+    li.nav-item a.nav-link.active,
+    li.nav-item.active a.nav-link,
+    a.s-lg-tab-drop.dropdown-toggle:hover {
+        color: var(--bs-primary) !important;
+        background-color: var(--bs-body-bg) !important;
+        border: none;
+        border-bottom: 4px solid var(--bs-primary) ;
+    }
+    ul.s-lg-subtab-ul.dropdown-menu {
+        border-top-left-radius: 0;
+        border: none;
+        box-shadow: 3px 4px 6px -2px rgba(0, 0, 0, .2);
+    }
+}
+// Vertical left guide tabs
+#s-lg-guide-tabs{
+    // Active tab indicator
+    li.nav-item.active {
+            border-left: 4px solid var(--bs-primary) !important;
+
+        a.nav-link,
+        a.s-lg-tab-drop.dropdown-toggle {
+            border-bottom: none !important;
+        }
     }
 
     // vertical sub-item tabs
-    .list-group-item {
+    li.list-group-item {
         border: none;
         background-color: transparent;
         margin: 0;
