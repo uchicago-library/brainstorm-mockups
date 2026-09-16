@@ -2,6 +2,20 @@
 // JS-driven: annotations are defined in a <template> block on each page,
 // then dynamically created and positioned by annotations-init.html.
 
+// ── Level 3 tokens — category colors ──
+// Brand tokens, chosen to stay distinguishable against each other. Consumed
+// by the marker badges and by the swatches on the annotations documentation
+// page. "info" is deliberately neutral rather than vivid: general info is
+// the catch-all, not a specialised concern competing for attention with the
+// other four.
+$ds-annotation-colors: (
+    "a11y": var(--ucl-violet),
+    "behavior": var(--ucl-lake),
+    "tracking": var(--ucl-terracotta),
+    "responsive": var(--ucl-ivy),
+    "info": var(--ucl-greystone)
+);
+
 // ── Marker group — positioned at top-right of annotated element ──
 .ds-note-group {
     position: absolute;
@@ -29,32 +43,11 @@
         transform: scale(1.2);
     }
 
-    // Vivid, saturated category colors
-    &--a11y {
-        background-color: var(--ucl-violet);
-        color: #fff;
-    }
-
-    &--behavior {
-        background-color: var(--ucl-lake);
-        color: #fff;
-    }
-
-    &--tracking {
-        background-color: var(--ucl-terracotta);
-        color: #fff;
-    }
-
-    &--responsive {
-        background-color: var(--ucl-ivy);
-        color: #fff;
-    }
-
-    // Deliberately neutral rather than vivid: general info is the catch-all,
-    // not a specialised concern competing for attention with the four above.
-    &--info {
-        background-color: var(--ucl-greystone);
-        color: #fff;
+    @each $category, $color in $ds-annotation-colors {
+        &--#{$category} {
+            background-color: $color;
+            color: #fff;
+        }
     }
 }
 
@@ -107,5 +100,15 @@
 
     &[aria-pressed="false"] {
         opacity: 0.6;
+    }
+}
+// ── Category swatch — inline hex sample on the annotations doc page ──
+.annotation-swatch {
+    font-weight: 600;
+
+    @each $category, $color in $ds-annotation-colors {
+        &--#{$category} {
+            color: $color;
+        }
     }
 }
