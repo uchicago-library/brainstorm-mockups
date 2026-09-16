@@ -92,11 +92,47 @@ inside demo cards. Keep new rules direct-child scoped.
 - `src/design_mockups/` — full-page layout mockups for brainstorming
 - `src/methodology/` — guidelines and process docs (see `src/methodology/system-architecture.md` for the canonical reference)
 
+### Machine-readable endpoints
+
+The site publishes a machine-readable surface for AI agents building *other* projects
+against this design system (agents working *on* the design system read the repo directly).
+
+**Every `design_system/` page is reachable as Markdown at `/design_system/<page>.md`**,
+regardless of whether its source is `.md` or `.html`. Rendered pages are ~90% chrome,
+so the Markdown twins are 69–86% smaller.
+
+- **`/llms.txt`** — discovery index following the [llms.txt convention](https://llmstxt.org),
+  listing every `design_system/` page with its title, description, and `.md` URL.
+  Source: [src/llms.njk](src/llms.njk).
+- **Prose pages** (`.md` source) are passthrough-copied verbatim, front matter included.
+- **Reference pages** (`.html` source) get a *generated* twin from
+  [src/reference-md.njk](src/reference-md.njk): each top-level `<section>` becomes a
+  heading plus a fenced `html` block holding that section's real markup. Built from
+  `templateContent`, i.e. the final rendered output, so it **cannot drift** from the page.
+
+All of it regenerates on build — **no manual step when pages are added or changed**.
+
+Consequences for authoring:
+
+- **`description` front matter is published** in `/llms.txt` and in every `.md`. Write a
+  real one-line summary, not a placeholder.
+- **Reference pages depend on top-level `<section>` elements.** A section with no `<h2>`
+  gets an untitled heading; a page with no sections (currently `design-intent.html`)
+  degrades to a stub pointing at the rendered page. Keep demo content inside sections.
+- The generated markup includes the `.row` / `.col-*` scaffolding that lays each demo out
+  beside its description. `/llms.txt` tells agents to drop it. If this becomes a problem,
+  the fix is to mark the copy-pasteable element explicitly and extract only that.
+- CLAUDE.md's "do not add code examples to documentation pages" rule still holds for the
+  pages themselves. These are generated build artifacts, not authored content.
+
+`methodology/` is deliberately excluded: it documents how to work *on* the design system,
+not how to consume it, and agents doing that work have the repo.
+
 ### Navigation
 
 Edit [src/_data/globalNav.json](src/_data/globalNav.json) to change header nav. The `header.html` include renders it via a Nunjucks loop.
 
-Whenever pages are added, removed, or renamed, also update the navigation in `src/index.html` to maintain the `design_system/`, `design_mockups/`, and `methodology/` sections with appropriate nesting.
+Whenever pages are added, removed, or renamed, also update the navigation in `src/index.html` to maintain the `design_system/`, `design_mockups/`, and `methodology/` sections with appropriate nesting. `/llms.txt` regenerates itself and needs no manual update.
 
 ## Deployment
 
