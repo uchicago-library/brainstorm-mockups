@@ -26,20 +26,44 @@ npm run build     # Same as prod (used by CI)
 
 ### Page structure
 
-Every page follows this include pattern:
+Documentation pages use the [base.njk](src/_includes/base.njk) layout, which supplies the
+document head, header, breadcrumb, prose column, page title, and footer. A page provides only
+front matter and content — **either Markdown or HTML, both render identically**:
 
-```html
+```markdown
 ---
 title: "Page Title"
+description: "Renders as the lead paragraph and the meta description."
+layout: base.njk
 ---
-{% include "meta/document-start.html" %}
-{% include "header.html" %}
-{% include "breadcrumb.html" %}
-<main class="container-md">
-  <div class="col-lg-10 mx-auto"><!-- content --></div>
-</main>
-{% include "footer.html" %}
+
+## First Section
+
+Body content.
 ```
+
+**Choosing a format.** Use `.md` for prose documentation. Use `.html` when the rendered markup
+*is* the documentation — live component demos, type specimens, colour swatches, interactive
+controls, or anything needing a `<style>`/`<script>` block.
+
+**Do not mix block-level HTML into a `.md` file.** Markdown-generated output is flat, and
+`_documentation.scss` relies on that (see SCSS structure). If a Markdown page needs a live demo,
+move the markup to a partial and pull it in with one `{% include %}` line — see
+[color-usage-guidelines.md](src/design_system/color-usage-guidelines.md). Inline HTML inside a
+table cell (an `<i>` icon, a `<span>`) is fine.
+
+**Markdown gotchas** (all verified against this build):
+
+- Nunjucks runs *before* Markdown. Wrap any documented `{% ... %}` or `{{ ... }}` in `{% raw %}`.
+- Internal links must go through the `url` filter: `[Tokens]({{ '/design_system/design-tokens/' | url }})`.
+- Indented (4-space) code blocks are disabled. Use fenced blocks.
+- Leave a blank line before a `---` horizontal rule, or it becomes an `<h2>` on the line above.
+- Pipe tables automatically get `.table.table-bordered.table-sm` and a `.table-responsive` wrapper.
+- `##`/`###`/`####` headings automatically get slugified `id`s for in-page anchors.
+- External links automatically get `target="_blank" rel="noopener noreferrer"`.
+
+Pages whose demos render outside the constrained prose column keep the hand-rolled include chain —
+[layouts.html](src/design_system/layouts.html) is the one remaining example.
 
 Templates live in [src/_includes/](src/_includes/). Data files in [src/_data/](src/_data/) are available as global Nunjucks variables — notably `globalNav.json` drives the header navigation.
 
@@ -51,14 +75,22 @@ Templates live in [src/_includes/](src/_includes/). Data files in [src/_data/](s
 2. Full Bootstrap import
 3. `base/` — global resets, typography, layout
 4. `components/` — per-component files, each holding Level 3 (component-specific) tokens and styles
+5. `meta/` — documentation-only styling, not part of the Design System shipped to production
+   (`_documentation.scss` for the prose container, `_annotations.scss`, `_color-ratio.scss`)
 
-To add a component: create `src/styles/components/_name.scss` and `@use` it in `main.scss`. Each bespoke element, component, or page gets its own SCSS file — one file per concept.
+To add a component: create `src/styles/components/_name.scss` and `@import` it in `main.scss`. Each bespoke element, component, or page gets its own SCSS file — one file per concept. Styling that only exists to document the system belongs in `meta/`, not `components/`.
+
+`meta/_documentation.scss` styles the prose column using **direct-child selectors only**
+(`.documentation > h2`, not `.documentation h2`). This is deliberate: Markdown output is flat, so
+`>` reaches everything Markdown emits while leaving nested demo markup untouched — without it, the
+prose rules would clobber the `.display-*` specimens on the Typography page and inflate spacing
+inside demo cards. Keep new rules direct-child scoped.
 
 ### Content directories
 
 - `src/design_system/` — component documentation and demo pages
 - `src/design_mockups/` — full-page layout mockups for brainstorming
-- `src/methodology/` — guidelines and process docs (see `src/methodology/system-architecture.html` for the canonical reference)
+- `src/methodology/` — guidelines and process docs (see `src/methodology/system-architecture.md` for the canonical reference)
 
 ### Navigation
 
@@ -82,9 +114,10 @@ Push to `main` triggers `.github/workflows/deploy-pages.yml`, which runs `npm ru
 
 ### HTML
 
-- Documentation pages (`src/design_system/`, `src/methodology/`) are documental. Focus on clean, semantic markup and basic Bootstrap styling.
+- Documentation pages (`src/design_system/`, `src/methodology/`) are documental. Prefer Markdown; focus on clean, semantic markup and basic Bootstrap styling.
   - Do not apply heading display classes (e.g., `h1`, `h2`) to heading elements.
   - Do not apply `mb-*` classes on `<p>` tags.
+  - Do not restate the page title or lead in the body — `base.njk` renders them from the `title` and `description` front matter.
 - Mockup pages (`src/design_mockups/`) and page-specific demo styles go in a `<style>` block at the top of the file — no inline styles. Move to a dedicated SCSS file once finalized.
 - Use semantic elements: `<header>`, `<main>`, `<article>`, `<nav>`, etc.
 - Always include `alt` text on images.

@@ -2,6 +2,17 @@
 // JS-driven: annotations are defined in a <template> block on each page,
 // then dynamically created and positioned by annotations-init.html.
 
+// ── Level 3 tokens — category colors ──
+// Vivid, saturated hues chosen to stay distinguishable against the brand
+// palette. Consumed by the marker badges and by the swatches on the
+// annotations documentation page.
+$ds-annotation-colors: (
+    "a11y": #0aa2c0,
+    "behavior": #6f42c1,
+    "tracking": #e8590c,
+    "responsive": #2f9e44
+);
+
 // ── Marker group — positioned at top-right of annotated element ──
 .ds-note-group {
     position: absolute;
@@ -29,25 +40,11 @@
         transform: scale(1.2);
     }
 
-    // Vivid, saturated category colors
-    &--a11y {
-        background-color: #0aa2c0;
-        color: #fff;
-    }
-
-    &--behavior {
-        background-color: #6f42c1;
-        color: #fff;
-    }
-
-    &--tracking {
-        background-color: #e8590c;
-        color: #fff;
-    }
-
-    &--responsive {
-        background-color: #2f9e44;
-        color: #fff;
+    @each $category, $color in $ds-annotation-colors {
+        &--#{$category} {
+            background-color: $color;
+            color: #fff;
+        }
     }
 }
 
@@ -100,5 +97,15 @@
 
     &[aria-pressed="false"] {
         opacity: 0.6;
+    }
+}
+// ── Category swatch — inline hex sample on the annotations doc page ──
+.annotation-swatch {
+    font-weight: 600;
+
+    @each $category, $color in $ds-annotation-colors {
+        &--#{$category} {
+            color: $color;
+        }
     }
 }

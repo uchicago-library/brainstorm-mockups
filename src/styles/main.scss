@@ -18,4 +18,8 @@
 @import "components/footer";
 @import "components/accordion";
 @import "components/panel";
-@import "components/annotations";
+
+// Import meta styles (documentation-only, not shipped to production)
+@import "meta/annotations";
+@import "meta/color-ratio";
+@import "meta/documentation";
