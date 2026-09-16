@@ -51,7 +51,7 @@ module.exports = function (eleventyConfig) {
   // project can fetch the content without ~91% page chrome.
   //   rendered: /design_system/copywriting/
   //   raw:      /design_system/copywriting.md
-  eleventyConfig.addPassthroughCopy({ "src/design_system/*.md": "design_system" });
+  eleventyConfig.addPassthroughCopy({ "src/design_system/**/*.md": "design_system" });
 
   // GitHub Pages serves .txt as text/plain with no charset parameter, so
   // browsers fall back to Windows-1252 and mojibake any UTF-8. Headers cannot
@@ -72,7 +72,7 @@ module.exports = function (eleventyConfig) {
   // which llms.txt replaces for machine consumers.
   eleventyConfig.addCollection("designSystem", (collectionApi) =>
     collectionApi
-      .getFilteredByGlob(["src/design_system/*.md", "src/design_system/*.html"])
+      .getFilteredByGlob(["src/design_system/**/*.md", "src/design_system/**/*.html"])
       .filter((page) => !page.inputPath.endsWith("/index.html"))
       .sort((a, b) => a.data.title.localeCompare(b.data.title))
   );
@@ -81,7 +81,7 @@ module.exports = function (eleventyConfig) {
   // their markup as fenced examples. See src/reference-md.njk.
   eleventyConfig.addCollection("designSystemReference", (collectionApi) =>
     collectionApi
-      .getFilteredByGlob("src/design_system/*.html")
+      .getFilteredByGlob("src/design_system/**/*.html")
       .filter((page) => !page.inputPath.endsWith("/index.html"))
       .sort((a, b) => a.data.title.localeCompare(b.data.title))
   );

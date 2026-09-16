@@ -25,12 +25,15 @@ brainstorm-mockups/
 │   │   │   ├── _header.scss
 │   │   │   ├── _footer.scss
 │   │   │   └── _*.scss         # Additional components
-│   │   ├── meta/               # Documentation-only styles
+│   │   ├── meta/               # Documentation-only styles, never shipped
 │   │   │   ├── _annotations.scss
 │   │   │   └── _documentation.scss
-│   │   └── main.scss           # Main entry point (imports everything)
-│   ├── design_system/          # Demo pages (HTML) and documentation (Markdown)
-│   ├── design_mockups/         # Full page mockups (HTML)
+│   │   ├── main.scss           # Product entry point
+│   │   ├── main-libapps.scss   # LibApps override entry point
+│   │   └── meta.scss           # Documentation entry point (imports meta/)
+│   ├── design_system/          # Demo pages (HTML) and documentation (Markdown),
+│   │                           # grouped into foundation/, guidelines/, implementation/
+│   ├── design_mockups/         # Full page mockups (HTML), grouped by topic
 │   ├── methodology/            # Development guidelines (this folder)
 │   ├── assets/                 # Static assets
 │   │   └── images/             # Image files
@@ -61,8 +64,8 @@ Both `.html` and `.md` are valid page formats. Use Markdown for prose; use HTML 
 - **Base/global styles**: `src/styles/base/_global.scss`
 - **Component styles**: `src/styles/components/` (one file per component)
 - **Layout styles**: `src/styles/base/layout/`
-- **Documentation-only styles**: `src/styles/meta/` (not shipped to production)
-- **Entry point**: `src/styles/main.scss`
+- **Documentation-only styles**: `src/styles/meta/` (not shipped to production; import from `meta.scss`, never `main.scss`)
+- **Entry points**: `src/styles/main.scss` (product), `main-libapps.scss` (LibApps overrides), `meta.scss` (this documentation site)
 
 ### Assets
 
@@ -85,7 +88,7 @@ Both `.html` and `.md` are valid page formats. Use Markdown for prose; use HTML 
 | Prose documentation page | `src/methodology/design-standards.md` | Markdown with `layout: base.njk` |
 | Full page mockup | `src/design_mockups/guide-layout.html` | Experimental page layouts |
 | Component SCSS | `src/styles/components/_buttons.scss` | Import in main.scss |
-| Documentation-only SCSS | `src/styles/meta/_documentation.scss` | Import in main.scss |
+| Documentation-only SCSS | `src/styles/meta/_documentation.scss` | Import in meta.scss, never main.scss |
 | Global SCSS | `src/styles/base/_global.scss` | Element overrides, not component-specific |
 | Layout utilities | `src/styles/base/layout/_layout.scss` | Grid, spacing, alignment |
 | Header/Footer | `src/_includes/header.html`, `footer.html` | Included in all pages |
@@ -97,7 +100,7 @@ Both `.html` and `.md` are valid page formats. Use Markdown for prose; use HTML 
 
 <div class="alert alert-warning"><strong>⚠️ Never modify the <code>_site/</code> folder.</strong> It's auto-generated during the build process. All work happens in <code>src/</code>.</div>
 
-<div class="alert alert-info"><strong>ℹ️ Maintaining folder and navigation structure is manual.</strong> When you add new pages, make sure to update the relevant index pages and navigation menus.</div>
+<div class="alert alert-info"><strong>ℹ️ Section navigation and per-page listings are generated from the folder structure.</strong> Placing a page inside a section folder is enough for it to appear in that section's landing page and the homepage's documentation navigation — no manual list to update. Cross-links between specific pages (like a "See also" reference) still need to be written and kept up to date by hand.</div>
 
 ---
 
