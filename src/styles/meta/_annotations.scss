@@ -31,22 +31,29 @@
 
     // Vivid, saturated category colors
     &--a11y {
-        background-color: #0aa2c0;
+        background-color: var(--ucl-violet);
         color: #fff;
     }
 
     &--behavior {
-        background-color: #6f42c1;
+        background-color: var(--ucl-lake);
         color: #fff;
     }
 
     &--tracking {
-        background-color: #e8590c;
+        background-color: var(--ucl-terracotta);
         color: #fff;
     }
 
     &--responsive {
-        background-color: #2f9e44;
+        background-color: var(--ucl-ivy);
+        color: #fff;
+    }
+
+    // Deliberately neutral rather than vivid: general info is the catch-all,
+    // not a specialised concern competing for attention with the four above.
+    &--info {
+        background-color: var(--ucl-greystone);
         color: #fff;
     }
 }
@@ -54,7 +61,7 @@
 // ── Dashed outline on annotated elements ──
 .ds-annotated {
     position: relative;
-    outline: 2px dashed var(--ds-annotation-color, #868e96);
+    outline: 2px dashed var(--ds-annotation-color, --ucl-greystone, #868e96);
     outline-offset: 4px;
 }
 

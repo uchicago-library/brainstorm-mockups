@@ -1,0 +1,73 @@
+---
+title: "Token Tables"
+description: "Generated reference for every design token in the system, with its CSS variable, SCSS variable, utility classes and value."
+---
+
+{% include "meta/document-start.html" %}
+{% include "header.html" %}
+{% include "breadcrumb.html" %}
+
+<main class="container-md py-5 mb-5">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      <h1>{{ title }}</h1>
+
+      <section class="mt-4">
+        <div class="token-search-bar d-flex flex-wrap align-items-center gap-3 mb-3">
+          <label class="visually-hidden" for="token-search">Search tokens and classes</label>
+          <input
+            type="search"
+            id="token-search"
+            class="form-control token-search"
+            placeholder="Search all tabs&hellip;"
+            data-token-search>
+          <span class="token-search__count" data-token-total aria-live="polite"></span>
+        </div>
+
+        <ul class="nav nav-tabs" role="tablist">
+          {% for table in tokens.tables %}
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link{% if loop.first %} active{% endif %}"
+                id="tab-{{ table.id }}"
+                data-bs-toggle="tab"
+                data-bs-target="#panel-{{ table.id }}"
+                type="button"
+                role="tab"
+                aria-controls="panel-{{ table.id }}"
+                aria-selected="{% if loop.first %}true{% else %}false{% endif %}">
+                {{ table.label }}
+                <span class="badge text-bg-secondary" data-token-count="{{ table.id }}" data-token-total-count="{{ table.count }}">{{ table.count }}</span>
+              </button>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div class="tab-content pt-4">
+          {% for table in tokens.tables %}
+            <div
+              class="tab-pane fade{% if loop.first %} show active{% endif %}"
+              id="panel-{{ table.id }}"
+              role="tabpanel"
+              aria-labelledby="tab-{{ table.id }}"
+              tabindex="0">
+              {% include "token-table.njk" %}
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<script src="{{ '/assets/js/token-table.js' | url }}" defer></script>
+<template class="ds-annotations-template">
+  <div data-target="h1"
+       data-category="info"
+       data-title="when to use">
+       <p>This page lists only the tokens and classes this system defines or overrides. Everything else in <a href="https://getbootstrap.com/docs/5.3/components/">Bootstrap 5.3</a> is available as-is and documented there.</p>
+       <p>Avoid creating new classes. Reach for a component class or a semantic CSS variable, both of which stay traceable in devtools back to the token that set them. Brand tokens are published as CSS variables too, for a pinch.</p>
+  </div>
+</template>
+{% include "footer.html" %}

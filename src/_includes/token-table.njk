@@ -1,0 +1,82 @@
+{# Renders one generated tab. Expects `table` from the tokens global.
+   `table.kind` is "tokens" or "classes"; the two carry different columns. #}
+
+{% for section in table.sections %}
+  <section class="mb-5" data-token-section>
+    <h3 id="{{ table.id }}-{{ section.label | slugify }}">{{ section.label }}</h3>
+    {% if section.guidance %}<p>{{ section.guidance | inlineMarkdown | safe }}</p>{% endif %}
+
+    <div class="table-responsive">
+      <table class="table table-sm align-middle token-table">
+        <caption class="visually-hidden">{{ section.label }}</caption>
+
+        {% if table.kind == "classes" %}
+          <thead>
+            <tr>
+              <th scope="col">Class</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in section.classes %}
+              <tr class="token-table__row">
+                <td class="token-table__name">
+                  <button type="button" class="token-table__copy" data-copy="{{ item.selector }}">{{ item.selector }}</button>
+                </td>
+                <td class="token-table__notes">{{ item.note | inlineMarkdown | safe }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+
+        {% else %}
+          <thead>
+            <tr>
+              <th scope="col">Swatch</th>
+              <th scope="col">CSS variable</th>
+              <th scope="col">SCSS variable</th>
+              <th scope="col">Utility classes</th>
+              <th scope="col">Value</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for token in section.tokens %}
+              <tr class="token-table__row">
+                <td>
+                  {% if token.swatch %}
+                    {# Decorative: the same colour is stated as text in the Value column. #}
+                    <span class="token-table__swatch" style="--token-swatch: {{ token.swatch }}" aria-hidden="true"></span>
+                  {% else %}
+                    <span class="token-table__empty" title="Not a colour">&mdash;</span>
+                  {% endif %}
+                </td>
+                <td class="token-table__name">
+                  {% if token.cssVar %}
+                    <button type="button" class="token-table__copy" data-copy="var({{ token.cssVar }})">{{ token.cssVar }}</button>
+                    {% if token.cssVarScope %}<br><small class="token-table__empty">on {{ token.cssVarScope }}</small>{% endif %}
+                  {% else %}
+                    <span class="token-table__empty" title="Not published as a custom property">&mdash;</span>
+                  {% endif %}
+                </td>
+                <td class="token-table__name">
+                  <button type="button" class="token-table__copy" data-copy="{{ token.scss }}">{{ token.scss }}</button>
+                </td>
+                <td>
+                  {% if token.utilities.length %}
+                    {% for utility in token.utilities %}<code>{{ utility }}</code>{% if not loop.last %} {% endif %}{% endfor %}
+                  {% else %}
+                    <span class="token-table__empty" title="No utility class generates this value">&mdash;</span>
+                  {% endif %}
+                </td>
+                <td><code>{{ token.value }}</code></td>
+                <td class="token-table__notes">
+                  {% if token.note %}{{ token.note | inlineMarkdown | safe }}{% else %}<span class="token-table__empty" title="Not documented yet">&mdash;</span>{% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        {% endif %}
+      </table>
+    </div>
+  </section>
+{% endfor %}
