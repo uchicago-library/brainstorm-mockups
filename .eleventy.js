@@ -141,6 +141,33 @@ module.exports = function (eleventyConfig) {
   // Watch SCSS files (Sass will handle compilation)
   eleventyConfig.addWatchTarget("src/styles/");
 
+  // eleventy-dev-server@1.x strips pathPrefix to resolve /foo against the
+  // output dir, then reuses that already-stripped path to build its
+  // missing-trailing-slash redirect -- so /brainstorm-mockups/foo redirects
+  // to /foo/ instead of /brainstorm-mockups/foo/. Restore the prefix on the
+  // way out; this is the only thing dropping it, so nothing else changes.
+  eleventyConfig.setServerOptions({
+    middleware: [
+      (req, res, next) => {
+        const prefix = "/brainstorm-mockups";
+        const setHeader = res.setHeader.bind(res);
+        res.setHeader = (name, value) => {
+          if (
+            name.toLowerCase() === "location" &&
+            typeof value === "string" &&
+            value.startsWith("/") &&
+            !value.startsWith(prefix + "/") &&
+            value !== prefix
+          ) {
+            value = prefix + value;
+          }
+          return setHeader(name, value);
+        };
+        next();
+      }
+    ]
+  });
+
   // Markdown adjustments for documentation pages.
   // amendLibrary (not setLibrary) mutates Eleventy's already-configured
   // markdown-it instance, preserving its html:true and disable("code") defaults.
