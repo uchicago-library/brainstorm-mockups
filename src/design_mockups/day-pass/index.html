@@ -11,13 +11,7 @@ title: "Day Pass"
   <div class="col-lg-10 mx-auto">
     <h1>Day Pass</h1>
     <p>Patron and admin flow mockups for the day pass system.</p>
-    <ul>
-    {% for p in collections.all | sort(false, false, 'data.title') %}
-      {% if page.url in p.url and not (p | isIndexPage) %}
-      <li><a href="{{ p.url | url }}">{{ p.data.title }}</a></li>
-      {% endif %}
-    {% endfor %}
-    </ul>
+    {% include "child-pages-list.html" %}
   </div>
 </main>
 

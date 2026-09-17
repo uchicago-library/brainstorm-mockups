@@ -10,13 +10,7 @@ title: "LibApps"
 <main class="container-md py-4 mb-5">
   <h1>LibApps</h1>
   <p>Application-exported page references used for implementation and visual validation.</p>
-  <ul>
-  {% for p in collections.all | sort(false, false, 'data.title') %}
-    {% if page.url in p.url and not (p | isIndexPage) %}
-    <li><a href="{{ p.url | url }}">{{ p.data.title }}</a></li>
-    {% endif %}
-  {% endfor %}
-  </ul>
+  {% include "child-pages-list.html" %}
 </main>
 
 {% include "footer.html" %}

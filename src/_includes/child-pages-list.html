@@ -1,0 +1,7 @@
+<ul>
+{% for p in collections.all | sort(false, false, 'data.title') %}
+  {% if (parentUrl or page.url) in p.url and not (p | isIndexPage) %}
+  <li><a href="{{ p.url | url }}">{{ p.data.title }}</a></li>
+  {% endif %}
+{% endfor %}
+</ul>

@@ -11,13 +11,7 @@ title: "Header Variants"
   <div class="col-lg-10 mx-auto">
     <h1>Header Variants</h1>
     <p>Mockups exploring different header layouts and configurations.</p>
-    <ul>
-    {% for p in collections.all | sort(false, false, 'data.title') %}
-      {% if page.url in p.url and not (p | isIndexPage) %}
-      <li><a href="{{ p.url | url }}">{{ p.data.title }}</a></li>
-      {% endif %}
-    {% endfor %}
-    </ul>
+    {% include "child-pages-list.html" %}
   </div>
 </main>
 

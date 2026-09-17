@@ -182,13 +182,8 @@ title: "UChicago Library Design System"
               {%- if topSection.url in section.url and section | isIndexPage and section.url != topSection.url %}
               <li>
                 <a href="{{ section.url | url }}">{{ section.data.title }}</a>
-                <ul>
-                {%- for p in collections.all | sort(false, false, 'data.title') %}
-                  {%- if section.url in p.url and not (p | isIndexPage) %}
-                  <li><a href="{{ p.url | url }}">{{ p.data.title }}</a></li>
-                  {%- endif %}
-                {%- endfor %}
-                </ul>
+                {%- set parentUrl = section.url %}
+                {% include "child-pages-list.html" %}
               </li>
               {%- elif topSection.url in section.url and not (section | isIndexPage) and section.url | urlDepth == topDepth + 1 %}
               <li><a href="{{ section.url | url }}">{{ section.data.title }}</a></li>

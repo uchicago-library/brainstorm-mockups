@@ -5,7 +5,7 @@
 // Bootstrap's breadcrumb entry, restyled so links use the muted divider
 // colour and only underline on hover.
 .breadcrumb-item {
-    a {
+    a, button {
         color: var(--bs-breadcrumb-divider-color) !important;
         text-decoration: none !important;
 
