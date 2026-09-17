@@ -8,46 +8,20 @@ title: "Page Mockups"
 {% include "breadcrumb.html" %}
 
 <main class="container-md py-4 mb-5">
-  <h1>Page Mockups</h1>
-  <p><a href="{{ '/' | url }}">← Back to Home</a></p>
-  
-  <h2>Header variants</h2>
-  <ul>
-    <li><a href="{{ '/design_mockups/header-default/' | url }}">Header Default</a></li>
-    <li><a href="{{ '/design_mockups/libapps-header/' | url }}">LibApps Header</a></li>
-    <li><a href="{{ '/design_mockups/header-minimal/' | url }}">Header Minimal</a></li>
-    <li><a href="{{ '/design_mockups/header-customization/' | url }}">Header Customization</a></li>
-    <li><a href="{{ '/design_mockups/header-current-new/' | url }}">Header Current New</a></li>
-  </ul>
-  
-  <h2>Springshare</h2>
-  <ul>
-    <li><a href="{{ '/design_mockups/guides-in-accordions/' | url }}">Guides in Accordions</a></li>
-    <li><a href="{{ '/design_mockups/guides-in-accordions-subjects/' | url }}">Guides in Accordions (Subjects)</a></li>
-    <li><a href="{{ '/design_mockups/guides-in-photos/' | url }}">Guides in Photos</a></li>
-    <li><a href="{{ '/design_mockups/guides-in-types/' | url }}">Guides in Types</a></li>
-  </ul>
+  <div class="col-lg-10 mx-auto">
+    <h1>Page Mockups</h1>
+    <p>Exploratory and validation page mockups used to test layout directions and interactions.</p>
 
-  <h2>Styling Mockups</h2>
-  <ul>
-    <li><a href="{{ '/design_mockups/components-glassmorphism/' | url }}">Components Glassmorphism</a></li>
-    <li><a href="{{ '/design_mockups/styling-glassmorphism/' | url }}">Homepage Styling Glassmorphism</a></li>
-    <li><a href="{{ '/design_mockups/styling-minimalist/' | url }}">Homepage Styling Minimalist</a></li>
-    <li><a href="{{ '/design_mockups/ask-us/' | url }}">Ask Us Anything Mockup</a></li>
-    <li><a href="{{ '/design_mockups/contacts/' | url }}">Contacts Mockup</a></li>
-  </ul>
-
-  <h2>Search</h2>
-  <ul>
-    <li><a href="{{ '/design_mockups/search/' | url }}">Search Results Page</a></li>
-  </ul>
-
-  <h2>Day Pass</h2>
-  <ul>
-    <li><a href="{{ '/design_mockups/day-pass-patron-start/' | url }}">Patron — Login</a></li>
-    <li><a href="{{ '/design_mockups/day-pass-patron-success/' | url }}">Patron — Confirmation</a></li>
-    <li><a href="{{ '/design_mockups/day-pass-patron-failure/' | url }}">Patron — Failure (3 variants)</a></li>
-    <li><a href="{{ '/design_mockups/day-pass-admin-log/' | url }}">Admin — Log</a></li>
-  </ul>
+    {% for section in collections.all | sort(false, false, 'data.title') %}
+      {% if '/design_mockups/' in section.url and section | isIndexPage and section.url != page.url %}
+    <section class="mb-4">
+      <h2><a href="{{ section.url | url }}">{{ section.data.title }}</a></h2>
+      {% set parentUrl = section.url %}
+      {% include "child-pages-list.html" %}
+    </section>
+      {% endif %}
+    {% endfor %}
+  </div>
 </main>
+
 {% include "footer.html" %}

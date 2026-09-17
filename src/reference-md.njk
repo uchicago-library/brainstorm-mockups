@@ -1,0 +1,52 @@
+---
+pagination:
+  data: collections.designSystemReference
+  size: 1
+  alias: doc
+permalink: "/design_system/{{ doc.fileSlug }}.md"
+eleventyExcludeFromCollections: true
+---
+{#
+  Generates a Markdown twin of each HTML reference page, so an agent consuming
+  this design system gets the component markup without fetching a ~36KB page
+  that is ~91% chrome.
+
+  Each top-level <section> becomes a heading plus a fenced HTML block holding
+  that section's rendered markup. Generated from `templateContent`, so it is
+  the final markup (includes expanded, `url` filter applied) and cannot drift
+  from the page it documents.
+
+  Caveat, stated in the output as well: these pages lay out each demo beside
+  its description, so the fenced markup contains that documentation
+  scaffolding (`.row` / `.col-*` wrappers) alongside the component itself.
+
+  `| safe` throughout: the output is Markdown, so Nunjucks HTML autoescaping
+  would turn every fenced example into unusable `&lt;p&gt;` entities.
+-#}
+{%- set sections = doc.templateContent | referenceSections -%}
+---
+title: "{{ doc.data.title | safe }}"
+description: "{{ doc.data.description | safe }}"
+source: {{ site.origin }}{{ doc.url | url }}
+---
+
+# {{ doc.data.title | safe }}
+
+> {{ doc.data.description | safe }}
+
+Generated from [the reference page]({{ site.origin }}{{ doc.url | url }}). Each
+section below shows that section's real markup. Copy the component element
+itself, not the surrounding `.row` / `.col-*` wrappers, which exist only to lay
+the demo out next to its description on the documentation page.
+{% if sections.length %}
+{% for section in sections %}
+## {{ section.title | safe }}
+
+```html
+{{ section.markup | safe }}
+```
+{% endfor %}
+{%- else %}
+This page has no extractable sections. Read the rendered page directly:
+{{ site.origin }}{{ doc.url | url }}
+{%- endif %}

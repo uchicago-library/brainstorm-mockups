@@ -1,0 +1,181 @@
+---
+title: "LibApps Header"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }} | UCL DS Exploration{% else %}UCL DS Exploration{% endif %}</title>
+    <link rel="icon" type="image/x-icon" href="https://www.lib.uchicago.edu/web-resources/img/favicon-m.ico">
+    <link rel="stylesheet" href="https://uchicago-brand-fonts.s3.us-east-2.amazonaws.com/UChicagoSansSerif.css">
+    <link rel="stylesheet" href="https://www.lib.uchicago.edu/web-resources/css/uchicagoSansSerif.css">
+    <link rel="stylesheet" href="{{ '/styles/main-libapps.css' | url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        #header .navbar-brand img {
+            max-width: 120px;
+            height: auto;
+        }
+        li.nav-item.dropdown{
+            position: relative;
+        }
+        .dropdown-menu.show{
+            width: fit-content !important;
+            min-width: 500px;
+            /*position: relative !important;*/
+        }
+        #global-navbar .dropdown-group-title {
+            color: #a6a6a6 !important;
+            border-bottom-color: #a6a6a6 !important;
+            width: fit-content !important;
+        }
+
+        @media (max-width: 767.98px) {
+            #global-navbar .navbar-collapse {
+                margin-left: calc(var(--bs-gutter-x) * -0.5);
+                margin-right: calc(var(--bs-gutter-x) * -0.5);
+            }
+
+            #global-navbar .nav-item .nav-link {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            #global-navbar .dropdown-menu {
+                background-color: #6a0000;
+                padding: 0;
+                box-shadow: none;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+
+<header id="header" role="banner">
+    <div class="logo-bar bg-white">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center py-2">
+                <a class="navbar-brand m-0" href="{{ '/' | url }}" itemscope itemtype="http://schema.org/Organization">
+                    <span class="visually-hidden" itemprop="name">The University of Chicago Library</span>
+                    <img itemprop="logo" src="https://www.lib.uchicago.edu/web-resources/img/color-logo.png" alt="University of Chicago Library">
+                </a>
+
+                <ul class="nav d-none d-md-flex justify-content-end" id="navbar-shortcuts" role="list">
+                    <li class="nav-item" data-ga-subcategory="Navbar Shortcuts">
+                        <a class="nav-link text-primary" href="/research/help/ask-librarian/" data-ga-label="Ask a Librarian">
+                            <i id="chat-status" class="fa fa-comment fa-lg ask-icon active" data-default-ask-name="uofc-ask" aria-hidden="true"></i>
+                            <span>Ask a Librarian</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-ga-subcategory="Navbar Shortcuts">
+                        <a class="nav-link text-primary" href="/libraries/libraries-hours/" data-ga-label="Library Hours">
+                            <i class="fa fa-clock" aria-hidden="true"></i>
+                            <span><span class="d-md-none d-lg-inline">View </span>Hours</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-ga-subcategory="Navbar Shortcuts">
+                        <a class="nav-link text-primary" href="/about/thelibrary/supportus/" data-ga-label="Support the Library">
+                            <i class="fa fa-gift" aria-hidden="true"></i>
+                            <span>Support<span class="d-md-none d-lg-inline"> the Library</span></span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-ga-subcategory="Navbar Shortcuts">
+                        <a class="nav-link text-primary" href="http://www.lib.uchicago.edu/myaccount" data-ga-label="My Library Account">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>My<span class="d-md-none d-lg-inline"> Library</span> Account</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <button class="navbar-toggler d-md-none border-0 text-primary fs-3 px-3 py-2 lh-1" type="button" data-bs-toggle="collapse" data-bs-target="#global-navbar-libapps-collapse" aria-controls="global-navbar-libapps-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <nav id="global-navbar" class="navbar navbar-expand-md bg-primary global-navbar p-0" aria-label="Main navigation" data-ga-category="Global Navbar">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="global-navbar-libapps-collapse">
+                <ul class="navbar-nav flex-grow-1" role="list">
+                    {% for dropdown in headerCurrentNav.dropdowns %}
+                        <li class="nav-item dropdown" data-ga-subcategory="{{ dropdown.label }}">
+                            <a class="nav-link dropdown-toggle text-white px-md-2" href="#" id="libapps-{{ dropdown.id }}" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-ga-label="{{ dropdown.label }}">
+                                {% if dropdown.label == "Borrow & Request" %}
+                                    Borrow<span class="d-md-none d-lg-inline"> &amp; Request</span>
+                                {% elif dropdown.label == "Research & Teaching" %}
+                                    Research<span class="d-md-none d-lg-inline"> &amp; Teaching</span>
+                                {% elif dropdown.label == "Collections & Exhibits" %}
+                                    Collections<span class="d-md-none d-lg-inline"> &amp; Exhibits</span>
+                                {% elif dropdown.label == "Visit & Study" %}
+                                    Visit<span class="d-md-none d-lg-inline"> &amp; Study</span>
+                                {% else %}
+                                    {{ dropdown.label }}
+                                {% endif %}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="libapps-{{ dropdown.id }}">
+                                {% set groupCount = dropdown.groups | length %}
+                                <li class="dropdown-layout row row-cols-1 row-cols-sm-2 g-0">
+                                    {% for group in dropdown.groups %}
+                                        <div class="dropdown-group col">
+                                            <p class="dropdown-group-title ps-3 pe-4 py-2">{{ group.title }}</p>
+                                            {% for link in group.links %}
+                                                <a class="dropdown-item text-wrap text-white px-3 py-2" href="{{ link.href }}" data-ga-label="{{ link.text }}">{{ link.text }}</a>
+                                            {% endfor %}
+                                        </div>
+                                    {% endfor %}
+                                </li>
+                            </ul>
+                        </li>
+                    {% endfor %}
+
+                    <li class="d-md-none">
+                        <p class="dropdown-group-title text-white-50 ps-3 pe-4 py-2 mt-3 mb-1 text-uppercase fw-bold small">Quick Links</p>
+                        <ul class="navbar-nav flex-column mobile-shortcuts-list" role="list">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/research/help/ask-librarian/">
+                                    <i id="chat-status-mobile" class="fa fa-comment me-2" aria-hidden="true"></i>
+                                    Ask a Librarian
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/libraries/libraries-hours/">
+                                    <i class="fa fa-clock me-2" aria-hidden="true"></i>
+                                    View Hours
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/about/thelibrary/supportus/">
+                                    <i class="fa fa-gift me-2" aria-hidden="true"></i>
+                                    Support the Library
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="http://www.lib.uchicago.edu/myaccount">
+                                    <i class="fa fa-user me-2" aria-hidden="true"></i>
+                                    My Library Account
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+
+<main class="container-md py-4 mb-5">
+    <h1>LibApps Header</h1>
+    <p>This mockup tries to maintain the same current header while transitioning to BS5, and using a leaner CSS file that only includes the components we need for the header. This is the most conservative option, but the it's not rendering correctly (as you can see).</p>
+    <p>This is done because we want to update Libapps to BS5 before we do updates to the Information Architecture and design of the main website. So we want it to look and behave the same but using BS5. It's been too much work, so we might just use <a href="{{ '/design_mockups/headers/header-current-new/' | url }}">Header Current New</a>.</p>
+    {% set current = "libapps" %}
+    {% include "meta/header-mockups-page-nav.html" %}
+</main>
+
+{% include "footer.html" %}
