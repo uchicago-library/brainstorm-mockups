@@ -22,7 +22,7 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 git clone <your-repo-url>
-cd brainstorm-mockups
+cd ucld
 ```
 
 ### 2. Install Dependencies

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Is
 
-A static site for the UChicago Library Design System — component documentation and mockups built with **Eleventy**, **Bootstrap 5 (SCSS)**, and **FontAwesome 6**. Deployed to GitHub Pages at `/brainstorm-mockups/`.
+A static site for the UChicago Library Design System — component documentation and mockups built with **Eleventy**, **Bootstrap 5 (SCSS)**, and **FontAwesome 6**. Deployed to GitHub Pages at `/ucld/`.
 
 ## Commands
 
@@ -22,7 +22,7 @@ npm run build     # Same as prod (used by CI)
 
 - **Eleventy** (`src/` → `_site/`) compiles HTML and Nunjucks templates
 - **Sass** compiles `src/styles/main.scss` → `_site/assets/css/main.css`
-- Config in [.eleventy.js](.eleventy.js); path prefix `/brainstorm-mockups/` is set there for GitHub Pages, applied in both `npm run dev` and `npm run build`. A dev-server-only middleware in the same file works around a bug in `eleventy-dev-server@1.x` where its missing-trailing-slash redirect drops the prefix from the `Location` header. [src/_data/site.js](src/_data/site.js) points the absolute URLs in `/llms.txt` and reference pages at `http://localhost:8080` outside of a build, so they resolve locally instead of always pointing at production.
+- Config in [.eleventy.js](.eleventy.js); path prefix `/ucld/` is set there for GitHub Pages, applied in both `npm run dev` and `npm run build`. A dev-server-only middleware in the same file works around a bug in `eleventy-dev-server@1.x` where its missing-trailing-slash redirect drops the prefix from the `Location` header. [src/_data/site.js](src/_data/site.js) points the absolute URLs in `/llms.txt` and reference pages at `http://localhost:8080` outside of a build, so they resolve locally instead of always pointing at production.
 
 ### Page structure
 

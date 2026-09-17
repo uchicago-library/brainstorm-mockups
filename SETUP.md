@@ -51,7 +51,7 @@ This creates an optimized production build in the `_site/` directory with:
 ## Project Structure
 
 ```
-brainstorm-mockups/
+ucld/
 ├── src/                          # Source files
 │   ├── _includes/                # Reusable HTML partials
 │   │   ├── header.html          # Site header with navigation

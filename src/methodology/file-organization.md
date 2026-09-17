@@ -9,7 +9,7 @@ layout: base.njk
 ## Directory Layout
 
 ```text
-brainstorm-mockups/
+ucld/
 ├── src/
 │   ├── _includes/              # Reusable HTML partials
 │   │   ├── base.njk            # Layout for documentation pages

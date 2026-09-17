@@ -22,7 +22,7 @@ A static site for documenting and demonstrating the University of Chicago Librar
 ### Installation
 ```bash
 git clone <your-repo-url>
-cd brainstorm-mockups
+cd ucld
 npm install
 npm run dev
 ```

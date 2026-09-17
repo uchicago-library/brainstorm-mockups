@@ -143,13 +143,13 @@ module.exports = function (eleventyConfig) {
 
   // eleventy-dev-server@1.x strips pathPrefix to resolve /foo against the
   // output dir, then reuses that already-stripped path to build its
-  // missing-trailing-slash redirect -- so /brainstorm-mockups/foo redirects
-  // to /foo/ instead of /brainstorm-mockups/foo/. Restore the prefix on the
+  // missing-trailing-slash redirect -- so /ucld/foo redirects
+  // to /foo/ instead of /ucld/foo/. Restore the prefix on the
   // way out; this is the only thing dropping it, so nothing else changes.
   eleventyConfig.setServerOptions({
     middleware: [
       (req, res, next) => {
-        const prefix = "/brainstorm-mockups";
+        const prefix = "/ucld";
         const setHeader = res.setHeader.bind(res);
         res.setHeader = (name, value) => {
           if (
@@ -223,6 +223,6 @@ module.exports = function (eleventyConfig) {
     templateFormats: ["html", "md", "njk"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
-    pathPrefix: "/brainstorm-mockups/"
+    pathPrefix: "/ucld/"
   };
 };
