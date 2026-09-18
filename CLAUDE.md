@@ -188,7 +188,19 @@ Push to `main` triggers `.github/workflows/deploy-pages.yml`, which runs `npm ru
 - Never hardcode values — use SCSS variables.
 - Avoid `!important` unless absolutely necessary.
 - Follow BEM for custom components (`block__element--modifier`). Do not BEM layout/structural rules or simple one-off spacing — use Bootstrap utilities for those.
-- Use IDs for unique landmarks (`header`, `footer`), ARIA references (`aria-labelledby`), and one-to-one JS hooks. Use BEM classes for appearance and reusable structure. Never use IDs on repeatable components.
+- Use IDs for unique landmarks (`header`, `footer`, `main-content`), ARIA references (`aria-labelledby`), and one-to-one JS hooks. Use BEM classes for appearance and reusable structure. Never use IDs on repeatable components.
+
+### Accessibility
+
+`npm run a11y` checks the built site and **fails CI**. Run it after `npm run build`, or run `npm test` for both. It covers only what is decidable from static markup — meaningful alt text, tab order and screen-reader phrasing still need a human.
+
+- Every page needs **exactly one** `<main id="main-content" tabindex="-1">`. `meta/document-start.html` emits the skip link that targets it, so a page that opens its own `<body>` must supply its own skip link too.
+- Every form control needs an accessible name: a `<label for>`, `aria-label`, or `aria-labelledby`. A visible heading next to a control is not a label.
+- Every `<img>` needs `alt`. Use `alt=""` for decorative images — omitting the attribute is the error.
+- Do not skip heading levels (`h2` → `h4`). Bootstrap's card examples use `<h5 class="card-title">`, which will skip if the card sits under an `h2`.
+- IDs must be unique per rendered page. Watch partials included more than once.
+- Bespoke transitions go through Bootstrap's `@include transition(...)`, never a bare `transition:` property — the mixin is what honours `prefers-reduced-motion`.
+- Pages under `src/pages/libapps/` reproduce Springshare's own markup so the LibApps stylesheet can be validated against it. Findings there are reported as warnings and must not be "fixed" by editing the reproduction.
 
 ### Bootstrap pitfalls
 

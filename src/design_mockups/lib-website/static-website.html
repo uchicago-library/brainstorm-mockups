@@ -136,15 +136,31 @@ title: "Static Website Mockup"
             border-top: 1px solid #e0e0e0;
             margin-top: auto;
         }
+
+        /* Skip link: visually hidden until focused. This mockup is
+           dependency-free, so it cannot use Bootstrap's helper class. */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            background-color: #800000;
+            color: #ffffff;
+            padding: 10px 16px;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            left: 0;
+        }
     </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
     <header>
         <img src="https://www.lib.uchicago.edu/web-resources/img/white-logo.png" alt="The University of Chicago Library Logo" class="logo-img">
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
         <h1>University of Chicago Library</h1>
         <div class="status-message">Website Temporarily Unavailable</div>
         

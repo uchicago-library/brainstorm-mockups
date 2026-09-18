@@ -18,6 +18,11 @@ module.exports = function (eleventyConfig) {
   // Copy assets to output
   eleventyConfig.addPassthroughCopy("src/assets");
 
+  // src/assets/README.md documents the asset folder for contributors. Without
+  // this it is treated as a template and published as a site page, since .md
+  // is a templateFormat. Passthrough copy still ships the raw file.
+  eleventyConfig.ignores.add("src/assets/**/*.md");
+
   // Build breadcrumb trail from a page URL (page.url does NOT include pathPrefix).
   // Returns [{url, label}] for use with | url in templates.
   // Labels come from matching index page titles in collections.all; falls back to

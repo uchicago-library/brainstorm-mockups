@@ -79,7 +79,7 @@ header[role="banner"] {
         }
 
         .nav-link {
-            transition: background-color 0.2s ease;
+            @include transition(background-color 0.2s ease);
             white-space: nowrap;
 
             &:hover,
@@ -162,7 +162,7 @@ header[role="banner"] {
                 --bs-dropdown-link-color: #fff;
                 --bs-dropdown-link-hover-color: #fff;
                 --bs-dropdown-link-hover-bg: #{$global-navbar-item-hover};
-                transition: background-color 0.2s ease;
+                @include transition(background-color 0.2s ease);
 
                 @media (max-width: 767.98px) {
                     padding-left: $spacer * .5;
