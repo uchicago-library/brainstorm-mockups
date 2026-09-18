@@ -31,7 +31,7 @@ cd ucld
 npm install
 ```
 
-This installs Eleventy, Bootstrap 5 (SCSS), Sass compiler, and npm-run-all.
+This installs Eleventy, Bootstrap 5 (SCSS), the Sass compiler, markdown-it and its anchor plugin, and npm-run-all.
 
 ### 3. Run Development Server
 
@@ -43,7 +43,7 @@ This command will:
 
 - Start Eleventy's dev server with live reload
 - Watch and compile SCSS files automatically
-- Open your browser to `http://localhost:8080`
+- Open your browser to `http://localhost:8080/ucld/`
 
 The site will automatically reload when you make changes to HTML or SCSS files.
 
@@ -72,6 +72,8 @@ This creates an optimized production build in the `_site/` directory with:
 | `npm run dev:sass` | Run only Sass watcher |
 | `npm run build:eleventy` | Build only Eleventy |
 | `npm run build:sass` | Build only Sass (minified) |
+| `npm run a11y` | Run accessibility checks against the built site |
+| `npm test` | Build, then run the accessibility checks |
 
 ---
 
@@ -105,8 +107,8 @@ npm install bootstrap
 
 ## Next Steps
 
-- **[Understand the Project Structure]({{ '/methodology/file-organization/' | url }})**
-- **[System architecture, design tokens, and development standards]({{ '/methodology/system-architecture/' | url }})**
+- **[System architecture: structure, tokens, and what the build generates]({{ '/methodology/architecture/' | url }})**
+- **[Conventions and the definition of done]({{ '/methodology/conventions/' | url }})**
 
 ---
 
@@ -114,12 +116,12 @@ npm install bootstrap
 
 ### Development
 
-- Local: `http://localhost:8080`
+- Local: `http://localhost:8080/ucld/`
 - Automatically reloads on file changes
 
 ### Production
 
-Open `_site/index.html` in your browser.
+The build writes to `_site/`. Because the site is served under the `/ucld/` path prefix, opening those files directly from disk will not resolve stylesheets or links. Serve the folder over HTTP to preview a production build.
 
 ---
 

@@ -6,6 +6,11 @@ const markdownItAnchor = require("markdown-it-anchor");
 // left off so raw HTML in a source comment is escaped rather than injected.
 const inlineMarkdown = markdownIt({ html: false, linkify: false, typographer: false });
 
+// A section landing page, whatever it is authored as. Used by the isIndexPage
+// filter and by the collections, so the two cannot disagree about what counts
+// as an index.
+const isIndexPath = (inputPath) => /\/index\.[^/]+$/.test(String(inputPath).replace(/\\/g, "/"));
+
 module.exports = function (eleventyConfig) {
   // Renders the markdown allowed in /// and //! comments in the SCSS sources.
   // Data files keep the raw text so the published JSON stays source-faithful;
@@ -42,10 +47,11 @@ module.exports = function (eleventyConfig) {
     });
   });
 
-  // True if a collection page is a directory index file (inputPath ends with index.html).
+  // True if a collection page is a directory index file. Matches any extension,
+  // since a section landing page may be authored as .html, .md or .njk.
   eleventyConfig.addFilter("isIndexPage", (p) => {
     const inputPath = p.inputPath || (p.page && p.page.inputPath) || "";
-    return inputPath.replace(/\\/g, "/").endsWith("/index.html");
+    return isIndexPath(inputPath);
   });
 
   // Number of path segments in a URL (e.g. "/design_system/foundation/" → 2).
@@ -78,7 +84,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("designSystem", (collectionApi) =>
     collectionApi
       .getFilteredByGlob(["src/design_system/**/*.md", "src/design_system/**/*.html"])
-      .filter((page) => !page.inputPath.endsWith("/index.html"))
+      .filter((page) => !isIndexPath(page.inputPath))
       .sort((a, b) => a.data.title.localeCompare(b.data.title))
   );
 
@@ -87,7 +93,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("designSystemReference", (collectionApi) =>
     collectionApi
       .getFilteredByGlob("src/design_system/**/*.html")
-      .filter((page) => !page.inputPath.endsWith("/index.html"))
+      .filter((page) => !isIndexPath(page.inputPath))
       .sort((a, b) => a.data.title.localeCompare(b.data.title))
   );
 

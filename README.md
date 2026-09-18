@@ -1,104 +1,71 @@
-# UChicago Library Design System Documentation
+# UChicago Library Design System
 
-A static site for documenting and demonstrating the University of Chicago Library design system, built with **Eleventy**, **Bootstrap 5 (SCSS)**, and **FontAwesome**. Designed to be hosted on **GitHub Pages** with minimal dependencies and maximum reusability.
+A static site documenting and demonstrating the University of Chicago Library design system, built with **Eleventy**, **Bootstrap 5 (SCSS)** and **Font Awesome**, and deployed to GitHub Pages.
 
-## 🎯 Purpose
-- **Component Library**: Demonstrates reusable UI components (buttons, forms, cards, etc.)
-- **Design Documentation**: Style guide with colors, typography, and spacing
-- **Development Guide**: Methodology and best practices for contributors
-- **Copy-Paste Ready**: All code can be directly integrated into other projects
-- **Static & Fast**: No backend required; optimized for GitHub Pages
-- **Accessibility First**: WCAG 2.1 Level AA compliant
+## What's here
 
-## 📅 Status
-**Work in Progress** — Aimed to be stabilized for ongoing development by **August 2026**.
+- **Design tokens** — colours, typography and spacing, documented on a Token Tables page that is generated from the stylesheets rather than maintained by hand.
+- **Components** — reusable UI built on Bootstrap 5 with UChicago brand overrides.
+- **Guidelines** — how to use the system, and the research and principles behind it.
+- **Mockups** — full-page layouts used to explore and validate directions.
+- **A machine-readable surface** — `/llms.txt` plus a Markdown copy of every design system page, for AI agents building other projects against this system.
 
-## � Quick Start
+## Quick start
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) (v16 or later)
-- NPM (comes with Node.js)
-
-### Installation
 ```bash
-git clone <your-repo-url>
-cd ucld
 npm install
 npm run dev
 ```
 
-Open `http://localhost:8080` in your browser.
+Then open **http://localhost:8080/ucld/** — the site is served under the `/ucld/` path prefix, so the bare port will not resolve.
 
-### Build for Production
 ```bash
-npm run prod
+npm run build   # production build into _site/
+npm test        # build, then run the accessibility checks
 ```
 
-The build output is generated in `_site/`.
+For prerequisites, troubleshooting and the full script list, see [Setup & Installation](src/methodology/setup.md).
 
-GitHub Pages deployment is handled by GitHub Actions via `.github/workflows/deploy-pages.yml`.
+## Documentation
 
-**For detailed setup instructions, see [Methodology → Setup](./src/methodology/setup.html).**
+| Topic | Where |
+| --- | --- |
+| How the project is built and organised | [System Architecture](src/methodology/architecture.md) |
+| Naming, BEM, SCSS rules, definition of done | [Conventions](src/methodology/conventions.md) |
+| Usability and accessibility standards | [Design Standards](src/design_system/foundation/design-standards.md) |
+| How the documentation itself is structured | [Project Methodology](src/methodology/index.md) |
+| Instructions for AI agents working on this repo | [CLAUDE.md](CLAUDE.md) |
 
+## Accessibility
 
-## 🎨 Design System Overview
+Components and pages are held to WCAG 2.1 Level AA. The mechanical criteria — landmarks, skip links, alt attributes, duplicate IDs, heading order, form-control names — are checked by `npm run a11y`, which runs in CI and fails the build. The rest is covered by the review step in [Conventions](src/methodology/conventions.md).
 
-Includes:
-- Design Tokens
-- Components
-- Patterns
-- Pages
-- Experimental Mockups
+## Stylesheets
 
-To know more, see [System Architecture](./src/methodology/system-architecture.html).
+Three entry points in `src/styles/`, each compiling to `_site/styles/`:
 
-## 🚀 Future: Multi-Platform Support
+| Entry point | Purpose |
+| --- | --- |
+| `main.scss` | The product stylesheet |
+| `main-libapps.scss` | Overrides for Springshare LibApps pages, which load their own Bootstrap |
+| `meta.scss` | Styles for this documentation site only; never shipped |
 
-This design system is architected to support distribution across multiple platforms with varying CSS footprints:
+Additional narrower builds (for platforms needing only tokens and utilities) can be added by creating another entry point in `src/styles/` — Sass compiles the whole directory, so no build script change is required.
 
-### Vision
-- **Main output** (`main.scss`): Full design system with all components and Bootstrap modules
-- **Platform-specific outputs** (1–2): `libguides.scss`, `satellite.scss`, etc. for platforms with custom CSS needs
-- **Minimal output**: Lightweight build for ~10 small platforms that need only core styles (variables, base, Bootstrap utilities)
+## Deployment
 
-### Implementation Strategy
-When multi-platform support is needed:
+Pushing to `main` triggers [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml), which builds the site, runs the accessibility checks, and deploys `_site/` to GitHub Pages.
 
-1. **Create platform-specific entry points** in `src/styles/`:
-   ```
-   src/styles/
-   ├── main.scss              # Full design system
-   ├── libguides.scss         # LibGuides-specific (selective imports)
-   ├── minimal.scss           # Minimal for small platforms
-   └── _variables.scss
-   ```
+## Dependencies
 
-2. **Selectively import Bootstrap modules** per platform:
-   ```scss
-   // minimal.scss - lightweight output
-   @import "variables";
-   @import "../../node_modules/bootstrap/scss/functions";
-   @import "../../node_modules/bootstrap/scss/variables";
-   @import "../../node_modules/bootstrap/scss/utilities/api";
-   // Only utilities, no components—saves ~100KB
-   ```
+All are development dependencies; nothing here ships to the browser. Components need only Bootstrap and Font Awesome at runtime, both loaded from a CDN.
 
-3. **Update build script** to generate multiple CSS files:
-   ```json
-   "build:sass": "sass src/styles/main.scss:_site/styles/main.css src/styles/libguides.scss:_site/styles/libguides.css src/styles/minimal.scss:_site/styles/minimal.css"
-   ```
+| Dependency | Purpose |
+| --- | --- |
+| Eleventy | Static site generator |
+| Bootstrap | CSS framework (SCSS sources) |
+| Sass | SCSS compilation |
+| markdown-it, markdown-it-anchor | Markdown rendering and heading anchors |
+| npm-run-all | Running build steps together |
 
-### Future JavaScript Consideration
-If selective Bootstrap module imports become standard, also consider:
-- Bundling platform-specific Bootstrap JS modules (if needed)
-- Creating lightweight JS entry points for minimal platforms
-- Documenting which Bootstrap JS components each platform requires
-
-## 🔧 Dependencies
-as of 2026-feb-11
-| Dependency       | Version   | Purpose                          |
-|------------------|-----------|----------------------------------|
-| Eleventy         | 2.0.1+    | Static site generator            |
-| Bootstrap        | 5.3.2+    | CSS framework (SCSS)             |
-| Sass             | 1.69.5+   | SCSS compilation                 |
-| FontAwesome      | CDN       | Icons (via CDN or self-hosted)   |
+Exact versions are in [package.json](package.json).
