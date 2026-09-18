@@ -34,8 +34,8 @@ Each annotation belongs to one of five categories, identified by color and icon:
 
 The annotation system has three parts:
 
-1. **SCSS** — `_annotations.scss` defines styles for marker badges, dashed outlines on annotated elements, the floating toggle button, and hidden state.
-2. **JavaScript** — `annotations-init.html` (included in every page via `document-end.html`) reads annotation definitions, creates markers dynamically, and initializes Bootstrap popovers.
+1. **SCSS** — `src/styles/meta/_annotations.scss` defines styles for marker badges, dashed outlines on annotated elements, the floating toggle button, and hidden state.
+2. **JavaScript** — `src/_includes/meta/annotations-init.html` (included in every page via `src/_includes/meta/document-end.html`) reads annotation definitions, creates markers dynamically, and initializes Bootstrap popovers.
 3. **Per-page template** — Each page that needs annotations includes a `<template class="ds-annotations-template">` at the end. HTML partials like components, can also include their own annotations. This is where annotation content is authored.
 
 ### Separation of concerns

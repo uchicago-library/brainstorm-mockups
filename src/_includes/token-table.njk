@@ -3,7 +3,7 @@
 
 {% for section in table.sections %}
   <section class="mb-5" data-token-section>
-    <h3 id="{{ table.id }}-{{ section.label | slugify }}">{{ section.label }}</h3>
+    <h2 id="{{ table.id }}-{{ section.label | slugify }}">{{ section.label }}</h2>
     {% if section.guidance %}<p>{{ section.guidance | inlineMarkdown | safe }}</p>{% endif %}
 
     <div class="table-responsive">

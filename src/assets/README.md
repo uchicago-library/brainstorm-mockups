@@ -1,37 +1,31 @@
-# Assets Directory
+# Assets
 
-This directory contains static assets for the design system documentation site.
+Static files copied verbatim into the build. Eleventy passes this whole directory through
+to `_site/assets/`, so anything added here is published at the same relative path.
 
-## Directory Structure
-
-```
+```text
 assets/
-├── images/          # Image files
-│   ├── color-logo.png        # UChicago Library color logo (for header)
-│   └── unvlogo-white.png     # University of Chicago white logo (for footer)
-├── fonts/           # Custom fonts (if needed)
-└── icons/           # Custom icon files (if needed)
+├── images/   # Sample photography used by mockups, plus a fallback favicon
+└── js/       # Small scripts loaded directly by pages
 ```
 
-## Required Images
+## Referencing an asset
 
-The following images are referenced in the header and footer components and need to be added:
+Use the `url` filter so the `/ucld/` path prefix is applied:
 
-1. **color-logo.png** - University of Chicago Library logo in color (for header)
-   - Recommended size: Transparent PNG, max height 50px
-   
-2. **unvlogo-white.png** - University of Chicago logo in white (for footer)
-   - Recommended size: PNG, width ~150px
+```text
+{{ '/assets/images/filename.jpg' | url }}
+```
 
-## Adding Images
-
-1. Place image files in the appropriate subdirectory
-2. Reference them in HTML using relative paths: `/assets/images/filename.png`
-3. Ensure images are optimized for web (compressed, appropriate format)
+A bare `/assets/...` path will break on the deployed site, which is served under a prefix.
 
 ## Notes
 
-- All images should be optimized for web performance
-- Use WebP format where possible for better compression
-- Provide alt text for all images for accessibility
-- Logos should maintain proper aspect ratios
+- **Logos are not stored here.** The header and footer load them from
+  `https://www.lib.uchicago.edu/web-resources/img/`, so they stay in step with the main
+  Library site. The same is true of the brand fonts and the production favicon.
+- The images in `images/` are sample photography for mockups, not brand assets.
+- Every `<img>` needs an `alt` attribute; decorative images take `alt=""`. This is checked
+  by `npm run a11y` and will fail the build.
+- This file is excluded from the rendered site by an `ignores` rule in `.eleventy.js`, so
+  it does not become a page. The raw file is still copied with the rest of the directory.

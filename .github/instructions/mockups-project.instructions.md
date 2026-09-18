@@ -2,18 +2,14 @@
 applyTo: '**'
 ---
 
-## **🚨 Critical Reminders**
-- **This is a static site.** No backend, no database.
-- **GitHub Pages is the host.** Optimize for performance and simplicity.
-- **Reusability is key.** Developers should copy/paste HTML/SCSS directly into other projects.
-- Keep in mind `src/methodology/system-architecture.html`.
-- Never modify files inside `/docs/` and most work will happen in `/src/`.
-- Do not add code examples.
-- Maintain a navigation of `/design_system/` and `/design_mockups/` and `/methodology/` in `src/index.html` with appropriate nesting everytime pages are added, removed, or renamed.
-- HTML page files (not components) are documental and don't need extra styling to be engaging. Focus on clean, semantic markup and basic Bootstrap styling. Do not apply heading classes (e.g., `h1`, `h2`). Do not apply mb-* classes on <p> tags.
-- Always use the highest dimension variables possible (BS classes and custom components). Avoid creating new ones unless necessary. Avoid using utilities when there are appropriate classes. Avoid inline styles. Use a <style></style> tag on `src/design_mockups/` pages or when a page specific style is needed for demonstration purposes.
-- Ask for clarifications if any instruction is unclear, conflicting, or appears to be a bad idea.
-- This is a self-documented design system website that uses it's own design system. Keep in mind `src/methodology` when writing content.
-- When adding sizing constraints (min-width, fixed widths, etc.), always verify behavior at all breakpoints — especially mobile.
-- When nesting interactive elements inside other interactive elements, account for event propagation conflicts upfront.
-- Before relying on native HTML features, verify that Bootstrap class overrides don't suppress them (e.g., `appearance: none` disabling `<datalist>` ticks, or `width: 100%` overriding flex shrink).
+# Instructions live in CLAUDE.md
+
+The authoritative instructions for working in this repository are in
+[`CLAUDE.md`](../../CLAUDE.md) at the repository root. **Read it before making changes.**
+
+This file deliberately contains no rules of its own. It previously duplicated a subset of
+CLAUDE.md, and the copy drifted out of date — pointing at files that had been renamed and
+repeating rules that had since changed. A single source of truth is the fix.
+
+For the reasoning behind how this project's documentation is organised, see
+[Project Methodology](../../src/methodology/index.md).

@@ -1,6 +1,7 @@
-// The dev server always runs on http://localhost:8080 (see CLAUDE.md); this
-// keeps absolute URLs in llms.txt and the reference pages' `source:` field
-// working when testing locally, instead of always pointing at production.
+// Origin only -- no path prefix, see the note on `origin` below. The dev
+// server listens on port 8080, so outside a build this keeps the absolute URLs
+// in llms.txt and the reference pages' `source:` field resolving locally
+// instead of always pointing at production.
 const isBuild = process.env.ELEVENTY_RUN_MODE === "build";
 
 module.exports = {
